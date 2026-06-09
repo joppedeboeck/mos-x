@@ -75,7 +75,7 @@ export default function SiteContact() {
             {/* ── COL 2 — Prijsindicatie ── */}
             <div
               className="flex flex-col py-8 lg:py-0 lg:px-8"
-              style={{ borderBottom: `1px solid ${DIVIDER}`, borderLeft: "none", borderRight: "none" }}
+              style={{ borderLeft: "none", borderRight: "none" }}
             >
               <div style={{ flex: 1 }}>
                 <span style={eyebrow}>UW PRIJSINDICATIE</span>

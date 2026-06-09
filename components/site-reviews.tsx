@@ -64,7 +64,8 @@ const VISIBLE = 3;
 const TOTAL = reviews.length;
 const MAX_INDEX = TOTAL - VISIBLE;
 
-const GOOGLE_URL = "https://g.page/r/review-link";
+const GOOGLE_REVIEW_URL = "https://www.google.com/search?sca_esv=bcc915fd4b92abab&rlz=1C1GCEU_enBE1139BE1139&hl=nl-BE&sxsrf=ANbL-n6TrSUrDpAkVOrNUQ51U5GNZs9b_Q:1781020093012&q=MOS-X+%7C+Dakontmossing+%26+Coating+Reviews&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qORc7vib1r0gQO2ABjRXpl_uRZy99-xBVdTGpP89RMUA3yzcvCK6A2AazedCdjGkX1gn8bkQ%3D&uds=ALYpb_mOSBfVE_qjsUIUDwhXk-cv8R5BmJbdPhES1TRqg_vpjJyijAOWQNUWx-ymHj1rypkaCI5vDZLjKLW1ObrTyqmMebN8NP7CqX96tO1wgBatLBTT6ccEki20RIqT8UXa_cZv3U6K&sa=X&ved=2ahUKEwiuju3vwPqUAxVNRaQEHUolF-wQ3PALegQIMBAF&biw=1920&bih=911&dpr=1";
+const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/MOS-X+%7C+Dakontmossing+%26+Coating/@51.1908919,4.7258395,681m/data=!3m1!1e3!4m16!1m9!3m8!1s0x442ba43c85bbcda1:0x9cb2c8361efab6e5!2sMOS-X+%7C+Dakontmossing+%26+Coating!8m2!3d51.1908886!4d4.7284144!9m1!1b1!16s%2Fg%2F11l2j3szhj!3m5!1s0x442ba43c85bbcda1:0x9cb2c8361efab6e5!8m2!3d51.1908886!4d4.7284144!16s%2Fg%2F11l2j3szhj?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D";
 
 const btnStyle: React.CSSProperties = {
   display: "inline-block",
@@ -81,10 +82,10 @@ const btnStyle: React.CSSProperties = {
   transition: "background 200ms ease, color 200ms ease",
 };
 
-function GoogleBtn({ text }: { text: string }) {
+function GoogleBtn({ text, url }: { text: string; url: string }) {
   return (
     <a
-      href={GOOGLE_URL}
+      href={url}
       target="_blank"
       rel="noopener noreferrer"
       style={btnStyle}
@@ -186,7 +187,7 @@ export default function SiteReviews() {
             Wat onze klanten zeggen.
           </h2>
           {/* Google review button */}
-          <GoogleBtn text="Review ons op Google" />
+          <GoogleBtn text="Review ons op Google" url={GOOGLE_REVIEW_URL} />
         </div>
 
         {/* Sliding carousel */}
@@ -269,7 +270,7 @@ export default function SiteReviews() {
 
         {/* Second Google button below dots */}
         <div className="flex justify-center">
-          <GoogleBtn text="Bekijk meer reviews op Google →" />
+          <GoogleBtn text="Bekijk meer reviews op Google →" url={GOOGLE_MAPS_URL} />
         </div>
 
       </div>

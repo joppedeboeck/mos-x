@@ -12,23 +12,31 @@ const trust = [
 export default function SiteContact() {
   return (
     <section style={{ background: "#F7F8F6", padding: "60px 24px" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto", width: "100%" }}>
         <div
           style={{
             background: "#1A1A1A",
             border: "1px solid #2A2A2A",
             borderRadius: "16px",
             padding: "40px 48px",
+            boxSizing: "border-box",
+            width: "100%",
           }}
         >
 
           {/* Row 1 — headline left, buttons right */}
           <div
-            className="flex flex-col lg:flex-row lg:items-center lg:justify-between"
-            style={{ gap: "24px", marginBottom: "28px" }}
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "24px",
+              marginBottom: "28px",
+            }}
           >
-            {/* LEFT */}
-            <div>
+            {/* LEFT — label + headline */}
+            <div style={{ minWidth: "200px" }}>
               <p
                 style={{
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -57,7 +65,7 @@ export default function SiteContact() {
             </div>
 
             {/* RIGHT — buttons */}
-            <div className="flex flex-wrap" style={{ gap: "12px", flexShrink: 0 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <Link
                 href="https://v0-dak-calculator.vercel.app/"
                 target="_blank"
@@ -115,7 +123,7 @@ export default function SiteContact() {
           <div style={{ borderTop: "1px solid #2A2A2A", marginBottom: "24px" }} />
 
           {/* Row 2 — trust items */}
-          <div className="flex flex-wrap" style={{ gap: "16px 32px" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "16px 32px" }}>
             {trust.map((item) => (
               <div
                 key={item}

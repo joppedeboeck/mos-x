@@ -21,14 +21,14 @@ export default function SiteContact() {
             padding: "40px 48px",
           }}
         >
-          {/* Single horizontal row — stack on mobile */}
+
+          {/* Row 1 — headline left, buttons right */}
           <div
             className="flex flex-col lg:flex-row lg:items-center lg:justify-between"
-            style={{ gap: "32px" }}
+            style={{ gap: "24px", marginBottom: "28px" }}
           >
-
-            {/* LEFT — label + headline */}
-            <div style={{ flexShrink: 0 }}>
+            {/* LEFT */}
+            <div>
               <p
                 style={{
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -56,37 +56,12 @@ export default function SiteContact() {
               </h2>
             </div>
 
-            {/* CENTER — trust items */}
-            <div
-              className="flex flex-col sm:flex-row lg:flex-col xl:flex-row"
-              style={{ gap: "10px 24px", flexShrink: 0 }}
-            >
-              {trust.map((item) => (
-                <div
-                  key={item}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    fontSize: "13px",
-                    color: "#FFFFFF",
-                    fontFamily: "var(--font-inter), system-ui, sans-serif",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  <span style={{ color: "#9BCB6C", fontWeight: 700 }}>✓</span>
-                  {item}
-                </div>
-              ))}
-            </div>
-
             {/* RIGHT — buttons */}
-            <div
-              className="flex flex-col sm:flex-row"
-              style={{ gap: "12px", flexShrink: 0 }}
-            >
+            <div className="flex flex-wrap" style={{ gap: "12px", flexShrink: 0 }}>
               <Link
-                href="/contact"
+                href="https://v0-dak-calculator.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -99,8 +74,8 @@ export default function SiteContact() {
                   textDecoration: "none",
                   borderRadius: "8px",
                   padding: "14px 24px",
-                  whiteSpace: "nowrap",
                   transition: "background 150ms ease",
+                  whiteSpace: "nowrap",
                 }}
                 onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
@@ -124,8 +99,8 @@ export default function SiteContact() {
                   border: "1px solid #3A3A3A",
                   borderRadius: "8px",
                   padding: "14px 24px",
-                  whiteSpace: "nowrap",
                   transition: "border-color 150ms ease",
+                  whiteSpace: "nowrap",
                 }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = "#9BCB6C")}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = "#3A3A3A")}
@@ -134,8 +109,31 @@ export default function SiteContact() {
                 +32 468 35 28 69
               </a>
             </div>
-
           </div>
+
+          {/* Divider */}
+          <div style={{ borderTop: "1px solid #2A2A2A", marginBottom: "24px" }} />
+
+          {/* Row 2 — trust items */}
+          <div className="flex flex-wrap" style={{ gap: "16px 32px" }}>
+            {trust.map((item) => (
+              <div
+                key={item}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontSize: "13px",
+                  color: "#FFFFFF",
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
+                }}
+              >
+                <span style={{ color: "#9BCB6C", fontWeight: 700 }}>✓</span>
+                {item}
+              </div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

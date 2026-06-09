@@ -2,12 +2,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const photos = [
-  { src: "/images/dak-reinigen.webp",   label: "VOOR", before: true,  caption: "Dakontmossing — Gent" },
-  { src: "/images/dak-reinigen.webp",   label: "NA",   before: false, caption: "Dakontmossing — Gent" },
-  { src: "/images/dak-coaten.webp",     label: "VOOR", before: true,  caption: "Dakcoating — Aalst" },
-  { src: "/images/dak-coaten.webp",     label: "NA",   before: false, caption: "Dakcoating — Aalst" },
-  { src: "/images/dakabonnement.webp",  label: "VOOR", before: true,  caption: "Reiniging — Dendermonde" },
-  { src: "/images/dakabonnement.webp",  label: "NA",   before: false, caption: "Reiniging — Dendermonde" },
+  { src: "/images/rood-dak-voor.jpg",       label: "VOOR", before: true,  caption: "Antimos coating — Rood dak" },
+  { src: "/images/rood-dak-na.jpg",         label: "NA",   before: false, caption: "Antimos coating — Rood dak" },
+  { src: "/images/koningshooikt-voor.jpg",  label: "VOOR", before: true,  caption: "Dakreiniging & coating — Koningshooikt" },
+  { src: "/images/koningshooikt-na.jpg",    label: "NA",   before: false, caption: "Dakreiniging & coating — Koningshooikt" },
+  { src: "/images/herentals-voor.png",      label: "VOOR", before: true,  caption: "Dakreiniging — Herentals" },
+  { src: "/images/herentals-na.png",        label: "NA",   before: false, caption: "Dakreiniging — Herentals" },
 ];
 
 export default function SiteResultatenGrid() {
@@ -50,11 +50,7 @@ export default function SiteResultatenGrid() {
                 src={p.src}
                 alt={p.caption}
                 className="absolute inset-0 w-full h-full object-cover"
-                style={{
-                  filter: p.before
-                    ? "saturate(0.35) brightness(0.50) hue-rotate(55deg)"
-                    : "none",
-                }}
+                style={{ filter: "none" }}
                 draggable={false}
               />
               {/* Gradient overlay */}

@@ -2,7 +2,6 @@ import SiteNav             from "@/components/site-nav";
 import SiteHero            from "@/components/site-hero";
 import SiteTrustBar        from "@/components/site-trustbar";
 import SiteResultatenGrid  from "@/components/site-resultaten-grid";
-import SiteVideo           from "@/components/site-video";
 import SiteServices        from "@/components/site-services";
 import SitePricing         from "@/components/site-pricing";
 import SiteYannick         from "@/components/site-yannick";
@@ -28,10 +27,7 @@ export default function HomePage() {
         {/* 3 · Voor & Na results grid */}
         <SiteResultatenGrid />
 
-        {/* 4 · Video section */}
-        <SiteVideo />
-
-        {/* 5 · Diensten */}
+        {/* 4 · Diensten */}
         <SiteServices />
 
         {/* 6 · Prijzen */}

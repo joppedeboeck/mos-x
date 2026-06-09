@@ -35,7 +35,7 @@ export default function SiteHero() {
         style={{ minHeight: "90vh", zIndex: 2 }}
       >
         <div
-          className="w-full grid grid-cols-1 lg:grid-cols-[55%_45%] gap-12 items-center"
+          className="w-full max-w-3xl"
           style={{ paddingTop: "130px", paddingBottom: "60px" }}
         >
 
@@ -155,24 +155,6 @@ export default function SiteHero() {
             </div>
           </div>
 
-          {/* ── Right column: static clean roof photo ── */}
-          <div className="hidden lg:block">
-            <div
-              style={{
-                borderRadius: "16px",
-                overflow: "hidden",
-                aspectRatio: "4/3",
-                boxShadow: "0 24px 60px rgba(0,0,0,0.40)",
-              }}
-            >
-              <img
-                src="/images/dak-reinigen.webp"
-                alt="Professioneel gereinigd dak door MOS-X"
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                draggable={false}
-              />
-            </div>
-          </div>
 
         </div>
       </div>

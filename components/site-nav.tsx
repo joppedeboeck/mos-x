@@ -12,12 +12,9 @@ const links = [
   { label: "Contact",     href: "/contact" },
 ];
 
-const BAR_H = 44;
-
 export default function SiteNav() {
-  const [barVisible, setBarVisible] = useState(true);
-  const [mobileOpen, setMobileOpen]  = useState(false);
-  const [scrolled, setScrolled]      = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled]     = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -26,44 +23,12 @@ export default function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navTop = barVisible ? BAR_H : 0;
-
   return (
     <>
-      {/* ── Announcement bar ── */}
-      {barVisible && (
-        <div
-          style={{
-            position: "fixed", top: 0, left: 0, right: 0,
-            height: `${BAR_H}px`, background: "#9BCB6C", zIndex: 60,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            padding: "0 48px",
-          }}
-        >
-          <p style={{ color: "#fff", fontSize: "14px", fontWeight: 500, textAlign: "center", lineHeight: 1.3 }}>
-            🏠 Actief in Vlaams-Brabant, Oost-Vlaanderen, Antwerpen &amp; Limburg &mdash;{" "}
-            <Link href="/contact" style={{ color: "#fff", textDecoration: "underline", fontWeight: 600 }}>
-              Vraag vandaag uw gratis dakdiagnose aan
-            </Link>
-          </p>
-          <button
-            onClick={() => setBarVisible(false)}
-            aria-label="Sluit aankondiging"
-            style={{
-              position: "absolute", right: "16px", top: "50%", transform: "translateY(-50%)",
-              background: "none", border: "none", color: "#fff",
-              fontSize: "20px", lineHeight: 1, cursor: "pointer", padding: "4px 8px", opacity: 0.85,
-            }}
-          >
-            &times;
-          </button>
-        </div>
-      )}
-
       {/* ── White navbar ── */}
       <header
         style={{
-          position: "fixed", top: `${navTop}px`, left: 0, right: 0, zIndex: 50,
+          position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
           background: "#FFFFFF", borderBottom: "1px solid #E5E7EB",
           boxShadow: scrolled ? "0 2px 8px rgba(0,0,0,0.06)" : "none",
           transition: "top 300ms ease, box-shadow 300ms ease",

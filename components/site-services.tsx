@@ -1,28 +1,19 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const services = [
   {
     title: "Dak reinigen",
-    short: "Bioreiniging zonder hogedrukreiniging",
-    desc: "Mos, algen en korstmos worden grondig verwijderd. Uw pannen blijven intact, geen agressieve methodes.",
-    checks: ["Zachte bioreiniging", "Gootreiniging inbegrepen", "Geen panschade"],
     href: "/diensten/dakontmossing",
     img: "/images/dak-reinigen.webp",
   },
   {
     title: "Dak coaten",
-    short: "15 jaar bescherming met garantie",
-    desc: "Na de reiniging beschermt een kwalitatieve coating uw dak jarenlang tegen vocht, vorst en hergroei.",
-    checks: ["Schriftelijke garantie", "Waterafstoottest op locatie", "Meest aangevraagde dienst"],
     href: "/diensten/dakcoating",
     img: "/images/dak-coaten.webp",
   },
   {
     title: "Dakabonnement",
-    short: "Jaarlijkse controle en preventieve behandeling",
-    desc: "Nooit meer verrast door mos of schade. Yannick controleert jaarlijks uw dak en grijpt in waar nodig.",
-    checks: ["Betaal enkel bij werk", "Preventieve behandeling", "Vaste contactpersoon"],
     href: "/contact",
     img: "/images/dakabonnement.webp",
   },
@@ -75,8 +66,8 @@ export default function SiteServices() {
                 boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
               }}
             >
-              {/* Photo */}
-              <div className="relative overflow-hidden" style={{ height: "220px" }}>
+              {/* Photo with title overlay */}
+              <div className="relative overflow-hidden" style={{ height: "240px" }}>
                 <img
                   src={s.img}
                   alt={s.title}
@@ -91,29 +82,17 @@ export default function SiteServices() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
                   <p
-                    className="font-bold text-white text-lg leading-tight"
+                    className="font-bold text-white text-xl leading-tight"
                     style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}
                   >
                     {s.title}
                   </p>
-                  <p className="text-white/60 text-xs mt-0.5">{s.short}</p>
                 </div>
               </div>
 
-              {/* Body */}
-              <div className="flex flex-col flex-1 p-6">
-                <p style={{ color: "#545454", fontSize: "15px", lineHeight: "1.7" }} className="mb-6">
-                  {s.desc}
-                </p>
-                <ul className="space-y-2.5 mb-6">
-                  {s.checks.map((c, j) => (
-                    <li key={j} className="flex items-center gap-2.5">
-                      <CheckCircle className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
-                      <span className="text-sm" style={{ color: "#1A1A1A" }}>{c}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto flex items-center gap-1.5" style={{ color: "#9BCB6C", fontSize: "14px", fontWeight: 600 }}>
+              {/* Meer info button */}
+              <div className="p-5">
+                <div className="flex items-center gap-1.5" style={{ color: "#9BCB6C", fontSize: "14px", fontWeight: 600 }}>
                   Meer info
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>

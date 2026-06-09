@@ -1,44 +1,20 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import PageLayout from "@/components/page-layout";
 
 const services = [
   {
     title: "Dak reinigen",
-    tagline: "Zachte bioreiniging zonder panschade",
-    desc: "Mos, algen en korstmos worden grondig verwijderd met een biologische methode. Geen hogedrukreiniging, uw pannen blijven intact en uw goten worden meegenomen.",
-    checks: [
-      "Zachte bioreiniging",
-      "Gootreiniging inbegrepen",
-      "Geen beschadiging aan pannen",
-      "Preventieve naspray",
-    ],
     img: "/images/dak-reinigen.webp",
     href: "/diensten/dakontmossing",
   },
   {
     title: "Dak coaten",
-    tagline: "15 jaar bescherming met schriftelijke garantie",
-    desc: "Na de reiniging beschermt een kwalitatieve dakcoating uw dak jarenlang tegen vocht, vorst en hergroei van mos. Inclusief waterafstoottest op locatie.",
-    checks: [
-      "Schriftelijke garantie",
-      "Waterafstoottest voor vertrek",
-      "Tot 15 jaar bescherming",
-      "Geschikt voor alle dakpannen",
-    ],
     img: "/images/dak-coaten.webp",
     href: "/diensten/dakcoating",
   },
   {
     title: "Dakabonnement",
-    tagline: "Jaarlijkse controle, betaal enkel bij werk",
-    desc: "Nooit meer verrast door mos of onverwachte schade. Yannick controleert elk jaar uw dak en grijpt preventief in, u betaalt enkel als er effectief werk is.",
-    checks: [
-      "Jaarlijkse drone-controle",
-      "Betaal enkel bij werk",
-      "Preventieve behandeling",
-      "Vaste contactpersoon",
-    ],
     img: "/images/dakabonnement.webp",
     href: "/contact",
   },
@@ -47,8 +23,8 @@ const services = [
 export default function DienstenPage() {
   return (
     <PageLayout>
-      {/* Hero — stays dark */}
-      <section className="relative pt-36 pb-20 overflow-hidden" style={{ background: "#081012" }}>
+      {/* Hero — dark */}
+      <section className="relative pt-36 pb-20 overflow-hidden" style={{ background: "#1A1A1A" }}>
         <div className="site-wrap relative z-10">
           <p className="site-eyebrow mb-4">Onze diensten</p>
           <h1
@@ -61,7 +37,7 @@ export default function DienstenPage() {
           >
             Professionele oplossingen
             <br />
-            <span style={{ color: "#6DB33F" }}>voor elk type dak.</span>
+            <span style={{ color: "#9BCB6C" }}>voor elk type dak.</span>
           </h1>
           <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
             Elke opdracht start met een gratis drone-inspectie. Zo weet u exact wat uw dak nodig heeft, vóór u een beslissing neemt.
@@ -69,81 +45,67 @@ export default function DienstenPage() {
         </div>
       </section>
 
-      {/* Service cards — light */}
+      {/* Service cards — minimal */}
       <section className="site-pad" style={{ background: "#FFFFFF" }}>
         <div className="site-wrap">
           <div className="grid lg:grid-cols-3 gap-6">
             {services.map((s, i) => (
-              <div
+              <Link
                 key={i}
+                href={s.href}
                 className="group flex flex-col service-card"
                 style={{
                   background: "#FFFFFF",
                   border: "1px solid #E5E7EB",
                   borderRadius: "16px",
                   overflow: "hidden",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                  textDecoration: "none",
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
                 }}
               >
-                {/* Photo */}
-                <div className="relative overflow-hidden" style={{ height: "220px" }}>
+                {/* Photo with title overlay */}
+                <div className="relative overflow-hidden" style={{ height: "240px" }}>
                   <img
                     src={s.img}
                     alt={s.title}
                     className="absolute inset-0 w-full h-full object-cover"
+                    style={{ transition: "transform 400ms ease" }}
                   />
                   <div
                     className="absolute inset-0"
                     style={{
-                      background: "linear-gradient(to bottom, rgba(6,11,14,0.10) 0%, rgba(6,11,14,0.72) 100%)",
+                      background: "linear-gradient(to bottom, rgba(26,26,26,0.08) 0%, rgba(26,26,26,0.70) 100%)",
                     }}
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
                     <p
-                      className="font-bold text-white text-lg leading-tight"
+                      className="font-bold text-white text-xl leading-tight"
                       style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}
                     >
                       {s.title}
                     </p>
-                    <p className="text-white/60 text-xs mt-0.5">{s.tagline}</p>
                   </div>
                 </div>
 
-                {/* Body */}
-                <div className="flex flex-col flex-1 p-6">
-                  <p className="leading-relaxed mb-6" style={{ color: "#4A5568", fontSize: "15px", lineHeight: "1.7" }}>
-                    {s.desc}
-                  </p>
-                  <ul className="space-y-2.5 mb-6">
-                    {s.checks.map((c, j) => (
-                      <li key={j} className="flex items-center gap-2.5">
-                        <CheckCircle className="w-4 h-4 shrink-0" style={{ color: "#6DB33F" }} />
-                        <span className="text-sm" style={{ color: "#0D1510" }}>{c}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-auto">
-                    <Link
-                      href={s.href}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold"
-                      style={{ color: "#6DB33F" }}
-                    >
-                      Meer informatie <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                {/* Meer info button */}
+                <div className="p-5">
+                  <div className="flex items-center gap-1.5" style={{ color: "#9BCB6C", fontSize: "14px", fontWeight: 600 }}>
+                    Meer info
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA banner — keeps dark feel */}
+      {/* Bottom CTA banner */}
       <section className="site-pad-sm" style={{ background: "#FFFFFF" }}>
         <div className="site-wrap">
           <div
             className="flex flex-col lg:flex-row items-center justify-between gap-8 p-8 lg:p-10 rounded-2xl"
-            style={{ background: "#081012", border: "1px solid rgba(255,255,255,0.07)" }}
+            style={{ background: "#1A1A1A" }}
           >
             <div className="flex-1 text-center lg:text-left">
               <p

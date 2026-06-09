@@ -52,7 +52,7 @@ export default function SiteContact() {
                   lineHeight: 1.3,
                 }}
               >
-                Vraag uw gratis dakdiagnose aan.
+                Bereken uw richtprijs.
               </h2>
             </div>
 
@@ -105,7 +105,7 @@ export default function SiteContact() {
                 onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
               >
-                Gratis diagnose aanvragen
+                Bereken uw richtprijs
                 <ArrowRight style={{ width: "16px", height: "16px" }} />
               </Link>
 

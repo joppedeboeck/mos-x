@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { Phone } from "lucide-react";
 
-const GREEN = "#9BCB6C";
-const DIVIDER = "#333333";
+const GREEN = "#8DC63F";
+const DIVIDER = "#EEEEEE";
 
 const eyebrow: React.CSSProperties = {
   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -24,11 +23,12 @@ export default function SiteContact() {
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div
           style={{
-            background: "#2A2A2A",
-            border: "1px solid #333333",
+            background: "#FFFFFF",
+            border: "1px solid #E8E8E8",
             borderRadius: "16px",
-            padding: "40px",
+            padding: "48px",
             boxSizing: "border-box",
+            boxShadow: "0 8px 40px rgba(0, 0, 0, 0.10)",
           }}
         >
           <div
@@ -47,14 +47,14 @@ export default function SiteContact() {
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                     fontSize: "clamp(22px, 2.5vw, 28px)",
                     fontWeight: 700,
-                    color: "#FFFFFF",
+                    color: "#1A1A1A",
                     lineHeight: 1.25,
                     marginBottom: "8px",
                   }}
                 >
                   Bereken uw richtprijs<br />binnen 1 minuut.
                 </h2>
-                <p style={{ fontSize: "13px", color: "#9CA3AF", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "24px" }}>
+                <p style={{ fontSize: "13px", color: "#666666", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "24px" }}>
                   Geen verplichtingen. Gewoon een eerlijke prijs.
                 </p>
                 <div>
@@ -63,7 +63,7 @@ export default function SiteContact() {
                     "200+ daken gereinigd",
                     "12 × 5 sterren reviews",
                   ].map(item => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#FFFFFF", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "8px" }}>
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#1A1A1A", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "8px" }}>
                       <span style={{ color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</span>
                       {item}
                     </div>
@@ -79,15 +79,15 @@ export default function SiteContact() {
             >
               <div style={{ flex: 1 }}>
                 <span style={eyebrow}>UW PRIJSINDICATIE</span>
-                <p style={{ fontSize: "13px", color: "#9CA3AF", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "16px" }}>
+                <p style={{ fontSize: "13px", color: "#666666", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "16px" }}>
                   Geef uw dak op in 30 seconden
                 </p>
 
                 {/* Price range */}
                 <div
                   style={{
-                    background: "rgba(155,203,108,0.08)",
-                    border: "1px solid rgba(155,203,108,0.2)",
+                    background: "#F5F5F5",
+                    border: "1px solid #E0E0E0",
                     borderRadius: "10px",
                     padding: "16px 20px",
                     marginBottom: "20px",
@@ -97,18 +97,18 @@ export default function SiteContact() {
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                     fontSize: "26px",
                     fontWeight: 700,
-                    color: "#FFFFFF",
+                    color: "#1A1A1A",
                     margin: "0 0 2px 0",
                   }}>
                     € 1.250 – € 1.550
                   </p>
-                  <p style={{ fontSize: "12px", color: "#9CA3AF", margin: 0, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                  <p style={{ fontSize: "12px", color: "#999999", margin: 0, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
                     Exclusief BTW · indicatieve prijs
                   </p>
                 </div>
               </div>
 
-              {/* CTA Button — pinned to bottom */}
+              {/* CTA Button */}
               <a
                 href="https://v0-dak-calculator.vercel.app/"
                 target="_blank"
@@ -154,21 +154,21 @@ export default function SiteContact() {
                     />
                   </div>
                   <div>
-                    <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, color: "#FFFFFF", fontSize: "16px", margin: "0 0 4px 0" }}>
+                    <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, color: "#1A1A1A", fontSize: "16px", margin: "0 0 4px 0" }}>
                       Yannick
                     </p>
-                    <p style={{ fontSize: "13px", color: "#9CA3AF", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: 0, lineHeight: 1.5 }}>
+                    <p style={{ fontSize: "13px", color: "#666666", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: 0, lineHeight: 1.5 }}>
                       Eerlijk advies en de juiste oplossing voor uw dak.
                     </p>
                   </div>
                 </div>
 
-                <p style={{ fontSize: "12px", color: "#9CA3AF", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "0", lineHeight: 1.8 }}>
+                <p style={{ fontSize: "12px", color: "#999999", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "0", lineHeight: 1.8 }}>
                   Ma – Za: 08:00 – 17:00 &nbsp;·&nbsp; Zo: Gesloten
                 </p>
               </div>
 
-              {/* Phone button — pinned to bottom, aligned with PRIJS BEREKENEN */}
+              {/* Phone button */}
               <a
                 href="tel:+32468352869"
                 style={{
@@ -180,22 +180,31 @@ export default function SiteContact() {
                   width: "100%",
                   boxSizing: "border-box",
                   background: "transparent",
-                  border: `1px solid ${GREEN}`,
+                  border: "2px solid #1A1A1A",
                   borderRadius: "8px",
                   padding: "13px 20px",
                   textDecoration: "none",
-                  transition: "background 150ms ease",
+                  transition: "background 150ms ease, color 150ms ease",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.background = "rgba(155,203,108,0.1)")}
-                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "#1A1A1A";
+                  (e.currentTarget.querySelector("span") as HTMLElement).style.color = "#FFFFFF";
+                  (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#FFFFFF";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "transparent";
+                  (e.currentTarget.querySelector("span") as HTMLElement).style.color = "#1A1A1A";
+                  (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#1A1A1A";
+                }}
               >
-                <Phone style={{ width: "16px", height: "16px", color: GREEN, flexShrink: 0 }} />
+                <Phone style={{ width: "16px", height: "16px", color: "#1A1A1A", flexShrink: 0, transition: "color 150ms ease" }} />
                 <span style={{
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: "#FFFFFF",
+                  color: "#1A1A1A",
                   letterSpacing: "0.02em",
+                  transition: "color 150ms ease",
                 }}>
                   +32 468 35 28 69
                 </span>

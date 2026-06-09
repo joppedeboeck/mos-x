@@ -149,11 +149,6 @@ export default function SiteFooter() {
               Bovenpad 100, 2280 Grobbendonk
             </span>
 
-            <div style={{ height: "20px" }} />
-
-            <span style={{ ...label, marginBottom: "8px" }}>Openingsuren</span>
-            <span style={{ ...navLink, cursor: "default" }}>Ma – Za: 08:00 – 17:00</span>
-            <span style={{ ...navLink, cursor: "default", color: "#9CA3AF" }}>Zo: Gesloten</span>
           </div>
 
         </div>

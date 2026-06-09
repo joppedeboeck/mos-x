@@ -25,13 +25,11 @@ export default function SiteNav() {
   }, []);
 
   const navStyle: React.CSSProperties = {
-    background: "rgba(255, 255, 255, 0.72)",
-    backdropFilter: "blur(16px)",
-    WebkitBackdropFilter: "blur(16px)",
-    border: "1px solid rgba(255, 255, 255, 0.6)",
-    boxShadow: scrolled
-      ? "0 8px 32px rgba(0, 0, 0, 0.15)"
-      : "0 4px 24px rgba(0, 0, 0, 0.10)",
+    background: "#FFFFFF",
+    backdropFilter: "none",
+    WebkitBackdropFilter: "none",
+    border: "1px solid rgba(0, 0, 0, 0.08)",
+    boxShadow: "0 2px 12px rgba(0, 0, 0, 0.08)",
   };
 
   return (

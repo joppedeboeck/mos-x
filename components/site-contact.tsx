@@ -39,7 +39,7 @@ export default function SiteContact() {
             {/* ── COL 1 — Headline + Trust ── */}
             <div
               className="flex flex-col pb-8 lg:pb-0 lg:pr-8"
-              style={{ borderBottom: `1px solid ${DIVIDER}`, borderRight: "none" }}
+              style={{ borderRight: "none" }}
             >
               <div style={{ flex: 1 }}>
                 <h2

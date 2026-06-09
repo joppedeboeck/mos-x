@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Shield, CheckCircle, Phone } from "lucide-react";
+import { Star, Phone } from "lucide-react";
 import Link from "next/link";
 
 export default function SiteHero() {
@@ -100,58 +100,15 @@ export default function SiteHero() {
             </div>
 
             {/* Trust indicators */}
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2.5 mb-8">
-              <div className="flex items-center gap-2">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" style={{ color: "#F9A825" }} />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
-                  5.0 · 12 beoordelingen
-                </span>
+            <div className="flex items-center gap-2 mb-8">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-current" style={{ color: "#F9A825" }} />
+                ))}
               </div>
-              <div className="w-px h-4 hidden sm:block" style={{ background: "rgba(255,255,255,0.15)" }} />
-              <div className="flex items-center gap-1.5 text-sm font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
-                <CheckCircle className="w-3.5 h-3.5" style={{ color: "#9BCB6C" }} />
-                200+ daken gereinigd
-              </div>
-              <div className="w-px h-4 hidden sm:block" style={{ background: "rgba(255,255,255,0.15)" }} />
-              <div className="flex items-center gap-1.5 text-sm font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
-                <Shield className="w-3.5 h-3.5" style={{ color: "#9BCB6C" }} />
-                Volledig verzekerd
-              </div>
-            </div>
-
-            {/* VTM badge */}
-            <div
-              className="inline-flex items-center gap-3"
-              style={{
-                background: "rgba(255,255,255,0.07)", borderRadius: "10px",
-                padding: "10px 16px", border: "1px solid rgba(255,255,255,0.10)",
-              }}
-            >
-              <div
-                className="flex items-center justify-center font-black text-white shrink-0"
-                style={{
-                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                  fontSize: "0.875rem", background: "#E8000D",
-                  borderRadius: "5px", padding: "3px 7px",
-                }}
-              >
-                vtm
-              </div>
-              <div>
-                <p className="text-[10px] leading-none mb-0.5" style={{ color: "rgba(255,255,255,0.45)" }}>
-                  Bekend van
-                </p>
-                <p
-                  className="text-[0.8125rem] font-semibold leading-none text-white"
-                  style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}
-                >
-                  VTM Lifestyle &amp; Wonen
-                </p>
-              </div>
+              <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
+                5.0 · 12 beoordelingen
+              </span>
             </div>
           </div>
 

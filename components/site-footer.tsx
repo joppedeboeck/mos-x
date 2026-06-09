@@ -55,7 +55,7 @@ export default function SiteFooter() {
           <div className="lg:col-span-1 flex flex-col" style={{ gap: "0" }}>
             <Link href="/" className="inline-block" style={{ marginBottom: "16px" }}>
               <Image
-                src="/images/logo.avif"
+                src="/images/logo-footer.svg"
                 alt="MOS-X"
                 width={120} height={40}
                 style={{ height: "40px", width: "auto", objectFit: "contain" }}

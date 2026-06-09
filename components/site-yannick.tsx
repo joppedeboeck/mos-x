@@ -22,32 +22,46 @@ export default function SiteYannick() {
           {/* Left: photo mosaic */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-3">
-              {/* Large top-left */}
+              {/* Large left — full height */}
               <div
                 className="rounded-2xl overflow-hidden col-span-1 row-span-2"
                 style={{ aspectRatio: "3/4" }}
               >
                 <img
-                  src="/images/dak-reinigen.webp"
-                  alt="Yannick aan het werk"
+                  src="/images/yannick-werk.png"
+                  alt="Yannick aan het werk — dakreiniging MOS-X"
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Top right */}
-              <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "1/1" }}>
+              {/* Top right — Voor */}
+              <div className="rounded-2xl overflow-hidden relative" style={{ aspectRatio: "1/1" }}>
                 <img
-                  src="/images/dak-coaten.webp"
-                  alt="Dakcoating resultaat"
+                  src="/images/herentals-voor.png"
+                  alt="Voor dakreiniging Herentals"
                   className="w-full h-full object-cover"
                 />
+                <span style={{
+                  position: "absolute", bottom: "10px", left: "10px",
+                  background: "rgba(26,26,26,0.85)", color: "#FFFFFF",
+                  fontSize: "10px", fontWeight: 700, letterSpacing: "0.08em",
+                  padding: "3px 8px", borderRadius: "4px",
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                }}>VOOR</span>
               </div>
-              {/* Bottom right */}
-              <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "1/1" }}>
+              {/* Bottom right — Na */}
+              <div className="rounded-2xl overflow-hidden relative" style={{ aspectRatio: "1/1" }}>
                 <img
-                  src="/images/dakabonnement.webp"
-                  alt="Dakonderhoud"
+                  src="/images/herentals-na.png"
+                  alt="Na dakreiniging Herentals"
                   className="w-full h-full object-cover"
                 />
+                <span style={{
+                  position: "absolute", bottom: "10px", left: "10px",
+                  background: "#9BCB6C", color: "#1A1A1A",
+                  fontSize: "10px", fontWeight: 700, letterSpacing: "0.08em",
+                  padding: "3px 8px", borderRadius: "4px",
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                }}>NA</span>
               </div>
             </div>
 

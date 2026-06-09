@@ -2,12 +2,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const photos = [
-  { src: "/images/rood-dak-voor.jpg",       label: "VOOR", before: true,  caption: "Antimos coating — Rood dak" },
-  { src: "/images/koningshooikt-voor.jpg",  label: "VOOR", before: true,  caption: "Dakreiniging & coating — Koningshooikt" },
-  { src: "/images/herentals-voor.png",      label: "VOOR", before: true,  caption: "Dakreiniging — Herentals" },
-  { src: "/images/rood-dak-na.jpg",         label: "NA",   before: false, caption: "Antimos coating — Rood dak" },
-  { src: "/images/koningshooikt-na.jpg",    label: "NA",   before: false, caption: "Dakreiniging & coating — Koningshooikt" },
-  { src: "/images/herentals-na.png",        label: "NA",   before: false, caption: "Dakreiniging — Herentals" },
+  { src: "/images/rood-dak-voor.jpg",       label: "VOOR", before: true,  caption: "Antimos coating, Rood dak" },
+  { src: "/images/koningshooikt-voor.jpg",  label: "VOOR", before: true,  caption: "Dakreiniging en coating, Koningshooikt" },
+  { src: "/images/herentals-voor.png",      label: "VOOR", before: true,  caption: "Dakreiniging, Herentals" },
+  { src: "/images/rood-dak-na.jpg",         label: "NA",   before: false, caption: "Antimos coating, Rood dak" },
+  { src: "/images/koningshooikt-na.jpg",    label: "NA",   before: false, caption: "Dakreiniging en coating, Koningshooikt" },
+  { src: "/images/herentals-na.png",        label: "NA",   before: false, caption: "Dakreiniging, Herentals" },
 ];
 
 export default function SiteResultatenGrid() {

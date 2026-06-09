@@ -1,60 +1,64 @@
-const items = [
-  { icon: "⭐", text: "5 sterren op Google Reviews" },
-  { icon: "✓", text: "100+ daken gereinigd" },
-  { icon: "📺", text: "Bekend van VTM Lifestyle & Wonen" },
+const stats = [
+  { number: "12",   label: "5 sterren reviews" },
+  { number: "100+", label: "daken gereinigd" },
+  { number: "VTM",  label: "Lifestyle & Wonen" },
 ];
 
 export default function SiteTrustBar() {
   return (
     <section
       style={{
-        background: "#1A1A1A",
+        background: "#FFFFFF",
         width: "100%",
-        height: "56px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        padding: "48px 0",
+        borderTop: "1px solid #EEEEEE",
+        borderBottom: "1px solid #EEEEEE",
       }}
     >
       <div
         style={{
           display: "flex",
+          justifyContent: "center",
           alignItems: "center",
           gap: "0",
         }}
       >
-        {items.map((item, i) => (
+        {stats.map((stat, i) => (
           <div key={i} style={{ display: "flex", alignItems: "center" }}>
             {i > 0 && (
               <div
                 style={{
                   width: "1px",
-                  height: "20px",
-                  background: "#333333",
-                  margin: "0 48px",
+                  height: "40px",
+                  background: "#DDDDDD",
+                  margin: "0 80px",
                   flexShrink: 0,
                 }}
               />
             )}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              <span style={{ fontSize: "14px", lineHeight: 1 }}>{item.icon}</span>
-              <span
+            <div style={{ textAlign: "center" }}>
+              <div
                 style={{
-                  color: "#FFFFFF",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  fontFamily: "var(--font-inter), system-ui, sans-serif",
-                  whiteSpace: "nowrap",
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  fontSize: "48px",
+                  fontWeight: 700,
+                  color: "#1A1A1A",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.02em",
                 }}
               >
-                {item.text}
-              </span>
+                {stat.number}
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
+                  fontSize: "14px",
+                  color: "#888888",
+                  marginTop: "6px",
+                }}
+              >
+                {stat.label}
+              </div>
             </div>
           </div>
         ))}

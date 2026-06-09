@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
@@ -14,10 +14,35 @@ const links = [
 
 export default function SiteNav() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const navStyle: React.CSSProperties = scrolled
+    ? {
+        background: "rgba(10, 10, 10, 0.85)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        border: "1px solid rgba(255, 255, 255, 0.12)",
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
+      }
+    : {
+        background: "rgba(15, 15, 15, 0.55)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        border: "1px solid rgba(255, 255, 255, 0.08)",
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
+      };
 
   return (
     <>
-      {/* ── Floating pill navbar ── */}
+      {/* ── Floating glassmorphism navbar ── */}
       <header
         style={{
           position: "fixed",
@@ -26,23 +51,22 @@ export default function SiteNav() {
           transform: "translateX(-50%)",
           zIndex: 1000,
           width: "auto",
-          minWidth: "960px",
-          maxWidth: "1280px",
+          minWidth: "700px",
+          maxWidth: "1100px",
+          transition: "all 0.3s ease",
         }}
       >
         <nav
+          ref={navRef}
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            height: "68px",
-            padding: "12px 32px",
-            background: "#FFFFFF",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(16px)",
-            border: "1px solid rgba(0, 0, 0, 0.08)",
-            borderRadius: "16px",
-            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
+            height: "56px",
+            padding: "10px 24px",
+            borderRadius: "50px",
+            transition: "all 0.3s ease",
+            ...navStyle,
           }}
         >
           {/* Logo */}
@@ -65,13 +89,14 @@ export default function SiteNav() {
                   fontFamily: "var(--font-montserrat)",
                   fontSize: "14px",
                   fontWeight: 600,
-                  color: "#1A1A1A",
+                  color: "#FFFFFF",
                   textDecoration: "none",
-                  transition: "color 150ms ease",
+                  opacity: 0.85,
+                  transition: "opacity 150ms ease",
                   whiteSpace: "nowrap",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#1A1A1A")}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                onMouseLeave={e => (e.currentTarget.style.opacity = "0.85")}
               >
                 {l.label}
               </Link>
@@ -89,13 +114,14 @@ export default function SiteNav() {
                 fontFamily: "var(--font-montserrat)",
                 fontSize: "14px",
                 fontWeight: 600,
-                color: "#1A1A1A",
+                color: "#FFFFFF",
                 textDecoration: "none",
-                transition: "color 150ms ease",
+                opacity: 0.85,
+                transition: "opacity 150ms ease",
                 whiteSpace: "nowrap",
               }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#1A1A1A")}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "0.85")}
             >
               <Phone style={{ width: "14px", height: "14px", color: "#9BCB6C", flexShrink: 0 }} />
               +32 468 35 28 69
@@ -105,7 +131,7 @@ export default function SiteNav() {
               style={{
                 background: "#9BCB6C",
                 color: "#1A1A1A",
-                borderRadius: "16px",
+                borderRadius: "50px",
                 padding: "8px 20px",
                 fontSize: "13px",
                 fontWeight: 700,
@@ -126,7 +152,7 @@ export default function SiteNav() {
           <button
             onClick={() => setMobileOpen(true)}
             className="lg:hidden p-2 rounded-lg"
-            style={{ color: "#1A1A1A" }}
+            style={{ color: "#FFFFFF" }}
             aria-label="Menu openen"
           >
             <Menu className="w-5 h-5" />

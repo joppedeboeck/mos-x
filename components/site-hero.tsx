@@ -7,7 +7,7 @@ export default function SiteHero() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ minHeight: "90vh", background: "#1A1A1A", width: "100%", maxWidth: "100vw" }}
+      style={{ height: "100vh", minHeight: "100vh", background: "#1A1A1A", width: "100%", maxWidth: "100vw" }}
     >
       {/* Video background */}
       <video
@@ -32,7 +32,7 @@ export default function SiteHero() {
       {/* Content */}
       <div
         className="site-wrap relative flex items-center"
-        style={{ minHeight: "90vh", zIndex: 2 }}
+        style={{ height: "100vh", zIndex: 2 }}
       >
         <div
           className="w-full max-w-3xl"
@@ -91,7 +91,7 @@ export default function SiteHero() {
                 onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
               >
-                Gratis diagnose aanvragen &rarr;
+                Bereken uw richtprijs &rarr;
               </Link>
               <a href="tel:+32468352869" className="site-btn-outline-white" style={{ fontSize: "15px" }}>
                 <Phone className="w-4 h-4" />

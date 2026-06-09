@@ -24,21 +24,15 @@ export default function SiteNav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navStyle: React.CSSProperties = scrolled
-    ? {
-        background: "rgba(10, 10, 10, 0.85)",
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)",
-        border: "1px solid rgba(255, 255, 255, 0.12)",
-        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)",
-      }
-    : {
-        background: "rgba(15, 15, 15, 0.55)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        border: "1px solid rgba(255, 255, 255, 0.08)",
-        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
-      };
+  const navStyle: React.CSSProperties = {
+    background: "rgba(255, 255, 255, 0.85)",
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
+    border: "1px solid rgba(0, 0, 0, 0.08)",
+    boxShadow: scrolled
+      ? "0 8px 32px rgba(0, 0, 0, 0.15)"
+      : "0 4px 24px rgba(0, 0, 0, 0.10)",
+  };
 
   return (
     <>
@@ -51,8 +45,8 @@ export default function SiteNav() {
           transform: "translateX(-50%)",
           zIndex: 1000,
           width: "auto",
-          minWidth: "700px",
-          maxWidth: "1100px",
+          minWidth: "900px",
+          maxWidth: "1200px",
           transition: "all 0.3s ease",
         }}
       >
@@ -63,8 +57,8 @@ export default function SiteNav() {
             alignItems: "center",
             justifyContent: "space-between",
             height: "56px",
-            padding: "10px 24px",
-            borderRadius: "50px",
+            padding: "10px 32px",
+            borderRadius: "12px",
             transition: "all 0.3s ease",
             ...navStyle,
           }}
@@ -89,14 +83,13 @@ export default function SiteNav() {
                   fontFamily: "var(--font-montserrat)",
                   fontSize: "14px",
                   fontWeight: 600,
-                  color: "#FFFFFF",
+                  color: "#1A1A1A",
                   textDecoration: "none",
-                  opacity: 0.85,
-                  transition: "opacity 150ms ease",
+                  transition: "color 150ms ease",
                   whiteSpace: "nowrap",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-                onMouseLeave={e => (e.currentTarget.style.opacity = "0.85")}
+                onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#1A1A1A")}
               >
                 {l.label}
               </Link>
@@ -114,14 +107,13 @@ export default function SiteNav() {
                 fontFamily: "var(--font-montserrat)",
                 fontSize: "14px",
                 fontWeight: 600,
-                color: "#FFFFFF",
+                color: "#1A1A1A",
                 textDecoration: "none",
-                opacity: 0.85,
-                transition: "opacity 150ms ease",
+                transition: "color 150ms ease",
                 whiteSpace: "nowrap",
               }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = "0.85")}
+              onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#1A1A1A")}
             >
               <Phone style={{ width: "14px", height: "14px", color: "#9BCB6C", flexShrink: 0 }} />
               +32 468 35 28 69
@@ -144,7 +136,7 @@ export default function SiteNav() {
               onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
               onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
             >
-              Gratis Diagnose
+              Bereken uw richtprijs
             </Link>
           </div>
 
@@ -152,7 +144,7 @@ export default function SiteNav() {
           <button
             onClick={() => setMobileOpen(true)}
             className="lg:hidden p-2 rounded-lg"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "#1A1A1A" }}
             aria-label="Menu openen"
           >
             <Menu className="w-5 h-5" />

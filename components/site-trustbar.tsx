@@ -42,7 +42,7 @@ export default function SiteTrustBar() {
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                   fontSize: "48px",
                   fontWeight: 700,
-                  color: "#1A1A1A",
+                  color: "#8DC63F",
                   lineHeight: 1.1,
                   letterSpacing: "-0.02em",
                 }}

@@ -64,6 +64,44 @@ const VISIBLE = 3;
 const TOTAL = reviews.length;
 const MAX_INDEX = TOTAL - VISIBLE;
 
+const GOOGLE_URL = "https://g.page/r/review-link";
+
+const btnStyle: React.CSSProperties = {
+  display: "inline-block",
+  border: "1px solid #9BCB6C",
+  color: "#9BCB6C",
+  background: "#FFFFFF",
+  borderRadius: "8px",
+  padding: "12px 28px",
+  fontSize: "14px",
+  fontWeight: 600,
+  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+  textDecoration: "none",
+  cursor: "pointer",
+  transition: "background 200ms ease, color 200ms ease",
+};
+
+function GoogleBtn({ text }: { text: string }) {
+  return (
+    <a
+      href={GOOGLE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={btnStyle}
+      onMouseEnter={e => {
+        (e.currentTarget as HTMLAnchorElement).style.background = "#9BCB6C";
+        (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
+      }}
+      onMouseLeave={e => {
+        (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF";
+        (e.currentTarget as HTMLAnchorElement).style.color = "#9BCB6C";
+      }}
+    >
+      {text}
+    </a>
+  );
+}
+
 function Stars({ n }: { n: number }) {
   return (
     <div className="flex">
@@ -104,10 +142,7 @@ function ReviewCard({ r }: { r: (typeof reviews)[0] }) {
       >
         <div
           className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm text-white shrink-0"
-          style={{
-            background: "#9BCB6C",
-            fontFamily: "var(--font-montserrat)",
-          }}
+          style={{ background: "#9BCB6C", fontFamily: "var(--font-montserrat)" }}
         >
           {r.initial}
         </div>
@@ -136,39 +171,22 @@ export default function SiteReviews() {
     <section className="site-pad" id="reviews" style={{ background: "#FFFFFF" }}>
       <div className="site-wrap">
 
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
-          <div>
-            <p className="site-eyebrow mb-4">Klantbeoordelingen</p>
-            <h2
-              className="font-bold leading-tight"
-              style={{
-                fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-                letterSpacing: "-0.02em",
-                color: "#1A1A1A",
-              }}
-            >
-              Wat onze klanten zeggen.
-            </h2>
-          </div>
-
-          {/* Aggregate score */}
-          <div
-            className="flex items-center gap-4 p-5 rounded-2xl shrink-0"
-            style={{ background: "#F7F8F6", border: "1px solid #E5E7EB" }}
+        {/* Header — centered */}
+        <div className="text-center mb-8">
+          <p className="site-eyebrow mb-4">Klantbeoordelingen</p>
+          <h2
+            className="font-bold leading-tight mb-6"
+            style={{
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
+              letterSpacing: "-0.02em",
+              color: "#1A1A1A",
+            }}
           >
-            <p
-              className="font-black text-5xl leading-none"
-              style={{ fontFamily: "var(--font-montserrat)", color: "#1A1A1A" }}
-            >
-              5.0
-            </p>
-            <div>
-              <Stars n={5} />
-              <p className="text-xs mt-1.5" style={{ color: "#9CA3AF" }}>op alle platforms</p>
-            </div>
-          </div>
+            Wat onze klanten zeggen.
+          </h2>
+          {/* Google review button */}
+          <GoogleBtn text="Review ons op Google" />
         </div>
 
         {/* Sliding carousel */}
@@ -197,7 +215,7 @@ export default function SiteReviews() {
         </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-6 mb-8">
           <button
             onClick={prev}
             disabled={index === 0}
@@ -224,6 +242,9 @@ export default function SiteReviews() {
                   height: "8px",
                   background: i === index ? "#9BCB6C" : "#D1D5DB",
                   transition: "width 300ms ease, background 300ms ease",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 0,
                 }}
                 aria-label={`Ga naar slide ${i + 1}`}
               />
@@ -245,6 +266,12 @@ export default function SiteReviews() {
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
+
+        {/* Second Google button below dots */}
+        <div className="flex justify-center">
+          <GoogleBtn text="Bekijk meer reviews op Google →" />
+        </div>
+
       </div>
     </section>
   );

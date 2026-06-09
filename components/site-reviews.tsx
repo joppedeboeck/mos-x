@@ -62,7 +62,7 @@ const reviews = [
 
 const VISIBLE = 3;
 const TOTAL = reviews.length;
-const MAX_INDEX = TOTAL - VISIBLE; // 3
+const MAX_INDEX = TOTAL - VISIBLE;
 
 function Stars({ n }: { n: number }) {
   return (
@@ -78,16 +78,20 @@ function ReviewCard({ r }: { r: (typeof reviews)[0] }) {
   return (
     <div
       className="rounded-2xl p-6 flex flex-col h-full"
-      style={{ background: "#081012", border: "1px solid rgba(255,255,255,0.07)" }}
+      style={{
+        background: "#FFFFFF",
+        border: "1px solid #E5E7EB",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+      }}
     >
       <Stars n={r.stars} />
-      <p className="text-sm leading-relaxed flex-1 mt-3 mb-4" style={{ color: "rgba(255,255,255,0.65)" }}>
+      <p className="text-sm leading-relaxed flex-1 mt-3 mb-4" style={{ color: "#4A5568" }}>
         &ldquo;{r.text}&rdquo;
       </p>
       <span
         className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold w-fit mb-4"
         style={{
-          background: "rgba(109,179,63,0.12)",
+          background: "rgba(109,179,63,0.10)",
           color: "#6DB33F",
           fontFamily: "var(--font-montserrat)",
         }}
@@ -96,7 +100,7 @@ function ReviewCard({ r }: { r: (typeof reviews)[0] }) {
       </span>
       <div
         className="flex items-center gap-3 pt-4"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        style={{ borderTop: "1px solid #E5E7EB" }}
       >
         <div
           className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm text-white shrink-0"
@@ -108,11 +112,11 @@ function ReviewCard({ r }: { r: (typeof reviews)[0] }) {
           {r.initial}
         </div>
         <div>
-          <p className="font-bold text-xs text-white" style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+          <p className="font-bold text-xs" style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#0D1510" }}>
             {r.name}
           </p>
-          <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.35)" }}>
-            {r.location} · {r.date}
+          <p className="text-[11px]" style={{ color: "#9CA3AF" }}>
+            {r.location} &middot; {r.date}
           </p>
         </div>
       </div>
@@ -126,14 +130,10 @@ export default function SiteReviews() {
   const prev = () => setIndex(i => Math.max(0, i - 1));
   const next = () => setIndex(i => Math.min(MAX_INDEX, i + 1));
 
-  // Each card is 1/3 of the track width. Offset = index * (100% / TOTAL)
-  // Track width = TOTAL cards, each card = 100%/TOTAL of track
-  // Visible window = VISIBLE/TOTAL of track
-  // translateX offset per step = 100% / TOTAL
   const translateX = -(index * (100 / TOTAL));
 
   return (
-    <section className="site-pad" id="reviews" style={{ background: "#081012" }}>
+    <section className="site-pad" id="reviews" style={{ background: "#FFFFFF" }}>
       <div className="site-wrap">
 
         {/* Header */}
@@ -141,11 +141,12 @@ export default function SiteReviews() {
           <div>
             <p className="site-eyebrow mb-4">Klantbeoordelingen</p>
             <h2
-              className="font-bold text-white leading-tight"
+              className="font-bold leading-tight"
               style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
                 letterSpacing: "-0.02em",
+                color: "#0D1510",
               }}
             >
               Wat onze klanten zeggen.
@@ -155,17 +156,17 @@ export default function SiteReviews() {
           {/* Aggregate score */}
           <div
             className="flex items-center gap-4 p-5 rounded-2xl shrink-0"
-            style={{ background: "#081012", border: "1px solid rgba(255,255,255,0.08)" }}
+            style={{ background: "#F7F8F6", border: "1px solid #E5E7EB" }}
           >
             <p
-              className="font-black text-5xl text-white leading-none"
-              style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}
+              className="font-black text-5xl leading-none"
+              style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#0D1510" }}
             >
               5.0
             </p>
             <div>
               <Stars n={5} />
-              <p className="text-xs mt-1.5" style={{ color: "rgba(255,255,255,0.35)" }}>
+              <p className="text-xs mt-1.5" style={{ color: "#9CA3AF" }}>
                 op alle platforms
               </p>
             </div>
@@ -174,7 +175,6 @@ export default function SiteReviews() {
 
         {/* Sliding carousel */}
         <div className="mb-8" style={{ overflow: "hidden" }}>
-          {/* Track: all 6 cards in a row, width = 6/3 = 200% of container */}
           <div
             style={{
               display: "flex",
@@ -200,15 +200,14 @@ export default function SiteReviews() {
 
         {/* Controls row */}
         <div className="flex items-center justify-center gap-6">
-          {/* Prev */}
           <button
             onClick={prev}
             disabled={index === 0}
             className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
             style={{
-              background: index === 0 ? "rgba(255,255,255,0.05)" : "rgba(109,179,63,0.15)",
-              border: "1px solid rgba(255,255,255,0.10)",
-              color: index === 0 ? "rgba(255,255,255,0.25)" : "#6DB33F",
+              background: index === 0 ? "#F3F4F6" : "rgba(109,179,63,0.10)",
+              border: "1px solid #E5E7EB",
+              color: index === 0 ? "#D1D5DB" : "#6DB33F",
               cursor: index === 0 ? "not-allowed" : "pointer",
             }}
             aria-label="Vorige"
@@ -226,7 +225,7 @@ export default function SiteReviews() {
                 style={{
                   width: i === index ? "20px" : "8px",
                   height: "8px",
-                  background: i === index ? "#6DB33F" : "rgba(255,255,255,0.20)",
+                  background: i === index ? "#6DB33F" : "#D1D5DB",
                   transition: "width 300ms ease, background 300ms ease",
                 }}
                 aria-label={`Ga naar slide ${i + 1}`}
@@ -234,15 +233,14 @@ export default function SiteReviews() {
             ))}
           </div>
 
-          {/* Next */}
           <button
             onClick={next}
             disabled={index === MAX_INDEX}
             className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
             style={{
-              background: index === MAX_INDEX ? "rgba(255,255,255,0.05)" : "rgba(109,179,63,0.15)",
-              border: "1px solid rgba(255,255,255,0.10)",
-              color: index === MAX_INDEX ? "rgba(255,255,255,0.25)" : "#6DB33F",
+              background: index === MAX_INDEX ? "#F3F4F6" : "rgba(109,179,63,0.10)",
+              border: "1px solid #E5E7EB",
+              color: index === MAX_INDEX ? "#D1D5DB" : "#6DB33F",
               cursor: index === MAX_INDEX ? "not-allowed" : "pointer",
             }}
             aria-label="Volgende"

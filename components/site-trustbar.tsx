@@ -25,13 +25,14 @@ const items = [
 
 export default function SiteTrustBar() {
   return (
-    <section style={{ background: "#081012", paddingTop: "40px", paddingBottom: "0" }}>
+    <section style={{ background: "#FFFFFF", paddingTop: "40px", paddingBottom: "0" }}>
       <div className="site-wrap">
         <div
           style={{
             background: "#FFFFFF",
             borderRadius: "16px",
-            boxShadow: "0 4px 24px rgba(0, 0, 0, 0.15)",
+            border: "1px solid #E5E7EB",
+            boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
             maxWidth: "1300px",
             margin: "0 auto",
           }}
@@ -43,10 +44,9 @@ export default function SiteTrustBar() {
                 className="flex items-center gap-3"
                 style={{
                   padding: "20px 32px",
-                  borderRight: i < items.length - 1 ? "1px solid #EBEBEB" : "none",
+                  borderRight: i < items.length - 1 ? "1px solid #E5E7EB" : "none",
                 }}
               >
-                {/* Icon bubble */}
                 <div
                   className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
                   style={{ background: "rgba(109,179,63,0.10)" }}
@@ -58,7 +58,7 @@ export default function SiteTrustBar() {
                     className="text-[0.8125rem] leading-tight font-bold whitespace-nowrap"
                     style={{
                       fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                      color: "#1C1F1A",
+                      color: "#0D1510",
                     }}
                   >
                     {item.label}

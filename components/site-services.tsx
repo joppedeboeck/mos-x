@@ -30,18 +30,19 @@ const services = [
 
 export default function SiteServices() {
   return (
-    <section className="site-pad" id="diensten" style={{ background: "#081012" }}>
+    <section className="site-pad" id="diensten" style={{ background: "#FFFFFF" }}>
       <div className="site-wrap">
 
         {/* Header */}
         <div className="max-w-2xl mb-14">
           <span className="site-eyebrow mb-4">Diensten</span>
           <h2
-            className="font-bold text-white leading-tight"
+            className="font-bold leading-tight"
             style={{
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
               letterSpacing: "-0.02em",
+              color: "#0D1510",
             }}
           >
             Alles voor een gezond dak.{" "}
@@ -57,11 +58,12 @@ export default function SiteServices() {
               href={s.href}
               className="group flex flex-col service-card"
               style={{
-                background: "#0F1A1F",
-                border: "1px solid #1A2E35",
+                background: "#FFFFFF",
+                border: "1px solid #E5E7EB",
                 borderRadius: "16px",
                 overflow: "hidden",
                 textDecoration: "none",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
               }}
             >
               {/* Photo */}
@@ -72,14 +74,12 @@ export default function SiteServices() {
                   className="absolute inset-0 w-full h-full object-cover"
                   style={{ transition: "transform 400ms ease" }}
                 />
-                {/* Overlay */}
                 <div
                   className="absolute inset-0"
                   style={{
                     background: "linear-gradient(to bottom, rgba(6,11,14,0.10) 0%, rgba(6,11,14,0.72) 100%)",
                   }}
                 />
-                {/* Title on image */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
                   <p
                     className="font-bold text-white text-lg leading-tight"
@@ -87,7 +87,7 @@ export default function SiteServices() {
                   >
                     {s.title}
                   </p>
-                  <p className="text-white/50 text-xs mt-0.5">{s.short}</p>
+                  <p className="text-white/60 text-xs mt-0.5">{s.short}</p>
                 </div>
               </div>
 
@@ -95,7 +95,7 @@ export default function SiteServices() {
               <div className="flex flex-col flex-1 p-6">
                 <p
                   className="leading-relaxed mb-6"
-                  style={{ color: "#9CA3AF", fontSize: "15px", lineHeight: "1.7" }}
+                  style={{ color: "#4A5568", fontSize: "15px", lineHeight: "1.7" }}
                 >
                   {s.desc}
                 </p>
@@ -105,7 +105,7 @@ export default function SiteServices() {
                   {s.checks.map((c, j) => (
                     <li key={j} className="flex items-center gap-2.5">
                       <CheckCircle className="w-4 h-4 shrink-0" style={{ color: "#6DB33F" }} />
-                      <span className="text-sm text-white">{c}</span>
+                      <span className="text-sm" style={{ color: "#0D1510" }}>{c}</span>
                     </li>
                   ))}
                 </ul>
@@ -122,7 +122,21 @@ export default function SiteServices() {
 
         {/* Bottom CTA */}
         <div className="flex justify-center">
-          <Link href="/diensten" className="site-btn-outline-white">
+          <Link
+            href="/diensten"
+            className="inline-flex items-center gap-2 site-btn-green-outline"
+            style={{
+              border: "1.5px solid #6DB33F",
+              color: "#6DB33F",
+              background: "#FFFFFF",
+              borderRadius: "8px",
+              padding: "0.875rem 1.75rem",
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              fontWeight: 600,
+              fontSize: "0.9375rem",
+              textDecoration: "none",
+            }}
+          >
             Alle diensten bekijken <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

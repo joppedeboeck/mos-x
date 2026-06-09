@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -25,14 +25,14 @@
   --color-card-foreground: var(--card-foreground);
   --color-card:   var(--card);
 
-  /* ── New brand tokens ── */
+  /* Brand tokens */
   --color-brand-dark:        #081012;
   --color-brand-green:       #6DB33F;
   --color-brand-green-hover: #5A9A32;
   --color-brand-surface:     #F4F4F2;
   --color-brand-muted:       #6B7280;
 
-  /* ── Legacy MOS-X tokens (used by mosx-* components) ── */
+  /* Legacy MOS-X tokens */
   --color-mosx-green:       #1A5C36;
   --color-mosx-green-dark:  #0D2E1B;
   --color-mosx-green-deep:  #071910;
@@ -89,7 +89,7 @@
 
 @layer utilities {
 
-  /* ── Layout ── */
+  /* Layout */
   .site-wrap {
     max-width: 1200px;
     margin-left: auto;
@@ -107,7 +107,7 @@
   .site-pad    { padding-top: 6.25rem;   padding-bottom: 6.25rem; }
   .site-pad-sm { padding-top: 4rem; padding-bottom: 4rem; }
 
-  /* ── Eyebrow ── */
+  /* Eyebrow */
   .site-eyebrow {
     font-family: var(--font-montserrat), system-ui, sans-serif;
     font-size: 0.6875rem;
@@ -118,7 +118,7 @@
     display: block;
   }
 
-  /* ── Section headline ── */
+  /* Section headline */
   .site-h2 {
     font-family: var(--font-montserrat), system-ui, sans-serif;
     font-weight: 700;
@@ -128,12 +128,12 @@
     color: #081012;
   }
 
-  /* ── Shadows ── */
+  /* Shadows */
   .site-shadow-sm { box-shadow: 0 1px 8px rgba(0,0,0,0.07); }
   .site-shadow    { box-shadow: 0 4px 20px rgba(0,0,0,0.09); }
   .site-shadow-lg { box-shadow: 0 8px 40px rgba(0,0,0,0.13); }
 
-  /* ── Buttons (shared base) ── */
+  /* Buttons (shared base) */
   .site-btn-primary,
   .site-btn-primary-lg,
   .site-btn-outline-white,
@@ -193,9 +193,18 @@
   }
   .site-btn-outline-dark:hover { background: #081012; color: #fff; }
 
+  /* Green outline button for light sections */
+  .site-btn-green-outline {
+    transition: background 200ms ease, color 200ms ease !important;
+  }
+  .site-btn-green-outline:hover {
+    background: #6DB33F !important;
+    color: #fff !important;
+  }
+
 } /* end @layer utilities */
 
-/* Responsive overrides for site-wrap and site-pad (outside @layer for media query support) */
+/* Responsive overrides */
 @media (min-width: 640px) {
   .site-wrap, .site-wrap-narrow { padding-left: 2rem; padding-right: 2rem; }
 }
@@ -205,7 +214,7 @@
   .site-pad-sm      { padding-top: 5rem; padding-bottom: 5rem; }
 }
 
-/* Image placeholders (new dark-green/terracotta palette) */
+/* Image placeholders */
 .img-before-roof {
   background:
     radial-gradient(ellipse 120px 60px at 20% 35%, rgba(80,120,70,0.9) 0%, transparent 65%),
@@ -305,22 +314,21 @@
   background: linear-gradient(170deg, #071910 0%, #0D2E1B 50%, #071910 100%);
 }
 
-/* Premium service card hover */
+/* Service card hover — light system */
 .service-card {
-  transition: transform 300ms ease, border-color 300ms ease;
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
 }
 .service-card:hover {
   transform: translateY(-4px);
   border-color: #6DB33F !important;
+  box-shadow: 0 8px 32px rgba(109,179,63,0.12) !important;
 }
 
-/* Glassmorphism green button — step card + navbar + hero */
-.step-cta-btn,
+/* Navbar + hero glassmorphism button */
 .nav-cta-btn,
 .hero-cta-btn {
   transition: background 250ms ease, border-color 250ms ease, color 250ms ease, box-shadow 250ms ease !important;
 }
-.step-cta-btn:hover,
 .nav-cta-btn:hover,
 .hero-cta-btn:hover {
   background: rgba(109,179,63,0.25) !important;
@@ -329,14 +337,14 @@
   box-shadow: 0 0 20px rgba(109,179,63,0.20);
 }
 
-/* Process step card hover */
+/* Process step card hover — light system */
 .step-card {
-  transition: all 250ms ease;
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
 }
 .step-card:hover {
   transform: translateY(-3px);
   border-color: #6DB33F !important;
-  box-shadow: 0 0 24px rgba(109,179,63,0.10);
+  box-shadow: 0 8px 28px rgba(109,179,63,0.12) !important;
 }
 
 ::-webkit-scrollbar { width: 5px; }

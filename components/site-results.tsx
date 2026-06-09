@@ -35,7 +35,7 @@ function BeforeAfterSlider() {
       style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3", cursor: "ew-resize" }}
       onTouchMove={onTouchMove}
     >
-      {/* BEFORE — full image with green-dark overlay to simulate moss */}
+      {/* BEFORE */}
       <div className="absolute inset-0">
         <img
           src="/images/dak-reinigen.webp"
@@ -46,7 +46,7 @@ function BeforeAfterSlider() {
         />
       </div>
 
-      {/* AFTER — clipped to right of slider */}
+      {/* AFTER */}
       <div
         className="absolute inset-0"
         style={{ clipPath: `inset(0 0 0 ${position}%)` }}
@@ -112,7 +112,7 @@ function BeforeAfterSlider() {
 
 export default function SiteResults() {
   return (
-    <section style={{ background: "#081012", padding: "100px 0" }}>
+    <section style={{ background: "#F7F8F6", padding: "100px 0" }}>
       <div className="site-wrap">
         <div
           className="grid grid-cols-1 lg:grid-cols-3"
@@ -135,11 +135,12 @@ export default function SiteResults() {
               Zichtbaar verschil
             </p>
             <h2
-              className="text-white font-bold leading-tight mb-8"
+              className="font-bold leading-tight mb-8"
               style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
                 letterSpacing: "-0.02em",
+                color: "#0D1510",
               }}
             >
               Resultaten die voor zich spreken.
@@ -154,20 +155,18 @@ export default function SiteResults() {
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3">
                   <CheckCircle className="w-4 h-4 shrink-0" style={{ color: "#6DB33F" }} />
-                  <span style={{ color: "#9CA3AF", fontSize: "15px" }}>{item}</span>
+                  <span style={{ color: "#4A5568", fontSize: "15px" }}>{item}</span>
                 </li>
               ))}
             </ul>
 
             <Link
               href="/realisaties"
-              className="step-cta-btn inline-block"
               style={{
-                background: "rgba(109,179,63,0.12)",
-                border: "1px solid rgba(109,179,63,0.35)",
+                display: "inline-block",
+                background: "#FFFFFF",
+                border: "1.5px solid #6DB33F",
                 color: "#6DB33F",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
                 borderRadius: "8px",
                 padding: "12px 20px",
                 fontSize: "14px",
@@ -192,48 +191,51 @@ export default function SiteResults() {
             {/* Stat 1 */}
             <div
               style={{
-                background: "#0B1612",
-                border: "1px solid #1C2E22",
+                background: "#FFFFFF",
+                border: "1px solid #E5E7EB",
                 borderRadius: "14px",
                 padding: "24px",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
               }}
             >
               <Calendar className="w-5 h-5 mb-3" style={{ color: "#6DB33F" }} />
               <p
-                className="text-white font-bold"
-                style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "32px", lineHeight: 1, marginBottom: "6px" }}
+                className="font-bold"
+                style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "32px", lineHeight: 1, marginBottom: "6px", color: "#0D1510" }}
               >
                 247+
               </p>
-              <p style={{ color: "#7A8A80", fontSize: "14px" }}>Daken gereinigd in Vlaanderen</p>
+              <p style={{ color: "#6B7280", fontSize: "14px" }}>Daken gereinigd in Vlaanderen</p>
             </div>
 
             {/* Stat 2 */}
             <div
               style={{
-                background: "#0B1612",
-                border: "1px solid #1C2E22",
+                background: "#FFFFFF",
+                border: "1px solid #E5E7EB",
                 borderRadius: "14px",
                 padding: "24px",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
               }}
             >
               <Shield className="w-5 h-5 mb-3" style={{ color: "#6DB33F" }} />
               <p
-                className="text-white font-bold"
-                style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "32px", lineHeight: 1, marginBottom: "6px" }}
+                className="font-bold"
+                style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "32px", lineHeight: 1, marginBottom: "6px", color: "#0D1510" }}
               >
                 10+ jaar
               </p>
-              <p style={{ color: "#7A8A80", fontSize: "14px" }}>Gemiddelde levensduur verlengd</p>
+              <p style={{ color: "#6B7280", fontSize: "14px" }}>Gemiddelde levensduur verlengd</p>
             </div>
 
             {/* Stat 3 — Review */}
             <div
               style={{
-                background: "#0B1612",
-                border: "1px solid #1C2E22",
+                background: "#FFFFFF",
+                border: "1px solid #E5E7EB",
                 borderRadius: "14px",
                 padding: "24px",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
               }}
             >
               <div className="flex mb-2">
@@ -242,15 +244,15 @@ export default function SiteResults() {
                 ))}
               </div>
               <p
-                className="text-white font-bold"
-                style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "32px", lineHeight: 1, marginBottom: "10px" }}
+                className="font-bold"
+                style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "32px", lineHeight: 1, marginBottom: "10px", color: "#0D1510" }}
               >
                 5.0
               </p>
-              <p style={{ color: "#9CA3AF", fontSize: "14px", lineHeight: "1.6", fontStyle: "italic", marginBottom: "6px" }}>
-                "Topservice! Ons dak ziet er weer als nieuw uit."
+              <p style={{ color: "#4A5568", fontSize: "14px", lineHeight: "1.6", fontStyle: "italic", marginBottom: "6px" }}>
+                &ldquo;Topservice! Ons dak ziet er weer als nieuw uit.&rdquo;
               </p>
-              <p style={{ color: "#7A8A80", fontSize: "12px" }}>Familie Deprez, Waregem</p>
+              <p style={{ color: "#9CA3AF", fontSize: "12px" }}>Familie Deprez, Waregem</p>
             </div>
 
           </div>

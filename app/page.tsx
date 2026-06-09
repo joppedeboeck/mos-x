@@ -6,8 +6,8 @@ import SiteVideo           from "@/components/site-video";
 import SiteServices        from "@/components/site-services";
 import SitePricing         from "@/components/site-pricing";
 import SiteYannick         from "@/components/site-yannick";
-import SiteProcess         from "@/components/site-process";
 import SiteWerkgebied      from "@/components/site-werkgebied";
+import SiteProcess         from "@/components/site-process";
 import SiteReviews         from "@/components/site-reviews";
 import SiteContact         from "@/components/site-contact";
 import SiteFooter          from "@/components/site-footer";
@@ -15,45 +15,45 @@ import SiteFooter          from "@/components/site-footer";
 export default function HomePage() {
   return (
     <>
-      {/* 1 · Announcement bar + white navbar */}
+      {/* Announcement bar + white navbar */}
       <SiteNav />
 
       <main>
-        {/* 2 · Hero — two columns, video background */}
+        {/* 1 · Hero — two columns, video bg */}
         <SiteHero />
 
-        {/* 3 · Scrolling trust bar */}
+        {/* 2 · Scrolling trust ticker */}
         <SiteTrustBar />
 
-        {/* 4 · Voor & Na results grid */}
+        {/* 3 · Voor & Na results grid */}
         <SiteResultatenGrid />
 
-        {/* 5 · Video section */}
+        {/* 4 · Video section */}
         <SiteVideo />
 
-        {/* 6 · Services — 3 cards */}
+        {/* 5 · Diensten */}
         <SiteServices />
 
-        {/* 7 · Pricing — 3 cards */}
+        {/* 6 · Prijzen */}
         <SitePricing />
 
-        {/* 8 · Over Yannick */}
+        {/* 7 · Over Yannick */}
         <SiteYannick />
 
-        {/* 9 · Hoe het werkt — 5 steps */}
-        <SiteProcess />
-
-        {/* 10 · Werkgebied */}
+        {/* 8 · Werkgebied — 4 provinces */}
         <SiteWerkgebied />
 
-        {/* 11 · Reviews carousel */}
+        {/* 9 · Hoe het werkt */}
+        <SiteProcess />
+
+        {/* 10 · Reviews */}
         <SiteReviews />
 
-        {/* 12 · Contact + form (dark) */}
+        {/* 11 · Contact + form */}
         <SiteContact />
       </main>
 
-      {/* 13 · Footer (dark) */}
+      {/* Footer */}
       <SiteFooter />
     </>
   );

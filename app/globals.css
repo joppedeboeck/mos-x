@@ -268,6 +268,29 @@
 }
 
 /* ═══════════════════════════════════════════════
+   PROVINCE CARD (werkgebied + regio pages)
+═══════════════════════════════════════════════ */
+.province-card {
+  transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+}
+.province-card:hover {
+  border-color: #9BCB6C !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(155,203,108,0.12) !important;
+}
+
+/* ═══════════════════════════════════════════════
+   MUNICIPALITY CARD (regio pages)
+═══════════════════════════════════════════════ */
+.municipality-card {
+  transition: border-color 200ms ease, background 200ms ease;
+}
+.municipality-card:hover {
+  border-color: #9BCB6C !important;
+  background: rgba(155,203,108,0.04) !important;
+}
+
+/* ═══════════════════════════════════════════════
    SCROLLBAR
 ═══════════════════════════════════════════════ */
 ::-webkit-scrollbar { width: 5px; }

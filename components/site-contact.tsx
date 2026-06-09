@@ -1,324 +1,139 @@
-"use client";
+import Link from "next/link";
+import { Phone, ArrowRight } from "lucide-react";
 
-import { useState } from "react";
-import { Phone, Star, Send } from "lucide-react";
+const trust = [
+  "Drone-inspectie inbegrepen",
+  "Yannick belt terug binnen 1 werkdag",
+  "200+ daken gereinigd",
+];
 
 export default function SiteContact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    naam: "", telefoon: "", email: "", adres: "", dienst: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
-    <section style={{ background: "#1A1A1A", padding: "80px 0" }}>
-      <div className="site-wrap">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+    <section style={{ background: "#F7F8F6", padding: "60px 24px" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <div
+          style={{
+            background: "#1A1A1A",
+            border: "1px solid #2A2A2A",
+            borderRadius: "16px",
+            padding: "40px 48px",
+          }}
+        >
+          {/* Single horizontal row — stack on mobile */}
+          <div
+            className="flex flex-col lg:flex-row lg:items-center lg:justify-between"
+            style={{ gap: "32px" }}
+          >
 
-          {/* Left: info */}
-          <div>
-            <span
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                fontSize: "11px",
-                fontWeight: 700,
-                textTransform: "uppercase" as const,
-                letterSpacing: "0.14em",
-                color: "#9BCB6C",
-                display: "block",
-                marginBottom: "16px",
-              }}
-            >
-              Neem contact op
-            </span>
-            <h2
-              className="font-bold leading-tight mb-5"
-              style={{
-                fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-                letterSpacing: "-0.02em",
-                color: "#FFFFFF",
-              }}
-            >
-              Vraag uw gratis dakdiagnose aan
-            </h2>
-            <p className="leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.55)", fontSize: "16px" }}>
-              Yannick inspecteert uw dak gratis met een professionele drone.
-              U kijkt live mee op de tablet. Daarna weet u exact wat er speelt en wat het kost.
-            </p>
-
-            {/* Phone */}
-            <a
-              href="tel:+32468352869"
-              className="flex items-center gap-3 mb-8"
-              style={{ textDecoration: "none" }}
-            >
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
-                style={{ background: "rgba(155,203,108,0.15)" }}
-              >
-                <Phone className="w-4 h-4" style={{ color: "#9BCB6C" }} />
-              </div>
-              <span
-                className="font-bold"
+            {/* LEFT — label + headline */}
+            <div style={{ flexShrink: 0 }}>
+              <p
                 style={{
-                  fontFamily: "var(--font-montserrat)",
-                  fontSize: "18px",
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.15em",
                   color: "#9BCB6C",
+                  marginBottom: "10px",
                 }}
               >
-                +32 468 35 28 69
-              </span>
-            </a>
-
-            {/* Google review badge */}
-            <div
-              style={{
-                background: "#FFFFFF",
-                borderRadius: "12px",
-                padding: "16px 20px",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "12px",
-              }}
-            >
-              <div>
-                <div className="flex mb-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" style={{ color: "#F9A825" }} />
-                  ))}
-                </div>
-                <p className="font-bold text-sm" style={{ fontFamily: "var(--font-montserrat)", color: "#1A1A1A" }}>
-                  5.0 Google Reviews
-                </p>
-                <p className="text-xs" style={{ color: "#545454" }}>12 beoordelingen · uitstekend</p>
-              </div>
-              <div
-                className="w-px self-stretch"
-                style={{ background: "#E5E7EB", margin: "0 4px" }}
-              />
-              <div>
-                <p className="text-xs font-semibold" style={{ color: "#545454" }}>Erkend door</p>
-                <div
-                  className="font-black text-white mt-1"
-                  style={{
-                    background: "#E8000D",
-                    borderRadius: "4px",
-                    padding: "2px 6px",
-                    fontSize: "12px",
-                    fontFamily: "var(--font-montserrat)",
-                    display: "inline-block",
-                  }}
-                >
-                  vtm
-                </div>
-              </div>
+                100% VRIJBLIJVEND · GEEN VERKOOPPRAATJES
+              </p>
+              <h2
+                style={{
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  fontSize: "24px",
+                  fontWeight: 700,
+                  color: "#FFFFFF",
+                  margin: 0,
+                  lineHeight: 1.3,
+                }}
+              >
+                Vraag uw gratis dakdiagnose aan.
+              </h2>
             </div>
-          </div>
 
-          {/* Right: form */}
-          <div
-            style={{
-              background: "#FFFFFF",
-              borderRadius: "16px",
-              padding: "36px 32px",
-              boxShadow: "0 8px 40px rgba(0,0,0,0.25)",
-            }}
-          >
-            {submitted ? (
-              <div className="text-center py-8">
+            {/* CENTER — trust items */}
+            <div
+              className="flex flex-col sm:flex-row lg:flex-col xl:flex-row"
+              style={{ gap: "10px 24px", flexShrink: 0 }}
+            >
+              {trust.map((item) => (
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ background: "rgba(155,203,108,0.15)" }}
-                >
-                  <Send className="w-6 h-6" style={{ color: "#9BCB6C" }} />
-                </div>
-                <h3
-                  className="font-bold mb-2"
-                  style={{ fontFamily: "var(--font-montserrat)", fontSize: "20px", color: "#1A1A1A" }}
-                >
-                  Aanvraag verzonden!
-                </h3>
-                <p style={{ color: "#545454", fontSize: "15px" }}>
-                  Yannick belt u terug binnen 1 werkdag.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <h3
-                  className="font-bold mb-6"
+                  key={item}
                   style={{
-                    fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                    fontSize: "18px",
-                    color: "#1A1A1A",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "13px",
+                    color: "#FFFFFF",
+                    fontFamily: "var(--font-inter), system-ui, sans-serif",
+                    whiteSpace: "nowrap",
                   }}
                 >
-                  Gratis diagnose aanvragen
-                </h3>
-
-                {/* Row 1: Naam + Telefoon */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#545454" }}>
-                      Naam *
-                    </label>
-                    <input
-                      type="text"
-                      name="naam"
-                      required
-                      value={form.naam}
-                      onChange={handleChange}
-                      placeholder="Jan Janssen"
-                      style={{
-                        width: "100%",
-                        border: "1px solid #E5E7EB",
-                        borderRadius: "8px",
-                        padding: "10px 12px",
-                        fontSize: "14px",
-                        color: "#1A1A1A",
-                        outline: "none",
-                        boxSizing: "border-box",
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#545454" }}>
-                      Telefoon *
-                    </label>
-                    <input
-                      type="tel"
-                      name="telefoon"
-                      required
-                      value={form.telefoon}
-                      onChange={handleChange}
-                      placeholder="+32 4xx xx xx xx"
-                      style={{
-                        width: "100%",
-                        border: "1px solid #E5E7EB",
-                        borderRadius: "8px",
-                        padding: "10px 12px",
-                        fontSize: "14px",
-                        color: "#1A1A1A",
-                        outline: "none",
-                        boxSizing: "border-box",
-                      }}
-                    />
-                  </div>
+                  <span style={{ color: "#9BCB6C", fontWeight: 700 }}>✓</span>
+                  {item}
                 </div>
+              ))}
+            </div>
 
-                {/* Row 2: Email + Adres */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#545454" }}>
-                      E-mail
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="jan@email.be"
-                      style={{
-                        width: "100%",
-                        border: "1px solid #E5E7EB",
-                        borderRadius: "8px",
-                        padding: "10px 12px",
-                        fontSize: "14px",
-                        color: "#1A1A1A",
-                        outline: "none",
-                        boxSizing: "border-box",
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold mb-1.5" style={{ color: "#545454" }}>
-                      Adres
-                    </label>
-                    <input
-                      type="text"
-                      name="adres"
-                      value={form.adres}
-                      onChange={handleChange}
-                      placeholder="Kerkstraat 1, Gent"
-                      style={{
-                        width: "100%",
-                        border: "1px solid #E5E7EB",
-                        borderRadius: "8px",
-                        padding: "10px 12px",
-                        fontSize: "14px",
-                        color: "#1A1A1A",
-                        outline: "none",
-                        boxSizing: "border-box",
-                      }}
-                    />
-                  </div>
-                </div>
+            {/* RIGHT — buttons */}
+            <div
+              className="flex flex-col sm:flex-row"
+              style={{ gap: "12px", flexShrink: 0 }}
+            >
+              <Link
+                href="/contact"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  background: "#9BCB6C",
+                  color: "#FFFFFF",
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  borderRadius: "8px",
+                  padding: "14px 24px",
+                  whiteSpace: "nowrap",
+                  transition: "background 150ms ease",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
+                onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
+              >
+                Gratis diagnose aanvragen
+                <ArrowRight style={{ width: "16px", height: "16px" }} />
+              </Link>
 
-                {/* Dienst */}
-                <div>
-                  <label className="block text-xs font-semibold mb-1.5" style={{ color: "#545454" }}>
-                    Gewenste dienst
-                  </label>
-                  <select
-                    name="dienst"
-                    value={form.dienst}
-                    onChange={handleChange}
-                    style={{
-                      width: "100%",
-                      border: "1px solid #E5E7EB",
-                      borderRadius: "8px",
-                      padding: "10px 12px",
-                      fontSize: "14px",
-                      color: form.dienst ? "#1A1A1A" : "#9CA3AF",
-                      outline: "none",
-                      background: "#FFFFFF",
-                      boxSizing: "border-box",
-                    }}
-                  >
-                    <option value="">Kies een dienst...</option>
-                    <option value="reinigen">Dak reinigen</option>
-                    <option value="coaten">Dak coaten</option>
-                    <option value="abonnement">Dakabonnement</option>
-                    <option value="weet_niet">Nog niet zeker</option>
-                  </select>
-                </div>
+              <a
+                href="tel:+32468352869"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  background: "transparent",
+                  color: "#FFFFFF",
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  border: "1px solid #3A3A3A",
+                  borderRadius: "8px",
+                  padding: "14px 24px",
+                  whiteSpace: "nowrap",
+                  transition: "border-color 150ms ease",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.borderColor = "#9BCB6C")}
+                onMouseLeave={e => (e.currentTarget.style.borderColor = "#3A3A3A")}
+              >
+                <Phone style={{ width: "15px", height: "15px" }} />
+                +32 468 35 28 69
+              </a>
+            </div>
 
-                {/* Submit */}
-                <button
-                  type="submit"
-                  className="w-full font-bold text-white"
-                  style={{
-                    background: "#9BCB6C",
-                    border: "none",
-                    borderRadius: "8px",
-                    padding: "14px 20px",
-                    fontSize: "15px",
-                    fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                    cursor: "pointer",
-                    transition: "background 200ms ease",
-                    marginTop: "8px",
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
-                  onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
-                >
-                  Gratis diagnose aanvragen &rarr;
-                </button>
-
-                <p className="text-center text-xs" style={{ color: "#9CA3AF" }}>
-                  Yannick belt u terug binnen 1 werkdag. Geen verplichtingen.
-                </p>
-              </form>
-            )}
           </div>
-
         </div>
       </div>
     </section>

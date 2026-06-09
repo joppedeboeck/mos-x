@@ -57,8 +57,8 @@ export default function SiteFooter() {
               <Image
                 src="/images/logo-footer.avif"
                 alt="MOS-X"
-                width={300} height={100}
-                style={{ height: "100px", width: "auto", objectFit: "contain" }}
+                width={220} height={75}
+                style={{ height: "75px", width: "auto", objectFit: "contain" }}
               />
             </Link>
 

@@ -25,10 +25,10 @@ export default function SiteNav() {
   }, []);
 
   const navStyle: React.CSSProperties = {
-    background: "rgba(255, 255, 255, 0.85)",
+    background: "rgba(255, 255, 255, 0.45)",
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
-    border: "1px solid rgba(0, 0, 0, 0.08)",
+    border: "1px solid rgba(255, 255, 255, 0.6)",
     boxShadow: scrolled
       ? "0 8px 32px rgba(0, 0, 0, 0.15)"
       : "0 4px 24px rgba(0, 0, 0, 0.10)",
@@ -74,7 +74,7 @@ export default function SiteNav() {
           </Link>
 
           {/* Desktop center links */}
-          <div className="hidden lg:flex items-center gap-7" style={{ flex: 1 }}>
+          <div className="hidden lg:flex items-center gap-7" style={{ flex: 1, paddingLeft: "48px" }}>
             {links.map(l => (
               <Link
                 key={l.href}
@@ -97,7 +97,7 @@ export default function SiteNav() {
           </div>
 
           {/* Desktop right */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4" style={{ marginLeft: "auto" }}>
             <a
               href="tel:+32468352869"
               style={{
@@ -123,7 +123,7 @@ export default function SiteNav() {
               style={{
                 background: "#9BCB6C",
                 color: "#1A1A1A",
-                borderRadius: "50px",
+                borderRadius: "6px",
                 padding: "8px 20px",
                 fontSize: "13px",
                 fontWeight: 700,

@@ -168,26 +168,34 @@ export default function SiteContact() {
                 </p>
               </div>
 
-              {/* Phone link — pinned to bottom, aligned with PRIJS BEREKENEN */}
+              {/* Phone button — pinned to bottom, aligned with PRIJS BEREKENEN */}
               <a
                 href="tel:+32468352869"
                 style={{
-                  display: "inline-flex",
+                  display: "flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   gap: "10px",
                   marginTop: "20px",
+                  width: "100%",
+                  boxSizing: "border-box",
+                  background: "transparent",
+                  border: `1px solid ${GREEN}`,
+                  borderRadius: "8px",
+                  padding: "13px 20px",
                   textDecoration: "none",
-                  transition: "opacity 150ms ease",
+                  transition: "background 150ms ease",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.opacity = "0.8")}
-                onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+                onMouseEnter={e => (e.currentTarget.style.background = "rgba(155,203,108,0.1)")}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
               >
-                <Phone style={{ width: "18px", height: "18px", color: GREEN, flexShrink: 0 }} />
+                <Phone style={{ width: "16px", height: "16px", color: GREEN, flexShrink: 0 }} />
                 <span style={{
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                  fontSize: "18px",
+                  fontSize: "14px",
                   fontWeight: 700,
                   color: "#FFFFFF",
+                  letterSpacing: "0.02em",
                 }}>
                   +32 468 35 28 69
                 </span>

@@ -38,9 +38,6 @@ export default function HomePage() {
         {/* 7 · Wie is Yannick? */}
         <SiteYannick />
 
-        {/* 8 · Werkgebied */}
-        <SiteWerkgebied />
-
         {/* 9 · CTA kaart */}
         <SiteContact />
       </main>

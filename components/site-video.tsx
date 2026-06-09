@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Play } from "lucide-react";
@@ -7,7 +7,7 @@ export default function SiteVideo() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section style={{ background: "#1A1A1A", padding: "80px 0" }}>
+    <section style={{ background: "#111111", padding: "80px 0" }}>
       <div className="site-wrap">
 
         {/* Header */}
@@ -56,7 +56,7 @@ export default function SiteVideo() {
               {/* Overlay */}
               <div
                 className="absolute inset-0 flex flex-col items-center justify-center"
-                style={{ background: "rgba(26,26,26,0.45)" }}
+                style={{ background: "rgba(17,17,17,0.45)" }}
               >
                 <div
                   className="flex items-center justify-center"
@@ -64,8 +64,8 @@ export default function SiteVideo() {
                     width: "72px",
                     height: "72px",
                     borderRadius: "50%",
-                    background: "#9BCB6C",
-                    boxShadow: "0 0 0 12px rgba(155,203,108,0.20)",
+                    background: "#5A9E2F",
+                    boxShadow: "0 0 0 12px rgba(90,158,47,0.15)",
                     transition: "transform 200ms ease, box-shadow 200ms ease",
                   }}
                 >

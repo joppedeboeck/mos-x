@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const steps = [
   {
@@ -43,13 +43,13 @@ export default function SiteProcess() {
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
               letterSpacing: "-0.02em",
-              color: "#1A1A1A",
+              color: "#111111",
             }}
           >
             Van diagnose tot
-            <span style={{ color: "#9BCB6C" }}> jarenlange bescherming.</span>
+            <span style={{ color: "#5A9E2F" }}> jarenlange bescherming.</span>
           </h2>
-          <p className="text-base leading-relaxed" style={{ color: "#545454" }}>
+          <p className="text-base leading-relaxed" style={{ color: "#555555" }}>
             Vijf duidelijke stappen. Geen verrassingen. Geen vakjargon.
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function SiteProcess() {
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white shrink-0 mb-5"
                   style={{
-                    background: "#9BCB6C",
+                    background: "#5A9E2F",
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                     boxShadow: "0 0 0 4px #FFFFFF, 0 0 0 6px rgba(155,203,108,0.30)",
                   }}
@@ -109,14 +109,14 @@ export default function SiteProcess() {
                       fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                       fontSize: "15px",
                       marginBottom: "12px",
-                      color: "#1A1A1A",
+                      color: "#111111",
                     }}
                   >
                     {s.title}
                   </h3>
                   <p
                     style={{
-                      color: "#545454",
+                      color: "#555555",
                       fontSize: "14px",
                       lineHeight: "1.7",
                       flex: 1,
@@ -132,8 +132,8 @@ export default function SiteProcess() {
                         display: "block",
                         width: "100%",
                         background: "#FFFFFF",
-                        border: "1.5px solid #9BCB6C",
-                        color: "#9BCB6C",
+                        border: "1.5px solid #5A9E2F",
+                        color: "#5A9E2F",
                         borderRadius: "8px",
                         padding: "12px 16px",
                         fontSize: "13px",

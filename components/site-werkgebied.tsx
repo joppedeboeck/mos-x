@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 
 const provinces = [
@@ -30,7 +30,7 @@ const provinces = [
 
 export default function SiteWerkgebied() {
   return (
-    <section className="site-pad" style={{ background: "#F7F8F6" }}>
+    <section className="site-pad" style={{ background: "#F8F8F8" }}>
       <div className="site-wrap">
 
         {/* Header */}
@@ -42,12 +42,12 @@ export default function SiteWerkgebied() {
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
               letterSpacing: "-0.02em",
-              color: "#1A1A1A",
+              color: "#111111",
             }}
           >
             Actief in 4 provincies.
           </h2>
-          <p style={{ color: "#545454", fontSize: "16px", lineHeight: 1.7 }}>
+          <p style={{ color: "#555555", fontSize: "16px", lineHeight: 1.7 }}>
             Yannick werkt persoonlijk in Vlaams-Brabant, Oost-Vlaanderen, Antwerpen en Limburg.
             Geen onderaannemers.
           </p>
@@ -73,9 +73,9 @@ export default function SiteWerkgebied() {
               {/* Icon */}
               <div
                 className="w-9 h-9 rounded-lg flex items-center justify-center mb-4 shrink-0"
-                style={{ background: "rgba(155,203,108,0.12)" }}
+                style={{ background: "rgba(90,158,47,0.10)" }}
               >
-                <MapPin className="w-4 h-4" style={{ color: "#9BCB6C" }} />
+                <MapPin className="w-4 h-4" style={{ color: "#5A9E2F" }} />
               </div>
 
               {/* Province name */}
@@ -84,7 +84,7 @@ export default function SiteWerkgebied() {
                 style={{
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                   fontSize: "15px",
-                  color: "#1A1A1A",
+                  color: "#111111",
                   lineHeight: 1.3,
                 }}
               >
@@ -92,19 +92,19 @@ export default function SiteWerkgebied() {
               </h3>
 
               {/* Count */}
-              <p className="text-xs mb-4" style={{ color: "#9BCB6C", fontWeight: 600 }}>
+              <p className="text-xs mb-4" style={{ color: "#5A9E2F", fontWeight: 600 }}>
                 {p.count}
               </p>
 
               {/* Sample cities */}
-              <p className="text-xs leading-relaxed flex-1" style={{ color: "#545454" }}>
+              <p className="text-xs leading-relaxed flex-1" style={{ color: "#555555" }}>
                 {p.cities.join(" · ")} &middot; meer
               </p>
 
               {/* Arrow */}
               <div
                 className="flex items-center gap-1 mt-4 text-xs font-semibold"
-                style={{ color: "#9BCB6C" }}
+                style={{ color: "#5A9E2F" }}
               >
                 Bekijk gemeenten
                 <ArrowRight className="w-3 h-3" />

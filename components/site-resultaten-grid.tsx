@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const photos = [
@@ -24,12 +24,12 @@ export default function SiteResultatenGrid() {
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
               letterSpacing: "-0.02em",
-              color: "#1A1A1A",
+              color: "#111111",
             }}
           >
             Onze Resultaten Spreken Voor Zich
           </h2>
-          <p style={{ color: "#545454", fontSize: "16px" }}>
+          <p style={{ color: "#555555", fontSize: "16px" }}>
             Echte opdrachten. Geen stockbeelden.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function SiteResultatenGrid() {
               <div
                 className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[11px] font-bold text-white"
                 style={{
-                  background: p.before ? "rgba(0,0,0,0.65)" : "#9BCB6C",
+                  background: p.before ? "rgba(0,0,0,0.65)" : "#5A9E2F",
                   letterSpacing: "0.08em",
                 }}
               >
@@ -87,8 +87,8 @@ export default function SiteResultatenGrid() {
             href="/realisaties"
             className="inline-flex items-center gap-2 site-btn-green-outline"
             style={{
-              border: "1.5px solid #9BCB6C",
-              color: "#9BCB6C",
+              border: "1.5px solid #5A9E2F",
+              color: "#5A9E2F",
               background: "#FFFFFF",
               borderRadius: "8px",
               padding: "0.875rem 1.75rem",

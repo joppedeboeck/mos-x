@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 
-const GREEN = "#8DC63F";
+const GREEN = "#5A9E2F";
 const GOLD  = "#F9A825";
 
 /* ── Animated counter ── */
@@ -144,7 +144,7 @@ export default function SiteTrustBar() {
             fontFamily: "var(--font-montserrat), system-ui, sans-serif",
             fontSize: "14px",
             fontWeight: 700,
-            color: "#1A1A1A",
+            color: "#111111",
           }}>
             Lifestyle &amp; Wonen
           </div>

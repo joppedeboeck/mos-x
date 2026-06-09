@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Star, Phone } from "lucide-react";
 import Link from "next/link";
@@ -7,7 +7,7 @@ export default function SiteHero() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ height: "100vh", minHeight: "100vh", background: "#1A1A1A", width: "100%", maxWidth: "100vw" }}
+      style={{ height: "100vh", minHeight: "100vh", background: "#111111", width: "100%", maxWidth: "100vw" }}
     >
       {/* Video background */}
       <video
@@ -24,7 +24,7 @@ export default function SiteHero() {
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(to right, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.88) 45%, rgba(26,26,26,0.55) 65%, rgba(26,26,26,0.30) 100%)",
+          background: "linear-gradient(to right, rgba(17,17,17,0.95) 0%, rgba(17,17,17,0.88) 45%, rgba(17,17,17,0.55) 65%, rgba(17,17,17,0.30) 100%)",
           zIndex: 1,
         }}
       />
@@ -49,7 +49,7 @@ export default function SiteHero() {
                 fontSize: "12px",
                 textTransform: "uppercase",
                 letterSpacing: "0.14em",
-                color: "#9BCB6C",
+                color: "#5A9E2F",
               }}
             >
               Dé specialist in dakontmossen en coaten
@@ -66,7 +66,7 @@ export default function SiteHero() {
               }}
             >
               Uw dak verdient een{" "}
-              <span style={{ color: "#9BCB6C" }}>eerlijke diagnose.</span>
+              <span style={{ color: "#5A9E2F" }}>eerlijke diagnose.</span>
             </h1>
 
             <p
@@ -83,13 +83,13 @@ export default function SiteHero() {
                 href="/contact"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: "8px",
-                  background: "#9BCB6C", color: "#fff", borderRadius: "8px",
+                  background: "#5A9E2F", color: "#fff", borderRadius: "8px",
                   padding: "14px 28px", fontSize: "16px", fontWeight: 700,
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                   textDecoration: "none", transition: "background 200ms ease", whiteSpace: "nowrap",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
-                onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
+                onMouseEnter={e => (e.currentTarget.style.background = "#4A8A25")}
+                onMouseLeave={e => (e.currentTarget.style.background = "#5A9E2F")}
               >
                 Bereken uw richtprijs &rarr;
               </Link>

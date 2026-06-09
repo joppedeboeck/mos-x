@@ -1,4 +1,4 @@
-import { CheckCircle, MapPin, Phone, ArrowRight } from "lucide-react";
+﻿import { CheckCircle, MapPin, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 const values = [
@@ -15,7 +15,7 @@ const stats = [
 
 export default function SiteYannick() {
   return (
-    <section className="site-pad" id="over-yannick" style={{ background: "#F7F8F6" }}>
+    <section className="site-pad" id="over-yannick" style={{ background: "#F8F8F8" }}>
       <div className="site-wrap">
         <div className="grid lg:grid-cols-2 gap-14 xl:gap-20 items-center">
 
@@ -42,7 +42,7 @@ export default function SiteYannick() {
                 />
                 <span style={{
                   position: "absolute", bottom: "10px", left: "10px",
-                  background: "rgba(26,26,26,0.85)", color: "#FFFFFF",
+                  background: "rgba(17,17,17,0.85)", color: "#FFFFFF",
                   fontSize: "10px", fontWeight: 700, letterSpacing: "0.08em",
                   padding: "3px 8px", borderRadius: "4px",
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -57,7 +57,7 @@ export default function SiteYannick() {
                 />
                 <span style={{
                   position: "absolute", bottom: "10px", left: "10px",
-                  background: "#9BCB6C", color: "#1A1A1A",
+                  background: "#5A9E2F", color: "#111111",
                   fontSize: "10px", fontWeight: 700, letterSpacing: "0.08em",
                   padding: "3px 8px", borderRadius: "4px",
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -75,11 +75,11 @@ export default function SiteYannick() {
                 <div>
                   <p
                     className="font-black text-xs"
-                    style={{ fontFamily: "var(--font-montserrat)", color: "#1A1A1A" }}
+                    style={{ fontFamily: "var(--font-montserrat)", color: "#111111" }}
                   >
                     12 reviews
                   </p>
-                  <p className="text-[10px]" style={{ color: "#545454" }}>100% uitstekend</p>
+                  <p className="text-[10px]" style={{ color: "#555555" }}>100% uitstekend</p>
                 </div>
               </div>
             </div>
@@ -94,16 +94,16 @@ export default function SiteYannick() {
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
                 letterSpacing: "-0.02em",
-                color: "#1A1A1A",
+                color: "#111111",
               }}
             >
               Geen anoniem bedrijf.{" "}
-              <span style={{ color: "#9BCB6C" }}>Een vakman aan uw deur.</span>
+              <span style={{ color: "#5A9E2F" }}>Een vakman aan uw deur.</span>
             </h2>
 
             <div
               className="space-y-4 text-[0.9375rem] leading-relaxed mb-8"
-              style={{ color: "#545454" }}
+              style={{ color: "#555555" }}
             >
               <p>
                 Yannick startte MOS-X omdat hij zag hoe huiseigenaren keer op keer worden misleid:
@@ -124,15 +124,15 @@ export default function SiteYannick() {
                   className="flex gap-4 p-4 rounded-xl"
                   style={{ background: "#FFFFFF", border: "1px solid #E5E7EB" }}
                 >
-                  <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#9BCB6C" }} />
+                  <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#5A9E2F" }} />
                   <div>
                     <p
                       className="font-bold text-sm mb-0.5"
-                      style={{ fontFamily: "var(--font-montserrat)", color: "#1A1A1A" }}
+                      style={{ fontFamily: "var(--font-montserrat)", color: "#111111" }}
                     >
                       {v.label}
                     </p>
-                    <p className="text-xs" style={{ color: "#545454" }}>{v.desc}</p>
+                    <p className="text-xs" style={{ color: "#555555" }}>{v.desc}</p>
                   </div>
                 </div>
               ))}
@@ -148,12 +148,12 @@ export default function SiteYannick() {
                       fontFamily: "var(--font-montserrat)",
                       fontSize: "1.75rem",
                       lineHeight: 1,
-                      color: "#9BCB6C",
+                      color: "#5A9E2F",
                     }}
                   >
                     {s.value}
                   </p>
-                  <p className="text-xs leading-tight" style={{ color: "#545454" }}>{s.label}</p>
+                  <p className="text-xs leading-tight" style={{ color: "#555555" }}>{s.label}</p>
                 </div>
               ))}
             </div>
@@ -168,7 +168,7 @@ export default function SiteYannick() {
                 className="inline-flex items-center gap-2"
                 style={{
                   border: "1.5px solid #E5E7EB",
-                  color: "#545454",
+                  color: "#555555",
                   background: "#FFFFFF",
                   borderRadius: "8px",
                   padding: "0.875rem 1.25rem",
@@ -178,7 +178,7 @@ export default function SiteYannick() {
                   textDecoration: "none",
                 }}
               >
-                <Phone className="w-4 h-4" style={{ color: "#9BCB6C" }} />
+                <Phone className="w-4 h-4" style={{ color: "#5A9E2F" }} />
                 +32 468 35 28 69
               </a>
             </div>

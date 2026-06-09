@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
@@ -112,7 +112,7 @@ function BeforeAfterSlider() {
 
 export default function SiteResults() {
   return (
-    <section style={{ background: "#F7F8F6", padding: "100px 0" }}>
+    <section style={{ background: "#F8F8F8", padding: "100px 0" }}>
       <div className="site-wrap">
         <div
           className="grid grid-cols-1 lg:grid-cols-3"

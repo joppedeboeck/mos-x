@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const services = [
@@ -21,7 +21,7 @@ const services = [
 
 export default function SiteServices() {
   return (
-    <section className="site-pad" id="diensten" style={{ background: "#F7F8F6" }}>
+    <section className="site-pad" id="diensten" style={{ background: "#F8F8F8" }}>
       <div className="site-wrap">
 
         {/* Header */}
@@ -33,7 +33,7 @@ export default function SiteServices() {
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
               letterSpacing: "-0.02em",
-              color: "#1A1A1A",
+              color: "#111111",
             }}
           >
             Alles voor een gezond dak.
@@ -43,7 +43,7 @@ export default function SiteServices() {
             style={{
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
-              color: "#9BCB6C",
+              color: "#5A9E2F",
             }}
           >
             Altijd met diagnose vooraf.
@@ -77,7 +77,7 @@ export default function SiteServices() {
                 <div
                   className="absolute inset-0"
                   style={{
-                    background: "linear-gradient(to bottom, rgba(26,26,26,0.08) 0%, rgba(26,26,26,0.70) 100%)",
+                    background: "linear-gradient(to bottom, rgba(17,17,17,0.08) 0%, rgba(17,17,17,0.70) 100%)",
                   }}
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
@@ -92,7 +92,7 @@ export default function SiteServices() {
 
               {/* Meer info button */}
               <div className="p-5">
-                <div className="flex items-center gap-1.5" style={{ color: "#9BCB6C", fontSize: "14px", fontWeight: 600 }}>
+                <div className="flex items-center gap-1.5" style={{ color: "#5A9E2F", fontSize: "14px", fontWeight: 600 }}>
                   Meer info
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -107,8 +107,8 @@ export default function SiteServices() {
             href="/diensten"
             className="inline-flex items-center gap-2 site-btn-green-outline"
             style={{
-              border: "1.5px solid #9BCB6C",
-              color: "#9BCB6C",
+              border: "1.5px solid #5A9E2F",
+              color: "#5A9E2F",
               background: "#FFFFFF",
               borderRadius: "8px",
               padding: "0.875rem 1.75rem",

@@ -14,20 +14,6 @@ const label: React.CSSProperties = {
   marginBottom: "16px",
 };
 
-const muted: React.CSSProperties = {
-  fontSize: "13px",
-  color: "#9CA3AF",
-  fontFamily: "var(--font-inter), system-ui, sans-serif",
-  lineHeight: 1.6,
-};
-
-const white13: React.CSSProperties = {
-  fontSize: "13px",
-  color: "#FFFFFF",
-  fontFamily: "var(--font-inter), system-ui, sans-serif",
-  lineHeight: 1.6,
-};
-
 const navLink: React.CSSProperties = {
   display: "block",
   fontSize: "14px",
@@ -67,8 +53,7 @@ export default function SiteFooter() {
 
           {/* Col 1 — Brand */}
           <div className="lg:col-span-1 flex flex-col" style={{ gap: "0" }}>
-            {/* Logo */}
-            <Link href="/" className="inline-block" style={{ marginBottom: "12px" }}>
+            <Link href="/" className="inline-block" style={{ marginBottom: "16px" }}>
               <Image
                 src="/images/logo.avif"
                 alt="MOS-X"
@@ -77,41 +62,18 @@ export default function SiteFooter() {
               />
             </Link>
 
-            {/* Tagline */}
-            <p style={{ ...muted, marginBottom: "20px" }}>
+            <p style={{
+              fontSize: "13px",
+              color: "#9CA3AF",
+              fontFamily: "var(--font-inter), system-ui, sans-serif",
+              lineHeight: 1.65,
+              marginBottom: "20px",
+            }}>
               Dakspecialist in Vlaams-Brabant, Oost-Vlaanderen, Antwerpen en Limburg.
             </p>
 
-            {/* BTW + address */}
-            <p style={muted}>BTW: BE 0805.594.502</p>
-            <p style={{ ...muted, marginBottom: "20px" }}>Bovenpad 100, 2280 Grobbendonk</p>
-
-            {/* Openingsuren */}
-            <span style={{ ...label, marginBottom: "8px" }}>Openingsuren</span>
-            <p style={white13}>Ma – Za: 08:00 – 17:00</p>
-            <p style={{ ...muted, marginBottom: "20px" }}>Zo: Gesloten</p>
-
-            {/* Contact */}
-            <span style={{ ...label, marginBottom: "8px" }}>Contact</span>
-            <a
-              href="tel:+32468352869"
-              style={{ ...white13, textDecoration: "none", transition: "color 150ms ease" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}
-            >
-              +32 468 35 28 69
-            </a>
-            <a
-              href="mailto:info@mos-x.be"
-              style={{ ...white13, textDecoration: "none", transition: "color 150ms ease", marginBottom: "16px" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}
-            >
-              info@mos-x.be
-            </a>
-
             {/* Social icons */}
-            <div style={{ display: "flex", gap: "14px", marginTop: "4px" }}>
+            <div style={{ display: "flex", gap: "14px" }}>
               <a
                 href="#"
                 aria-label="Instagram"
@@ -164,32 +126,34 @@ export default function SiteFooter() {
             <FLink href="/faq">FAQ</FLink>
           </div>
 
-          {/* Col 5 — CTA */}
+          {/* Col 5 — Contact */}
           <div>
+            <span style={label}>Contact</span>
             <a
-              href="https://v0-dak-calculator.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "block",
-                width: "100%",
-                boxSizing: "border-box",
-                background: "#9BCB6C",
-                color: "#FFFFFF",
-                fontFamily: "var(--font-inter), system-ui, sans-serif",
-                fontSize: "14px",
-                fontWeight: 600,
-                textDecoration: "none",
-                textAlign: "center",
-                borderRadius: "8px",
-                padding: "14px 24px",
-                transition: "background 150ms ease",
-              }}
-              onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
-              onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
+              href="tel:+32468352869"
+              style={{ ...navLink, textDecoration: "none" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}
             >
-              Bereken uw richtprijs
+              +32 468 35 28 69
             </a>
+            <a
+              href="mailto:info@mos-x.be"
+              style={{ ...navLink, textDecoration: "none" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#FFFFFF")}
+            >
+              info@mos-x.be
+            </a>
+            <span style={{ ...navLink, cursor: "default" }}>
+              Bovenpad 100, 2280 Grobbendonk
+            </span>
+
+            <div style={{ height: "20px" }} />
+
+            <span style={{ ...label, marginBottom: "8px" }}>Openingsuren</span>
+            <span style={{ ...navLink, cursor: "default" }}>Ma – Za: 08:00 – 17:00</span>
+            <span style={{ ...navLink, cursor: "default", color: "#9CA3AF" }}>Zo: Gesloten</span>
           </div>
 
         </div>

@@ -1,34 +1,59 @@
-﻿import SiteNav      from "@/components/site-nav";
-import SiteHero     from "@/components/site-hero";
-import SiteTrustBar from "@/components/site-trustbar";
-import SiteServices from "@/components/site-services";
-import SiteResults  from "@/components/site-results";
-import SiteProcess  from "@/components/site-process";
-import SiteReviews  from "@/components/site-reviews";
-import SiteCta      from "@/components/site-cta";
-import SiteFooter   from "@/components/site-footer";
+import SiteNav             from "@/components/site-nav";
+import SiteHero            from "@/components/site-hero";
+import SiteTrustBar        from "@/components/site-trustbar";
+import SiteResultatenGrid  from "@/components/site-resultaten-grid";
+import SiteVideo           from "@/components/site-video";
+import SiteServices        from "@/components/site-services";
+import SitePricing         from "@/components/site-pricing";
+import SiteYannick         from "@/components/site-yannick";
+import SiteProcess         from "@/components/site-process";
+import SiteWerkgebied      from "@/components/site-werkgebied";
+import SiteReviews         from "@/components/site-reviews";
+import SiteContact         from "@/components/site-contact";
+import SiteFooter          from "@/components/site-footer";
 
 export default function HomePage() {
   return (
     <>
+      {/* 1 · Announcement bar + white navbar */}
       <SiteNav />
+
       <main>
-        {/* 1 · Hero, full width, dark */}
+        {/* 2 · Hero — two columns, video background */}
         <SiteHero />
-        {/* 2 · Trust bar, white contrast strip */}
+
+        {/* 3 · Scrolling trust bar */}
         <SiteTrustBar />
-        {/* 3 · Services */}
+
+        {/* 4 · Voor & Na results grid */}
+        <SiteResultatenGrid />
+
+        {/* 5 · Video section */}
+        <SiteVideo />
+
+        {/* 6 · Services — 3 cards */}
         <SiteServices />
-        {/* 4 · Results / before-after */}
-        <SiteResults />
-        {/* 5 · How it works */}
+
+        {/* 7 · Pricing — 3 cards */}
+        <SitePricing />
+
+        {/* 8 · Over Yannick */}
+        <SiteYannick />
+
+        {/* 9 · Hoe het werkt — 5 steps */}
         <SiteProcess />
-        {/* 6 · Reviews, dark */}
+
+        {/* 10 · Werkgebied */}
+        <SiteWerkgebied />
+
+        {/* 11 · Reviews carousel */}
         <SiteReviews />
-        {/* 7 · Final CTA, dark */}
-        <SiteCta />
+
+        {/* 12 · Contact + form (dark) */}
+        <SiteContact />
       </main>
-      {/* 8 · Footer, dark */}
+
+      {/* 13 · Footer (dark) */}
       <SiteFooter />
     </>
   );

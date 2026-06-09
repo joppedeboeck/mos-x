@@ -3,9 +3,9 @@ import Image from "next/image";
 
 export default function SiteFooter() {
   return (
-    <footer style={{ background: "#060B0E" }}>
-      {/* Top glow line */}
-      <div style={{ height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(109,179,63,0.30) 50%, transparent 100%)" }} />
+    <footer style={{ background: "#1A1A1A" }}>
+      {/* Top accent line */}
+      <div style={{ height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(155,203,108,0.35) 50%, transparent 100%)" }} />
 
       {/* Main grid */}
       <div className="site-wrap" style={{ paddingTop: "72px", paddingBottom: "56px" }}>
@@ -22,21 +22,21 @@ export default function SiteFooter() {
                 style={{ height: "38px", width: "auto", objectFit: "contain" }}
               />
             </Link>
-            <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.35)", lineHeight: "1.65", marginBottom: "20px" }}>
+            <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.40)", lineHeight: "1.65", marginBottom: "20px" }}>
               Dakspecialist in Antwerpen en Vlaams-Brabant.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               <a
                 href="tel:+32468352869"
                 className="footer-muted-link"
-                style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}
+                style={{ fontSize: "13px", color: "rgba(255,255,255,0.50)", textDecoration: "none" }}
               >
                 +32 468 35 28 69
               </a>
               <a
                 href="mailto:info@mos-x.be"
                 className="footer-muted-link"
-                style={{ fontSize: "13px", color: "rgba(255,255,255,0.45)", textDecoration: "none" }}
+                style={{ fontSize: "13px", color: "rgba(255,255,255,0.50)", textDecoration: "none" }}
               >
                 info@mos-x.be
               </a>
@@ -45,7 +45,11 @@ export default function SiteFooter() {
 
           {/* Col 2 — Diensten */}
           <div>
-            <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#6DB33F", marginBottom: "20px" }}>
+            <p style={{
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em",
+              textTransform: "uppercase", color: "#9BCB6C", marginBottom: "20px",
+            }}>
               Diensten
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "13px" }}>
@@ -65,7 +69,11 @@ export default function SiteFooter() {
 
           {/* Col 3 — Navigatie */}
           <div>
-            <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#6DB33F", marginBottom: "20px" }}>
+            <p style={{
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em",
+              textTransform: "uppercase", color: "#9BCB6C", marginBottom: "20px",
+            }}>
               Navigatie
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "13px" }}>
@@ -91,16 +99,16 @@ export default function SiteFooter() {
 
       {/* Bottom bar */}
       <div className="site-wrap" style={{ paddingBottom: "32px" }}>
-        <div style={{ borderTop: "1px solid #1A2E35", paddingTop: "24px" }}>
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.08)", paddingTop: "24px" }}>
           <div
             className="flex flex-col md:flex-row md:items-center md:justify-between gap-2"
-            style={{ fontSize: "12px", color: "#4A5568" }}
+            style={{ fontSize: "12px", color: "rgba(255,255,255,0.30)" }}
           >
-            <span>Bovenpad 100, 2280 Grobbendonk &nbsp;·&nbsp; BTW: BE 0805.594.502</span>
-            <span className="md:text-center">© 2026 MOS-X. Alle rechten voorbehouden.</span>
+            <span>Bovenpad 100, 2280 Grobbendonk &nbsp;&middot;&nbsp; BTW: BE 0805.594.502 &nbsp;&middot;&nbsp; info@mos-x.be &nbsp;&middot;&nbsp; +32 468 35 28 69</span>
+            <span className="md:text-center">&copy; 2026 MOS-X. Alle rechten voorbehouden.</span>
             <span className="flex gap-4 md:justify-end">
               {["Privacybeleid", "Algemene voorwaarden"].map(l => (
-                <Link key={l} href="#" className="footer-muted-link" style={{ color: "#4A5568", textDecoration: "none" }}>
+                <Link key={l} href="#" className="footer-muted-link" style={{ color: "rgba(255,255,255,0.30)", textDecoration: "none" }}>
                   {l}
                 </Link>
               ))}
@@ -108,11 +116,6 @@ export default function SiteFooter() {
           </div>
         </div>
       </div>
-
-      <style>{`
-        .footer-link:hover { color: #6DB33F !important; transition: color 200ms; }
-        .footer-muted-link:hover { color: rgba(255,255,255,0.6) !important; transition: color 200ms; }
-      `}</style>
     </footer>
   );
 }

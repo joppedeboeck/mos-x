@@ -81,18 +81,18 @@ function ReviewCard({ r }: { r: (typeof reviews)[0] }) {
       style={{
         background: "#FFFFFF",
         border: "1px solid #E5E7EB",
-        boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+        boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
       }}
     >
       <Stars n={r.stars} />
-      <p className="text-sm leading-relaxed flex-1 mt-3 mb-4" style={{ color: "#4A5568" }}>
+      <p className="text-sm leading-relaxed flex-1 mt-3 mb-4" style={{ color: "#545454" }}>
         &ldquo;{r.text}&rdquo;
       </p>
       <span
         className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold w-fit mb-4"
         style={{
-          background: "rgba(109,179,63,0.10)",
-          color: "#6DB33F",
+          background: "rgba(155,203,108,0.12)",
+          color: "#9BCB6C",
           fontFamily: "var(--font-montserrat)",
         }}
       >
@@ -105,14 +105,14 @@ function ReviewCard({ r }: { r: (typeof reviews)[0] }) {
         <div
           className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm text-white shrink-0"
           style={{
-            background: "linear-gradient(135deg, #6DB33F 0%, #5A9A32 100%)",
+            background: "#9BCB6C",
             fontFamily: "var(--font-montserrat)",
           }}
         >
           {r.initial}
         </div>
         <div>
-          <p className="font-bold text-xs" style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#0D1510" }}>
+          <p className="font-bold text-xs" style={{ fontFamily: "var(--font-montserrat)", color: "#1A1A1A" }}>
             {r.name}
           </p>
           <p className="text-[11px]" style={{ color: "#9CA3AF" }}>
@@ -146,7 +146,7 @@ export default function SiteReviews() {
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
                 letterSpacing: "-0.02em",
-                color: "#0D1510",
+                color: "#1A1A1A",
               }}
             >
               Wat onze klanten zeggen.
@@ -160,15 +160,13 @@ export default function SiteReviews() {
           >
             <p
               className="font-black text-5xl leading-none"
-              style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#0D1510" }}
+              style={{ fontFamily: "var(--font-montserrat)", color: "#1A1A1A" }}
             >
               5.0
             </p>
             <div>
               <Stars n={5} />
-              <p className="text-xs mt-1.5" style={{ color: "#9CA3AF" }}>
-                op alle platforms
-              </p>
+              <p className="text-xs mt-1.5" style={{ color: "#9CA3AF" }}>op alle platforms</p>
             </div>
           </div>
         </div>
@@ -198,16 +196,16 @@ export default function SiteReviews() {
           </div>
         </div>
 
-        {/* Controls row */}
+        {/* Controls */}
         <div className="flex items-center justify-center gap-6">
           <button
             onClick={prev}
             disabled={index === 0}
             className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
             style={{
-              background: index === 0 ? "#F3F4F6" : "rgba(109,179,63,0.10)",
+              background: index === 0 ? "#F3F4F6" : "rgba(155,203,108,0.12)",
               border: "1px solid #E5E7EB",
-              color: index === 0 ? "#D1D5DB" : "#6DB33F",
+              color: index === 0 ? "#D1D5DB" : "#9BCB6C",
               cursor: index === 0 ? "not-allowed" : "pointer",
             }}
             aria-label="Vorige"
@@ -215,7 +213,6 @@ export default function SiteReviews() {
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Dots */}
           <div className="flex items-center gap-2">
             {Array.from({ length: MAX_INDEX + 1 }).map((_, i) => (
               <button
@@ -225,7 +222,7 @@ export default function SiteReviews() {
                 style={{
                   width: i === index ? "20px" : "8px",
                   height: "8px",
-                  background: i === index ? "#6DB33F" : "#D1D5DB",
+                  background: i === index ? "#9BCB6C" : "#D1D5DB",
                   transition: "width 300ms ease, background 300ms ease",
                 }}
                 aria-label={`Ga naar slide ${i + 1}`}
@@ -238,9 +235,9 @@ export default function SiteReviews() {
             disabled={index === MAX_INDEX}
             className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
             style={{
-              background: index === MAX_INDEX ? "#F3F4F6" : "rgba(109,179,63,0.10)",
+              background: index === MAX_INDEX ? "#F3F4F6" : "rgba(155,203,108,0.12)",
               border: "1px solid #E5E7EB",
-              color: index === MAX_INDEX ? "#D1D5DB" : "#6DB33F",
+              color: index === MAX_INDEX ? "#D1D5DB" : "#9BCB6C",
               cursor: index === MAX_INDEX ? "not-allowed" : "pointer",
             }}
             aria-label="Volgende"

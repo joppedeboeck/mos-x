@@ -30,27 +30,36 @@ const services = [
 
 export default function SiteServices() {
   return (
-    <section className="site-pad" id="diensten" style={{ background: "#FFFFFF" }}>
+    <section className="site-pad" id="diensten" style={{ background: "#F7F8F6" }}>
       <div className="site-wrap">
 
         {/* Header */}
         <div className="max-w-2xl mb-14">
-          <span className="site-eyebrow mb-4">Diensten</span>
+          <span className="site-eyebrow mb-4">Onze diensten</span>
           <h2
-            className="font-bold leading-tight"
+            className="font-bold leading-tight mb-3"
             style={{
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
               letterSpacing: "-0.02em",
-              color: "#0D1510",
+              color: "#1A1A1A",
             }}
           >
-            Alles voor een gezond dak.{" "}
-            <span style={{ color: "#6DB33F" }}>Altijd met diagnose vooraf.</span>
+            Alles voor een gezond dak.
           </h2>
+          <p
+            className="font-semibold"
+            style={{
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
+              color: "#9BCB6C",
+            }}
+          >
+            Altijd met diagnose vooraf.
+          </p>
         </div>
 
-        {/* 3-col service grid */}
+        {/* 3-col grid */}
         <div className="grid lg:grid-cols-3 gap-6 mb-10">
           {services.map((s, i) => (
             <Link
@@ -63,7 +72,7 @@ export default function SiteServices() {
                 borderRadius: "16px",
                 overflow: "hidden",
                 textDecoration: "none",
-                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
               }}
             >
               {/* Photo */}
@@ -77,7 +86,7 @@ export default function SiteServices() {
                 <div
                   className="absolute inset-0"
                   style={{
-                    background: "linear-gradient(to bottom, rgba(6,11,14,0.10) 0%, rgba(6,11,14,0.72) 100%)",
+                    background: "linear-gradient(to bottom, rgba(26,26,26,0.08) 0%, rgba(26,26,26,0.70) 100%)",
                   }}
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
@@ -91,27 +100,20 @@ export default function SiteServices() {
                 </div>
               </div>
 
-              {/* Card body */}
+              {/* Body */}
               <div className="flex flex-col flex-1 p-6">
-                <p
-                  className="leading-relaxed mb-6"
-                  style={{ color: "#4A5568", fontSize: "15px", lineHeight: "1.7" }}
-                >
+                <p style={{ color: "#545454", fontSize: "15px", lineHeight: "1.7" }} className="mb-6">
                   {s.desc}
                 </p>
-
-                {/* Checkmarks */}
                 <ul className="space-y-2.5 mb-6">
                   {s.checks.map((c, j) => (
                     <li key={j} className="flex items-center gap-2.5">
-                      <CheckCircle className="w-4 h-4 shrink-0" style={{ color: "#6DB33F" }} />
-                      <span className="text-sm" style={{ color: "#0D1510" }}>{c}</span>
+                      <CheckCircle className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
+                      <span className="text-sm" style={{ color: "#1A1A1A" }}>{c}</span>
                     </li>
                   ))}
                 </ul>
-
-                {/* Meer info */}
-                <div className="mt-auto flex items-center gap-1.5" style={{ color: "#6DB33F", fontSize: "14px", fontWeight: 600 }}>
+                <div className="mt-auto flex items-center gap-1.5" style={{ color: "#9BCB6C", fontSize: "14px", fontWeight: 600 }}>
                   Meer info
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -126,8 +128,8 @@ export default function SiteServices() {
             href="/diensten"
             className="inline-flex items-center gap-2 site-btn-green-outline"
             style={{
-              border: "1.5px solid #6DB33F",
-              color: "#6DB33F",
+              border: "1.5px solid #9BCB6C",
+              color: "#9BCB6C",
               background: "#FFFFFF",
               borderRadius: "8px",
               padding: "0.875rem 1.75rem",

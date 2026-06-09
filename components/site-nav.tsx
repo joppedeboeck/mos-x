@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
@@ -15,48 +14,90 @@ const links = [
   { label: "Contact",     href: "/contact" },
 ];
 
+const BAR_H = 44;
+
 export default function SiteNav() {
-  const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-  const isHomepage = pathname === "/";
-  const [visible, setVisible] = useState(!isHomepage);
+  const [barVisible, setBarVisible] = useState(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    if (!isHomepage) {
-      setVisible(true);
-      return;
-    }
-    const onScroll = () => setVisible(window.scrollY > 80);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isHomepage]);
+  }, []);
+
+  const navTop = barVisible ? BAR_H : 0;
 
   return (
     <>
-      {/* Floating navbar */}
+      {/* ── Announcement bar ── */}
+      {barVisible && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: `${BAR_H}px`,
+            background: "#9BCB6C",
+            zIndex: 60,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "0 48px",
+          }}
+        >
+          <p style={{ color: "#fff", fontSize: "14px", fontWeight: 500, textAlign: "center", lineHeight: 1.3 }}>
+            🌿 Lente 2026 = piekseizoen voor dakontmossing &mdash;{" "}
+            <Link
+              href="/contact"
+              style={{ color: "#fff", textDecoration: "underline", fontWeight: 600 }}
+            >
+              Plan nu uw gratis dakdiagnose
+            </Link>
+          </p>
+          <button
+            onClick={() => setBarVisible(false)}
+            aria-label="Sluit aankondiging"
+            style={{
+              position: "absolute",
+              right: "16px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              background: "none",
+              border: "none",
+              color: "#fff",
+              fontSize: "20px",
+              lineHeight: 1,
+              cursor: "pointer",
+              padding: "4px 8px",
+              opacity: 0.85,
+            }}
+          >
+            &times;
+          </button>
+        </div>
+      )}
+
+      {/* ── White navbar ── */}
       <header
-        className="fixed z-50"
         style={{
-          top: "20px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "calc(100% - 48px)",
-          maxWidth: "1200px",
-          borderRadius: "16px",
-          background: "rgba(6, 11, 14, 0.92)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          border: "1px solid #2A2A2A",
-          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3)",
-          opacity: visible ? 1 : 0,
-          pointerEvents: visible ? "all" : "none",
-          transition: "opacity 300ms ease",
+          position: "fixed",
+          top: `${navTop}px`,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          background: "#FFFFFF",
+          borderBottom: "1px solid #E5E7EB",
+          boxShadow: scrolled ? "0 2px 8px rgba(0,0,0,0.06)" : "none",
+          transition: "top 300ms ease, box-shadow 300ms ease",
         }}
       >
         <nav
-          className="flex items-center justify-between"
-          style={{ padding: "14px 24px" }}
+          className="site-wrap flex items-center justify-between"
+          style={{ height: "68px" }}
         >
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
@@ -70,67 +111,65 @@ export default function SiteNav() {
             />
           </Link>
 
-          {/* Desktop nav links */}
+          {/* Desktop center links */}
           <div className="hidden lg:flex items-center gap-7">
             {links.map(l => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-[0.875rem] font-semibold transition-colors"
+                className="nav-link text-sm font-semibold transition-colors"
                 style={{
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                  color: "rgba(255,255,255,0.75)",
+                  color: "#545454",
+                  textDecoration: "none",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#6DB33F")}
-                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.75)")}
               >
                 {l.label}
               </Link>
             ))}
           </div>
 
-          {/* Desktop right: phone + CTA */}
+          {/* Desktop right */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:+32468352869"
-              className="flex items-center gap-2 text-[0.875rem] font-semibold transition-colors"
+              className="flex items-center gap-1.5 text-sm font-semibold"
               style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                color: "rgba(255,255,255,0.50)",
+                color: "#545454",
+                textDecoration: "none",
               }}
-              onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")}
-              onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.50)")}
             >
-              <Phone className="w-3.5 h-3.5" />
+              <Phone className="w-3.5 h-3.5" style={{ color: "#9BCB6C" }} />
               +32 468 35 28 69
             </a>
             <Link
-              href="/calculator"
-              className="nav-cta-btn"
+              href="/contact"
               style={{
-                fontFamily: "var(--font-inter), system-ui, sans-serif",
-                background: "rgba(109,179,63,0.12)",
-                border: "1px solid rgba(109,179,63,0.35)",
-                color: "#6DB33F",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
+                background: "#9BCB6C",
+                color: "#fff",
                 borderRadius: "8px",
-                padding: "9px 18px",
+                padding: "9px 20px",
                 fontSize: "14px",
-                fontWeight: 600,
+                fontWeight: 700,
+                fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 textDecoration: "none",
+                transition: "background 200ms ease",
                 display: "inline-block",
+                whiteSpace: "nowrap",
               }}
+              onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
+              onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
             >
-              Bereken uw richtprijs
+              Gratis Diagnose
             </Link>
           </div>
 
           {/* Mobile hamburger */}
           <button
-            onClick={() => setOpen(true)}
+            onClick={() => setMobileOpen(true)}
             className="lg:hidden p-2 rounded-lg"
-            style={{ color: "rgba(255,255,255,0.8)" }}
+            style={{ color: "#1A1A1A" }}
             aria-label="Menu openen"
           >
             <Menu className="w-5 h-5" />
@@ -138,17 +177,18 @@ export default function SiteNav() {
         </nav>
       </header>
 
-      {/* Mobile drawer */}
-      {open && (
+      {/* ── Mobile drawer ── */}
+      {mobileOpen && (
         <div className="fixed inset-0 z-[60] flex">
           <div
-            className="absolute inset-0 bg-black/60"
-            onClick={() => setOpen(false)}
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setMobileOpen(false)}
           />
           <div
             className="relative ml-auto w-72 h-full flex flex-col p-6"
-            style={{ background: "#081012" }}
+            style={{ background: "#FFFFFF" }}
           >
+            {/* Drawer header */}
             <div className="flex items-center justify-between mb-8">
               <Image
                 src="/images/logo.avif"
@@ -158,59 +198,61 @@ export default function SiteNav() {
                 style={{ height: "34px", width: "auto", objectFit: "contain" }}
               />
               <button
-                onClick={() => setOpen(false)}
+                onClick={() => setMobileOpen(false)}
                 className="p-1 rounded-lg"
-                style={{ color: "rgba(255,255,255,0.50)" }}
+                style={{ color: "#545454" }}
                 aria-label="Menu sluiten"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
+            {/* Nav links */}
             <nav className="flex flex-col gap-1 flex-1">
               {links.map(l => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  onClick={() => setOpen(false)}
+                  onClick={() => setMobileOpen(false)}
                   className="px-3 py-3 rounded-lg text-sm font-semibold transition-colors"
                   style={{
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                    color: "rgba(255,255,255,0.65)",
+                    color: "#545454",
+                    textDecoration: "none",
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.color = "#6DB33F")}
-                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}
                 >
                   {l.label}
                 </Link>
               ))}
             </nav>
 
+            {/* Mobile footer */}
             <div
               className="space-y-3 pt-6"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
+              style={{ borderTop: "1px solid #E5E7EB" }}
             >
               <a
                 href="tel:+32468352869"
                 className="flex items-center gap-2 text-sm font-semibold"
-                style={{ color: "rgba(255,255,255,0.50)" }}
+                style={{ color: "#545454" }}
               >
-                <Phone className="w-4 h-4" /> +32 468 35 28 69
+                <Phone className="w-4 h-4" style={{ color: "#9BCB6C" }} />
+                +32 468 35 28 69
               </a>
               <Link
-                href="/calculator"
-                onClick={() => setOpen(false)}
-                className="nav-cta-btn flex items-center justify-center w-full text-sm font-bold"
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center w-full text-sm font-bold"
                 style={{
-                  background: "rgba(109,179,63,0.12)",
-                  border: "1px solid rgba(109,179,63,0.35)",
-                  color: "#6DB33F",
+                  background: "#9BCB6C",
+                  color: "#fff",
                   borderRadius: "8px",
-                  padding: "11px 20px",
+                  padding: "12px 20px",
                   textDecoration: "none",
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 }}
               >
-                Bereken uw richtprijs
+                Gratis Diagnose
               </Link>
             </div>
           </div>

@@ -1,76 +1,47 @@
-import { Search, Calendar, EuroIcon, Shield } from "lucide-react";
-
 const items = [
-  {
-    icon: <Search className="w-5 h-5" style={{ color: "#6DB33F" }} />,
-    label: "Gratis inspectie",
-    desc: "Drone-inspectie inbegrepen",
-  },
-  {
-    icon: <Calendar className="w-5 h-5" style={{ color: "#6DB33F" }} />,
-    label: "Binnen 2 weken geholpen",
-    desc: "Snelle planning, ook urgent",
-  },
-  {
-    icon: <EuroIcon className="w-5 h-5" style={{ color: "#6DB33F" }} />,
-    label: "Geen verborgen kosten",
-    desc: "Vaste prijs na diagnose",
-  },
-  {
-    icon: <Shield className="w-5 h-5" style={{ color: "#6DB33F" }} />,
-    label: "Volledig verzekerd",
-    desc: "Burgerlijke aansprakelijkheid",
-  },
+  { icon: "⭐", text: "5.0 Google Reviews · 12 beoordelingen" },
+  { icon: "✓", text: "Gezien op VTM Lifestyle & Wonen" },
+  { icon: "✓", text: "200+ daken gereinigd" },
+  { icon: "✓", text: "Volledig verzekerd" },
+  { icon: "✓", text: "Gratis drone-inspectie" },
+  { icon: "✓", text: "Actief in Antwerpen & Vlaams-Brabant" },
+  { icon: "✓", text: "Geen verkooppraatjes" },
 ];
+
+function Item({ icon, text }: { icon: string; text: string }) {
+  return (
+    <span className="flex items-center gap-2 shrink-0 whitespace-nowrap" style={{ padding: "0 28px" }}>
+      <span
+        style={{
+          color: "#9BCB6C",
+          fontSize: "13px",
+          fontWeight: 700,
+        }}
+      >
+        {icon}
+      </span>
+      <span style={{ color: "#545454", fontSize: "14px" }}>{text}</span>
+      <span style={{ color: "#E5E7EB", marginLeft: "28px", fontSize: "16px" }}>·</span>
+    </span>
+  );
+}
 
 export default function SiteTrustBar() {
   return (
-    <section style={{ background: "#FFFFFF", paddingTop: "40px", paddingBottom: "0" }}>
-      <div className="site-wrap">
-        <div
-          style={{
-            background: "#FFFFFF",
-            borderRadius: "16px",
-            border: "1px solid #E5E7EB",
-            boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-            maxWidth: "1300px",
-            margin: "0 auto",
-          }}
-        >
-          <div className="grid grid-cols-2 lg:grid-cols-4">
-            {items.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3"
-                style={{
-                  padding: "20px 32px",
-                  borderRight: i < items.length - 1 ? "1px solid #E5E7EB" : "none",
-                }}
-              >
-                <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                  style={{ background: "rgba(109,179,63,0.10)" }}
-                >
-                  {item.icon}
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <p
-                    className="text-[0.8125rem] leading-tight font-bold whitespace-nowrap"
-                    style={{
-                      fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                      color: "#0D1510",
-                    }}
-                  >
-                    {item.label}
-                  </p>
-                  <p className="text-[0.7rem] leading-tight mt-0.5 whitespace-nowrap" style={{ color: "#6B7280" }}>
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+    <section
+      style={{
+        background: "#FFFFFF",
+        borderTop: "1px solid #E5E7EB",
+        borderBottom: "1px solid #E5E7EB",
+        overflow: "hidden",
+        padding: "14px 0",
+      }}
+    >
+      {/* Double the items for seamless loop */}
+      <div className="marquee-track flex">
+        {[...items, ...items].map((item, i) => (
+          <Item key={i} icon={item.icon} text={item.text} />
+        ))}
       </div>
     </section>
   );

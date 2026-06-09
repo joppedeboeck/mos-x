@@ -31,7 +31,7 @@ const steps = [
 
 export default function SiteProcess() {
   return (
-    <section className="site-pad" id="hoe-het-werkt" style={{ background: "#F7F8F6" }}>
+    <section className="site-pad" id="hoe-het-werkt" style={{ background: "#FFFFFF" }}>
       <div className="site-wrap">
 
         {/* Header */}
@@ -43,13 +43,13 @@ export default function SiteProcess() {
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
               letterSpacing: "-0.02em",
-              color: "#0D1510",
+              color: "#1A1A1A",
             }}
           >
-            Van inspectie tot
-            <span style={{ color: "#6DB33F" }}> jarenlange bescherming.</span>
+            Van diagnose tot
+            <span style={{ color: "#9BCB6C" }}> jarenlange bescherming.</span>
           </h2>
-          <p className="text-base leading-relaxed" style={{ color: "#6B7280" }}>
+          <p className="text-base leading-relaxed" style={{ color: "#545454" }}>
             Vijf duidelijke stappen. Geen verrassingen. Geen vakjargon.
           </p>
         </div>
@@ -69,7 +69,6 @@ export default function SiteProcess() {
             }}
           />
 
-          {/* Grid */}
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 relative z-10"
             style={{ gap: "16px", alignItems: "stretch" }}
@@ -84,9 +83,9 @@ export default function SiteProcess() {
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center font-black text-sm text-white shrink-0 mb-5"
                   style={{
-                    background: "linear-gradient(135deg, #6DB33F 0%, #5A9A32 100%)",
+                    background: "#9BCB6C",
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                    boxShadow: "0 0 0 4px #F7F8F6, 0 0 0 6px rgba(109,179,63,0.30)",
+                    boxShadow: "0 0 0 4px #FFFFFF, 0 0 0 6px rgba(155,203,108,0.30)",
                   }}
                 >
                   {parseInt(s.n)}
@@ -101,7 +100,7 @@ export default function SiteProcess() {
                     border: "1px solid #E5E7EB",
                     borderRadius: "14px",
                     padding: "28px 24px",
-                    boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                    boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
                   }}
                 >
                   <h3
@@ -110,14 +109,14 @@ export default function SiteProcess() {
                       fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                       fontSize: "15px",
                       marginBottom: "12px",
-                      color: "#0D1510",
+                      color: "#1A1A1A",
                     }}
                   >
                     {s.title}
                   </h3>
                   <p
                     style={{
-                      color: "#6B7280",
+                      color: "#545454",
                       fontSize: "14px",
                       lineHeight: "1.7",
                       flex: 1,
@@ -126,18 +125,15 @@ export default function SiteProcess() {
                     {s.desc}
                   </p>
 
-                  {/* CTA button */}
                   {s.cta && (
                     <Link
                       href={s.cta.href}
                       style={{
                         display: "block",
                         width: "100%",
-                        marginTop: "auto",
-                        paddingTop: "16px",
                         background: "#FFFFFF",
-                        border: "1.5px solid #6DB33F",
-                        color: "#6DB33F",
+                        border: "1.5px solid #9BCB6C",
+                        color: "#9BCB6C",
                         borderRadius: "8px",
                         padding: "12px 16px",
                         fontSize: "13px",
@@ -147,6 +143,7 @@ export default function SiteProcess() {
                         textAlign: "center",
                         whiteSpace: "nowrap",
                         boxSizing: "border-box",
+                        marginTop: "16px",
                         transition: "background 200ms ease, color 200ms ease",
                       }}
                     >

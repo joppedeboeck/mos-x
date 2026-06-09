@@ -1,46 +1,62 @@
 const items = [
-  { icon: "⭐", text: "5.0 Google Reviews · 12 beoordelingen" },
-  { icon: "✓", text: "Gezien op VTM Lifestyle & Wonen" },
-  { icon: "✓", text: "200+ daken gereinigd" },
-  { icon: "✓", text: "Volledig verzekerd" },
-  { icon: "✓", text: "Gratis drone-inspectie" },
-  { icon: "✓", text: "Actief in Antwerpen & Vlaams-Brabant" },
-  { icon: "✓", text: "Geen verkooppraatjes" },
+  { icon: "⭐", text: "5 sterren op Google Reviews" },
+  { icon: "✓", text: "100+ daken gereinigd" },
+  { icon: "📺", text: "Bekend van VTM Lifestyle & Wonen" },
 ];
-
-function Item({ icon, text }: { icon: string; text: string }) {
-  return (
-    <span className="flex items-center gap-2 shrink-0 whitespace-nowrap" style={{ padding: "0 28px" }}>
-      <span
-        style={{
-          color: "#9BCB6C",
-          fontSize: "13px",
-          fontWeight: 700,
-        }}
-      >
-        {icon}
-      </span>
-      <span style={{ color: "#545454", fontSize: "14px" }}>{text}</span>
-      <span style={{ color: "#E5E7EB", marginLeft: "28px", fontSize: "16px" }}>·</span>
-    </span>
-  );
-}
 
 export default function SiteTrustBar() {
   return (
     <section
       style={{
-        background: "#FFFFFF",
-        borderTop: "1px solid #E5E7EB",
-        borderBottom: "1px solid #E5E7EB",
-        overflow: "hidden",
-        padding: "14px 0",
+        background: "#1A1A1A",
+        width: "100%",
+        height: "56px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
-      {/* Double the items for seamless loop */}
-      <div className="marquee-track flex">
-        {[...items, ...items].map((item, i) => (
-          <Item key={i} icon={item.icon} text={item.text} />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "0",
+        }}
+      >
+        {items.map((item, i) => (
+          <div key={i} style={{ display: "flex", alignItems: "center" }}>
+            {i > 0 && (
+              <div
+                style={{
+                  width: "1px",
+                  height: "20px",
+                  background: "#333333",
+                  margin: "0 48px",
+                  flexShrink: 0,
+                }}
+              />
+            )}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <span style={{ fontSize: "14px", lineHeight: 1 }}>{item.icon}</span>
+              <span
+                style={{
+                  color: "#FFFFFF",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {item.text}
+              </span>
+            </div>
+          </div>
         ))}
       </div>
     </section>

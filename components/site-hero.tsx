@@ -7,7 +7,7 @@ export default function SiteHero() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ minHeight: "90vh", background: "#1A1A1A" }}
+      style={{ minHeight: "90vh", background: "#1A1A1A", width: "100%", maxWidth: "100vw" }}
     >
       {/* Video background */}
       <video

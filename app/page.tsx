@@ -17,31 +17,31 @@ export default function HomePage() {
       <SiteNav />
 
       <main>
-        {/* 1 · Hero — two columns, video bg */}
+        {/* 1 · Hero */}
         <SiteHero />
 
-        {/* 2 · Scrolling trust ticker */}
+        {/* 2 · Trust bar (12 reviews, 100+ daken, VTM) */}
         <SiteTrustBar />
 
-        {/* 3 · Voor & Na results grid */}
-        <SiteResultatenGrid />
-
-        {/* 4 · Diensten */}
-        <SiteServices />
-
-        {/* 6 · Prijzen */}
+        {/* 3 · Richtprijscalculator */}
         <SitePricing />
 
-        {/* 7 · Over Yannick */}
-        <SiteYannick />
-
-        {/* 8 · Werkgebied — 4 provinces */}
-        <SiteWerkgebied />
-
-        {/* 9 · Reviews */}
+        {/* 4 · Klantbeoordelingen */}
         <SiteReviews />
 
-        {/* 11 · Contact + form */}
+        {/* 5 · Diensten */}
+        <SiteServices />
+
+        {/* 6 · Realisaties / Voor & Na */}
+        <SiteResultatenGrid />
+
+        {/* 7 · Wie is Yannick? */}
+        <SiteYannick />
+
+        {/* 8 · Werkgebied */}
+        <SiteWerkgebied />
+
+        {/* 9 · CTA kaart */}
         <SiteContact />
       </main>
 

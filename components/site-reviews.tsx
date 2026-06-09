@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
@@ -69,8 +69,8 @@ const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/MOS-X+%7C+Dakontmossi
 
 const btnStyle: React.CSSProperties = {
   display: "inline-block",
-  border: "1px solid #5A9E2F",
-  color: "#5A9E2F",
+  border: "1px solid #9BCB6C",
+  color: "#9BCB6C",
   background: "#FFFFFF",
   borderRadius: "8px",
   padding: "12px 28px",
@@ -90,12 +90,12 @@ function GoogleBtn({ text, url }: { text: string; url: string }) {
       rel="noopener noreferrer"
       style={btnStyle}
       onMouseEnter={e => {
-        (e.currentTarget as HTMLAnchorElement).style.background = "#5A9E2F";
+        (e.currentTarget as HTMLAnchorElement).style.background = "#9BCB6C";
         (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
       }}
       onMouseLeave={e => {
         (e.currentTarget as HTMLAnchorElement).style.background = "#FFFFFF";
-        (e.currentTarget as HTMLAnchorElement).style.color = "#5A9E2F";
+        (e.currentTarget as HTMLAnchorElement).style.color = "#9BCB6C";
       }}
     >
       {text}
@@ -124,14 +124,14 @@ function ReviewCard({ r }: { r: (typeof reviews)[0] }) {
       }}
     >
       <Stars n={r.stars} />
-      <p className="text-sm leading-relaxed flex-1 mt-3 mb-4" style={{ color: "#555555" }}>
+      <p className="text-sm leading-relaxed flex-1 mt-3 mb-4" style={{ color: "#545454" }}>
         &ldquo;{r.text}&rdquo;
       </p>
       <span
         className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold w-fit mb-4"
         style={{
-          background: "rgba(90,158,47,0.10)",
-          color: "#5A9E2F",
+          background: "rgba(155,203,108,0.12)",
+          color: "#9BCB6C",
           fontFamily: "var(--font-montserrat)",
         }}
       >
@@ -143,12 +143,12 @@ function ReviewCard({ r }: { r: (typeof reviews)[0] }) {
       >
         <div
           className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm text-white shrink-0"
-          style={{ background: "#5A9E2F", fontFamily: "var(--font-montserrat)" }}
+          style={{ background: "#9BCB6C", fontFamily: "var(--font-montserrat)" }}
         >
           {r.initial}
         </div>
         <div>
-          <p className="font-bold text-xs" style={{ fontFamily: "var(--font-montserrat)", color: "#111111" }}>
+          <p className="font-bold text-xs" style={{ fontFamily: "var(--font-montserrat)", color: "#1A1A1A" }}>
             {r.name}
           </p>
           <p className="text-[11px]" style={{ color: "#9CA3AF" }}>
@@ -181,7 +181,7 @@ export default function SiteReviews() {
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
               letterSpacing: "-0.02em",
-              color: "#111111",
+              color: "#1A1A1A",
             }}
           >
             Wat onze klanten zeggen.
@@ -222,9 +222,9 @@ export default function SiteReviews() {
             disabled={index === 0}
             className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
             style={{
-              background: index === 0 ? "#F3F4F6" : "rgba(90,158,47,0.10)",
+              background: index === 0 ? "#F3F4F6" : "rgba(155,203,108,0.12)",
               border: "1px solid #E5E7EB",
-              color: index === 0 ? "#D1D5DB" : "#5A9E2F",
+              color: index === 0 ? "#D1D5DB" : "#9BCB6C",
               cursor: index === 0 ? "not-allowed" : "pointer",
             }}
             aria-label="Vorige"
@@ -241,7 +241,7 @@ export default function SiteReviews() {
                 style={{
                   width: i === index ? "20px" : "8px",
                   height: "8px",
-                  background: i === index ? "#5A9E2F" : "#D1D5DB",
+                  background: i === index ? "#9BCB6C" : "#D1D5DB",
                   transition: "width 300ms ease, background 300ms ease",
                   border: "none",
                   cursor: "pointer",
@@ -257,9 +257,9 @@ export default function SiteReviews() {
             disabled={index === MAX_INDEX}
             className="w-10 h-10 rounded-full flex items-center justify-center transition-all"
             style={{
-              background: index === MAX_INDEX ? "#F3F4F6" : "rgba(90,158,47,0.10)",
+              background: index === MAX_INDEX ? "#F3F4F6" : "rgba(155,203,108,0.12)",
               border: "1px solid #E5E7EB",
-              color: index === MAX_INDEX ? "#D1D5DB" : "#5A9E2F",
+              color: index === MAX_INDEX ? "#D1D5DB" : "#9BCB6C",
               cursor: index === MAX_INDEX ? "not-allowed" : "pointer",
             }}
             aria-label="Volgende"

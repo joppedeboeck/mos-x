@@ -1,9 +1,9 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { Phone } from "lucide-react";
 
-const GREEN = "#5A9E2F";
+const GREEN = "#8DC63F";
 const DIVIDER = "#EEEEEE";
 
 const eyebrow: React.CSSProperties = {
@@ -19,7 +19,7 @@ const eyebrow: React.CSSProperties = {
 
 export default function SiteContact() {
   return (
-    <section style={{ background: "#F8F8F8", padding: "60px 24px" }}>
+    <section style={{ background: "#F7F8F6", padding: "60px 24px" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div
           style={{
@@ -47,7 +47,7 @@ export default function SiteContact() {
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                     fontSize: "clamp(22px, 2.5vw, 28px)",
                     fontWeight: 700,
-                    color: "#111111",
+                    color: "#1A1A1A",
                     lineHeight: 1.25,
                     marginBottom: "8px",
                   }}
@@ -63,7 +63,7 @@ export default function SiteContact() {
                     "200+ daken gereinigd",
                     "12 × 5 sterren reviews",
                   ].map(item => (
-                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#111111", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "8px" }}>
+                    <div key={item} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", color: "#1A1A1A", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "8px" }}>
                       <span style={{ color: GREEN, fontWeight: 700, flexShrink: 0 }}>✓</span>
                       {item}
                     </div>
@@ -97,7 +97,7 @@ export default function SiteContact() {
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                     fontSize: "26px",
                     fontWeight: 700,
-                    color: "#111111",
+                    color: "#1A1A1A",
                     margin: "0 0 2px 0",
                   }}>
                     € 1.250 – € 1.550
@@ -118,7 +118,7 @@ export default function SiteContact() {
                   width: "100%",
                   boxSizing: "border-box",
                   background: GREEN,
-                  color: "#111111",
+                  color: "#1A1A1A",
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                   fontSize: "13px",
                   fontWeight: 700,
@@ -129,7 +129,7 @@ export default function SiteContact() {
                   letterSpacing: "0.05em",
                   transition: "background 150ms ease",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#4A8A25")}
+                onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
                 onMouseLeave={e => (e.currentTarget.style.background = GREEN)}
               >
                 PRIJS BEREKENEN →
@@ -154,7 +154,7 @@ export default function SiteContact() {
                     />
                   </div>
                   <div>
-                    <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, color: "#111111", fontSize: "16px", margin: "0 0 4px 0" }}>
+                    <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, color: "#1A1A1A", fontSize: "16px", margin: "0 0 4px 0" }}>
                       Yannick
                     </p>
                     <p style={{ fontSize: "13px", color: "#666666", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: 0, lineHeight: 1.5 }}>
@@ -180,29 +180,29 @@ export default function SiteContact() {
                   width: "100%",
                   boxSizing: "border-box",
                   background: "transparent",
-                  border: "2px solid #111111",
+                  border: "2px solid #1A1A1A",
                   borderRadius: "8px",
                   padding: "13px 20px",
                   textDecoration: "none",
                   transition: "background 150ms ease, color 150ms ease",
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background = "#111111";
+                  e.currentTarget.style.background = "#1A1A1A";
                   (e.currentTarget.querySelector("span") as HTMLElement).style.color = "#FFFFFF";
                   (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#FFFFFF";
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.background = "transparent";
-                  (e.currentTarget.querySelector("span") as HTMLElement).style.color = "#111111";
-                  (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#111111";
+                  (e.currentTarget.querySelector("span") as HTMLElement).style.color = "#1A1A1A";
+                  (e.currentTarget.querySelector("svg") as SVGElement).style.color = "#1A1A1A";
                 }}
               >
-                <Phone style={{ width: "16px", height: "16px", color: "#111111", flexShrink: 0, transition: "color 150ms ease" }} />
+                <Phone style={{ width: "16px", height: "16px", color: "#1A1A1A", flexShrink: 0, transition: "color 150ms ease" }} />
                 <span style={{
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: "#111111",
+                  color: "#1A1A1A",
                   letterSpacing: "0.02em",
                   transition: "color 150ms ease",
                 }}>

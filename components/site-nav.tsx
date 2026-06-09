@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -81,13 +81,13 @@ export default function SiteNav() {
                   fontFamily: "var(--font-montserrat)",
                   fontSize: "14px",
                   fontWeight: 600,
-                  color: "#111111",
+                  color: "#1A1A1A",
                   textDecoration: "none",
                   transition: "color 150ms ease",
                   whiteSpace: "nowrap",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.color = "#5A9E2F")}
-                onMouseLeave={e => (e.currentTarget.style.color = "#111111")}
+                onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#1A1A1A")}
               >
                 {l.label}
               </Link>
@@ -105,22 +105,22 @@ export default function SiteNav() {
                 fontFamily: "var(--font-montserrat)",
                 fontSize: "14px",
                 fontWeight: 600,
-                color: "#111111",
+                color: "#1A1A1A",
                 textDecoration: "none",
                 transition: "color 150ms ease",
                 whiteSpace: "nowrap",
               }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#5A9E2F")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#111111")}
+              onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#1A1A1A")}
             >
-              <Phone style={{ width: "14px", height: "14px", color: "#5A9E2F", flexShrink: 0 }} />
+              <Phone style={{ width: "14px", height: "14px", color: "#9BCB6C", flexShrink: 0 }} />
               +32 468 35 28 69
             </a>
             <Link
               href="/contact"
               style={{
-                background: "#5A9E2F",
-                color: "#111111",
+                background: "#9BCB6C",
+                color: "#1A1A1A",
                 borderRadius: "6px",
                 padding: "8px 20px",
                 fontSize: "13px",
@@ -131,8 +131,8 @@ export default function SiteNav() {
                 display: "inline-block",
                 whiteSpace: "nowrap",
               }}
-              onMouseEnter={e => (e.currentTarget.style.background = "#4A8A25")}
-              onMouseLeave={e => (e.currentTarget.style.background = "#5A9E2F")}
+              onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
+              onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
             >
               Bereken uw richtprijs
             </Link>
@@ -142,7 +142,7 @@ export default function SiteNav() {
           <button
             onClick={() => setMobileOpen(true)}
             className="lg:hidden p-2 rounded-lg"
-            style={{ color: "#111111" }}
+            style={{ color: "#1A1A1A" }}
             aria-label="Menu openen"
           >
             <Menu className="w-5 h-5" />
@@ -183,13 +183,13 @@ export default function SiteNav() {
             <div className="space-y-3 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
               <a href="tel:+32468352869" className="flex items-center gap-2 text-sm font-semibold"
                 style={{ color: "#FFFFFF", opacity: 0.85 }}>
-                <Phone className="w-4 h-4" style={{ color: "#5A9E2F" }} />
+                <Phone className="w-4 h-4" style={{ color: "#9BCB6C" }} />
                 +32 468 35 28 69
               </a>
               <Link href="/contact" onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center w-full text-sm font-bold"
                 style={{
-                  background: "#5A9E2F", color: "#111111", borderRadius: "50px",
+                  background: "#9BCB6C", color: "#1A1A1A", borderRadius: "50px",
                   padding: "12px 20px", textDecoration: "none",
                   fontFamily: "var(--font-montserrat)",
                 }}

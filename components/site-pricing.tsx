@@ -1,6 +1,6 @@
-﻿export default function SitePricing() {
+export default function SitePricing() {
   return (
-    <section className="site-pad" style={{ background: "#F8F8F8" }}>
+    <section className="site-pad" style={{ background: "#F7F8F6" }}>
       <div className="site-wrap">
         <div className="mx-auto" style={{ maxWidth: "900px" }}>
 
@@ -13,7 +13,7 @@
                 fontWeight: 700,
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
-                color: "#5A9E2F",
+                color: "#9BCB6C",
                 marginBottom: "16px",
               }}
             >
@@ -25,12 +25,12 @@
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
                 letterSpacing: "-0.02em",
-                color: "#111111",
+                color: "#1A1A1A",
               }}
             >
               Wat kost dakontmossing?
             </h2>
-            <p style={{ color: "#555555", fontSize: "16px" }}>
+            <p style={{ color: "#545454", fontSize: "16px" }}>
               Ontvang binnen 1 minuut een eerste richtprijs voor uw dak.
             </p>
           </div>

@@ -26,8 +26,8 @@ export default function SiteNav() {
           transform: "translateX(-50%)",
           zIndex: 1000,
           width: "auto",
-          minWidth: "700px",
-          maxWidth: "960px",
+          minWidth: "960px",
+          maxWidth: "1280px",
         }}
       >
         <nav
@@ -41,7 +41,7 @@ export default function SiteNav() {
             backdropFilter: "blur(16px)",
             WebkitBackdropFilter: "blur(16px)",
             border: "1px solid rgba(0, 0, 0, 0.08)",
-            borderRadius: "50px",
+            borderRadius: "16px",
             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)",
           }}
         >
@@ -105,7 +105,7 @@ export default function SiteNav() {
               style={{
                 background: "#9BCB6C",
                 color: "#1A1A1A",
-                borderRadius: "50px",
+                borderRadius: "16px",
                 padding: "8px 20px",
                 fontSize: "13px",
                 fontWeight: 700,

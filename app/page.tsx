@@ -20,9 +20,6 @@ export default function HomePage() {
         {/* 1 · Hero */}
         <SiteHero />
 
-        {/* 2 · Trust bar (12 reviews, 100+ daken, VTM) */}
-        <SiteTrustBar />
-
         {/* 3 · Richtprijscalculator */}
         <SitePricing />
 

@@ -167,7 +167,7 @@ export default function SitePricing() {
   ];
 
   return (
-    <section style={{ background: "#F8F8F8", padding: "0 24px 80px", marginTop: "-60px", position: "relative", zIndex: 10 }}>
+    <section style={{ background: "transparent", padding: "0 24px 80px", marginTop: "-80px", position: "relative", zIndex: 10 }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
         {/* 2-kolom wrapper */}

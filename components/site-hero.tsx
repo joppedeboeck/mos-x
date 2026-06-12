@@ -7,7 +7,7 @@ export default function SiteHero() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ height: "100vh", minHeight: "100vh", background: "#1A1A1A", width: "100%", maxWidth: "100vw", borderRadius: "0 0 40px 40px", overflow: "hidden" }}
+      style={{ height: "100vh", minHeight: "100vh", background: "#1A1A1A", width: "100%", maxWidth: "100vw" }}
     >
       {/* Video background */}
       <video
@@ -36,7 +36,7 @@ export default function SiteHero() {
       >
         <div
           className="w-full max-w-3xl"
-          style={{ paddingTop: "100px", paddingBottom: "180px" }}
+          style={{ paddingTop: "100px", paddingBottom: "60px" }}
         >
 
           {/* ── Left column ── */}

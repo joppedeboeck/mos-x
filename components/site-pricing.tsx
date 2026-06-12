@@ -166,42 +166,75 @@ export default function SitePricing() {
     { id: "geen", title: "Geen extra behandeling", bullets: [] },
   ];
 
+  const tabLabels = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Gegevens"];
+
   return (
-    <section style={{ background: "transparent", padding: "0 24px 80px", marginTop: "-80px", position: "relative", zIndex: 10 }}>
+    <section style={{ background: "transparent", padding: "0 40px 60px", marginTop: "-120px", position: "relative", zIndex: 10 }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
-        {/* 2-kolom wrapper */}
-        <div className="flex flex-col lg:flex-row lg:items-start" style={{ gap: "48px", paddingTop: "100px" }}>
+        {/* Witte zweefkaart */}
+        <div style={{ background: "#FFFFFF", borderRadius: "16px", boxShadow: "0 8px 48px rgba(0,0,0,0.15)", padding: "40px" }}>
+          <div className="flex flex-col lg:flex-row lg:items-start" style={{ gap: "48px" }}>
 
-          {/* ── LINKS: uitleg (40%) ── */}
-          <div className="lg:sticky" style={{ flex: "0 0 38%", paddingTop: "8px", top: "100px" }}>
-            <span style={{
-              display: "inline-block", fontSize: "11px", fontWeight: 700,
-              letterSpacing: "0.14em", textTransform: "uppercase", color: GREEN,
-              fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "16px",
-            }}>
-              Binnen 60 seconden
-            </span>
-            <h2 style={{
-              fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800,
-              fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.02em",
-              color: "#111", marginBottom: "28px", lineHeight: 1.2,
-            }}>
-              Ontvang direct een richtprijs voor uw dak.
-            </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-              {[["🚫", "Geen verplichtingen"], ["✓", "100% transparant"], ["⏱", "Binnen 60 seconden resultaat"]].map(([icon, txt]) => (
-                <div key={txt as string} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <span style={{ fontSize: "22px", width: "32px", textAlign: "center", flexShrink: 0 }}>{icon}</span>
-                  <span style={{ fontSize: "15px", color: "#444", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{txt}</span>
-                </div>
-              ))}
+            {/* ── LINKS: uitleg ── */}
+            <div style={{ flex: "0 0 30%", minWidth: "220px" }}>
+              <span style={{
+                display: "inline-block", fontSize: "11px", fontWeight: 700,
+                letterSpacing: "0.14em", textTransform: "uppercase", color: GREEN,
+                fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "14px",
+              }}>
+                Binnen 60 seconden
+              </span>
+              <h2 style={{
+                fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800,
+                fontSize: "clamp(1.3rem, 2vw, 1.7rem)", letterSpacing: "-0.02em",
+                color: "#111", marginBottom: "24px", lineHeight: 1.25,
+              }}>
+                Ontvang direct een richtprijs voor uw dak.
+              </h2>
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                {[["🚫", "Geen verplichtingen"], ["✓", "100% transparant"], ["⏱", "Binnen 60 seconden"]].map(([icon, txt]) => (
+                  <div key={txt as string} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <span style={{ fontSize: "18px", width: "28px", textAlign: "center", flexShrink: 0 }}>{icon}</span>
+                    <span style={{ fontSize: "14px", color: "#555", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{txt}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* ── RECHTS: calculator kaart (60%) ── */}
-          <div style={{ flex: "1 1 60%" }}>
-        <div style={{ background: "#FFFFFF", borderRadius: "16px", padding: "36px", boxShadow: "0 4px 32px rgba(0,0,0,0.10)" }}>
+            {/* ── RECHTS: tabs + stap content ── */}
+            <div style={{ flex: "1 1 0" }}>
+
+              {/* Tab navigatie */}
+              {!done && (
+                <div style={{ display: "flex", borderBottom: "2px solid #F0F0F0", marginBottom: "28px", gap: "0", overflowX: "auto" }}>
+                  {tabLabels.map((label, i) => {
+                    const tabStep = i + 1;
+                    const isActive = step === tabStep;
+                    const isDone = step > tabStep;
+                    return (
+                      <button
+                        key={label}
+                        onClick={() => isDone ? setStep(tabStep) : undefined}
+                        style={{
+                          padding: "10px 16px", border: "none", background: "none",
+                          fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                          fontSize: "13px", fontWeight: isActive ? 700 : 500,
+                          color: isActive ? GREEN : isDone ? "#888" : "#CCC",
+                          borderBottom: isActive ? `2px solid ${GREEN}` : "2px solid transparent",
+                          marginBottom: "-2px", cursor: isDone ? "pointer" : "default",
+                          whiteSpace: "nowrap", flexShrink: 0,
+                          transition: "color 0.2s",
+                        }}
+                      >
+                        {tabStep}. {label}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
+        <div>
 
           {done ? (
             <div style={{ textAlign: "center", padding: "32px 0" }}>
@@ -215,7 +248,6 @@ export default function SitePricing() {
             </div>
           ) : (
             <>
-              <ProgressBar step={step} />
 
               {step === 1 && (
                 <div>
@@ -306,9 +338,10 @@ export default function SitePricing() {
               <PrivacyNote />
             </>
           )}
-        </div>
-          </div>{/* einde rechts */}
-        </div>{/* einde 2-kolom */}
+        </div>{/* einde stap content */}
+            </div>{/* einde rechts */}
+          </div>{/* einde flex row */}
+        </div>{/* einde witte kaart */}
       </div>
     </section>
   );

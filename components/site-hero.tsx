@@ -118,8 +118,8 @@ export default function SiteHero() {
 
       {/* Wave onderaan */}
       <div style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 3 }}>
-        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "80px" }}>
-          <path d="M0,0 C360,80 1080,80 1440,0 L1440,80 L0,80 Z" fill="#F8F8F8"/>
+        <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "120px" }}>
+          <path d="M0,0 C360,120 1080,120 1440,0 L1440,120 L0,120 Z" fill="#F8F8F8"/>
         </svg>
       </div>
     </section>

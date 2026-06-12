@@ -63,7 +63,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
       {/* Media area */}
       <div
         className="relative overflow-hidden"
-        style={{ height: "280px", borderRadius: "12px 12px 0 0" }}
+        style={{ height: "420px", borderRadius: "12px 12px 0 0" }}
       >
         {/* Static image — always present */}
         <img

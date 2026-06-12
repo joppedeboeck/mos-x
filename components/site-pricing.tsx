@@ -169,7 +169,7 @@ export default function SitePricing() {
   const tabLabels = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Gegevens"];
 
   return (
-    <section style={{ background: "transparent", padding: "0 40px 60px", marginTop: "-120px", position: "relative", zIndex: 10 }}>
+    <section style={{ background: "transparent", padding: "0 40px 60px", marginTop: "-40px", position: "relative", zIndex: 10 }}>
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
 
         {/* Witte zweefkaart */}

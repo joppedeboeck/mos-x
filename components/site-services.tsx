@@ -57,8 +57,6 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
         textDecoration: "none",
         boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
       }}
-      onMouseEnter={s.video ? handleEnter : undefined}
-      onMouseLeave={s.video ? handleLeave : undefined}
     >
       {/* Media area */}
       <div
@@ -73,11 +71,12 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
           style={{ transition: "transform 400ms ease" }}
         />
 
-        {/* Video overlay — only for dak-reinigen */}
+        {/* Video — autoplay always on for dak-reinigen */}
         {s.video && (
           <video
             ref={videoRef}
             src={s.video}
+            autoPlay
             muted
             loop
             playsInline
@@ -86,8 +85,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
               top: 0, left: 0,
               width: "100%", height: "100%",
               objectFit: "cover",
-              opacity: 0,
-              transition: "opacity 0.4s ease",
+              opacity: 1,
             }}
           />
         )}

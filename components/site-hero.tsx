@@ -36,7 +36,7 @@ export default function SiteHero() {
       >
         <div
           className="w-full max-w-3xl"
-          style={{ paddingTop: "100px", paddingBottom: "60px" }}
+          style={{ paddingTop: "100px", paddingBottom: "140px" }}
         >
 
           {/* ── Left column ── */}

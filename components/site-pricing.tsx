@@ -6,7 +6,7 @@ const GREEN = "#5A9E2F";
 const TOTAL_STEPS = 5;
 
 function ProgressBar({ step }: { step: number }) {
-  const pct = Math.round(((step - 1) / (TOTAL_STEPS - 1)) * 100);
+  const pct = Math.round((step / TOTAL_STEPS) * 100);
   return (
     <div style={{ marginBottom: "28px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
@@ -168,35 +168,39 @@ export default function SitePricing() {
 
   return (
     <section style={{ background: "#F8F8F8", padding: "0 24px 80px", marginTop: "-60px", position: "relative", zIndex: 10 }}>
-      <div style={{ maxWidth: "680px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
-        {/* Header */}
-        <div style={{ textAlign: "center", paddingTop: "100px", paddingBottom: "36px" }}>
-          <span style={{
-            display: "inline-block", fontSize: "11px", fontWeight: 700,
-            letterSpacing: "0.14em", textTransform: "uppercase", color: GREEN,
-            fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "12px",
-          }}>
-            Binnen 60 seconden
-          </span>
-          <h2 style={{
-            fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800,
-            fontSize: "clamp(1.6rem, 3vw, 2.25rem)", letterSpacing: "-0.02em",
-            color: "#111", marginBottom: "24px",
-          }}>
-            Ontvang direct een richtprijs<br />voor uw dak.
-          </h2>
-          <div style={{ display: "flex", justifyContent: "center", gap: "40px", flexWrap: "wrap" }}>
-            {[["🚫", "Geen verplichtingen"], ["✓", "100% transparant"], ["⏱", "Binnen 60 seconden"]].map(([icon, txt]) => (
-              <div key={txt as string} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
-                <span style={{ fontSize: "20px" }}>{icon}</span>
-                <span style={{ fontSize: "12px", color: "#666", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{txt}</span>
-              </div>
-            ))}
+        {/* 2-kolom wrapper */}
+        <div className="flex flex-col lg:flex-row lg:items-start" style={{ gap: "48px", paddingTop: "100px" }}>
+
+          {/* ── LINKS: uitleg (40%) ── */}
+          <div className="lg:sticky" style={{ flex: "0 0 38%", paddingTop: "8px", top: "100px" }}>
+            <span style={{
+              display: "inline-block", fontSize: "11px", fontWeight: 700,
+              letterSpacing: "0.14em", textTransform: "uppercase", color: GREEN,
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "16px",
+            }}>
+              Binnen 60 seconden
+            </span>
+            <h2 style={{
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800,
+              fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.02em",
+              color: "#111", marginBottom: "28px", lineHeight: 1.2,
+            }}>
+              Ontvang direct een richtprijs voor uw dak.
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+              {[["🚫", "Geen verplichtingen"], ["✓", "100% transparant"], ["⏱", "Binnen 60 seconden resultaat"]].map(([icon, txt]) => (
+                <div key={txt as string} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  <span style={{ fontSize: "22px", width: "32px", textAlign: "center", flexShrink: 0 }}>{icon}</span>
+                  <span style={{ fontSize: "15px", color: "#444", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{txt}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Card */}
+          {/* ── RECHTS: calculator kaart (60%) ── */}
+          <div style={{ flex: "1 1 60%" }}>
         <div style={{ background: "#FFFFFF", borderRadius: "16px", padding: "36px", boxShadow: "0 4px 32px rgba(0,0,0,0.10)" }}>
 
           {done ? (
@@ -303,6 +307,8 @@ export default function SitePricing() {
             </>
           )}
         </div>
+          </div>{/* einde rechts */}
+        </div>{/* einde 2-kolom */}
       </div>
     </section>
   );

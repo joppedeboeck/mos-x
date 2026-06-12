@@ -44,7 +44,7 @@ export default function SiteNav() {
           zIndex: 1000,
           width: "auto",
           minWidth: "1000px",
-          maxWidth: "1560px",
+          maxWidth: "calc(100% - 48px)",
           transition: "all 0.3s ease",
         }}
       >

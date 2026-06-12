@@ -31,8 +31,8 @@ export default function SiteHero() {
 
       {/* Content */}
       <div
-        className="site-wrap relative flex items-center"
-        style={{ height: "100vh", zIndex: 2 }}
+        className="relative flex items-center"
+        style={{ height: "100vh", zIndex: 2, maxWidth: "1300px", margin: "0 auto", width: "100%", paddingLeft: "40px", paddingRight: "40px" }}
       >
         <div
           className="w-full max-w-3xl"

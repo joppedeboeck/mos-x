@@ -43,8 +43,8 @@ export default function SiteNav() {
           transform: "translateX(-50%)",
           zIndex: 1000,
           width: "auto",
-          minWidth: "1100px",
-          maxWidth: "1600px",
+          minWidth: "900px",
+          maxWidth: "1300px",
           transition: "all 0.3s ease",
         }}
       >

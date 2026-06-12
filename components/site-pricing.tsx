@@ -170,7 +170,7 @@ export default function SitePricing() {
 
   return (
     <section style={{ background: "transparent", padding: "0 40px 60px", marginTop: "-120px", position: "relative", zIndex: 10 }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
 
         {/* Witte zweefkaart */}
         <div style={{ background: "#FFFFFF", borderRadius: "16px", boxShadow: "0 8px 48px rgba(0,0,0,0.15)", padding: "40px" }}>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const GREEN = "#5A9E2F";
+const GREEN = "#9BCB6C";
 const TOTAL_STEPS = 5;
 
 function ProgressBar({ step }: { step: number }) {
@@ -130,7 +130,7 @@ function Field({ label, placeholder, value, onChange, type = "text" }: { label: 
 
 const NextBtn = ({ onClick, disabled, label }: { onClick: () => void; disabled?: boolean; label?: string }) => (
   <button onClick={onClick} disabled={disabled} style={{
-    width: "100%", padding: "14px", borderRadius: "50px", border: "none",
+    width: "100%", padding: "14px", borderRadius: "8px", border: "none",
     background: disabled ? "#DDD" : GREEN, color: disabled ? "#AAA" : "#fff",
     fontWeight: 700, fontSize: "15px", cursor: disabled ? "not-allowed" : "pointer",
     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -140,11 +140,6 @@ const NextBtn = ({ onClick, disabled, label }: { onClick: () => void; disabled?:
   </button>
 );
 
-const PrivacyNote = () => (
-  <p style={{ textAlign: "center", fontSize: "11px", color: "#CCC", marginTop: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-    Uw gegevens worden vertrouwelijk behandeld en niet gedeeld met derden.
-  </p>
-);
 
 export default function SitePricing() {
   const [step, setStep] = useState(1);
@@ -166,10 +161,10 @@ export default function SitePricing() {
     { id: "geen", title: "Geen extra behandeling", bullets: [] },
   ];
 
-  const tabLabels = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Gegevens"];
+  const tabLabels = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Richtprijs"];
 
   return (
-    <section style={{ background: "transparent", padding: "0 40px 60px", marginTop: "-40px", position: "relative", zIndex: 10 }}>
+    <section id="calculator" style={{ background: "transparent", padding: "0 40px 60px", marginTop: "-40px", position: "relative", zIndex: 10 }}>
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
 
         {/* Witte zweefkaart */}
@@ -177,7 +172,7 @@ export default function SitePricing() {
           <div className="flex flex-col lg:flex-row lg:items-start" style={{ gap: "48px" }}>
 
             {/* ── LINKS: uitleg ── */}
-            <div style={{ flex: "0 0 30%", minWidth: "220px" }}>
+            <div style={{ flex: "0 0 30%", minWidth: "220px", display: "flex", flexDirection: "column", justifyContent: "center", height: "100%", borderRight: "1px solid #EEEEEE", padding: "40px 32px 40px 0" }}>
               <span style={{
                 display: "inline-block", fontSize: "11px", fontWeight: 700,
                 letterSpacing: "0.14em", textTransform: "uppercase", color: GREEN,
@@ -190,7 +185,7 @@ export default function SitePricing() {
                 fontSize: "clamp(1.3rem, 2vw, 1.7rem)", letterSpacing: "-0.02em",
                 color: "#111", marginBottom: "24px", lineHeight: 1.25,
               }}>
-                Ontvang direct een richtprijs voor uw dak.
+                Ontvang direct een <span style={{ color: GREEN }}>richtprijs</span> voor uw dak.
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 {[["🚫", "Geen verplichtingen"], ["✓", "100% transparant"], ["⏱", "Binnen 60 seconden"]].map(([icon, txt]) => (
@@ -207,7 +202,7 @@ export default function SitePricing() {
 
               {/* Tab navigatie */}
               {!done && (
-                <div style={{ display: "flex", borderBottom: "2px solid #F0F0F0", marginBottom: "28px", gap: "0", overflowX: "auto" }}>
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: "28px", gap: "24px", overflowX: "auto" }}>
                   {tabLabels.map((label, i) => {
                     const tabStep = i + 1;
                     const isActive = step === tabStep;
@@ -217,24 +212,28 @@ export default function SitePricing() {
                         key={label}
                         onClick={() => isDone ? setStep(tabStep) : undefined}
                         style={{
-                          padding: "10px 16px", border: "none", background: "none",
+                          padding: "10px 16px 8px", border: "none", background: "none",
                           fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                           fontSize: "13px", fontWeight: isActive ? 700 : 500,
-                          color: isActive ? GREEN : isDone ? "#888" : "#CCC",
-                          borderBottom: isActive ? `2px solid ${GREEN}` : "2px solid transparent",
-                          marginBottom: "-2px", cursor: isDone ? "pointer" : "default",
+                          color: isActive ? GREEN : isDone ? GREEN : "#AAAAAA",
+                          cursor: isDone ? "pointer" : "default",
                           whiteSpace: "nowrap", flexShrink: 0,
                           transition: "color 0.2s",
+                          display: "flex", flexDirection: "column", alignItems: "stretch",
                         }}
                       >
-                        {tabStep}. {label}
+                        <span>{tabStep}. {label}</span>
+                        <div style={{
+                          height: "3px", borderRadius: "2px", marginTop: "6px",
+                          background: isActive ? GREEN : "#E8E8E8",
+                        }} />
                       </button>
                     );
                   })}
                 </div>
               )}
 
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 40px", minHeight: "280px" }}>
 
           {done ? (
             <div style={{ textAlign: "center", padding: "32px 0" }}>
@@ -255,10 +254,14 @@ export default function SitePricing() {
                     Hoe groot is uw dak ongeveer?
                   </h3>
                   <div style={{ textAlign: "center", marginBottom: "24px" }}>
-                    <span style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "64px", color: GREEN, lineHeight: 1 }}>
-                      {opp}
+                    <span style={{
+                      display: "inline-block",
+                      background: "#F5F5F5", borderRadius: "8px", padding: "8px 20px",
+                      fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                      fontWeight: 800, fontSize: "28px", color: "#1A1A1A", lineHeight: 1.4,
+                    }}>
+                      {opp} m²
                     </span>
-                    <span style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "28px", color: GREEN }}> m²</span>
                   </div>
                   <input type="range" min={50} max={300} step={5} value={opp}
                     onChange={e => setOpp(Number(e.target.value))}
@@ -335,7 +338,6 @@ export default function SitePricing() {
                   </button>
                 )}
               </div>
-              <PrivacyNote />
             </>
           )}
         </div>{/* einde stap content */}

@@ -2,14 +2,17 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { Droplets, Shield, CalendarCheck } from "lucide-react";
 
 const services = [
   {
     id: "dak-reinigen",
     title: "Dakreiniging",
+    imgSubtitle: "Verwijderen van mos, algen en vuil.",
     href: "/diensten/dakontmossing",
     img: "/images/dak-reinigen.webp",
     video: "/videos/Dakreiniging_yannick.mp4",
+    Icon: Droplets,
     desc: "Mos, algen en vuil verwijderen voor een proper en gezond dak.",
     checks: [
       "Proper dak in plaats van mos en vervuiling",
@@ -21,9 +24,11 @@ const services = [
   {
     id: "dak-coaten",
     title: "Dakcoating",
+    imgSubtitle: "Bescherming en vernieuwing.",
     href: "/diensten/dakcoating",
     img: "/images/dak-coaten.webp",
     video: "/videos/Dakcoating.mp4",
+    Icon: Shield,
     desc: "Geef uw dak een tweede leven zonder een dure renovatie.",
     checks: [
       "Dak oogt opnieuw als nieuw",
@@ -35,9 +40,11 @@ const services = [
   {
     id: "dakabonnement",
     title: "Dakabonnement",
+    imgSubtitle: "Jaarlijkse controle en onderhoud.",
     href: "/contact",
     img: "/images/dakabonnement.webp",
     video: null,
+    Icon: CalendarCheck,
     desc: "Jaarlijkse controle en onderhoud voor blijvende gemoedsrust.",
     checks: [
       "Geen verrassingen meer",
@@ -51,6 +58,7 @@ const services = [
 function ServiceCard({ s }: { s: typeof services[0] }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hovered, setHovered] = useState(false);
+  const { Icon } = s;
 
   return (
     <Link
@@ -61,11 +69,10 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
       onMouseLeave={() => setHovered(false)}
       style={{
         background: "#FFFFFF",
-        border: "1px solid #E5E7EB",
         borderRadius: "16px",
         overflow: "hidden",
         textDecoration: "none",
-        boxShadow: "0 2px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04)",
+        boxShadow: "0 4px 24px rgba(0,0,0,0.13), 0 1px 4px rgba(0,0,0,0.06)",
       }}
     >
       {/* Media area */}
@@ -85,13 +92,29 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
           />
         )}
         <div className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0.08) 0%, rgba(26,26,26,0.70) 100%)", zIndex: 1 }}
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)", zIndex: 1 }}
         />
-        <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
-          <p className="font-bold text-xl leading-tight"
-            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: hovered ? "#9BCB6C" : "#FFFFFF", transition: "color 200ms ease" }}>
-            {s.title}
-          </p>
+        <div className="absolute bottom-0 left-0 right-0 p-5 z-10" style={{ display: "flex", alignItems: "flex-end", gap: "12px" }}>
+          {/* Green icon circle */}
+          <div style={{
+            flexShrink: 0,
+            width: "36px", height: "36px",
+            background: "#9BCB6C",
+            borderRadius: "50%",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            marginBottom: "2px",
+          }}>
+            <Icon size={18} color="#FFFFFF" strokeWidth={2} />
+          </div>
+          <div>
+            <p className="font-bold text-xl leading-tight"
+              style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: hovered ? "#9BCB6C" : "#FFFFFF", transition: "color 200ms ease" }}>
+              {s.title}
+            </p>
+            <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.75)", fontFamily: "var(--font-inter), system-ui, sans-serif", marginTop: "2px" }}>
+              {s.imgSubtitle}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -101,7 +124,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
         <p style={{
           fontSize: "14px", lineHeight: 1.65, color: "#555555",
           fontFamily: "var(--font-inter), system-ui, sans-serif",
-          marginBottom: "20px",
+          marginBottom: "20px", textAlign: "left",
         }}>
           {s.desc}
         </p>
@@ -111,8 +134,13 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
           {s.checks.map((item) => (
             <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
               <span style={{
-                color: "#9BCB6C", fontWeight: 700, fontSize: "15px",
-                lineHeight: 1.4, flexShrink: 0,
+                flexShrink: 0,
+                width: "18px", height: "18px",
+                background: "#9BCB6C",
+                borderRadius: "50%",
+                display: "inline-flex", alignItems: "center", justifyContent: "center",
+                fontSize: "11px", color: "#FFFFFF", fontWeight: 700,
+                marginTop: "1px",
               }}>✓</span>
               <span style={{
                 fontSize: "13px", color: "#444444", lineHeight: 1.5,
@@ -125,7 +153,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
         </div>
 
         {/* Link */}
-        <div style={{ marginTop: "auto" }}>
+        <div style={{ marginTop: "auto", textAlign: "center" }}>
           <span style={{
             color: "#9BCB6C", fontSize: "14px", fontWeight: 600,
             fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -140,15 +168,35 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
 
 export default function SiteServices() {
   return (
-    <section className="site-pad" id="diensten" style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(155,203,108,0.06) 0%, transparent 70%), #F7F8F6" }}>
-      <div className="site-wrap">
+    <section className="site-pad" id="diensten" style={{
+      position: "relative",
+      background: "linear-gradient(90deg, #0B0F0C 0%, #0B0F0C 42%, rgba(11,15,12,0.90) 58%, rgba(11,15,12,0.45) 100%), url('/images/footer-bg.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "right center",
+      backgroundRepeat: "no-repeat",
+      overflow: "hidden",
+    }}>
+      {/* Green radial glow behind cards */}
+      <div style={{
+        position: "absolute",
+        width: "600px",
+        height: "600px",
+        background: "radial-gradient(circle, rgba(155,203,108,0.12) 0%, transparent 70%)",
+        left: "-150px",
+        top: "50%",
+        transform: "translateY(-50%)",
+        pointerEvents: "none",
+        zIndex: 0,
+      }} />
+
+      <div className="site-wrap" style={{ position: "relative", zIndex: 1 }}>
 
         {/* Header */}
-        <div className="max-w-2xl mb-14">
-          <span className="site-eyebrow mb-4">Onze diensten</span>
+        <div className="mb-14" style={{ textAlign: "center" }}>
+          <span className="site-eyebrow mb-4" style={{ color: "#9BCB6C" }}>Onze diensten</span>
           <h2 className="font-bold leading-tight"
-            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.028em", color: "#1A1A1A" }}>
-            Alles voor een gezond dak.
+            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.028em", color: "#FFFFFF" }}>
+            Alles voor een <span style={{ color: "#9BCB6C" }}>gezond</span> dak.
           </h2>
         </div>
 
@@ -162,9 +210,9 @@ export default function SiteServices() {
         {/* Bottom CTA */}
         <div className="flex justify-center">
           <Link href="/diensten" className="inline-flex items-center gap-2"
-            style={{ border: "1.5px solid #9BCB6C", color: "#9BCB6C", background: "#FFFFFF", borderRadius: "8px", padding: "0.875rem 1.75rem", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 600, fontSize: "0.9375rem", textDecoration: "none", transition: "background 200ms ease, color 200ms ease" }}
-            onMouseEnter={e => { e.currentTarget.style.background = "#9BCB6C"; e.currentTarget.style.color = "#FFFFFF"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "#FFFFFF"; e.currentTarget.style.color = "#9BCB6C"; }}
+            style={{ border: "1.5px solid #9BCB6C", color: "#FFFFFF", background: "transparent", borderRadius: "8px", padding: "0.875rem 1.75rem", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 600, fontSize: "0.9375rem", textDecoration: "none", transition: "background 200ms ease, color 200ms ease" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#9BCB6C"; e.currentTarget.style.color = "#1A1A1A"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#FFFFFF"; }}
           >
             Alle diensten bekijken
           </Link>

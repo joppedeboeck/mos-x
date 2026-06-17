@@ -1,12 +1,14 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight, CheckCircle, Phone, Mail, MapPin, Clock } from "lucide-react";
 import PageLayout from "@/components/page-layout";
 
 const includes = [
+  "Snelle werkplanning",
   "Persoonlijk antwoord van Yannick",
-  "Eerlijk advies zonder verkooppraatjes",
-  "Vrijblijvende richtprijs op maat",
-  "Reactie binnen 1 werkdag",
-  "Geen verplichtingen",
+  "Reactie binnen 24u",
 ];
 
 const regions = [
@@ -39,28 +41,37 @@ const labelStyle = {
 };
 
 export default function ContactPage() {
+  const [homeHovered, setHomeHovered] = useState(false);
+  const [dienst, setDienst] = useState("");
+
   return (
     <PageLayout>
 
       {/* ── Hero ── */}
-      <section style={{ background: "#F7F8F6", paddingTop: "144px", paddingBottom: "80px" }}>
+      <section style={{ background: "#FFFFFF", paddingTop: "120px", paddingBottom: "80px" }}>
         <div className="site-wrap">
-          <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "16px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-            Contact
+          <p style={{ fontSize: "13px", color: "#9BCB6C", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+            <Link
+              href="/"
+              onMouseEnter={() => setHomeHovered(true)}
+              onMouseLeave={() => setHomeHovered(false)}
+              style={{ color: homeHovered ? "#1A1A1A" : "#9BCB6C", textDecoration: "none", transition: "color 180ms ease" }}
+            >Home</Link>
+            <span style={{ margin: "0 6px", color: "#9BCB6C" }}>›</span>
+            <span style={{ color: "#9BCB6C" }}>Contact</span>
           </p>
-          <h1 className="leading-tight mb-5 max-w-2xl"
-            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
-            Neem contact op met
-            <span style={{ color: "#9BCB6C" }}> Yannick.</span>
+          <h1 className="leading-tight mb-5"
+            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A", whiteSpace: "nowrap" }}>
+            Neem contact op met <span style={{ color: "#9BCB6C" }}>Yannick.</span>
           </h1>
-          <p className="text-lg max-w-xl leading-relaxed" style={{ color: "#545454" }}>
-            Vul het formulier in of bel ons direct. Yannick neemt contact op binnen 1 werkdag.
+          <p className="text-lg leading-relaxed" style={{ color: "#545454", whiteSpace: "nowrap" }}>
+            Vul het formulier in of bel ons direct. Yannick neemt contact op binnen 24u.
           </p>
         </div>
       </section>
 
       {/* ── Main content ── */}
-      <section className="site-pad" style={{ background: "#FFFFFF" }}>
+      <section className="site-pad" style={{ background: "#FFFFFF", paddingTop: "24px" }}>
         <div className="site-wrap">
           <div className="grid lg:grid-cols-[1fr_380px] gap-10 items-start">
 
@@ -93,29 +104,42 @@ export default function ContactPage() {
                   <input type="tel" name="telefoon" required placeholder="0470 00 00 00" style={inputStyle} />
                 </div>
 
-                <div>
-                  <label style={labelStyle}>Gemeente / Postcode *</label>
-                  <input type="text" name="gemeente" required placeholder="bv. Gent of 9000" style={inputStyle} />
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label style={labelStyle}>Straat en huisnummer *</label>
+                    <input type="text" name="straat" required placeholder="bv. Kerkstraat 12" style={inputStyle} />
+                  </div>
+                  <div>
+                    <label style={labelStyle}>Gemeente / Postcode *</label>
+                    <input type="text" name="gemeente" required placeholder="bv. Gent of 9000" style={inputStyle} />
+                  </div>
                 </div>
 
                 <div>
-                  <label style={labelStyle}>Interesse in (optioneel)</label>
-                  <select name="dienst" style={{ ...inputStyle, color: "#555555" }}>
-                    <option value="">Selecteer een dienst...</option>
-                    <option value="dakontmossing">Dak ontmossen</option>
-                    <option value="dakcoating">Dak coaten</option>
-                    <option value="gevelreiniging">Gevel reinigen</option>
-                    <option value="dakabonnement">Dakabonnement</option>
-                    <option value="platdak">Plat dak reinigen</option>
-                    <option value="weet_niet">Weet ik nog niet</option>
+                  <label style={labelStyle}>Interesse in *</label>
+                  <select name="dienst" required value={dienst} onChange={e => setDienst(e.target.value)} style={{ ...inputStyle, color: dienst === "" ? "#AAAAAA" : "#111111" }}>
+                    <option value="" disabled style={{ color: "#AAAAAA" }}>Selecteer een dienst...</option>
+                    <option value="dakreiniging" style={{ color: "#1A1A1A" }}>Dakreiniging</option>
+                    <option value="dakcoating" style={{ color: "#1A1A1A" }}>Dakcoating</option>
+                    <option value="dakabonnement" style={{ color: "#1A1A1A" }}>Dakabonnement</option>
+                    <option value="andere" style={{ color: "#1A1A1A" }}>Andere</option>
                   </select>
                 </div>
 
-                <div>
-                  <label style={labelStyle}>Bericht (optioneel)</label>
-                  <textarea name="bericht" rows={4} placeholder="Extra informatie over uw dak of situatie..."
-                    style={{ ...inputStyle, resize: "none" as const }} />
-                </div>
+                {dienst === "andere" && (
+                  <div>
+                    <label style={labelStyle}>Bericht *</label>
+                    <textarea name="bericht" required rows={4} placeholder="Vertel ons waarmee we u kunnen helpen..."
+                      style={{ ...inputStyle, resize: "none" as const }} />
+                  </div>
+                )}
+                {dienst !== "andere" && dienst !== "" && (
+                  <div>
+                    <label style={labelStyle}>Bericht (optioneel)</label>
+                    <textarea name="bericht" rows={4} placeholder="Extra informatie over uw dak of situatie..."
+                      style={{ ...inputStyle, resize: "none" as const }} />
+                  </div>
+                )}
 
                 <button
                   type="submit"
@@ -131,7 +155,7 @@ export default function ContactPage() {
                 </button>
 
                 <p className="text-center text-xs" style={{ color: "#AAAAAA", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                  100% vrijblijvend · Yannick reageert binnen 1 werkdag · Geen spam
+                  Yannick reageert binnen 24 uur
                 </p>
               </form>
             </div>
@@ -173,12 +197,20 @@ export default function ContactPage() {
                   </a>
                   <div className="flex items-center gap-3 text-sm" style={{ color: "#555555" }}>
                     <MapPin className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
-                    Grobbendonk, Antwerpen
+                    2280 Grobbendonk, Bovenpad 100
                   </div>
                   <div className="flex items-center gap-3 text-sm" style={{ color: "#555555" }}>
                     <Clock className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
                     Ma – Za: 08:00 – 17:00 · Zo: Gesloten
                   </div>
+                  <iframe
+                    src="https://maps.google.com/maps?q=MOS-X+Dakontmossing+Coating+Grobbendonk&output=embed"
+                    width="100%"
+                    height="160"
+                    style={{ border: "none", borderRadius: "8px", marginTop: "12px", display: "block" }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
               </div>
 

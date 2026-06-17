@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOS-X Brand Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1A1A1A;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    padding: 48px;
+    width: 900px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9BCB6C;
+    margin-bottom: 6px;
+  }
+  .divider { border: none; border-top: 1px solid #2E2E2E; margin: 28px 0; }
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9BCB6C;
+    margin-bottom: 16px;
+  }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .swatch-block { border-radius: 10px; height: 64px; }
+  .swatch-name { font-size: 12px; font-weight: 700; margin-top: 8px; }
+  .swatch-hex { font-size: 11px; color: #888; font-family: monospace; }
+  .font-big { font-size: 56px; font-weight: 800; line-height: 1; }
+  .font-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #9BCB6C; margin-top: 8px; }
+  .font-sub { font-size: 11px; color: #888; margin-top: 2px; }
+  .font-abc { margin-top: 12px; font-size: 12px; color: #666; letter-spacing: 0.04em; line-height: 1.8; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 8px;
+    font-weight: 700; font-size: 13px; font-family: 'Montserrat', sans-serif;
+  }
+  .tone-card {
+    background: #222;
+    border-radius: 10px;
+    padding: 14px;
+    border-left: 3px solid #9BCB6C;
+  }
+  .tone-title { font-size: 13px; font-weight: 700; color: #9BCB6C; margin-bottom: 4px; }
+  .tone-body { font-size: 12px; color: #AAAAAA; line-height: 1.6; font-family: 'Inter', sans-serif; }
+  .icon-grid { display: flex; flex-wrap: wrap; gap: 24px; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .icon-circle {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: #222; border: 1px solid #333;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: #9BCB6C;
+  }
+  .icon-label { font-size: 10px; color: #666; font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px;">
+    <div>
+      <div class="eyebrow">Brand Guidelines</div>
+      <div style="font-size:32px; font-weight:800; letter-spacing:-0.03em;">MOS-X</div>
+      <div style="font-size:12px; color:#666; margin-top:4px; font-family:'Inter',sans-serif;">Dakspecialist · Versie 1.0 · 2026</div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:52px; font-weight:800; letter-spacing:-0.04em; line-height:1;">MOS<span style="color:#9BCB6C;">-X</span></div>
+      <div style="font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#9BCB6C;">Dakspecialist</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Brandkleuren -->
+  <div class="section-title">Brandkleuren</div>
+  <div class="grid4" style="margin-bottom:16px;">
+    <div>
+      <div class="swatch-block" style="background:#9BCB6C;"></div>
+      <div class="swatch-name" style="color:#9BCB6C;">Brand Groen</div>
+      <div class="swatch-hex">#9BCB6C</div>
+    </div>
+    <div>
+      <div class="swatch-block" style="background:#1A1A1A; border:1px solid #333;"></div>
+      <div class="swatch-name">Donker</div>
+      <div class="swatch-hex">#1A1A1A</div>
+    </div>
+    <div>
+      <div class="swatch-block" style="background:#FFFFFF;"></div>
+      <div class="swatch-name" style="color:#FFFFFF;">Wit</div>
+      <div class="swatch-hex">#FFFFFF</div>
+    </div>
+    <div>
+      <div class="swatch-block" style="background:#F8F8F8;"></div>
+      <div class="swatch-name" style="color:#CCCCCC;">Lichtgrijs</div>
+      <div class="swatch-hex">#F8F8F8</div>
+    </div>
+  </div>
+  <div class="grid4" style="margin-bottom:28px;">
+    <div>
+      <div class="swatch-block" style="background:#7AB54E; height:40px;"></div>
+      <div class="swatch-name" style="color:#7AB54E;">Groen Hover</div>
+      <div class="swatch-hex">#7AB54E</div>
+    </div>
+    <div>
+      <div class="swatch-block" style="background:#555555; height:40px;"></div>
+      <div class="swatch-name" style="color:#AAAAAA;">Body Tekst</div>
+      <div class="swatch-hex">#555555</div>
+    </div>
+    <div>
+      <div class="swatch-block" style="background:#EEEEEE; height:40px;"></div>
+      <div class="swatch-name" style="color:#CCCCCC;">Border</div>
+      <div class="swatch-hex">#EEEEEE</div>
+    </div>
+    <div>
+      <div class="swatch-block" style="background:#111111; height:40px; border:1px solid #333;"></div>
+      <div class="swatch-name" style="color:#888;">Hero / Footer</div>
+      <div class="swatch-hex">#111111</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Typografie -->
+  <div class="section-title">Typografie</div>
+  <div class="grid2" style="margin-bottom:28px; align-items:start;">
+    <div>
+      <div class="font-big" style="font-family:'Montserrat',sans-serif;">Aa</div>
+      <div class="font-label">Montserrat</div>
+      <div class="font-sub">Headlines · Buttons · Labels · Nav</div>
+      <div class="font-abc" style="font-family:'Montserrat',sans-serif;">
+        ABCDEFGHIJKLM NOPQRSTUVWXYZ<br>
+        abcdefghijklm nopqrstuvwxyz<br>
+        Weight: 400 · 600 · 700 · 800
+      </div>
+    </div>
+    <div>
+      <div class="font-big" style="font-family:'Inter',sans-serif; font-weight:400;">Aa</div>
+      <div class="font-label">Inter</div>
+      <div class="font-sub">Body tekst · Beschrijvingen · Form labels</div>
+      <div class="font-abc" style="font-family:'Inter',sans-serif;">
+        ABCDEFGHIJKLM NOPQRSTUVWXYZ<br>
+        abcdefghijklm nopqrstuvwxyz<br>
+        Weight: 400 · 600
+      </div>
+    </div>
+  </div>
+
+  <!-- Font hiërarchie -->
+  <div style="background:#222; border-radius:12px; padding:20px; margin-bottom:28px;">
+    <div style="font-size:32px; font-weight:800; font-family:'Montserrat',sans-serif; letter-spacing:-0.02em; color:#FFFFFF; margin-bottom:8px;">H1 — Paginatitel (32–56px, 800)</div>
+    <div style="font-size:22px; font-weight:700; font-family:'Montserrat',sans-serif; color:#FFFFFF; margin-bottom:8px;">H2 — Sectietitel (22–32px, 700)</div>
+    <div style="font-size:16px; font-weight:600; font-family:'Montserrat',sans-serif; color:#9BCB6C; margin-bottom:8px; letter-spacing:0.12em; text-transform:uppercase; font-size:11px;">EYEBROW LABEL (11px, 700, uppercase)</div>
+    <div style="font-size:15px; font-family:'Inter',sans-serif; color:#AAAAAA; line-height:1.7;">Body tekst — Inter Regular 15–16px, lijnhoogte 1.7. Kleur #555555 op wit, rgba(255,255,255,0.55) op donker.</div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Knoppen -->
+  <div class="section-title">Knopstijlen</div>
+  <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px; align-items:center;">
+    <div class="btn" style="background:#9BCB6C; color:#1A1A1A;">Primaire knop →</div>
+    <div class="btn" style="background:#1A1A1A; color:#FFFFFF; border:1.5px solid #9BCB6C;">Outline knop</div>
+    <div class="btn" style="background:#FFFFFF; color:#1A1A1A;">Witte knop</div>
+    <div class="btn" style="background:transparent; color:#9BCB6C; border:1.5px solid #9BCB6C;">Ghost knop</div>
+  </div>
+  <div style="font-size:11px; color:#555; margin-bottom:28px; font-family:'Inter',sans-serif;">
+    Border-radius: 8px · Font: Montserrat 700 · Padding: 12–14px 24–28px · Hover: tint -10%
+  </div>
+
+  <hr class="divider">
+
+  <!-- Icoonstijl -->
+  <div class="section-title">Icoonstijl</div>
+  <div style="font-size:12px; color:#888; margin-bottom:16px; font-family:'Inter',sans-serif;">
+    Gebruik uitsluitend <strong style="color:#FFFFFF;">outline</strong> icoontjes (Lucide / Tabler). Nooit filled. Grootte: 16–24px.
+  </div>
+  <div class="icon-grid" style="margin-bottom:16px;">
+    <div class="icon-item">
+      <div class="icon-circle">✓</div>
+      <div class="icon-label">check</div>
+    </div>
+    <div class="icon-item">
+      <div class="icon-circle">→</div>
+      <div class="icon-label">arrow</div>
+    </div>
+    <div class="icon-item">
+      <div class="icon-circle">☎</div>
+      <div class="icon-label">phone</div>
+    </div>
+    <div class="icon-item">
+      <div class="icon-circle">★</div>
+      <div class="icon-label">review</div>
+    </div>
+    <div class="icon-item">
+      <div class="icon-circle">🛡</div>
+      <div class="icon-label">garantie</div>
+    </div>
+    <div class="icon-item">
+      <div class="icon-circle">📍</div>
+      <div class="icon-label">locatie</div>
+    </div>
+    <div class="icon-item">
+      <div class="icon-circle">⏱</div>
+      <div class="icon-label">tijd</div>
+    </div>
+    <div class="icon-item">
+      <div class="icon-circle">🚁</div>
+      <div class="icon-label">drone</div>
+    </div>
+  </div>
+  <div style="font-size:11px; color:#555; margin-bottom:28px; font-family:'Inter',sans-serif;">
+    Kleur: #9BCB6C voor accenten · #FFFFFF of #555555 voor neutraal gebruik
+  </div>
+
+  <hr class="divider">
+
+  <!-- Tone of voice -->
+  <div class="section-title">Tone of voice</div>
+  <div class="grid3">
+    <div class="tone-card">
+      <div class="tone-title">Eerlijk</div>
+      <div class="tone-body">Geen verkooppraatjes. Altijd transparant advies, ook als er niets nodig is.</div>
+    </div>
+    <div class="tone-card">
+      <div class="tone-title">Persoonlijk</div>
+      <div class="tone-body">Yannick staat achter elk project met zijn naam. Nooit onderaannemers.</div>
+    </div>
+    <div class="tone-card">
+      <div class="tone-title">Vakkundig</div>
+      <div class="tone-body">Technologie + vakmanschap. Drone-inspectie voor het beste resultaat.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="margin-top:32px; padding-top:20px; border-top:1px solid #2E2E2E; display:flex; justify-content:space-between; align-items:center;">
+    <div style="font-size:11px; color:#444; font-family:'Inter',sans-serif;">© 2026 MOS-X · Alle rechten voorbehouden</div>
+    <div style="font-size:14px; font-weight:800; color:#9BCB6C; letter-spacing:-0.02em;">MOS-X</div>
+  </div>
+
+</body>
+</html>

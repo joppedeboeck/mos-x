@@ -188,9 +188,9 @@ export default function SitePricing() {
                 Ontvang direct een <span style={{ color: GREEN }}>richtprijs</span> voor uw dak.
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {[["🚫", "Geen verplichtingen"], ["✓", "100% transparant"], ["⏱", "Binnen 60 seconden"]].map(([icon, txt]) => (
-                  <div key={txt as string} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    <span style={{ fontSize: "18px", width: "28px", textAlign: "center", flexShrink: 0 }}>{icon}</span>
+                {["5 stappen", "60 seconden", "Persoonlijke richtprijs"].map((txt) => (
+                  <div key={txt} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: GREEN, flexShrink: 0, display: "inline-block" }} />
                     <span style={{ fontSize: "14px", color: "#555", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{txt}</span>
                   </div>
                 ))}

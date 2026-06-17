@@ -64,7 +64,7 @@ export default function SiteNav() {
           <Link href="/" style={{ display: "flex", alignItems: "center", flexShrink: 0, marginRight: "24px" }}>
             <Image
               src="/images/logo.avif" alt="MOS-X"
-              height={36} width={110}
+              width={260} height={125}
               style={{ height: "36px", width: "auto", objectFit: "contain" }}
               priority
             />
@@ -119,7 +119,7 @@ export default function SiteNav() {
               href="/contact"
               style={{
                 background: "#9BCB6C",
-                color: "#1A1A1A",
+                color: "#FFFFFF",
                 borderRadius: "6px",
                 padding: "8px 20px",
                 fontSize: "13px",
@@ -158,7 +158,7 @@ export default function SiteNav() {
             style={{ background: "#111111", borderLeft: "1px solid rgba(255,255,255,0.08)" }}
           >
             <div className="flex items-center justify-between mb-8">
-              <Image src="/images/logo.avif" alt="MOS-X" height={34} width={100}
+              <Image src="/images/logo.avif" alt="MOS-X" height={0} width={0}
                 style={{ height: "34px", width: "auto", objectFit: "contain" }} />
               <button onClick={() => setMobileOpen(false)} className="p-1 rounded-lg"
                 style={{ color: "#FFFFFF" }} aria-label="Menu sluiten">

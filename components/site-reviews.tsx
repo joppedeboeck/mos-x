@@ -169,7 +169,7 @@ export default function SiteReviews() {
   const translateX = -(index * (100 / TOTAL));
 
   return (
-    <section className="site-pad" id="reviews" style={{ background: "#FFFFFF" }}>
+    <section className="site-pad" id="reviews" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(155,203,108,0.07) 0%, transparent 65%), #F7F8F6" }}>
       <div className="site-wrap">
 
         {/* Header — centered */}
@@ -179,8 +179,9 @@ export default function SiteReviews() {
             className="font-bold leading-tight mb-6"
             style={{
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              fontWeight: 800,
               fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.028em",
               color: "#1A1A1A",
             }}
           >
@@ -270,7 +271,7 @@ export default function SiteReviews() {
 
         {/* Second Google button below dots */}
         <div className="flex justify-center">
-          <GoogleBtn text="Bekijk meer reviews op Google →" url={GOOGLE_MAPS_URL} />
+          <GoogleBtn text="Bekijk meer reviews op Google" url={GOOGLE_MAPS_URL} />
         </div>
 
       </div>

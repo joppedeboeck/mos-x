@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Phone } from "lucide-react";
+import { Star, Phone, Tv } from "lucide-react";
 import Link from "next/link";
 
 export default function SiteHero() {
@@ -61,7 +61,7 @@ export default function SiteHero() {
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontWeight: 800,
                 fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
-                letterSpacing: "-0.03em",
+                letterSpacing: "-0.028em",
                 color: "#FFFFFF",
               }}
             >
@@ -73,8 +73,8 @@ export default function SiteHero() {
               className="leading-relaxed mb-8"
               style={{ color: "rgba(255,255,255,0.62)", fontSize: "18px", maxWidth: "520px" }}
             >
-              MOS-X inspecteert uw dak gratis met een professionele drone.
-              U kijkt live mee. Daarna: eerlijk advies, vaste prijs, geen verkooppraatjes.
+              Yannick inspecteert uw dak persoonlijk en geeft eerlijk advies.
+              Vaste prijs vooraf, geen verkooppraatjes, en hij staat garant voor het werk.
             </p>
 
             {/* CTAs */}
@@ -100,7 +100,7 @@ export default function SiteHero() {
             </div>
 
             {/* Trust indicators */}
-            <div className="flex items-center gap-2 mb-8">
+            <div className="flex items-center gap-3 mb-8" style={{ flexWrap: "wrap" }}>
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-current" style={{ color: "#F9A825" }} />
@@ -108,6 +108,18 @@ export default function SiteHero() {
               </div>
               <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
                 5.0 · 12 beoordelingen
+              </span>
+              <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "14px" }}>·</span>
+              <span style={{
+                display: "inline-flex", alignItems: "center", gap: "5px",
+                background: "#FFFFFF", color: "#1A1A1A",
+                borderRadius: "6px", padding: "4px 10px",
+                fontSize: "11px", fontWeight: 600,
+                fontFamily: "var(--font-inter), system-ui, sans-serif",
+                whiteSpace: "nowrap",
+              }}>
+                <Tv style={{ width: "11px", height: "11px", flexShrink: 0 }} />
+                Bekend van VTM Lifestyle &amp; Wonen
               </span>
             </div>
           </div>

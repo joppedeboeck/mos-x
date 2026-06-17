@@ -14,15 +14,11 @@ const faqs = [
   },
   {
     q: "Is een dakontmossing schadelijk voor mijn dakpannen?",
-    a: "Nee. Wij werken met de juiste druk en technieken aangepast aan uw daktype. Vooraf inspecteren we uw dak grondig via drone zodat we precies weten hoe we te werk gaan.",
+    a: "Nee. Wij werken met de juiste druk en technieken aangepast aan uw daktype. Vooraf inspecteert Yannick uw dak grondig zodat hij precies weet hoe hij te werk gaat.",
   },
   {
     q: "Hoe vaak moet ik mijn dak laten reinigen?",
     a: "Gemiddeld om de 5 à 10 jaar, afhankelijk van de omgeving en het type dak. Met een dakcoating achteraf beschermt u uw dak langer tegen mos en algen.",
-  },
-  {
-    q: "Komt Yannick zelf of stuurt hij onderaannemers?",
-    a: "Yannick komt altijd persoonlijk. Geen onderaannemers, geen verrassingen. Hij staat met zijn naam op elk werk dat hij uitvoert.",
   },
   {
     q: "Wat is het verschil tussen dakreiniging en dakcoating?",
@@ -32,17 +28,13 @@ const faqs = [
     q: "Is er garantie op de uitgevoerde werken?",
     a: "Ja. Op dakcoating geven wij 5 jaar garantie. Op alle andere werken staat Yannick garant voor kwaliteit en afwerking.",
   },
-  {
-    q: "Werkt MOS-X in mijn gemeente?",
-    a: "MOS-X is actief in Antwerpen, Vlaams-Brabant, Oost-Vlaanderen en Limburg. Twijfelt u? Neem contact op en we bekijken het samen.",
-  },
 ];
 
 function FaqItem({ faq, defaultOpen }: { faq: typeof faqs[0]; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(!!defaultOpen);
 
   return (
-    <div style={{ borderBottom: "1px solid #EEEEEE" }}>
+    <div style={{ borderBottom: "1px solid #E5E7EB" }}>
       <button
         onClick={() => setOpen(!open)}
         style={{
@@ -84,12 +76,15 @@ function FaqItem({ faq, defaultOpen }: { faq: typeof faqs[0]; defaultOpen?: bool
               href="#calculator"
               style={{
                 display: "inline-block", marginTop: "16px",
-                background: "#9BCB6C", color: "#111111",
+                background: "#9BCB6C", color: "#FFFFFF",
                 fontWeight: 700, fontSize: "13px",
                 borderRadius: "8px", padding: "10px 20px",
                 textDecoration: "none",
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                transition: "background 200ms ease",
               }}
+              onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
+              onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
             >
               Bereken uw richtprijs →
             </a>
@@ -102,7 +97,7 @@ function FaqItem({ faq, defaultOpen }: { faq: typeof faqs[0]; defaultOpen?: bool
 
 export default function SiteFaq() {
   return (
-    <section style={{ background: "#FFFFFF", padding: "80px 24px" }}>
+    <section style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(155,203,108,0.06) 0%, transparent 65%), #F7F8F6", padding: "100px 24px" }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
 
         <div style={{ marginBottom: "48px" }}>
@@ -114,9 +109,9 @@ export default function SiteFaq() {
             Veelgestelde vragen
           </p>
           <h2 style={{
-            fontSize: "36px", fontWeight: 800, color: "#1A1A1A",
+            fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 800, color: "#1A1A1A",
             fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-            letterSpacing: "-0.02em", lineHeight: 1.15,
+            letterSpacing: "-0.028em", lineHeight: 1.15,
           }}>
             Nog vragen?
           </h2>

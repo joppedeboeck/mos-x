@@ -2,28 +2,19 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight, Phone } from "lucide-react";
+import { ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import PageLayout from "@/components/page-layout";
 
 const voorNaPhotos = [
-  { src: "/images/rood-dak-voor.jpg",  label: "VOOR", before: true,  caption: "Antimos coating, Rood dak" },
-  { src: "/images/olen-voor.png",      label: "VOOR", before: true,  caption: "Dakreiniging en coating, Olen" },
-  { src: "/images/herentals-voor.png", label: "VOOR", before: true,  caption: "Dakreiniging, Herentals" },
-  { src: "/images/rood-dak-na.jpg",    label: "NA",   before: false, caption: "Antimos coating, Rood dak" },
-  { src: "/images/olen-na.png",        label: "NA",   before: false, caption: "Dakreiniging en coating, Olen" },
-  { src: "/images/herentals-na.png",   label: "NA",   before: false, caption: "Dakreiniging, Herentals" },
+  { src: "/images/herentals-voor.png",    label: "VOOR", before: true,  caption: "Dakcoating, Herentals" },
+  { src: "/images/olen-voor.png",         label: "VOOR", before: true,  caption: "Dakreiniging, Olen" },
+  { src: "/images/koningshooikt-voor.jpg",label: "VOOR", before: true,  caption: "Dakreiniging, Koningshooikt" },
+  { src: "/images/herentals-na.png",      label: "NA",   before: false, caption: "Dakcoating, Herentals" },
+  { src: "/images/olen-na.png",           label: "NA",   before: false, caption: "Dakreiniging, Olen" },
+  { src: "/images/koningshooikt-na.jpg",  label: "NA",   before: false, caption: "Dakreiniging, Koningshooikt" },
 ];
 
-const projects = [
-  { type: "Dakontmossing + Coating", location: "Gent",        year: "2024", m2: "175 m²", desc: "Zwaar begroeide keramische pannen. Bioreiniging gevolgd door transparante dakcoating. 15 jaar garantie.", before: "img-before-roof",   after: "img-after-roof" },
-  { type: "Dakcoating",              location: "Aalst",        year: "2024", m2: "145 m²", desc: "Matige mosgroei op pannendak. Reiniging + beschermende coating aangebracht. Waterafstoottest geslaagd.",   before: "img-before-roof",   after: "img-after-roof" },
-  { type: "Gevelreiniging",          location: "Dendermonde",  year: "2023", m2: "120 m²", desc: "Zwarte aanslag op baksteengevel. Volledig gereinigd met zachte biologische methode. Geen schade.",         before: "img-before-facade", after: "img-after-facade" },
-  { type: "Dakontmossing",           location: "Sint-Niklaas", year: "2024", m2: "195 m²", desc: "Matig vervuilde leien. Biologische behandeling + gootreiniging inbegrepen.",                               before: "img-before-roof",   after: "img-after-roof" },
-  { type: "Dakontmossing + Coating", location: "Ronse",        year: "2024", m2: "160 m²", desc: "Ouder pannendak zwaar vervuild. Behandeld en gecoat. Klant ontving fotobewijs + onderhoudsadvies.",        before: "img-before-roof",   after: "img-after-roof" },
-  { type: "Plat dak reiniging",      location: "Wetteren",     year: "2023", m2: "85 m²",  desc: "EPDM plat dak met mosgroei en verstopte afvoer. Drukloos gereinigd, afvoer vrijgemaakt.",                  before: "img-before-facade", after: "img-after-facade" },
-];
-
-function SliderCard({ p }: { p: typeof projects[0] }) {
+function LargeSlider() {
   const [split, setSplit] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -31,138 +22,244 @@ function SliderCard({ p }: { p: typeof projects[0] }) {
   const move = (cx: number) => {
     if (!ref.current) return;
     const r = ref.current.getBoundingClientRect();
-    setSplit(Math.min(92, Math.max(8, ((cx - r.left) / r.width) * 100)));
+    setSplit(Math.min(95, Math.max(5, ((cx - r.left) / r.width) * 100)));
   };
 
   return (
     <div
-      className="rounded-2xl overflow-hidden flex flex-col"
-      style={{ background: "#FFFFFF", border: "1px solid #EEEEEE", boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}
+      ref={ref}
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "500px",
+        borderRadius: "16px",
+        overflow: "hidden",
+        cursor: "col-resize",
+        userSelect: "none",
+        boxShadow: "0 4px 32px rgba(0,0,0,0.10)",
+      }}
+      onMouseDown={() => (dragging.current = true)}
+      onMouseMove={e => { if (dragging.current) move(e.clientX); }}
+      onMouseUp={() => (dragging.current = false)}
+      onMouseLeave={() => (dragging.current = false)}
+      onTouchStart={() => (dragging.current = true)}
+      onTouchMove={e => move(e.touches[0].clientX)}
+      onTouchEnd={() => (dragging.current = false)}
     >
-      {/* Drag slider */}
-      <div
-        ref={ref}
-        className="relative h-64 cursor-col-resize select-none overflow-hidden"
-        onMouseDown={() => (dragging.current = true)}
-        onMouseMove={e => { if (dragging.current) move(e.clientX); }}
-        onMouseUp={() => (dragging.current = false)}
-        onMouseLeave={() => (dragging.current = false)}
-        onTouchStart={() => (dragging.current = true)}
-        onTouchMove={e => move(e.touches[0].clientX)}
-        onTouchEnd={() => (dragging.current = false)}
-      >
-        {/* After */}
-        <div className={`absolute inset-0 ${p.after}`}>
-          <div className="absolute bottom-3 right-3">
-            <span
-              className="px-3 py-1 rounded-full text-[10px] font-bold"
-              style={{ background: "#9BCB6C", color: "#1A1A1A", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}
-            >
-              NA ✓
-            </span>
-          </div>
-        </div>
-        {/* Before (clipped) */}
-        <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 ${100 - split}% 0 0)` }}>
-          <div className={`absolute inset-0 ${p.before}`} />
-          <div className="absolute bottom-3 left-3">
-            <span
-              className="px-3 py-1 rounded-full text-[10px] font-bold"
-              style={{ background: "#111111", color: "#FFFFFF", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}
-            >
-              VOOR
-            </span>
-          </div>
-        </div>
-        {/* Divider handle */}
-        <div
-          className="absolute top-0 bottom-0 w-px z-20 pointer-events-none"
-          style={{ left: `${split}%`, background: "rgba(255,255,255,0.85)" }}
-        >
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white flex items-center justify-center gap-0.5"
-            style={{ border: "2px solid #9BCB6C", boxShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
-            <ChevronLeft className="w-3 h-3" style={{ color: "#1A1A1A" }} />
-            <ChevronRight className="w-3 h-3" style={{ color: "#1A1A1A" }} />
-          </div>
-        </div>
-        <div
-          className="absolute top-3 left-1/2 -translate-x-1/2 text-[10px] pointer-events-none transition-opacity duration-500"
-          style={{ fontFamily: "var(--font-montserrat)", color: "rgba(255,255,255,0.7)", opacity: split === 50 ? 1 : 0 }}
-        >
-          ← sleep →
+      {/* Before (VOOR) — base layer, full width */}
+      <img
+        src="/images/Before slider 3.0.png"
+        alt="Voor behandeling"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }}
+        draggable={false}
+      />
+      {/* VOOR label — top left */}
+      <div style={{
+        position: "absolute", top: "16px", left: "16px", zIndex: 5,
+        background: "rgba(0,0,0,0.65)", color: "#FFFFFF",
+        padding: "6px 14px", borderRadius: "50px",
+        fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em",
+        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+      }}>
+        VOOR
+      </div>
+
+      {/* After (NA) — overlay clipped to right side */}
+      <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${split}%)` }}>
+        <img
+          src="/images/After slide 2.0.png"
+          alt="Na behandeling"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }}
+          draggable={false}
+        />
+        {/* NA label — top right */}
+        <div style={{
+          position: "absolute", top: "16px", right: "16px", zIndex: 5,
+          background: "#9BCB6C", color: "#1A1A1A",
+          padding: "6px 14px", borderRadius: "50px",
+          fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em",
+          fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+        }}>
+          NA ✓
         </div>
       </div>
 
-      {/* Card info */}
-      <div className="p-5 flex-1 flex flex-col">
-        <div className="flex items-start justify-between gap-3 mb-2">
-          <div>
-            <span
-              className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold mb-2"
-              style={{ background: "#F0F7E8", color: "#5A9E2F", fontFamily: "var(--font-montserrat)" }}
-            >
-              {p.type}
-            </span>
-            <p className="font-bold text-sm" style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#111111" }}>
-              {p.location}
-            </p>
-          </div>
-          <div className="text-right shrink-0">
-            <p className="text-xs" style={{ color: "#AAAAAA" }}>{p.year}</p>
-            <p className="font-bold text-sm" style={{ color: "#9BCB6C", fontFamily: "var(--font-montserrat)" }}>{p.m2}</p>
-          </div>
+      {/* Divider line + handle */}
+      <div
+        style={{
+          position: "absolute", top: 0, bottom: 0, width: "2px",
+          left: `${split}%`, background: "rgba(255,255,255,0.75)",
+          zIndex: 10, pointerEvents: "none",
+        }}
+      >
+        <div style={{
+          position: "absolute", top: "50%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "44px", height: "44px", borderRadius: "50%",
+          background: "#FFFFFF",
+          border: "2px solid #9BCB6C",
+          boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
+          display: "flex", alignItems: "center", justifyContent: "center", gap: "2px",
+        }}>
+          <ChevronLeft style={{ width: "14px", height: "14px", color: "#9BCB6C" }} />
+          <ChevronRight style={{ width: "14px", height: "14px", color: "#9BCB6C" }} />
         </div>
-        <p className="text-xs leading-relaxed mt-1" style={{ color: "#555555" }}>{p.desc}</p>
+      </div>
+
+      {/* Drag hint */}
+      <div style={{
+        position: "absolute", bottom: "16px", left: "50%",
+        transform: "translateX(-50%)",
+        fontSize: "11px", color: "rgba(255,255,255,0.7)",
+        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+        pointerEvents: "none",
+        transition: "opacity 500ms",
+        opacity: split === 50 ? 1 : 0,
+        whiteSpace: "nowrap",
+      }}>
+        ← sleep →
+      </div>
+    </div>
+  );
+}
+
+function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPosition = "50% 70%" }: { beforeSrc: string; afterSrc: string; beforePosition?: string; afterPosition?: string }) {
+  const [split, setSplit] = useState(50);
+  const ref = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
+
+  const move = (cx: number) => {
+    if (!ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    setSplit(Math.min(95, Math.max(5, ((cx - r.left) / r.width) * 100)));
+  };
+
+  return (
+    <div
+      ref={ref}
+      style={{ position: "relative", width: "100%", height: "350px", borderRadius: "12px", overflow: "hidden", cursor: "col-resize", userSelect: "none", boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
+      onMouseDown={() => (dragging.current = true)}
+      onMouseMove={e => { if (dragging.current) move(e.clientX); }}
+      onMouseUp={() => (dragging.current = false)}
+      onMouseLeave={() => (dragging.current = false)}
+      onTouchStart={() => (dragging.current = true)}
+      onTouchMove={e => move(e.touches[0].clientX)}
+      onTouchEnd={() => (dragging.current = false)}
+    >
+      <img src={beforeSrc} alt="Voor" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: beforePosition }} draggable={false} />
+      <div style={{ position: "absolute", top: "12px", left: "12px", zIndex: 5, background: "rgba(0,0,0,0.65)", color: "#FFFFFF", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>VOOR</div>
+      <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${split}%)` }}>
+        <img src={afterSrc} alt="Na" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: afterPosition }} draggable={false} />
+        <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA ✓</div>
+      </div>
+      <div style={{ position: "absolute", top: 0, bottom: 0, width: "2px", left: `${split}%`, background: "rgba(255,255,255,0.75)", zIndex: 10, pointerEvents: "none" }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "36px", height: "36px", borderRadius: "50%", background: "#FFFFFF", border: "2px solid #9BCB6C", boxShadow: "0 2px 8px rgba(0,0,0,0.18)", display: "flex", alignItems: "center", justifyContent: "center", gap: "2px" }}>
+          <ChevronLeft style={{ width: "12px", height: "12px", color: "#9BCB6C" }} />
+          <ChevronRight style={{ width: "12px", height: "12px", color: "#9BCB6C" }} />
+        </div>
       </div>
     </div>
   );
 }
 
 export default function RealisatiesPage() {
+  const [homeHovered, setHomeHovered] = useState(false);
+
   return (
     <PageLayout>
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden" style={{ background: "#111111", paddingTop: "144px", paddingBottom: "80px" }}>
-        <div className="site-wrap relative" style={{ zIndex: 10 }}>
-          <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "16px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-            Voor &amp; Na
+      <section style={{ background: "#FFFFFF", paddingTop: "120px", paddingBottom: "24px" }}>
+        <div className="site-wrap">
+          <p style={{ fontSize: "13px", color: "#9BCB6C", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+            <Link
+              href="/"
+              onMouseEnter={() => setHomeHovered(true)}
+              onMouseLeave={() => setHomeHovered(false)}
+              style={{ color: homeHovered ? "#1A1A1A" : "#9BCB6C", textDecoration: "none", transition: "color 180ms ease" }}
+            >Home</Link>
+            <span style={{ margin: "0 6px", color: "#9BCB6C" }}>›</span>
+            <span style={{ color: "#9BCB6C" }}>Realisaties</span>
           </p>
-          <h1 className="text-white leading-tight mb-5 max-w-3xl"
-            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em" }}>
-            Het resultaat spreekt
-            <span style={{ color: "#9BCB6C" }}> voor zichzelf.</span>
+          <h1 className="leading-tight max-w-3xl"
+            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A", marginBottom: "32px" }}>
+            Onze realisaties spreken
+            <span style={{ color: "#9BCB6C" }}> voor zich.</span>
           </h1>
-          <p className="text-lg max-w-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-            Sleep de schuifregelaar om het verschil te zien. Echte opdrachten in Oost-Vlaanderen, geen digitale nabewerking.
-          </p>
+
+          {/* Stats bar */}
+          <div style={{ display: "flex", background: "#F7F8F6", border: "1px solid #E5E7EB", borderRadius: "12px", padding: "32px 48px", marginTop: "120px", marginBottom: "32px" }}>
+            {[
+              { value: "55+",  label: "afgewerkte projecten" },
+              { value: "100%", label: "eigen uitvoering" },
+              { value: "5★",   label: "gemiddelde beoordeling" },
+            ].map((s, i) => (
+              <div key={i} className="flex flex-col items-center justify-center text-center"
+                style={{ flex: 1, borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", padding: "0 32px" }}>
+                <p className="font-black leading-none"
+                  style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#9BCB6C", fontSize: "2rem", marginBottom: "8px" }}>
+                  {s.value}
+                </p>
+                <p className="text-sm" style={{ color: "#555555" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        {/* Wave */}
-        <div style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 20 }}>
-          <svg viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "50px" }}>
-            <path d="M0,0 C360,80 1080,80 1440,0 L1440,50 L0,50 Z" fill="#FFFFFF"/>
-          </svg>
+      </section>
+
+      {/* ── Large before/after slider ── */}
+      <section style={{ background: "#FFFFFF", paddingTop: "48px", paddingBottom: "0" }}>
+        <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 40px" }}>
+          <LargeSlider />
+        </div>
+      </section>
+
+      {/* ── Project description ── */}
+      <section style={{ background: "#FFFFFF" }}>
+        <div style={{ maxWidth: "1000px", margin: "24px auto", padding: "0 40px" }}>
+          <div style={{ background: "#E3F2D5", borderRadius: "16px", padding: "40px 48px", textAlign: "center" }}>
+            <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "24px", color: "#1A1A1A", marginBottom: "16px", letterSpacing: "-0.01em" }}>
+              Dakreiniging in Schilde
+            </h2>
+            <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "16px", color: "#555555", lineHeight: 1.7, marginBottom: "16px" }}>
+              Dit dak in Schilde was volledig begroeid met mos en algen, dat zie je aan de zwarte kleur van de pannen. Na het reinigen is de zwarte kleur volledig verdwenen en hebben de pannen terug hun oorspronkelijke kleur.
+            </p>
+            <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "16px", color: "#555555", lineHeight: 1.7 }}>
+              Ook de kleine details worden meegenomen: vuil rond de velux en verstopte dakgoten pakken we grondig aan. Zo vermijd je vochtproblemen en verstoppingen achteraf.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 2 small sliders ── */}
+      <section style={{ background: "#FFFFFF", paddingBottom: "0" }}>
+        <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 40px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+            <div>
+              <SmallSlider beforeSrc="/images/Velux%20voor%201.0.png" afterSrc="/images/Velux%20na%201.0.png" beforePosition="center center" afterPosition="center center" />
+              <p style={{ marginTop: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "15px", color: "#1A1A1A" }}>Velux reiniging</p>
+            </div>
+            <div>
+              <SmallSlider beforeSrc="/images/Goot%20voor.JPEG" afterSrc="/images/Goot%20na.JPEG" />
+              <p style={{ marginTop: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "15px", color: "#1A1A1A" }}>Dakgoot reiniging</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── Voor & Na foto grid ── */}
-      <section className="site-pad" style={{ background: "#FFFFFF" }}>
+      <section style={{ background: "#FFFFFF", paddingTop: "120px", paddingBottom: "64px" }}>
         <div className="site-wrap">
-          <div className="text-center mb-12">
-            <span className="site-eyebrow mb-4">Voor &amp; Na</span>
-            <h2 className="font-bold leading-tight mb-4"
-              style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.02em", color: "#111111" }}>
-              Onze Resultaten Spreken Voor Zich
-            </h2>
-            <p style={{ color: "#555555", fontSize: "16px" }}>Echte opdrachten. Geen stockbeelden.</p>
-          </div>
+          <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "1.5rem", letterSpacing: "-0.02em", color: "#1A1A1A", marginBottom: "40px" }}>
+            Meer realisaties
+          </h2>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             {voorNaPhotos.map((p, i) => (
               <div key={i} className="relative overflow-hidden"
                 style={{ borderRadius: "12px", aspectRatio: "4/3", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>
                 <img src={p.src} alt={p.caption} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.55) 100%)" }} />
-                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[11px] font-bold text-white"
+                <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[11px] font-bold"
                   style={{ background: p.before ? "rgba(0,0,0,0.65)" : "#9BCB6C", color: p.before ? "#FFFFFF" : "#1A1A1A", letterSpacing: "0.08em" }}>
                   {p.label}
                 </div>
@@ -175,32 +272,9 @@ export default function RealisatiesPage() {
         </div>
       </section>
 
-      {/* ── Slider gallery ── */}
-      <section className="site-pad" style={{ background: "#F8F8F8" }}>
+      {/* ── CTA ── */}
+      <section style={{ background: "#FFFFFF", paddingTop: "60px", paddingBottom: "60px" }}>
         <div className="site-wrap">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
-            {projects.map((p, i) => <SliderCard key={i} p={p} />)}
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 overflow-hidden rounded-2xl mb-14">
-            {[
-              { value: "247+", label: "afgewerkte opdrachten" },
-              { value: "100%", label: "drone-geïnspecteerd" },
-              { value: "5★",   label: "gemiddelde beoordeling" },
-            ].map((s, i) => (
-              <div key={i} className="flex flex-col items-center justify-center py-8 px-4 text-center rounded-2xl"
-                style={{ background: "#FFFFFF", border: "1px solid #EEEEEE" }}>
-                <p className="font-black text-2xl mb-1 leading-none"
-                  style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#9BCB6C" }}>
-                  {s.value}
-                </p>
-                <p className="text-xs" style={{ color: "#555555" }}>{s.label}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 text-center sm:text-left"
             style={{ background: "#9BCB6C", borderRadius: "16px" }}>
             <div>
@@ -208,13 +282,13 @@ export default function RealisatiesPage() {
                 Wil u ook zulke resultaten?
               </p>
               <p className="text-sm" style={{ color: "#2A2A2A" }}>
-                Vraag een gratis drone-inspectie aan, volledig vrijblijvend.
+                Vraag een vrijblijvende richtprijs aan bij Yannick.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 justify-center shrink-0">
-              <Link href="/contact" className="inline-flex items-center gap-2"
+              <Link href="/#contact" className="inline-flex items-center gap-2"
                 style={{ background: "#FFFFFF", color: "#111111", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none" }}>
-                Gratis diagnose aanvragen <ArrowRight className="w-4 h-4" />
+                Bereken uw richtprijs
               </Link>
               <a href="tel:+32468352869" className="inline-flex items-center gap-2"
                 style={{ background: "#1A1A1A", color: "#FFFFFF", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none" }}>

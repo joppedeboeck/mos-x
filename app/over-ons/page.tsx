@@ -10,18 +10,17 @@ const stats = [
 ];
 
 const bullets = [
-  "247+ daken succesvol gereinigd in Oost-Vlaanderen",
-  "Gecertificeerd drone-piloot, elk dak geïnspecteerd met professionele drone",
+  "Geen onderaannemers, Yannick voert elk werk persoonlijk uit",
   "Volledig verzekerd, burgerlijke aansprakelijkheid inbegrepen",
   "5 jaar garantie op dakcoating behandelingen",
-  "Actief in heel Oost-Vlaanderen en omgeving",
-  "Geen onderaannemers, Yannick voert elk werk persoonlijk uit",
+  "Actief in Antwerpen, Oost-Vlaanderen, Vlaams-Brabant en Limburg",
+  "Eerlijke prijs vooraf, geen verrassingen achteraf",
 ];
 
 const cards = [
   {
     title: "Onze missie",
-    body: "Elke huiseigenaar verdient een eerlijk oordeel over zijn dak, zonder verkooppraatjes. MOS-X staat voor transparantie: u ziet met eigen ogen wat uw dak nodig heeft via live drone-beelden. Geen verassingen achteraf.",
+    body: "Elke huiseigenaar verdient een eerlijk oordeel over zijn dak, zonder verkooppraatjes. MOS-X staat voor transparantie: u weet op voorhand wat uw dak nodig heeft en wat het kost. Geen verrassingen achteraf.",
   },
   {
     title: "Onze visie",
@@ -34,25 +33,19 @@ export default function OverOnsPage() {
     <PageLayout>
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden" style={{ background: "#111111", paddingTop: "144px", paddingBottom: "80px" }}>
-        <div className="site-wrap relative" style={{ zIndex: 10 }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "144px", paddingBottom: "80px" }}>
+        <div className="site-wrap">
           <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "16px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
             Over MOS-X
           </p>
-          <h1 className="text-white leading-tight mb-5 max-w-2xl"
-            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em" }}>
+          <h1 className="leading-tight mb-5 max-w-2xl"
+            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
             Uw dak in
             <span style={{ color: "#9BCB6C" }}> ervaren handen.</span>
           </h1>
-          <p className="text-lg max-w-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-            MOS-X is het dakspecialisme van Yannick, persoonlijk, transparant en eerlijk. Actief in heel Oost-Vlaanderen.
+          <p className="text-lg max-w-xl leading-relaxed" style={{ color: "#545454" }}>
+            MOS-X is het dakspecialisme van Yannick, persoonlijk, transparant en eerlijk. Actief in Antwerpen, Oost-Vlaanderen, Vlaams-Brabant en Limburg.
           </p>
-        </div>
-        {/* Wave */}
-        <div style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 20 }}>
-          <svg viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "50px" }}>
-            <path d="M0,0 C360,80 1080,80 1440,0 L1440,50 L0,50 Z" fill="#FFFFFF"/>
-          </svg>
         </div>
       </section>
 
@@ -73,7 +66,7 @@ export default function OverOnsPage() {
                 <span style={{ color: "#9BCB6C" }}>Eén vakman. Eén belofte.</span>
               </h2>
               <p className="text-sm leading-relaxed mb-5" style={{ color: "#555555" }}>
-                MOS-X is opgericht door Yannick, een gecertificeerde dakspecialist met meer dan 10 jaar ervaring in dakreiniging en dakcoating. Wat hem onderscheidt? Hij werkt met een professionele drone én geeft u live mee te kijken tijdens de inspectie.
+                MOS-X is opgericht door Yannick, een dakspecialist met meer dan 10 jaar ervaring in dakreiniging en dakcoating. Wat hem onderscheidt? Hij werkt altijd persoonlijk, zonder onderaannemers, en geeft u op voorhand een eerlijke prijs.
               </p>
               <p className="text-sm leading-relaxed mb-8" style={{ color: "#555555" }}>
                 Geen onderaannemers. Geen verkoopdruk. Yannick staat met zijn naam op elke opdracht. Dat betekent eerlijk advies, ook als uw dak niets nodig heeft.
@@ -100,7 +93,7 @@ export default function OverOnsPage() {
                     Yannick
                   </p>
                   <p className="text-sm" style={{ color: "#9BCB6C" }}>Oprichter &amp; Vakspecialist MOS-X</p>
-                  <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.60)" }}>Oost-Vlaanderen</p>
+                  <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.60)" }}>Antwerpen · Oost-Vlaanderen · Vlaams-Brabant · Limburg</p>
                 </div>
               </div>
               {/* Review badge */}
@@ -164,13 +157,13 @@ export default function OverOnsPage() {
                 Maak kennis met Yannick
               </p>
               <p className="text-sm" style={{ color: "#2A2A2A" }}>
-                Gratis drone-inspectie · Vrijblijvend advies · Vaste prijs
+                Geen verkooppraatjes. Gewoon eerlijk advies en een vaste prijs vooraf.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 justify-center shrink-0">
-              <Link href="/contact" className="inline-flex items-center gap-2"
+              <Link href="/#contact" className="inline-flex items-center gap-2"
                 style={{ background: "#FFFFFF", color: "#111111", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none" }}>
-                Gratis diagnose aanvragen <ArrowRight className="w-4 h-4" />
+                Bereken uw richtprijs <ArrowRight className="w-4 h-4" />
               </Link>
               <a href="tel:+32468352869" className="inline-flex items-center gap-2"
                 style={{ background: "#1A1A1A", color: "#FFFFFF", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none" }}>

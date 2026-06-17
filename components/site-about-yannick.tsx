@@ -1,30 +1,43 @@
+"use client";
+
+import Image from "next/image";
+
 export default function SiteAboutYannick() {
   const usps = [
-    { icon: "🚁", title: "Drone-inspectie", sub: "Nauwkeurig en veilig" },
-    { icon: "✓",  title: "Vaste prijs vooraf", sub: "Geen verrassingen" },
-    { icon: "🛡", title: "Garantie op ons werk", sub: "Kwaliteit die blijft" },
+    { title: "Geen onderaannemers", sub: "Yannick doet het zelf" },
+    { title: "Vaste prijs vooraf", sub: "Geen verrassingen" },
+    { title: "Garantie op het werk", sub: "Kwaliteit die blijft" },
   ];
 
   return (
-    <section style={{ background: "#F8F8F8", padding: "80px 40px" }}>
-      <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
+    <section style={{ background: "#FFFFFF", padding: "80px 0", overflow: "hidden" }}>
+      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
 
         <div className="flex flex-col lg:flex-row" style={{ gap: "64px", alignItems: "center" }}>
 
           {/* ── LINKS: foto ── */}
-          <div style={{ flex: "0 0 45%", width: "100%" }}>
+          <div style={{ flex: "0 0 55%", position: "relative" }}>
             <div style={{
-              background: "#E0E0E0",
-              borderRadius: "16px",
-              height: "500px",
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              position: "relative",
+              borderRadius: "8px 0 0 8px",
+              overflow: "hidden",
+              height: "560px",
             }}>
-              <span style={{ color: "#AAAAAA", fontSize: "14px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                Foto Yannick
-              </span>
+              <Image
+                src="/images/Yannick_voor_camionet.png"
+                alt="Yannick - oprichter MOS-X"
+                fill
+                style={{ objectFit: "cover", objectPosition: "center top" }}
+                sizes="(max-width: 1024px) 100vw, 48vw"
+              />
+              {/* Right-side gradient fade to white — overlay starts at 75% from left */}
+              <div style={{
+                position: "absolute",
+                top: 0, right: 0, bottom: 0,
+                width: "25%",
+                background: "linear-gradient(to right, transparent, #FFFFFF)",
+                pointerEvents: "none",
+              }} />
             </div>
           </div>
 
@@ -43,12 +56,12 @@ export default function SiteAboutYannick() {
             {/* Headline */}
             <h2 style={{
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-              fontWeight: 700, fontSize: "36px", lineHeight: 1.2,
-              color: "#1A1A1A", marginBottom: "24px", letterSpacing: "-0.02em",
+              fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.15,
+              color: "#1A1A1A", marginBottom: "24px", letterSpacing: "-0.028em",
             }}>
-              Vakmanschap en technologie.{" "}
-              <br />Voor{" "}
-              <span style={{ color: "#9BCB6C" }}>het beste resultaat.</span>
+              Geen onderaannemers.{" "}
+              <br />
+              <span style={{ color: "#9BCB6C" }}>Gewoon Yannick.</span>
             </h2>
 
             {/* Body */}
@@ -57,16 +70,13 @@ export default function SiteAboutYannick() {
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               marginBottom: "40px",
             }}>
-              Hoi, ik ben Yannick. Ik startte MOS-X vanuit de ambitie om huiseigenaars een eerlijke en
-              kwalitatieve service te bieden. Met mijn drone en professionele materialen zorg ik ervoor
-              dat uw dak er weer jaren tegenaan kan.
+              Hoi, ik ben Yannick. Ik startte MOS-X omdat ik huiseigenaars een eerlijke service wil bieden — zonder mooipraat en zonder onderaannemers. Ik kom persoonlijk langs, doe het werk zelf, en sta met mijn naam garant voor het resultaat. Eerlijke prijs vooraf, altijd.
             </p>
 
             {/* USPs */}
             <div className="flex flex-col sm:flex-row" style={{ gap: "32px" }}>
               {usps.map((u) => (
-                <div key={u.title} style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <span style={{ fontSize: "20px", color: "#9BCB6C" }}>{u.icon}</span>
+                <div key={u.title} style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                   <span style={{
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                     fontWeight: 700, fontSize: "14px", color: "#1A1A1A",
@@ -81,6 +91,40 @@ export default function SiteAboutYannick() {
                   </span>
                 </div>
               ))}
+            </div>
+
+            {/* Buttons */}
+            <div style={{ display: "flex", gap: "12px", marginTop: "36px", flexWrap: "wrap" }}>
+              <a
+                href="/over-ons"
+                style={{
+                  display: "inline-flex", alignItems: "center",
+                  border: "2px solid #9BCB6C", color: "#9BCB6C",
+                  background: "transparent", borderRadius: "8px",
+                  padding: "12px 24px", fontSize: "15px", fontWeight: 700,
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  textDecoration: "none", transition: "background 200ms ease, color 200ms ease",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#9BCB6C"; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#9BCB6C"; }}
+              >
+                Meer over ons
+              </a>
+              <a
+                href="#calculator"
+                style={{
+                  display: "inline-flex", alignItems: "center",
+                  background: "#9BCB6C", color: "#FFFFFF",
+                  border: "2px solid #9BCB6C", borderRadius: "8px",
+                  padding: "12px 24px", fontSize: "15px", fontWeight: 700,
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  textDecoration: "none", transition: "background 200ms ease",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
+                onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
+              >
+                Bereken uw richtprijs
+              </a>
             </div>
 
           </div>

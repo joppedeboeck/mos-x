@@ -1,18 +1,19 @@
-import Link from "next/link";
 import { ArrowRight, CheckCircle, Phone, Mail, MapPin, Clock } from "lucide-react";
 import PageLayout from "@/components/page-layout";
 
 const includes = [
-  "Gratis drone-inspectie van uw dak",
-  "U kijkt live mee op de tablet",
+  "Persoonlijk antwoord van Yannick",
   "Eerlijk advies zonder verkooppraatjes",
-  "Schriftelijke offerte met vaste prijs",
-  "Geen verplichtingen na de inspectie",
+  "Vrijblijvende richtprijs op maat",
+  "Reactie binnen 1 werkdag",
+  "Geen verplichtingen",
 ];
 
 const regions = [
-  "Gent", "Aalst", "Dendermonde", "Sint-Niklaas", "Ronse",
-  "Wetteren", "Lokeren", "Zottegem", "Oudenaarde", "Ninove",
+  "Vlaams-Brabant",
+  "Oost-Vlaanderen",
+  "Antwerpen",
+  "Limburg",
 ];
 
 const inputStyle = {
@@ -42,25 +43,19 @@ export default function ContactPage() {
     <PageLayout>
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden" style={{ background: "#111111", paddingTop: "144px", paddingBottom: "80px" }}>
-        <div className="site-wrap relative" style={{ zIndex: 10 }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "144px", paddingBottom: "80px" }}>
+        <div className="site-wrap">
           <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "16px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-            Gratis diagnose
+            Contact
           </p>
-          <h1 className="text-white leading-tight mb-5 max-w-2xl"
-            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em" }}>
-            Start met een
-            <span style={{ color: "#9BCB6C" }}> gratis dakdiagnose.</span>
+          <h1 className="leading-tight mb-5 max-w-2xl"
+            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
+            Neem contact op met
+            <span style={{ color: "#9BCB6C" }}> Yannick.</span>
           </h1>
-          <p className="text-lg max-w-xl leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+          <p className="text-lg max-w-xl leading-relaxed" style={{ color: "#545454" }}>
             Vul het formulier in of bel ons direct. Yannick neemt contact op binnen 1 werkdag.
           </p>
-        </div>
-        {/* Wave */}
-        <div style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 20 }}>
-          <svg viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "50px" }}>
-            <path d="M0,0 C360,80 1080,80 1440,0 L1440,50 L0,50 Z" fill="#FFFFFF"/>
-          </svg>
         </div>
       </section>
 
@@ -74,7 +69,7 @@ export default function ContactPage() {
               style={{ background: "#FFFFFF", border: "1px solid #EEEEEE", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}>
               <p className="font-black text-lg mb-6"
                 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#111111" }}>
-                Gratis diagnose aanvragen
+                Stuur een bericht
               </p>
               <form className="space-y-5" action="#" method="POST">
                 <div className="grid sm:grid-cols-2 gap-5">
@@ -132,7 +127,7 @@ export default function ContactPage() {
                     fontWeight: 700, fontSize: "15px",
                   }}
                 >
-                  Gratis diagnose aanvragen <ArrowRight className="w-5 h-5" />
+                  Verstuur bericht <ArrowRight className="w-5 h-5" />
                 </button>
 
                 <p className="text-center text-xs" style={{ color: "#AAAAAA", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
@@ -144,12 +139,12 @@ export default function ContactPage() {
             {/* ── Sidebar ── */}
             <div className="space-y-5">
 
-              {/* Wat is inbegrepen */}
+              {/* Wat mag u verwachten */}
               <div className="rounded-2xl p-6"
                 style={{ background: "#FFFFFF", border: "1px solid #EEEEEE", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}>
                 <p className="font-black mb-4"
                   style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#111111" }}>
-                  Wat is inbegrepen?
+                  Wat mag u verwachten?
                 </p>
                 <ul className="space-y-3">
                   {includes.map((item, i) => (
@@ -178,11 +173,11 @@ export default function ContactPage() {
                   </a>
                   <div className="flex items-center gap-3 text-sm" style={{ color: "#555555" }}>
                     <MapPin className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
-                    Oost-Vlaanderen
+                    Grobbendonk, Antwerpen
                   </div>
                   <div className="flex items-center gap-3 text-sm" style={{ color: "#555555" }}>
                     <Clock className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
-                    Ma–Za · 8:00–18:00
+                    Ma – Za: 08:00 – 17:00 · Zo: Gesloten
                   </div>
                 </div>
               </div>
@@ -202,7 +197,7 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <p className="text-xs mt-3" style={{ color: "#AAAAAA", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                  Ook actief in omliggende gemeenten.
+                  Yannick werkt in heel Vlaanderen.
                 </p>
               </div>
 

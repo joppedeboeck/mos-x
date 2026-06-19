@@ -180,7 +180,7 @@ export default function SiteServices() {
       <div style={{
         position: "absolute",
         inset: 0,
-        backgroundImage: "url('/images/diensten-bg.jpg')",
+        backgroundImage: "url('/images/diensten-bg.png')",
         backgroundSize: "auto 100%",
         backgroundPosition: "115% center",
         zIndex: 0,
@@ -216,6 +216,9 @@ export default function SiteServices() {
             style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.028em", color: "#FFFFFF" }}>
             Alles voor een <span style={{ color: "#9BCB6C" }}>gezond</span> dak.
           </h2>
+          <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "16px", color: "#FFFFFF", opacity: 0.8, marginTop: "12px", textAlign: "center" }}>
+            Professionele zorg voor elk type dak. Voor een resultaat dat blijft.
+          </p>
         </div>
 
         {/* 3-col grid */}

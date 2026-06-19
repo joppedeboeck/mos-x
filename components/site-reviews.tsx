@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
 const GOOGLE_REVIEW_URL = "https://www.google.com/search?sca_esv=bcc915fd4b92abab&rlz=1C1GCEU_enBE1139BE1139&hl=nl-BE&sxsrf=ANbL-n6TrSUrDpAkVOrNUQ51U5GNZs9b_Q:1781020093012&q=MOS-X+%7C+Dakontmossing+%26+Coating+Reviews&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qORc7vib1r0gQO2ABjRXpl_uRZy99-xBVdTGpP89RMUA3yzcvCK6A2AazedCdjGkX1gn8bkQ%3D&uds=ALYpb_mOSBfVE_qjsUIUDwhXk-cv8R5BmJbdPhES1TRqg_vpjJyijAOWQNUWx-ymHj1rypkaCI5vDZLjKLW1ObrTyqmMebN8NP7CqX96tO1wgBatLBTT6ccEki20RIqT8UXa_cZv3U6K&sa=X&ved=2ahUKEwiuju3vwPqUAxVNRaQEHUolF-wQ3PALegQIMBAF&biw=1920&bih=911&dpr=1";
 
 const btnStyle: React.CSSProperties = {
@@ -41,41 +39,6 @@ function GoogleBtn({ text, url }: { text: string; url: string }) {
 }
 
 export default function SiteReviews() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    // Load script if not already loaded
-    if (!document.querySelector('script[src*="trustindex.io"]')) {
-      const script = document.createElement("script");
-      script.src = "https://cdn.trustindex.io/loader.js?4c132e774844695c6c2696a6bdf";
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-    }
-
-    // Watch for the widget being injected anywhere in the DOM and move it here
-    const observer = new MutationObserver(() => {
-      // Trustindex typically adds a div with class starting with 'ti-' or an iframe
-      const widget =
-        document.querySelector(".ti-widget-container") ||
-        document.querySelector(".ti-widget") ||
-        document.querySelector("[class*='trustindex']") ||
-        document.querySelector("iframe[src*='trustindex']");
-
-      if (widget && widget.parentElement !== container) {
-        container.appendChild(widget);
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="site-pad" id="reviews" style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(155,203,108,0.07) 0%, transparent 65%), #F7F8F6" }}>
       <div className="site-wrap">
@@ -98,8 +61,11 @@ export default function SiteReviews() {
           <GoogleBtn text="Review ons op Google" url={GOOGLE_REVIEW_URL} />
         </div>
 
-        {/* Trustindex widget lands here */}
-        <div ref={containerRef} style={{ minHeight: "200px" }} />
+        {/* Trustindex widget */}
+        <div
+          className="trustindex-widget"
+          style={{ minHeight: 0, overflow: "hidden", width: "100%" }}
+        />
 
       </div>
     </section>

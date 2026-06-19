@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { Droplets, Shield, CalendarCheck } from "lucide-react";
+import { Droplets, Shield, CalendarCheck, LayoutGrid, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -76,7 +76,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
       }}
     >
       {/* Media area */}
-      <div className="relative overflow-hidden" style={{ height: "300px", borderRadius: "12px 12px 0 0" }}>
+      <div className="relative overflow-hidden" style={{ height: "380px", borderRadius: "12px 12px 0 0" }}>
         <img
           src={s.img}
           alt={s.title}
@@ -91,9 +91,12 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
             style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 1 }}
           />
         )}
-        <div className="absolute inset-0"
-          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, transparent 100%)", zIndex: 1 }}
-        />
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0,
+          height: "60%",
+          background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 40%, transparent 70%)",
+          zIndex: 1,
+        }} />
         <div className="absolute bottom-0 left-0 right-0 p-5 z-10" style={{ display: "flex", alignItems: "flex-end", gap: "12px" }}>
           {/* Green icon circle */}
           <div style={{
@@ -153,7 +156,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
         </div>
 
         {/* Link */}
-        <div style={{ marginTop: "auto", textAlign: "center" }}>
+        <div style={{ marginTop: "auto", textAlign: "left" }}>
           <span style={{
             color: "#9BCB6C", fontSize: "14px", fontWeight: 600,
             fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -170,13 +173,28 @@ export default function SiteServices() {
   return (
     <section className="site-pad" id="diensten" style={{
       position: "relative",
-      background: "linear-gradient(90deg, #0B0F0C 0%, #0B0F0C 42%, rgba(11,15,12,0.90) 58%, rgba(11,15,12,0.45) 100%), url('/images/footer-bg.jpg')",
-      backgroundSize: "cover",
-      backgroundPosition: "right center",
-      backgroundRepeat: "no-repeat",
+      background: "#0B0F0C",
       overflow: "hidden",
     }}>
-      {/* Green radial glow behind cards */}
+      {/* Background photo — independently positioned */}
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        backgroundImage: "url('/images/diensten-bg.jpg')",
+        backgroundSize: "auto 100%",
+        backgroundPosition: "115% center",
+        zIndex: 0,
+      }} />
+
+      {/* Gradient overlay — fades photo into dark left side */}
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        background: "linear-gradient(90deg, #0B0F0C 0%, #0B0F0C 70%, rgba(11,15,12,0.80) 80%, rgba(11,15,12,0.45) 90%, rgba(11,15,12,0.35) 100%)",
+        zIndex: 1,
+      }} />
+
+      {/* Green radial glow */}
       <div style={{
         position: "absolute",
         width: "600px",
@@ -186,10 +204,10 @@ export default function SiteServices() {
         top: "50%",
         transform: "translateY(-50%)",
         pointerEvents: "none",
-        zIndex: 0,
+        zIndex: 2,
       }} />
 
-      <div className="site-wrap" style={{ position: "relative", zIndex: 1 }}>
+      <div className="site-wrap" style={{ position: "relative", zIndex: 3 }}>
 
         {/* Header */}
         <div className="mb-14" style={{ textAlign: "center" }}>
@@ -209,12 +227,14 @@ export default function SiteServices() {
 
         {/* Bottom CTA */}
         <div className="flex justify-center">
-          <Link href="/diensten" className="inline-flex items-center gap-2"
-            style={{ border: "1.5px solid #9BCB6C", color: "#FFFFFF", background: "transparent", borderRadius: "8px", padding: "0.875rem 1.75rem", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 600, fontSize: "0.9375rem", textDecoration: "none", transition: "background 200ms ease, color 200ms ease" }}
-            onMouseEnter={e => { e.currentTarget.style.background = "#9BCB6C"; e.currentTarget.style.color = "#1A1A1A"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#FFFFFF"; }}
+          <Link href="/diensten" className="inline-flex items-center"
+            style={{ border: "1.5px solid #9BCB6C", color: "#FFFFFF", background: "transparent", borderRadius: "10px", padding: "14px 28px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 600, fontSize: "0.9375rem", textDecoration: "none", transition: "background 200ms ease", gap: "12px" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#9BCB6C"; (e.currentTarget.querySelector(".btn-grid-icon") as HTMLElement).style.color = "#FFFFFF"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; (e.currentTarget.querySelector(".btn-grid-icon") as HTMLElement).style.color = "#9BCB6C"; }}
           >
+            <LayoutGrid className="btn-grid-icon" size={16} style={{ color: "#9BCB6C", transition: "color 200ms ease", flexShrink: 0 }} />
             Alle diensten bekijken
+            <ArrowRight size={16} style={{ flexShrink: 0 }} />
           </Link>
         </div>
       </div>

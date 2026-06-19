@@ -61,7 +61,9 @@ export default function SiteReviews() {
           <GoogleBtn text="Review ons op Google" url={GOOGLE_REVIEW_URL} />
         </div>
 
-        <div className="w-full max-w-6xl mx-auto mt-8" data-widget-id="4c132e774844695c6c2696a6bdf"></div>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div data-widget-id="4c132e774844695c6c2696a6bdf"></div>
+        </div>
 
       </div>
     </section>

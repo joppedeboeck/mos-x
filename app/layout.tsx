@@ -1,6 +1,5 @@
 ﻿import type { Metadata } from "next";
 import { Inter, Montserrat, Playfair_Display } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -53,12 +52,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="nl" className={`${inter.variable} ${montserrat.variable} ${playfair.variable}`}>
+      <head>
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script defer async src="https://cdn.trustindex.io/loader.js?4c132e774844695c6c2696a6bdf"></script>
+      </head>
       <body className="antialiased">
         {children}
-        <Script
-          src="https://cdn.trustindex.io/loader.js?4c132e774844695c6c2696a6bdf"
-          strategy="afterInteractive"
-        />
         <a
           href="https://wa.me/32468352869"
           target="_blank"

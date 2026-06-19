@@ -52,6 +52,7 @@ export default function SiteReviews() {
     if (container.querySelector('script[src*="trustindex"]')) return;
     const s = document.createElement("script");
     s.async = true;
+    s.defer = true;
     s.src = "https://cdn.trustindex.io/loader.js?4c132e774844695c6c2696a6bdf";
     container.appendChild(s);
   }, []);

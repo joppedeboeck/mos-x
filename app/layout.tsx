@@ -1,6 +1,5 @@
 ﻿import type { Metadata } from "next";
 import { Inter, Montserrat, Playfair_Display } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -54,7 +53,6 @@ export default function RootLayout({
   return (
     <html lang="nl" className={`${inter.variable} ${montserrat.variable} ${playfair.variable}`}>
       <body className="antialiased">
-        <Script src="https://cdn.trustindex.io/loader.js?4c132e774844695c6c2696a6bdf" strategy="lazyOnload" />
         {children}
         <a
           href="https://wa.me/32468352869"

@@ -61,11 +61,7 @@ export default function SiteReviews() {
           <GoogleBtn text="Review ons op Google" url={GOOGLE_REVIEW_URL} />
         </div>
 
-        {/* Trustindex widget */}
-        <div
-          className="trustindex-widget"
-          style={{ minHeight: 0, overflow: "hidden", width: "100%" }}
-        />
+        <div className="w-full max-w-6xl mx-auto mt-8" data-widget-id="4c132e774844695c6c2696a6bdf"></div>
 
       </div>
     </section>

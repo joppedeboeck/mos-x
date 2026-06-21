@@ -19,25 +19,19 @@ export default function SiteAboutYannick() {
           <div style={{ flex: "0 0 55%", position: "relative" }}>
             <div style={{
               position: "relative",
-              borderRadius: "8px 0 0 8px",
+              borderRadius: "16px",
               overflow: "hidden",
               height: "560px",
+              border: "1px solid #EEEEEE",
+              boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
             }}>
               <Image
                 src="/images/Foto_Yannick.png"
                 alt="Yannick - oprichter MOS-X"
                 fill
-                style={{ objectFit: "cover", objectPosition: "center top", transform: "scale(0.85)", transformOrigin: "center top" }}
+                style={{ objectFit: "cover", objectPosition: "center top" }}
                 sizes="(max-width: 1024px) 100vw, 48vw"
               />
-              {/* Right-side gradient fade to white — overlay starts at 75% from left */}
-              <div style={{
-                position: "absolute",
-                top: 0, right: 0, bottom: 0,
-                width: "25%",
-                background: "linear-gradient(to right, transparent, #FFFFFF)",
-                pointerEvents: "none",
-              }} />
             </div>
           </div>
 

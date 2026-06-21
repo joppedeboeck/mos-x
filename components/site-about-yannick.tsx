@@ -24,7 +24,7 @@ export default function SiteAboutYannick() {
               height: "560px",
             }}>
               <Image
-                src="/images/Yannick_voor_camionet.png"
+                src="/images/Foto_Yannick.png"
                 alt="Yannick - oprichter MOS-X"
                 fill
                 style={{ objectFit: "cover", objectPosition: "center top" }}

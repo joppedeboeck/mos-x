@@ -13,7 +13,7 @@ export default function SiteAboutYannick() {
     <section style={{ background: "#FFFFFF", padding: "80px 0", overflow: "hidden" }}>
       <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
 
-        <div className="flex flex-col lg:flex-row" style={{ gap: "64px", alignItems: "center" }}>
+        <div className="flex flex-col lg:flex-row" style={{ gap: "64px", alignItems: "stretch" }}>
 
           {/* ── LINKS: foto ── */}
           <div style={{ flex: "0 0 55%", position: "relative" }}>
@@ -21,7 +21,8 @@ export default function SiteAboutYannick() {
               position: "relative",
               borderRadius: "16px",
               overflow: "hidden",
-              height: "560px",
+              height: "100%",
+              minHeight: "400px",
               border: "1px solid #EEEEEE",
               boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
             }}>

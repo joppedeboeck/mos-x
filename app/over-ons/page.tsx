@@ -113,7 +113,7 @@ export default function OverOnsPage() {
                 className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative"
                 style={{ border: "1px solid #EEEEEE", boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}
               >
-                <img src="/images/yannick.png" alt="Yannick" className="absolute inset-0 w-full h-full object-cover" />
+                <img src="/images/Foto_Yannick.png" alt="Yannick" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%)" }} />
                 <div className="absolute bottom-5 left-5 right-5">
                   <p className="font-black text-white text-xl" style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>

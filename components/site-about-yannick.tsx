@@ -33,6 +33,13 @@ export default function SiteAboutYannick() {
                 style={{ objectFit: "cover", objectPosition: "center top" }}
                 sizes="(max-width: 1024px) 100vw, 48vw"
               />
+              <div style={{
+                position: "absolute",
+                top: 0, right: 0, bottom: 0,
+                width: "35%",
+                background: "linear-gradient(to right, transparent, #FFFFFF)",
+                pointerEvents: "none",
+              }} />
             </div>
           </div>
 

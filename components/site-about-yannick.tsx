@@ -27,7 +27,7 @@ export default function SiteAboutYannick() {
                 src="/images/Foto_Yannick.png"
                 alt="Yannick - oprichter MOS-X"
                 fill
-                style={{ objectFit: "cover", objectPosition: "center top" }}
+                style={{ objectFit: "cover", objectPosition: "center top", transform: "scale(0.85)", transformOrigin: "center top" }}
                 sizes="(max-width: 1024px) 100vw, 48vw"
               />
               {/* Right-side gradient fade to white — overlay starts at 75% from left */}

@@ -1,70 +1,88 @@
 "use client";
 
-import Image from "next/image";
+import { CheckCircle } from "lucide-react";
 
 export default function SiteAboutYannick() {
   const usps = [
-    { title: "Geen onderaannemers", sub: "Yannick doet het zelf" },
-    { title: "Vaste prijs vooraf", sub: "Geen verrassingen" },
-    { title: "Garantie op het werk", sub: "Kwaliteit die blijft" },
+    { title: "Rechtstreeks contact", sub: "van eerste gesprek tot uitvoering" },
+    { title: "Alleen wat nodig is", sub: "niet meer, niet minder" },
+    { title: "Gespecialiseerd in daken", sub: "Geen algemeen klusbedrijf." },
   ];
 
   return (
-    <section style={{ background: "#FFFFFF", padding: "80px 0", overflow: "hidden" }}>
+    <section style={{ background: "transparent", padding: "80px 0", overflow: "hidden" }}>
       <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
 
-        <div className="flex flex-col lg:flex-row" style={{ gap: "64px", alignItems: "stretch" }}>
+        <div className="flex flex-col lg:flex-row" style={{ gap: "32px", alignItems: "stretch" }}>
 
           {/* ── LINKS: foto ── */}
           <div style={{ flex: "0 0 55%", position: "relative" }}>
             <div style={{
               position: "relative",
-              borderRadius: "16px",
-              overflow: "hidden",
               height: "100%",
-              minHeight: "400px",
-              border: "1px solid #EEEEEE",
-              boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+              minHeight: "460px",
             }}>
-              <Image
-                src="/images/Foto_Yannick.png"
+              <img
+                src="/images/Yannick_foto_3_0.png"
                 alt="Yannick - oprichter MOS-X"
-                fill
-                style={{ objectFit: "cover", objectPosition: "center top" }}
-                sizes="(max-width: 1024px) 100vw, 48vw"
+                style={{
+                  position: "absolute",
+                  top: 0, left: 0,
+                  width: "88%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "left 25%",
+                  borderRadius: "16px",
+                }}
               />
+
+              {/* Naamlabel linksonder op de foto */}
               <div style={{
                 position: "absolute",
-                top: 0, right: 0, bottom: 0,
-                width: "35%",
-                background: "linear-gradient(to right, transparent, #FFFFFF)",
-                pointerEvents: "none",
-              }} />
+                bottom: "20px",
+                left: "16px",
+                background: "rgba(11,15,12,0.75)",
+                backdropFilter: "blur(6px)",
+                borderRadius: "10px",
+                padding: "10px 16px",
+                zIndex: 10,
+              }}>
+                <p style={{
+                  color: "#FFFFFF",
+                  fontSize: "15px",
+                  fontWeight: 700,
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  margin: 0,
+                }}>Yannick</p>
+                <p style={{
+                  color: "#9BCB6C",
+                  fontSize: "12px",
+                  fontWeight: 500,
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
+                  margin: "2px 0 0 0",
+                }}>Oprichter & Vakspecialist MOS-X</p>
+              </div>
             </div>
           </div>
 
           {/* ── RECHTS: tekst ── */}
           <div style={{ flex: "1 1 0" }}>
 
-            {/* Label */}
-            <p style={{
-              fontSize: "12px", fontWeight: 700, textTransform: "uppercase",
-              letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "16px",
-              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-            }}>
-              Wie is MOS-X?
-            </p>
-
             {/* Headline */}
             <h2 style={{
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.15,
-              color: "#1A1A1A", marginBottom: "24px", letterSpacing: "-0.028em",
+              color: "#1A1A1A", marginBottom: "10px", letterSpacing: "-0.028em",
             }}>
-              Geen onderaannemers.{" "}
-              <br />
-              <span style={{ color: "#9BCB6C" }}>Gewoon Yannick.</span>
+              <span style={{ color: "#9BCB6C" }}>Persoonlijk advies.</span><br />Een verzorgd dak.
             </h2>
+            <p style={{
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              fontWeight: 600, fontSize: "15px", color: "#1A1A1A",
+              marginBottom: "20px", letterSpacing: "0.01em",
+            }}>
+              Rechtstreeks contact met <span style={{ color: "#9BCB6C" }}>Yannick</span>.
+            </p>
 
             {/* Body */}
             <p style={{
@@ -72,25 +90,34 @@ export default function SiteAboutYannick() {
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               marginBottom: "40px",
             }}>
-              Hoi, ik ben Yannick. Ik startte MOS-X omdat ik huiseigenaars een eerlijke service wil bieden — zonder mooipraat en zonder onderaannemers. Ik kom persoonlijk langs, doe het werk zelf, en sta met mijn naam garant voor het resultaat. Eerlijke prijs vooraf, altijd.
+              Ik ben Yannick, oprichter van MOS-X. Ik bekijk elk dak persoonlijk en adviseer alleen wat het echt nodig heeft. Van reiniging en bescherming tot onderhoud van je dak op lange termijn. Zo weet je altijd wat je mag verwachten en wie verantwoordelijk is voor het resultaat.
             </p>
 
             {/* USPs */}
-            <div className="flex flex-col sm:flex-row" style={{ gap: "32px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
               {usps.map((u) => (
-                <div key={u.title} style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <span style={{
-                    fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                    fontWeight: 700, fontSize: "14px", color: "#1A1A1A",
+                <div key={u.title} style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
+                  <div style={{
+                    flexShrink: 0,
+                    width: "34px", height: "34px",
+                    background: "rgba(155,203,108,0.12)",
+                    borderRadius: "50%",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    marginTop: "1px",
                   }}>
-                    {u.title}
-                  </span>
-                  <span style={{
-                    fontFamily: "var(--font-inter), system-ui, sans-serif",
-                    fontSize: "13px", color: "#888888",
-                  }}>
-                    {u.sub}
-                  </span>
+                    <CheckCircle size={17} color="#9BCB6C" strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <p style={{
+                      fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                      fontWeight: 700, fontSize: "14px", color: "#1A1A1A",
+                      marginBottom: "2px",
+                    }}>{u.title}</p>
+                    <p style={{
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
+                      fontSize: "13px", color: "#888888",
+                    }}>{u.sub}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -125,7 +152,7 @@ export default function SiteAboutYannick() {
                 onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
               >
-                Bereken uw richtprijs
+                Bereken je richtprijs
               </a>
             </div>
 

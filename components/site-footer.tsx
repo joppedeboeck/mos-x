@@ -114,7 +114,7 @@ export default function SiteFooter() {
               marginBottom: "28px",
               maxWidth: "260px",
             }}>
-              Dé specialist in dakontmossen en coaten.
+              Voor een proper, beschermd en verzorgd dak.
             </p>
             <div style={{ display: "flex", gap: "10px" }}>
               <SocialBtn href="https://www.facebook.com/profile.php?id=61551512872835" label="Facebook">
@@ -140,16 +140,16 @@ export default function SiteFooter() {
             <span style={colTitle}>Diensten</span>
             <FLink href="/diensten/dakontmossing">Dakreiniging</FLink>
             <FLink href="/diensten/dakcoating">Dakcoating</FLink>
-            <FLink href="/contact">Dakabonnement</FLink>
+            <FLink href="/contact">MOS-X Dakzorg</FLink>
           </div>
 
           {/* Col 3 — Regio's */}
           <div>
             <span style={colTitle}>Regio&apos;s</span>
-            <FLink href="/regio/vlaams-brabant">Vlaams-Brabant</FLink>
-            <FLink href="/regio/oost-vlaanderen">Oost-Vlaanderen</FLink>
             <FLink href="/regio/antwerpen">Antwerpen</FLink>
             <FLink href="/regio/limburg">Limburg</FLink>
+            <FLink href="/regio/oost-vlaanderen">Oost-Vlaanderen</FLink>
+            <FLink href="/regio/vlaams-brabant">Vlaams-Brabant</FLink>
           </div>
 
           {/* Col 4 — Navigatie */}

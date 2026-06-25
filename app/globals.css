@@ -33,7 +33,7 @@
 }
 
 :root {
-  --background:         #FFFFFF;
+  --background:         #F7F8F6;
   --foreground:         #1A1A1A;
   --card:               #FFFFFF;
   --card-foreground:    #1A1A1A;
@@ -60,8 +60,9 @@
     @apply bg-background text-foreground;
     font-family: var(--font-inter), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 }
 
 /* ═══════════════════════════════════════════════
@@ -235,12 +236,10 @@
    CARD / SERVICE HOVER
 ═══════════════════════════════════════════════ */
 .service-card {
-  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+  transition: box-shadow 300ms ease;
 }
 .service-card:hover {
-  transform: translateY(-4px);
-  border-color: #9BCB6C !important;
-  box-shadow: 0 8px 32px rgba(155,203,108,0.15) !important;
+  box-shadow: 0 8px 32px rgba(155,203,108,0.15), 0 0 0 1.5px #9BCB6C !important;
 }
 
 .step-card {

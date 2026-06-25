@@ -169,10 +169,44 @@ export default function SitePricing() {
 
         {/* Witte zweefkaart */}
         <div style={{ background: "#FFFFFF", borderRadius: "16px", boxShadow: "0 8px 48px rgba(0,0,0,0.15)", padding: "40px" }}>
-          <div className="flex flex-col lg:flex-row lg:items-start" style={{ gap: "48px" }}>
+          <div className="flex flex-col lg:flex-row lg:items-stretch" style={{ gap: "48px" }}>
 
             {/* ── LINKS: uitleg ── */}
-            <div style={{ flex: "0 0 30%", minWidth: "220px", display: "flex", flexDirection: "column", justifyContent: "center", height: "100%", borderRight: "1px solid #EEEEEE", padding: "40px 32px 40px 0" }}>
+            <div style={{
+              flex: "0 0 30%", minWidth: "220px",
+              display: "flex", flexDirection: "column", justifyContent: "flex-start",
+              borderRight: "1px solid #EEEEEE",
+              margin: "-40px 0 -40px -40px",
+              padding: "48px 32px 0 40px",
+              borderRadius: "16px 0 0 16px",
+              position: "relative",
+              overflow: "hidden",
+            }}>
+              {/* Dakfoto — absoluut onderaan, van rand tot rand */}
+              <img
+                src="/images/Grijze_foto_dak_calculator_.png"
+                alt=""
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  bottom: 0, left: 0, right: 0,
+                  width: "100%",
+                  height: "52%",
+                  objectFit: "cover",
+                  objectPosition: "top center",
+                  pointerEvents: "none",
+                }}
+              />
+              {/* Gradient: wit bovenaan → transparant naar foto */}
+              <div style={{
+                position: "absolute",
+                top: 0, bottom: 0, left: 0, right: 0,
+                background: "linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.5) 70%, rgba(255,255,255,0) 100%)",
+                pointerEvents: "none",
+                zIndex: 1,
+              }} />
+              {/* Tekst — boven de gradient */}
+              <div style={{ position: "relative", zIndex: 2 }}>
               <span style={{
                 display: "inline-block", fontSize: "11px", fontWeight: 700,
                 letterSpacing: "0.14em", textTransform: "uppercase", color: GREEN,
@@ -182,19 +216,20 @@ export default function SitePricing() {
               </span>
               <h2 style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800,
-                fontSize: "clamp(1.3rem, 2vw, 1.7rem)", letterSpacing: "-0.02em",
+                fontSize: "clamp(1.2rem, 1.8vw, 1.55rem)", letterSpacing: "-0.02em",
                 color: "#111", marginBottom: "24px", lineHeight: 1.25,
               }}>
-                Ontvang direct een <span style={{ color: GREEN }}>richtprijs</span> voor uw dak.
+                Ontvang binnen 1 minuut een <span style={{ color: GREEN }}>richtprijs</span> voor jouw dak.
               </h2>
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {["5 stappen", "60 seconden", "Persoonlijke richtprijs"].map((txt) => (
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                {["Binnen 1 minuut resultaat", "Persoonlijk dakadvies", "Vrijblijvend en zonder verplichtingen"].map((txt) => (
                   <div key={txt} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: GREEN, flexShrink: 0, display: "inline-block" }} />
                     <span style={{ fontSize: "14px", color: "#555", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{txt}</span>
                   </div>
                 ))}
               </div>
+              </div>{/* einde tekst wrapper */}
             </div>
 
             {/* ── RECHTS: tabs + stap content ── */}
@@ -242,7 +277,7 @@ export default function SitePricing() {
                 Bedankt!
               </h3>
               <p style={{ fontSize: "16px", color: "#555", lineHeight: 1.7, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                Yannick neemt binnen <strong>1 werkdag</strong> contact met u op met uw persoonlijke richtprijs.
+                Yannick neemt binnen <strong>1 werkdag</strong> contact met je op met jouw persoonlijke richtprijs.
               </p>
             </div>
           ) : (
@@ -251,7 +286,7 @@ export default function SitePricing() {
               {step === 1 && (
                 <div>
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "28px" }}>
-                    Hoe groot is uw dak ongeveer?
+                    Hoe groot is je dak ongeveer?
                   </h3>
                   <div style={{ textAlign: "center", marginBottom: "24px" }}>
                     <span style={{
@@ -288,7 +323,7 @@ export default function SitePricing() {
               {step === 3 && (
                 <div>
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
-                    Wat voor dakpannen liggen op uw dak?
+                    Wat voor dakpannen liggen op je dak?
                   </h3>
                   {dakTypes.map(d => (
                     <ChoiceRow key={d} label={d} selected={dak === d} onClick={() => { setDak(d); setTimeout(next, 220); }} />
@@ -299,7 +334,7 @@ export default function SitePricing() {
               {step === 4 && (
                 <div>
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "4px" }}>
-                    Wilt u uw dak extra laten beschermen?
+                    Wil je jouw dak extra laten beschermen?
                   </h3>
                   <p style={{ fontSize: "13px", color: "#999", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>(optioneel)</p>
                   {extraOpties.map(o => (
@@ -314,10 +349,10 @@ export default function SitePricing() {
               {step === 5 && (
                 <div>
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
-                    Vul uw gegevens in voor uw persoonlijke prijs
+                    Vul jouw gegevens in voor jouw persoonlijke prijs
                   </h3>
-                  <Field label="Naam" placeholder="Uw volledige naam" value={form.naam} onChange={v => setForm(f => ({ ...f, naam: v }))} />
-                  <Field label="Telefoon" placeholder="Uw telefoonnummer" value={form.tel} onChange={v => setForm(f => ({ ...f, tel: v }))} type="tel" />
+                  <Field label="Naam" placeholder="Jouw volledige naam" value={form.naam} onChange={v => setForm(f => ({ ...f, naam: v }))} />
+                  <Field label="Telefoon" placeholder="Jouw telefoonnummer" value={form.tel} onChange={v => setForm(f => ({ ...f, tel: v }))} type="tel" />
                   <Field label="E-mailadres" placeholder="uw@email.be" value={form.email} onChange={v => setForm(f => ({ ...f, email: v }))} type="email" />
                   <Field label="Postcode" placeholder="2000" value={form.postcode} onChange={v => setForm(f => ({ ...f, postcode: v }))} />
                   <Field label="Adres" placeholder="Straat en huisnummer (bv. Kerkstraat 12, Antwerpen)" value={form.adres} onChange={v => setForm(f => ({ ...f, adres: v }))} />

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -6,9 +6,9 @@ import { ArrowRight, CheckCircle, Phone, Mail, MapPin, Clock } from "lucide-reac
 import PageLayout from "@/components/page-layout";
 
 const includes = [
-  "Snelle werkplanning",
-  "Persoonlijk antwoord van Yannick",
-  "Reactie binnen 24u",
+  "Reactie binnen 24 uur",
+  "Vrijblijvend advies",
+  "Rechtstreeks contact met Yannick",
 ];
 
 const regions = [
@@ -48,7 +48,7 @@ export default function ContactPage() {
     <PageLayout>
 
       {/* ── Hero ── */}
-      <section style={{ background: "#FFFFFF", paddingTop: "120px", paddingBottom: "80px" }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "80px" }}>
         <div className="site-wrap">
           <p style={{ fontSize: "13px", color: "#9BCB6C", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
             <Link
@@ -65,38 +65,38 @@ export default function ContactPage() {
             Neem contact op met <span style={{ color: "#9BCB6C" }}>Yannick.</span>
           </h1>
           <p className="text-lg leading-relaxed" style={{ color: "#545454", whiteSpace: "nowrap" }}>
-            Vul het formulier in of bel ons direct. Yannick neemt contact op binnen 24u.
+            Vul het formulier in of bel Yannick direct. Je ontvangt binnen 24 uur een reactie.
           </p>
         </div>
       </section>
 
       {/* ── Main content ── */}
-      <section className="site-pad" style={{ background: "#FFFFFF", paddingTop: "24px" }}>
+      <section className="site-pad" style={{ background: "#F7F8F6", paddingTop: "24px" }}>
         <div className="site-wrap">
           <div className="grid lg:grid-cols-[1fr_380px] gap-10 items-start">
 
             {/* ── Formulier ── */}
             <div className="rounded-2xl p-8"
-              style={{ background: "#FFFFFF", border: "1px solid #EEEEEE", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}>
+              style={{ background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", boxShadow: "0 2px 16px rgba(155,203,108,0.12)" }}>
               <p className="font-black text-lg mb-6"
                 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#111111" }}>
-                Stuur een bericht
+                Stel je vraag
               </p>
               <form className="space-y-5" action="#" method="POST">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label style={labelStyle}>Voornaam *</label>
-                    <input type="text" name="voornaam" required placeholder="Uw voornaam" style={inputStyle} />
+                    <input type="text" name="voornaam" required placeholder="Jouw voornaam" style={inputStyle} />
                   </div>
                   <div>
                     <label style={labelStyle}>Achternaam *</label>
-                    <input type="text" name="achternaam" required placeholder="Uw achternaam" style={inputStyle} />
+                    <input type="text" name="achternaam" required placeholder="Jouw achternaam" style={inputStyle} />
                   </div>
                 </div>
 
                 <div>
                   <label style={labelStyle}>E-mailadres *</label>
-                  <input type="email" name="email" required placeholder="uw@email.be" style={inputStyle} />
+                  <input type="email" name="email" required placeholder="jouw@email.be" style={inputStyle} />
                 </div>
 
                 <div>
@@ -129,14 +129,14 @@ export default function ContactPage() {
                 {dienst === "andere" && (
                   <div>
                     <label style={labelStyle}>Bericht *</label>
-                    <textarea name="bericht" required rows={4} placeholder="Vertel ons waarmee we u kunnen helpen..."
+                    <textarea name="bericht" required rows={4} placeholder="Vertel ons waarmee we je kunnen helpen..."
                       style={{ ...inputStyle, resize: "none" as const }} />
                   </div>
                 )}
                 {dienst !== "andere" && dienst !== "" && (
                   <div>
                     <label style={labelStyle}>Bericht (optioneel)</label>
-                    <textarea name="bericht" rows={4} placeholder="Extra informatie over uw dak of situatie..."
+                    <textarea name="bericht" rows={4} placeholder="Extra informatie over je dak of situatie..."
                       style={{ ...inputStyle, resize: "none" as const }} />
                   </div>
                 )}
@@ -163,12 +163,12 @@ export default function ContactPage() {
             {/* ── Sidebar ── */}
             <div className="space-y-5">
 
-              {/* Wat mag u verwachten */}
+              {/* Wat mag je verwachten */}
               <div className="rounded-2xl p-6"
-                style={{ background: "#FFFFFF", border: "1px solid #EEEEEE", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}>
+                style={{ background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", boxShadow: "0 2px 16px rgba(155,203,108,0.12)" }}>
                 <p className="font-black mb-4"
                   style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#111111" }}>
-                  Wat mag u verwachten?
+                  Wat mag je verwachten?
                 </p>
                 <ul className="space-y-3">
                   {includes.map((item, i) => (
@@ -181,7 +181,7 @@ export default function ContactPage() {
               </div>
 
               {/* Direct bellen */}
-              <div className="rounded-xl p-6" style={{ background: "#F8F8F8", borderRadius: "12px" }}>
+              <div className="rounded-xl p-6" style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "12px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
                 <p className="font-black mb-4"
                   style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#111111" }}>
                   Liever direct bellen?
@@ -215,7 +215,7 @@ export default function ContactPage() {
               </div>
 
               {/* Werkgebied */}
-              <div className="rounded-xl p-6" style={{ background: "#F8F8F8", borderRadius: "12px" }}>
+              <div className="rounded-xl p-6" style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "12px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
                 <p className="text-[10px] font-bold uppercase tracking-widest mb-4"
                   style={{ color: "#AAAAAA", fontFamily: "var(--font-montserrat)" }}>
                   Werkgebied

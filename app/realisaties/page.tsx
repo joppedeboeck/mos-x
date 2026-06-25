@@ -164,12 +164,14 @@ function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPos
 
 export default function RealisatiesPage() {
   const [homeHovered, setHomeHovered] = useState(false);
+  const [ctaGreenHovered, setCtaGreenHovered] = useState(false);
+  const [ctaPhoneHovered, setCtaPhoneHovered] = useState(false);
 
   return (
     <PageLayout>
 
       {/* ── Hero ── */}
-      <section style={{ background: "#FFFFFF", paddingTop: "120px", paddingBottom: "24px" }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "24px" }}>
         <div className="site-wrap">
           <p style={{ fontSize: "13px", color: "#9BCB6C", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
             <Link
@@ -182,17 +184,26 @@ export default function RealisatiesPage() {
             <span style={{ color: "#9BCB6C" }}>Realisaties</span>
           </p>
           <h1 className="leading-tight max-w-3xl"
-            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A", marginBottom: "32px" }}>
+            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A", marginBottom: "16px" }}>
             Onze realisaties spreken
             <span style={{ color: "#9BCB6C" }}> voor zich.</span>
           </h1>
+          <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "18px", color: "#555555", marginBottom: "32px" }}>
+            Echte projecten. Eerlijke resultaten.
+          </p>
 
           {/* Stats bar */}
-          <div style={{ display: "flex", background: "#F7F8F6", border: "1px solid #E5E7EB", borderRadius: "12px", padding: "32px 48px", marginTop: "120px", marginBottom: "32px" }}>
+          <div style={{
+            display: "flex",
+            background: "#FFFFFF", border: "1px solid #9BCB6C",
+            borderRadius: "16px", padding: "32px 48px",
+            marginTop: "120px", marginBottom: "32px",
+            boxShadow: "0 2px 16px rgba(155,203,108,0.12)",
+          }}>
             {[
-              { value: "55+",  label: "afgewerkte projecten" },
-              { value: "100%", label: "eigen uitvoering" },
-              { value: "5★",   label: "gemiddelde beoordeling" },
+              { value: "55+",  label: "Afgewerkte daken" },
+              { value: "100%", label: "Uitvoering door Yannick" },
+              { value: "5★",   label: "Gemiddelde klantscore" },
             ].map((s, i) => (
               <div key={i} className="flex flex-col items-center justify-center text-center"
                 style={{ flex: 1, borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", padding: "0 32px" }}>
@@ -200,7 +211,7 @@ export default function RealisatiesPage() {
                   style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#9BCB6C", fontSize: "2rem", marginBottom: "8px" }}>
                   {s.value}
                 </p>
-                <p className="text-sm" style={{ color: "#555555" }}>{s.label}</p>
+                <p className="text-sm" style={{ color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -208,47 +219,44 @@ export default function RealisatiesPage() {
       </section>
 
       {/* ── Large before/after slider ── */}
-      <section style={{ background: "#FFFFFF", paddingTop: "48px", paddingBottom: "0" }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "48px", paddingBottom: "0" }}>
         <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 40px" }}>
           <LargeSlider />
         </div>
       </section>
 
       {/* ── Project description ── */}
-      <section style={{ background: "#FFFFFF" }}>
+      <section style={{ background: "#F7F8F6" }}>
         <div style={{ maxWidth: "1000px", margin: "24px auto", padding: "0 40px" }}>
-          <div style={{ background: "#E3F2D5", borderRadius: "16px", padding: "40px 48px", textAlign: "center" }}>
+          <div style={{ background: "#F0F9E8", borderRadius: "16px", padding: "20px 48px", textAlign: "center" }}>
             <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "24px", color: "#1A1A1A", marginBottom: "16px", letterSpacing: "-0.01em" }}>
               Dakreiniging in Schilde
             </h2>
-            <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "16px", color: "#555555", lineHeight: 1.7, marginBottom: "16px" }}>
-              Dit dak in Schilde was volledig begroeid met mos en algen, dat zie je aan de zwarte kleur van de pannen. Na het reinigen is de zwarte kleur volledig verdwenen en hebben de pannen terug hun oorspronkelijke kleur.
-            </p>
             <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "16px", color: "#555555", lineHeight: 1.7 }}>
-              Ook de kleine details worden meegenomen: vuil rond de velux en verstopte dakgoten pakken we grondig aan. Zo vermijd je vochtproblemen en verstoppingen achteraf.
+              Dit dak was zwaar vervuild door mos en algen. Na de reiniging kregen de dakpannen opnieuw hun oorspronkelijke kleur terug. Ook de dakgoten en velux werden grondig gereinigd voor een volledig verzorgd resultaat.
             </p>
           </div>
         </div>
       </section>
 
       {/* ── 2 small sliders ── */}
-      <section style={{ background: "#FFFFFF", paddingBottom: "0" }}>
+      <section style={{ background: "#F7F8F6", paddingBottom: "0" }}>
         <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 40px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
             <div>
               <SmallSlider beforeSrc="/images/Velux%20voor%201.0.png" afterSrc="/images/Velux%20na%201.0.png" beforePosition="center center" afterPosition="center center" />
-              <p style={{ marginTop: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "15px", color: "#1A1A1A" }}>Velux reiniging</p>
+              <p style={{ marginTop: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "15px", color: "#1A1A1A", textAlign: "center" }}>Velux</p>
             </div>
             <div>
               <SmallSlider beforeSrc="/images/Goot%20voor.JPEG" afterSrc="/images/Goot%20na.JPEG" />
-              <p style={{ marginTop: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "15px", color: "#1A1A1A" }}>Dakgoot reiniging</p>
+              <p style={{ marginTop: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "15px", color: "#1A1A1A", textAlign: "center" }}>Dakgoot</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Voor & Na foto grid ── */}
-      <section style={{ background: "#FFFFFF", paddingTop: "120px", paddingBottom: "64px" }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "64px" }}>
         <div className="site-wrap">
           <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "1.5rem", letterSpacing: "-0.02em", color: "#1A1A1A", marginBottom: "40px" }}>
             Meer realisaties
@@ -273,25 +281,30 @@ export default function RealisatiesPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ background: "#FFFFFF", paddingTop: "60px", paddingBottom: "60px" }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "60px", paddingBottom: "60px" }}>
         <div className="site-wrap">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 text-center sm:text-left"
-            style={{ background: "#9BCB6C", borderRadius: "16px" }}>
-            <div>
-              <p className="font-black text-xl mb-1" style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#111111" }}>
-                Wil u ook zulke resultaten?
+            style={{ background: "#0B0F0C", border: "1px solid #9BCB6C", borderRadius: "16px", position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 100% 100%, rgba(155,203,108,0.15) 0%, transparent 60%)", pointerEvents: "none" }} />
+            <div style={{ position: "relative", zIndex: 1 }}>
+              <p className="font-black text-xl mb-1" style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#FFFFFF" }}>
+                Benieuwd wat mogelijk is voor <span style={{ color: "#9BCB6C" }}>jouw dak</span>?
               </p>
-              <p className="text-sm" style={{ color: "#2A2A2A" }}>
-                Vraag een vrijblijvende richtprijs aan bij Yannick.
+              <p className="text-sm" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                Ontvang een persoonlijke richtprijs en eerlijk advies van Yannick.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 justify-center shrink-0">
+            <div className="flex flex-wrap gap-3 justify-center shrink-0" style={{ position: "relative", zIndex: 1 }}>
               <Link href="/#contact" className="inline-flex items-center gap-2"
-                style={{ background: "#FFFFFF", color: "#111111", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none" }}>
-                Bereken uw richtprijs
+                style={{ background: ctaGreenHovered ? "#7AB54E" : "#9BCB6C", color: "#FFFFFF", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none", transition: "background-color 0.2s ease" }}
+                onMouseEnter={() => setCtaGreenHovered(true)}
+                onMouseLeave={() => setCtaGreenHovered(false)}>
+                Bereken je richtprijs
               </Link>
               <a href="tel:+32468352869" className="inline-flex items-center gap-2"
-                style={{ background: "#1A1A1A", color: "#FFFFFF", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none" }}>
+                style={{ background: "transparent", border: ctaPhoneHovered ? "1px solid #9BCB6C" : "1px solid rgba(155,203,108,0.5)", color: ctaPhoneHovered ? "#9BCB6C" : "#FFFFFF", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none", transition: "border-color 0.2s ease, color 0.2s ease" }}
+                onMouseEnter={() => setCtaPhoneHovered(true)}
+                onMouseLeave={() => setCtaPhoneHovered(false)}>
                 <Phone className="w-4 h-4" /> +32 468 35 28 69
               </a>
             </div>

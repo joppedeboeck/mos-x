@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 const steps = [
   {
@@ -31,7 +31,7 @@ const steps = [
 
 export default function SiteProcess() {
   return (
-    <section className="site-pad" id="hoe-het-werkt" style={{ background: "#FFFFFF" }}>
+    <section className="site-pad" id="hoe-het-werkt" style={{ background: "#F7F8F6" }}>
       <div className="site-wrap">
 
         {/* Header */}

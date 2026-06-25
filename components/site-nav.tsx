@@ -133,7 +133,7 @@ export default function SiteNav() {
               onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
               onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
             >
-              Bereken uw richtprijs
+              Bereken je richtprijs
             </Link>
           </div>
 

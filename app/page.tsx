@@ -3,6 +3,7 @@ import SiteHero            from "@/components/site-hero";
 import SiteTrustBar        from "@/components/site-trustbar";
 import SiteServices        from "@/components/site-services";
 import SitePricing         from "@/components/site-pricing";
+import SiteStatsBar        from "@/components/site-statsbar";
 import SiteAboutYannick    from "@/components/site-about-yannick";
 import SiteWerkgebied      from "@/components/site-werkgebied";
 import SiteReviews         from "@/components/site-reviews";
@@ -23,6 +24,9 @@ export default function HomePage() {
 
         {/* 3 · Richtprijscalculator */}
         <SitePricing />
+
+        {/* USP stats balk */}
+        <SiteStatsBar />
 
         {/* 4 · Klantbeoordelingen */}
         <SiteReviews />

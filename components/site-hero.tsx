@@ -50,9 +50,17 @@ export default function SiteHero() {
                 textTransform: "uppercase",
                 letterSpacing: "0.14em",
                 color: "#9BCB6C",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
               }}
             >
-              Dé specialist in dakontmossen en coaten
+              <svg width="18" height="13" viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, borderRadius: "2px" }}>
+                <rect x="0"  width="6"  height="13" fill="#000000" />
+                <rect x="6"  width="6"  height="13" fill="#FFE000" />
+                <rect x="12" width="6"  height="13" fill="#EF3340" />
+              </svg>
+              HET EERSTE DAKONDERHOUDSCONCEPT VAN BELGIË
             </p>
 
             <h1
@@ -60,21 +68,23 @@ export default function SiteHero() {
               style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontWeight: 800,
-                fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
+                fontSize: "clamp(2.75rem, 5.5vw, 4.5rem)",
                 letterSpacing: "-0.028em",
                 color: "#FFFFFF",
               }}
             >
-              Uw dak verdient een{" "}
-              <span style={{ color: "#9BCB6C" }}>eerlijke diagnose.</span>
+              Levenslang een
+              <br />
+              <span style={{ color: "#9BCB6C" }}>verzorgd dak.</span>
             </h1>
 
             <p
               className="leading-relaxed mb-8"
               style={{ color: "rgba(255,255,255,0.62)", fontSize: "18px", maxWidth: "520px" }}
             >
-              Yannick inspecteert uw dak persoonlijk en geeft eerlijk advies.
-              Vaste prijs vooraf, geen verkooppraatjes, en hij staat garant voor het werk.
+              Je dak blijft jaar na jaar proper, verzorgd en waardevol.
+              <br />
+              Gereinigd, beschermd en onderhouden door MOS-X.
             </p>
 
             {/* CTAs */}
@@ -91,11 +101,26 @@ export default function SiteHero() {
                 onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
               >
-                Bereken uw richtprijs &rarr;
+                Bereken je richtprijs &rarr;
               </Link>
-              <a href="tel:+32468352869" className="site-btn-outline-white" style={{ fontSize: "15px" }}>
+              <a
+                href="tel:+32468352869"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "8px",
+                  background: "transparent",
+                  color: "#FFFFFF",
+                  border: "1px solid rgba(155,203,108,0.5)",
+                  borderRadius: "8px", padding: "14px 28px",
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  fontWeight: 700, fontSize: "15px", textDecoration: "none",
+                  transition: "border-color 0.2s ease, color 0.2s ease",
+                  whiteSpace: "nowrap",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "#9BCB6C"; e.currentTarget.style.color = "#9BCB6C"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(155,203,108,0.5)"; e.currentTarget.style.color = "#FFFFFF"; }}
+              >
                 <Phone className="w-4 h-4" />
-                +32 468 35 28 69
+                Bel Yannick rechtstreeks
               </a>
             </div>
 
@@ -107,7 +132,7 @@ export default function SiteHero() {
                 ))}
               </div>
               <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
-                5.0 · 12 beoordelingen
+                5.0 · 13 beoordelingen
               </span>
               <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "14px" }}>·</span>
               <span style={{
@@ -131,7 +156,7 @@ export default function SiteHero() {
       {/* Wave onderaan */}
       <div style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 3 }}>
         <svg viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "50px" }}>
-          <path d="M0,0 C360,80 1080,80 1440,0 L1440,50 L0,50 Z" fill="#FFFFFF"/>
+          <path d="M0,0 C360,80 1080,80 1440,0 L1440,50 L0,50 Z" fill="#F7F8F6"/>
         </svg>
       </div>
     </section>

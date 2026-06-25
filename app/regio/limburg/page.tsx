@@ -4,7 +4,7 @@ import RegioPage  from "@/components/regio-page";
 
 export const metadata: Metadata = {
   title: "Dakontmossing Limburg | MOS-X — Erkende Dakspecialist",
-  description: "MOS-X verzorgt professionele dakontmossing en dakcoating in heel Limburg. Gratis drone-inspectie. Actief in Hasselt, Genk, Sint-Truiden en 27 andere gemeenten.",
+  description: "MOS-X verzorgt professionele dakontmossing en dakcoating in heel Limburg. Actief in Hasselt, Genk, Sint-Truiden en 27 andere gemeenten. Vaste prijs, garantie op de uitgevoerde werken.",
 };
 
 const municipalities = [
@@ -40,13 +40,26 @@ const municipalities = [
   { name: "Kortessem",            zip: "3720" },
 ];
 
+const heroSubtitle =
+  "Professionele dakontmossing en dakcoating in heel Limburg. Eerlijk advies, vaste prijzen en garantie op de uitgevoerde werken.";
+
 const intro = [
-  "Limburg is de groenste provincie van Vlaanderen, met uitgestrekte Kempische heidevelden, bossen en de Maasvalleien langs de Nederlandse grens. Die overvloed aan natuur maakt de provincie bijzonder kwetsbaar voor dakproblemen: bomen en struiken in de buurt van woningen zorgen voor schaduw en vochtigheid, terwijl sporen van bomen rechtstreeks op daken neerslaan en mosgroei versnellen. Yannick werkt persoonlijk in heel Limburg en combineert lokale kennis met een professionele aanpak.",
-  "Van de mijnwerkerswoninkjes in Genk en Beringen tot de landelijke hoeves in Haspengouw en de moderne nieuwbouwwijken in Hasselt — elk dak vraagt een andere aanpak. Na een gratis drone-inspectie legt Yannick u exact uit wat uw dak nodig heeft, en wat het kost. Vaste prijs, geen verrassingen.",
+  "Limburg is de groenste provincie van Vlaanderen. In Haspengouw zorgen uitgestrekte boomgaarden voor organische aanslag in het najaar. Bloemenpollen, bladeren en sporen van fruitbomen belanden massaal op dakpannen en vormen de ideale voedingsbodem voor mos.",
+  "Langs de Maasvallei, in gemeenten als Maasmechelen, Dilsen-Stokkem en Kinrooi, trekt ochtendmist regelmatig over de naburige woonwijken en houdt dakpannen lang vochtig. In de bosrijke Kempen, rond Peer, Pelt en Bocholt, blijven daken door schaduw van dichte bossen langdurig vochtig. Beide omgevingen creëren ideale omstandigheden voor mos- en algengroei.",
+  "Eerlijk advies, een vaste prijs vooraf en garantie op de uitgevoerde werken. Soms volstaat een professionele reiniging, soms is een dakcoating de beste oplossing. Je ontvangt altijd een duidelijke offerte vooraf.",
 ];
 
-const climateText =
-  "Limburg heeft een ietwat continentaler klimaat dan de rest van Vlaanderen, met warmere zomers en koudere winters. De winters zijn echter ook vochtig, en de uitgebreide bosrijke omgeving zorgt voor een constante aanvoer van organisch materiaal op daken. Vooral in de regio rond het Kempisch plateau en de Maas is de mosgroei bijzonder intens door de combinatie van neerslag, schaduw en organische aanslag. Een professioneel gereinigd en gecoat dak houdt die mosgroei jarenlang tegen en behoudt het uitzicht en de waarde van uw woning.";
+const climateParas = [
+  "Limburg heeft een continentaler klimaat dan de kustprovincies, met warmere zomers maar ook hardere vorstperiodes in de winter. Die vorstcycli zijn bijzonder schadelijk voor daken die al besmet zijn met mos of korstmos. Vocht dat door de worteltjes van korstmos in de poriën van dakpannen is doorgedrongen, zet uit bij vriesweer en veroorzaakt kleine maar aanhoudende scheurtjes. Na enkele winters zijn dakpannen poreuzer dan ooit.",
+  "De bosrijke omgeving in de Kempen en rond de Maasvallei zorgt voor een permanente aanvoer van organisch materiaal op daken: bladeren, naaldval, berkenpollen en mosdeeltjes. Dat organisch dek houdt pannen nat en geeft mos een ideale kiembodem. In Haspengouw produceren fruitteeltgebieden extra sporen en stuifmeel, ook voor daken een belasting die niet onderschat mag worden.",
+  "Wie dakonderhoud uitstelt in Limburg, riskeert verstopte goten, vochtproblemen en een dak dat vroeger aan vervanging toe is. Regelmatige dakreiniging en een beschermende dakcoating helpen de levensduur van je dak aanzienlijk te verlengen.",
+];
+
+const services = [
+  { title: "Dakreiniging",  desc: "professionele verwijdering van mos, algen en vervuiling", href: "/diensten/dakontmossing" },
+  { title: "Dakcoating",    desc: "beschermende coating met 10 jaar garantie",                href: "/diensten/dakcoating" },
+  { title: "MOS-X Dakzorg", desc: "jaarlijkse controle en preventief onderhoud",              href: "/diensten/mos-x-dakzorg" },
+];
 
 export default function LimburgPage() {
   return (
@@ -55,7 +68,22 @@ export default function LimburgPage() {
         province="Limburg"
         municipalities={municipalities}
         intro={intro}
-        climateText={climateText}
+        climateParas={climateParas}
+        heroSubtitle={heroSubtitle}
+        heroLight
+        useServiceCards
+        ctaContact
+        trustindexSrc="https://cdn.trustindex.io/loader.js?0646a7275bcf131a35763e363e2"
+        mainTitle="Professionele dakreiniging en dakcoating in Limburg"
+        municipalityTitle="Actief in heel de provincie Limburg"
+        municipalitySubtitle="Ontdek of jouw gemeente in ons werkgebied ligt."
+        services={services}
+        ctaHeadline={<>Benieuwd wat <span style={{ color: "#9BCB6C" }}>jouw dak</span> nodig heeft?</>}
+        ctaSubline="Bereken vrijblijvend je richtprijs. Zo krijg je snel een eerste indicatie van de kostprijs voor jouw dak."
+        ctaButton="Bereken je richtprijs"
+        sidebarTitle="Bereken je richtprijs"
+        sidebarSubtitle="Ontvang een persoonlijke richtprijs op maat van jouw dak."
+        sidebarButton="Bereken je richtprijs"
       />
     </PageLayout>
   );

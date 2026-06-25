@@ -4,7 +4,7 @@ import RegioPage  from "@/components/regio-page";
 
 export const metadata: Metadata = {
   title: "Dakontmossing Vlaams-Brabant | MOS-X — Erkende Dakspecialist",
-  description: "MOS-X verzorgt professionele dakontmossing en dakcoating in heel Vlaams-Brabant. Gratis drone-inspectie. Actief in Leuven, Vilvoorde, Halle en 27 andere gemeenten.",
+  description: "MOS-X verzorgt professionele dakontmossing en dakcoating in heel Vlaams-Brabant. Actief in Leuven, Vilvoorde, Halle en 27 andere gemeenten. Vaste prijs, garantie op de uitgevoerde werken.",
 };
 
 const municipalities = [
@@ -40,13 +40,26 @@ const municipalities = [
   { name: "Londerzeel",          zip: "1840" },
 ];
 
+const heroSubtitle =
+  "Professionele dakontmossing en dakcoating in heel Vlaams-Brabant. Eerlijk advies, vaste prijzen en garantie op de uitgevoerde werken.";
+
 const intro = [
-  "Vlaams-Brabant combineert een dicht bebouwde randstedelijke zone rond Brussel met groene woonkernen in de Dijle- en Demervallei. De mix van vochtige rivierdalen, schaduwrijke tuinen en het milde klimaat zorgt voor ideale omstandigheden voor mosgroei op daken — ook op betrekkelijk nieuwe woningen. Yannick van MOS-X is persoonlijk actief in heel de provincie en kent de lokale dakproblematiek door en door.",
-  "Een verzorgd dak verhoogt de waarde van uw woning aanzienlijk, zeker in een regio waar de vastgoedprijzen hoog liggen. MOS-X reinigt en coateert daken met biologische methodes die pannen niet beschadigen, gevolgd door een schriftelijke garantie tot 15 jaar. Geen onderaannemers, altijd Yannick zelf aan de deur.",
+  "Vlaams-Brabant combineert de dichtbebouwde Brusselse rand met groene woonkernen langs de Dijle en de Demer. In de randstedelijke zone zorgen hoge bomen langs rijkswegen en in tuinen voor langdurige beschaduwing van daken. Langs de Dijle en de Demer blijft vochtige ochtendlucht regelmatig langer hangen, waardoor mos en algen ideale groeiomstandigheden vinden.",
+  "Vooral in woonwijken die grenzen aan het Zoniënwoud, zoals Overijse, Hoeilaart en Sint-Genesius-Rode, blijven daken langer vochtig door de schaduw van hoge bomen. Daardoor krijgen mos, algen en korstmos meer kans om zich te ontwikkelen op het dak.",
+  "Eerlijk advies, een vaste prijs vooraf en garantie op de uitgevoerde werken. Soms volstaat een professionele reiniging, soms is een dakcoating de beste oplossing. Je ontvangt altijd een duidelijke offerte vooraf.",
 ];
 
-const climateText =
-  "Vlaams-Brabant wordt gekenmerkt door een gematigd zeeklimaat met regelmatige neerslag, vooral in de herfst en winter. De combinatie van neerslag, schaduw van bomen en de typische Brabantse leem- en kleibodem creëert vochtige omstandigheden waarbij mos en algen bijzonder snel groeien op dakpannen. Zonder regelmatig onderhoud kan een dak in vijf tot zeven jaar zodanig beschadigen dat vervanging onvermijdelijk wordt. Een preventieve coating na de reiniging beschermt uw investering jarenlang.";
+const climateParas = [
+  "Vlaams-Brabant heeft een gematigd zeeklimaat met een bijzonder kenmerk: de nabijheid van Brussel en het uitgestrekte groen van het Zoniënwoud, de Dijlevallei en de Demervallei. Die combinatie zorgt voor een iets hogere luchtvochtigheid dan gemiddeld en creëert ideale omstandigheden voor mos- en algengroei op daken.",
+  "In woonwijken die grenzen aan het Zoniënwoud blijven daken langer vochtig door schaduw van hoge bomen. Ook langs de Dijle en de Demer blijft vochtige lucht regelmatig langer hangen. Hierdoor krijgen mos, algen en korstmossen meer kans om zich vast te zetten.",
+  "Wie dakonderhoud uitstelt, riskeert verstopte goten, vochtproblemen en op termijn een dak dat vroeger aan vervanging toe is. Regelmatige dakreiniging, eventueel gevolgd door een beschermende dakcoating, helpt de levensduur van de dakbedekking aanzienlijk te verlengen.",
+];
+
+const services = [
+  { title: "Dakreiniging",  desc: "professionele verwijdering van mos, algen en vervuiling", href: "/diensten/dakontmossing" },
+  { title: "Dakcoating",    desc: "beschermende coating met 10 jaar garantie",                href: "/diensten/dakcoating" },
+  { title: "MOS-X Dakzorg", desc: "jaarlijkse controle en preventief onderhoud",              href: "/diensten/mos-x-dakzorg" },
+];
 
 export default function VlaamsBrabantPage() {
   return (
@@ -55,7 +68,22 @@ export default function VlaamsBrabantPage() {
         province="Vlaams-Brabant"
         municipalities={municipalities}
         intro={intro}
-        climateText={climateText}
+        climateParas={climateParas}
+        heroSubtitle={heroSubtitle}
+        heroLight
+        useServiceCards
+        ctaContact
+        trustindexSrc="https://cdn.trustindex.io/loader.js?0646a7275bcf131a35763e363e2"
+        mainTitle="Professionele dakreiniging en dakcoating in Vlaams-Brabant"
+        municipalityTitle="Actief in heel de provincie Vlaams-Brabant"
+        municipalitySubtitle="Ontdek of jouw gemeente in ons werkgebied ligt."
+        services={services}
+        ctaHeadline={<>Benieuwd wat <span style={{ color: "#9BCB6C" }}>jouw dak</span> nodig heeft?</>}
+        ctaSubline="Bereken vrijblijvend je richtprijs. Zo krijg je snel een eerste indicatie van de kostprijs voor jouw dak."
+        ctaButton="Bereken je richtprijs"
+        sidebarTitle="Bereken je richtprijs"
+        sidebarSubtitle="Ontvang een persoonlijke richtprijs op maat van jouw dak."
+        sidebarButton="Bereken je richtprijs"
       />
     </PageLayout>
   );

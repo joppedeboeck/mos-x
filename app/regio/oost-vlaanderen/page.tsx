@@ -4,7 +4,7 @@ import RegioPage  from "@/components/regio-page";
 
 export const metadata: Metadata = {
   title: "Dakontmossing Oost-Vlaanderen | MOS-X — Erkende Dakspecialist",
-  description: "MOS-X verzorgt professionele dakontmossing en dakcoating in heel Oost-Vlaanderen. Gratis drone-inspectie. Actief in Gent, Aalst, Sint-Niklaas en 27 andere gemeenten.",
+  description: "MOS-X verzorgt professionele dakontmossing en dakcoating in heel Oost-Vlaanderen. Actief in Gent, Aalst, Sint-Niklaas en 27 andere gemeenten. Vaste prijs, schriftelijke garantie.",
 };
 
 const municipalities = [
@@ -40,13 +40,26 @@ const municipalities = [
   { name: "Deinze",            zip: "9800" },
 ];
 
+const heroSubtitle =
+  "Professionele dakontmossing en dakcoating in heel Oost-Vlaanderen. Eerlijk advies, vaste prijzen en garantie op de uitgevoerde werken.";
+
 const intro = [
-  "Oost-Vlaanderen is een provincie met een rijke architecturale erfenis: van de rijwoningen in Gent en Aalst tot de landelijke hoeves in de Vlaamse Ardennen. Het vlakke landschap en de nabijheid van de Schelde zorgen voor een hoge luchtvochtigheid, waardoor mos en algen op daken bijzonder snel groeien. Yannick van MOS-X werkt persoonlijk in heel Oost-Vlaanderen en combineert vakkennis met eerlijk advies.",
-  "Na een gratis drone-inspectie ontvangt u een transparante offerte met vaste prijs. Geen verrassingen achteraf. MOS-X reinigt daken met zachte bioreiniging — zonder hogedrukreiniging die pannen beschadigt — en beschermt ze daarna met een kwalitatieve coating die jarenlang standhoudt.",
+  "Oost-Vlaanderen is een provincie met een uitgesproken vochtig karakter. De Schelde, Leie, Durme en Dender doorkruisen de provincie en zorgen het hele jaar door voor een hoge luchtvochtigheid. Die hoge luchtvochtigheid creëert ideale omstandigheden voor mosgroei op daken.",
+  "In de polders ten noorden van Gent, rond Evergem, Assenede en Sint-Laureins, blijven dakpannen na een regenbui langer vochtig door de lage ligging en de beperkte luchtcirculatie. In de Vlaamse Ardennen, rond Ronse, Zottegem en Geraardsbergen, zorgen hellingen en aangrenzende bossen voor daken die langdurig vochtig blijven.",
+  "Eerlijk advies, een vaste prijs vooraf en garantie op de uitgevoerde werken. Soms volstaat een professionele reiniging, soms is een dakcoating de beste oplossing. Je ontvangt altijd een duidelijke offerte vooraf.",
 ];
 
-const climateText =
-  "Het zeeklimaat van Oost-Vlaanderen brengt relatief milde winters en natte herfsten. De invloed van de zee zorgt voor een constant hoge luchtvochtigheid, zeker in de polders en langs de Schelde. Die vochtigheid stimuleert de groei van mos, algen en korstmos op dakpannen. In oudere woonwijken in steden als Gent en Sint-Niklaas zien we daken die in minder dan vijf jaar volledig overgroeid raken. Periodiek onderhoud, gecombineerd met een goede dakcoating, is de meest kostenefficiënte manier om uw dakpannen te beschermen en uw woning in waarde te behouden.";
+const climateParas = [
+  "Oost-Vlaanderen ligt in de invloedssfeer van het zeeklimaat, met milde winters, natte herfsten en een relatief hoge neerslag verspreid over het jaar. De combinatie van het zeeklimaat, de vele rivieren en de poldergebieden maakt de provincie bijzonder gevoelig voor mosgroei.",
+  "De Schelde en haar zijrivieren zorgen voor een hoge bodemvochtigheid die ook tijdens drogere periodes merkbaar blijft. In de polderzone ten noorden van Gent, rond Maldegem, Eeklo en Assenede, creëren laaghangende nevel en een vlak landschap ideale omstandigheden voor mos- en algengroei.",
+  "In stedelijke kernen als Gent en Aalst speelt luchtvervuiling een bijkomende rol. De combinatie van vervuiling en algengroei laat daken er sneller verouderd uitzien. Wie dakonderhoud uitstelt, riskeert verstopte goten, vochtproblemen en op termijn een dak dat vroeger aan vervanging toe is.",
+];
+
+const services = [
+  { title: "Dakreiniging",  desc: "professionele verwijdering van mos, algen en vervuiling", href: "/diensten/dakontmossing" },
+  { title: "Dakcoating",    desc: "beschermende coating met 10 jaar garantie",                href: "/diensten/dakcoating" },
+  { title: "MOS-X Dakzorg", desc: "jaarlijkse controle en preventief onderhoud",              href: "/diensten/mos-x-dakzorg" },
+];
 
 export default function OostVlaanderenPage() {
   return (
@@ -55,7 +68,22 @@ export default function OostVlaanderenPage() {
         province="Oost-Vlaanderen"
         municipalities={municipalities}
         intro={intro}
-        climateText={climateText}
+        climateParas={climateParas}
+        heroSubtitle={heroSubtitle}
+        heroLight
+        useServiceCards
+        ctaContact
+        trustindexSrc="https://cdn.trustindex.io/loader.js?0646a7275bcf131a35763e363e2"
+        mainTitle="Professionele dakreiniging en dakcoating in Oost-Vlaanderen"
+        municipalityTitle="Actief in heel de provincie Oost-Vlaanderen"
+        municipalitySubtitle="Ontdek of jouw gemeente in ons werkgebied ligt."
+        services={services}
+        ctaHeadline={<>Benieuwd wat <span style={{ color: "#9BCB6C" }}>jouw dak</span> nodig heeft?</>}
+        ctaSubline="Bereken vrijblijvend je richtprijs. Zo krijg je snel een eerste indicatie van de kostprijs voor jouw dak."
+        ctaButton="Bereken je richtprijs"
+        sidebarTitle="Bereken je richtprijs"
+        sidebarSubtitle="Ontvang een persoonlijke richtprijs op maat van jouw dak."
+        sidebarButton="Bereken je richtprijs"
       />
     </PageLayout>
   );

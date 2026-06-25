@@ -5,28 +5,32 @@ import { useState } from "react";
 const faqs = [
   {
     q: "Wat kost een dakreiniging?",
-    a: "De prijs hangt af van het dakoppervlak, het type dakbedekking en de staat van het dak. Bereken uw persoonlijke richtprijs in 60 seconden via onze calculator.",
+    a: "Voor een gemiddeld dak ligt een dakreiniging meestal tussen €1.000 en €1.500. De exacte prijs hangt af van de oppervlakte, de staat van het dak en de bereikbaarheid. Via de calculator ontvang je binnen 1 minuut een persoonlijke richtprijs.",
     btn: true,
   },
   {
-    q: "Hoe lang duurt een dakreiniging?",
-    a: "Een gemiddelde dakreiniging duurt 1 à 2 dagen, afhankelijk van de grootte en staat van uw dak. U hoeft niet thuis te zijn tijdens de werken.",
+    q: "Is mijn dak nog te redden?",
+    a: "In veel gevallen wel. Zelfs daken die zwaar vervuild of verweerd lijken, kunnen vaak opnieuw een verzorgd uitzicht krijgen zonder ingrijpende werken. Yannick bekijkt de staat van je dak en adviseert wat écht nodig is.",
+  },
+  {
+    q: "Heb ik een dakcoating nodig?",
+    a: "Niet altijd. Soms volstaat een reiniging om je dak opnieuw een verzorgd uitzicht te geven. Een dakcoating is vooral interessant als je extra bescherming wil of als je dak er zichtbaar verweerd uitziet. Yannick adviseert eerlijk wat jouw dak nodig heeft.",
   },
   {
     q: "Is een dakontmossing schadelijk voor mijn dakpannen?",
-    a: "Nee. Wij werken met de juiste druk en technieken aangepast aan uw daktype. Vooraf inspecteert Yannick uw dak grondig zodat hij precies weet hoe hij te werk gaat.",
+    a: "Nee, integendeel. Mos tast je dakpannen aan en maakt ze poreus. Een dakontmossing stopt dat proces en beschermt je dak. Achteraf kan een coating aangebracht worden zodat je dak er weer als nieuw uitziet.",
   },
   {
-    q: "Hoe vaak moet ik mijn dak laten reinigen?",
-    a: "Gemiddeld om de 5 à 10 jaar, afhankelijk van de omgeving en het type dak. Met een dakcoating achteraf beschermt u uw dak langer tegen mos en algen.",
+    q: "Komt Yannick zelf langs?",
+    a: "Ja. Wanneer je contact opneemt met MOS-X, heb je rechtstreeks contact met Yannick. Hij komt zelf langs, beoordeelt je dak persoonlijk en voert de werken zelf uit. Zo weet je altijd met wie je samenwerkt en wat je mag verwachten.",
   },
   {
-    q: "Wat is het verschil tussen dakreiniging en dakcoating?",
-    a: "Dakreiniging verwijdert mos, algen en vuil van uw dak. Dakcoating is een beschermende laag die daarna wordt aangebracht en uw dak tot 10 jaar beschermt tegen nieuwe mosgroei.",
+    q: "Wat als mijn dak geen reiniging nodig heeft?",
+    a: "Dan zegt Yannick dat gewoon. Het doel is niet om zoveel mogelijk te verkopen, maar om te adviseren wat jouw dak écht nodig heeft. Soms is dat een reiniging. Soms een coating. Soms niets.",
   },
   {
     q: "Is er garantie op de uitgevoerde werken?",
-    a: "Ja. Op dakcoating geven wij 5 jaar garantie. Op alle andere werken staat Yannick garant voor kwaliteit en afwerking.",
+    a: "Ja. Op dakcoating geven we tot 10 jaar garantie. Op dakreiniging geldt een anti-mos garantie van 2 jaar. En bij elke opdracht ontvang je een dakrapport zodat je exact weet wat er uitgevoerd werd.",
   },
 ];
 
@@ -86,7 +90,7 @@ function FaqItem({ faq, defaultOpen }: { faq: typeof faqs[0]; defaultOpen?: bool
               onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
               onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
             >
-              Bereken uw richtprijs →
+              Bereken je richtprijs →
             </a>
           )}
         </div>
@@ -97,7 +101,7 @@ function FaqItem({ faq, defaultOpen }: { faq: typeof faqs[0]; defaultOpen?: bool
 
 export default function SiteFaq() {
   return (
-    <section style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(155,203,108,0.06) 0%, transparent 65%), #F7F8F6", padding: "100px 24px" }}>
+    <section style={{ background: "#F7F8F6", padding: "100px 24px" }}>
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
 
         <div style={{ marginBottom: "48px" }}>
@@ -113,7 +117,7 @@ export default function SiteFaq() {
             fontFamily: "var(--font-montserrat), system-ui, sans-serif",
             letterSpacing: "-0.028em", lineHeight: 1.15,
           }}>
-            Nog vragen?
+            Nog vragen over je dak?
           </h2>
         </div>
 

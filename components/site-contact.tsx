@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Phone } from "lucide-react";
+import { Phone, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
 const GREEN = "#9ACA63";
@@ -21,10 +21,10 @@ export default function SiteContact() {
     }}>
       <div style={{ maxWidth: "1180px", margin: "0 auto" }}>
         <div style={{
-          background: `radial-gradient(circle at top left, rgba(154,202,99,0.16) 0%, transparent 32%), #FFFFFF`,
-          border: "1px solid rgba(154,202,99,0.22)",
+          background: `radial-gradient(ellipse at 100% 100%, rgba(154,202,99,0.15) 0%, transparent 60%), #0B0F0C`,
+          border: "1px solid #9BCB6C",
           borderRadius: "28px",
-          boxShadow: "0 28px 90px rgba(11,15,12,0.14)",
+          boxShadow: "0 28px 90px rgba(0,0,0,0.4)",
           padding: "36px 64px",
           position: "relative",
           marginBottom: "0",
@@ -39,27 +39,31 @@ export default function SiteContact() {
           {/* ── Col 1: Headline + curved arrow ── */}
           <div style={{ display: "flex", flexDirection: "column" }}>
             <p style={{
-              fontSize: "11px", fontWeight: 700, textTransform: "uppercase",
-              letterSpacing: "0.14em", color: GREEN, marginBottom: "16px",
+              fontSize: "9.5px", fontWeight: 700, textTransform: "uppercase",
+              letterSpacing: "0.12em", color: GREEN, marginBottom: "16px",
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "6px",
             }}>
-              Laat uw dak weer stralen
+              <svg width="16" height="12" viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, borderRadius: "2px" }}>
+                <rect x="0"  width="6"  height="13" fill="#000000" />
+                <rect x="6"  width="6"  height="13" fill="#FFE000" />
+                <rect x="12" width="6"  height="13" fill="#EF3340" />
+              </svg>
+              Het eerste dakonderhoudsconcept van België
             </p>
             <h2 style={{
               fontSize: "clamp(1.45rem, 2.2vw, 1.875rem)", fontWeight: 800,
-              color: DARK, lineHeight: 1.2, letterSpacing: "-0.028em",
+              color: "#FFFFFF", lineHeight: 1.2, letterSpacing: "-0.028em",
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               marginBottom: "14px",
             }}>
-              Bereken uw{" "}
-              <span style={{ color: GREEN }}>richtprijs</span>
-              {" "}binnen 1 minuut.
+              Levenslang een <span style={{ color: GREEN }}>verzorgd dak</span><br />begint hier.
             </h2>
             <p style={{
-              fontSize: "15px", color: `rgba(11,15,12,0.65)`, lineHeight: 1.65,
+              fontSize: "15px", color: `rgba(255,255,255,0.6)`, lineHeight: 1.65,
               fontFamily: "var(--font-inter), system-ui, sans-serif",
             }}>
-              Geen verplichtingen. Gewoon een eerlijke prijs en persoonlijk advies van Yannick.
+              Persoonlijk advies van Yannick.<br />Alleen wat je dak écht nodig heeft.
             </p>
           </div>
 
@@ -70,31 +74,20 @@ export default function SiteContact() {
               letterSpacing: "0.14em", color: GREEN, marginBottom: "16px",
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
             }}>
-              Uw prijsindicatie
+              Jouw richtprijs
             </p>
-            {/* Price indication card */}
-            <div style={{
-              background: "rgba(154,202,99,0.10)",
-              border: "1px solid rgba(154,202,99,0.28)",
-              borderRadius: "12px",
-              padding: "16px",
-              marginBottom: "0",
-            }}>
-              <p style={{
-                fontSize: "clamp(1.3rem, 2vw, 1.6rem)", fontWeight: 800,
-                color: DARK, letterSpacing: "-0.02em",
-                fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                marginBottom: "4px", whiteSpace: "nowrap", textAlign: "center",
-              }}>
-                € 750 – € 1.500
-              </p>
-              <p style={{
-                fontSize: "13px", color: `rgba(11,15,12,0.5)`,
-                fontFamily: "var(--font-inter), system-ui, sans-serif",
-                textAlign: "center",
-              }}>
-                excl. BTW · indicatieve prijs
-              </p>
+            {/* Checkmarks */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "0" }}>
+              {["Vrijblijvend", "Binnen 1 minuut", "Persoonlijk advies"].map((txt) => (
+                <div key={txt} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <CheckCircle size={18} color="#9BCB6C" strokeWidth={2.5} style={{ flexShrink: 0 }} />
+                  <span style={{
+                    fontSize: "15px", color: "rgba(255,255,255,0.75)",
+                    fontFamily: "var(--font-inter), system-ui, sans-serif",
+                    fontWeight: 500,
+                  }}>{txt}</span>
+                </div>
+              ))}
             </div>
 
             {/* Primary CTA button */}
@@ -116,7 +109,7 @@ export default function SiteContact() {
                 boxSizing: "border-box",
               }}
             >
-              BEREKEN UW PRIJS →
+              BEREKEN JE RICHTPRIJS →
             </a>
           </div>
 
@@ -134,10 +127,13 @@ export default function SiteContact() {
             <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "16px" }}>
               <div style={{ position: "relative", width: "64px", height: "64px", flexShrink: 0 }}>
                 <Image
-                  src="/images/yannick-foto.png"
+                  src="/images/Yannick Icon foto.png"
                   alt="Yannick"
-                  fill
+                  width={128}
+                  height={128}
+                  quality={100}
                   style={{
+                    width: "64px", height: "64px",
                     objectFit: "cover", borderRadius: "50%",
                     border: `2px solid ${GREEN}`,
                   }}
@@ -145,7 +141,7 @@ export default function SiteContact() {
                 <span style={{
                   position: "absolute", bottom: 0, right: 0,
                   width: "18px", height: "18px", borderRadius: "50%",
-                  background: GREEN, border: "2px solid #FFFFFF",
+                  background: GREEN, border: "2px solid #0B0F0C",
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
@@ -155,23 +151,23 @@ export default function SiteContact() {
               </div>
               <div>
                 <p style={{
-                  fontSize: "16px", fontWeight: 700, color: DARK,
+                  fontSize: "16px", fontWeight: 700, color: "#FFFFFF",
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                   marginBottom: "4px",
                 }}>
                   Yannick
                 </p>
                 <p style={{
-                  fontSize: "13px", color: `rgba(11,15,12,0.55)`, lineHeight: 1.5,
+                  fontSize: "13px", color: `rgba(255,255,255,0.55)`, lineHeight: 1.5,
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
                 }}>
-                  Eerlijk advies en de juiste oplossing voor uw dak.
+                  Alleen wat je dak écht nodig heeft.
                 </p>
               </div>
             </div>
 
             <p style={{
-              fontSize: "13px", color: `rgba(11,15,12,0.55)`,
+              fontSize: "13px", color: `rgba(255,255,255,0.5)`,
               fontFamily: "var(--font-inter), system-ui, sans-serif",
             }}>
               Ma – Za: 08:00 – 17:00 · Zo: Gesloten
@@ -185,11 +181,13 @@ export default function SiteContact() {
               style={{
                 display: "flex", alignItems: "center", justifyContent: "center",
                 gap: "10px", height: "58px", width: "100%", borderRadius: "12px",
-                background: phoneHovered ? "#1A2620" : DARK,
-                color: "#FFFFFF", fontSize: "15px", fontWeight: 700,
+                background: "transparent",
+                border: phoneHovered ? "1px solid #9BCB6C" : "1px solid rgba(155,203,108,0.5)",
+                color: phoneHovered ? "#9BCB6C" : "#FFFFFF",
+                fontSize: "15px", fontWeight: 700,
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 textDecoration: "none",
-                transition: "background 200ms ease",
+                transition: "border-color 0.2s ease, color 0.2s ease",
                 marginTop: "auto",
                 boxSizing: "border-box",
               }}

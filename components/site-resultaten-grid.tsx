@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const photos = [
@@ -12,7 +12,7 @@ const photos = [
 
 export default function SiteResultatenGrid() {
   return (
-    <section className="site-pad" style={{ background: "#FFFFFF" }}>
+    <section className="site-pad" style={{ background: "#F7F8F6" }}>
       <div className="site-wrap">
 
         {/* Header */}

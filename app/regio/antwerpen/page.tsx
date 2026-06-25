@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import PageLayout from "@/components/page-layout";
-import RegioPage  from "@/components/regio-page";
+import RegioPage from "@/components/regio-page";
 
 export const metadata: Metadata = {
   title: "Dakontmossing Antwerpen | MOS-X — Erkende Dakspecialist",
-  description: "MOS-X verzorgt professionele dakontmossing en dakcoating in heel de provincie Antwerpen. Gratis drone-inspectie. Actief in Antwerpen, Mechelen, Lier en 27 andere gemeenten.",
+  description: "MOS-X verzorgt professionele dakontmossing en dakcoating in heel de provincie Antwerpen. Actief in Antwerpen, Mechelen, Lier en 27 andere gemeenten. Persoonlijk door Yannick, vaste prijs, schriftelijke garantie.",
 };
 
 const municipalities = [
@@ -40,13 +40,26 @@ const municipalities = [
   { name: "Boechout",             zip: "2530" },
 ];
 
+const heroSubtitle =
+  "Professionele dakontmossing en dakcoating in heel Antwerpen. Eerlijk advies, vaste prijzen en garantie op de uitgevoerde werken.";
+
 const intro = [
-  "De provincie Antwerpen combineert drukke stedelijke kernen, de havengemeenten langs de Schelde en de uitgestrekte Kempen. Die variatie brengt ook verschillende dakproblemen met zich mee: in de havenzone zorgt zoute neerslag voor versnelde algengroei, terwijl de dennenbossen in de Kempen extra mosgroei op naburige daken stimuleren. Yannick van MOS-X werkt persoonlijk in heel de provincie en brengt dezelfde kwaliteit mee naar elke gemeente.",
-  "MOS-X is actief vanuit Grobbendonk en kent de Antwerpse dakproblematiek als geen ander. Of het nu gaat om een rijtjeshuis in Mechelen, een villa in Schilde of een boerderij in Mol — elke dakdiagnose is gratis, elke offerte vaste prijs en Yannick staat zelf garant voor het resultaat.",
+  "Antwerpen kent heel uiteenlopende omstandigheden voor daken. In de havenregio zorgen fijnstof, uitlaatgassen en industriële neerslag voor extra vervuiling. In de Kempen zorgen bossen, schaduw en vochtige lucht ervoor dat mos sneller groeit.",
+  "Of je nu in Antwerpen-stad woont, in de Kempen of langs de Schelde, MOS-X voert dakreiniging en dakcoating uit in heel de provincie. De aanpak wordt telkens afgestemd op het type dak, de ligging en de staat van de dakbedekking.",
+  "Eerlijk advies, een vaste prijs vooraf en schriftelijke garantie op de uitgevoerde werken. Soms volstaat een professionele reiniging, soms is een dakcoating de beste oplossing. Je ontvangt altijd een duidelijke offerte vooraf.",
 ];
 
-const climateText =
-  "De provincie Antwerpen kent een uitgesproken vochtig klimaat, versterkt door de aanwezigheid van de Schelde en de vele waterrijke gebieden in de Kempen. Neerslag verdeeld over het hele jaar, gecombineerd met schaduwrijke tuinen en de invloed van het bos in het noorden, maakt daken bijzonder vatbaar voor mosgroei. In de haven- en polderzone speelt ook de zoute zeenevel een rol bij de aantasting van dakmaterialen. Een kwaliteitsvolle dakcoating na de reiniging beschermt uw dak effectief en verlengt de levensduur met meer dan tien jaar.";
+const climateParas = [
+  "In de provincie Antwerpen zorgt de combinatie van maritieme invloeden vanuit de Schelde, industriële neerslag in de havenregio en de vochtige bosrijke gemeenten in de Kempen voor ideale omstandigheden voor mosgroei.",
+  "Dakpannen blijven hier langer vochtig dan in drogere regio's. In de Kempen, van Schilde tot Wuustwezel en Essen, liggen daken vrijwel permanent in de schaduw van hoge bomen. Die schaduw vertraagt de droogtijd na regen en versnelt mosgroei.",
+  "In havengebieden als Boom en Rumst tast luchtvervuiling de beschermlaag van dakpannen extra snel aan. Wie dakonderhoud uitstelt, riskeert verstopte goten, vochtproblemen en op termijn een dak dat vroeger aan vervanging toe is.",
+];
+
+const services = [
+  { title: "Dakreiniging",    desc: "professionele verwijdering van mos, algen en vervuiling", href: "/diensten/dakontmossing" },
+  { title: "Dakcoating",      desc: "beschermende coating met 10 jaar garantie",                href: "/diensten/dakcoating" },
+  { title: "MOS-X Dakzorg",   desc: "jaarlijkse controle en preventief onderhoud",              href: "/diensten/mos-x-dakzorg" },
+];
 
 export default function AntwerpenPage() {
   return (
@@ -55,7 +68,22 @@ export default function AntwerpenPage() {
         province="Antwerpen"
         municipalities={municipalities}
         intro={intro}
-        climateText={climateText}
+        climateParas={climateParas}
+        heroSubtitle={heroSubtitle}
+        heroLight
+        useServiceCards
+        ctaContact
+        trustindexSrc="https://cdn.trustindex.io/loader.js?0646a7275bcf131a35763e363e2"
+        mainTitle="Professionele dakreiniging en dakcoating in Antwerpen"
+        municipalityTitle="Actief in heel de provincie Antwerpen"
+        municipalitySubtitle="Ontdek of jouw gemeente in ons werkgebied ligt."
+        services={services}
+        ctaHeadline={<>Benieuwd wat <span style={{ color: "#9BCB6C" }}>jouw dak</span> nodig heeft?</>}
+        ctaSubline="Bereken vrijblijvend je richtprijs. Zo weet je meteen waar je ongeveer rekening mee kunt houden."
+        ctaButton="Bereken je richtprijs"
+        sidebarTitle="Bereken je richtprijs"
+        sidebarSubtitle="Ontvang een persoonlijke richtprijs op maat van jouw dak."
+        sidebarButton="Bereken je richtprijs"
       />
     </PageLayout>
   );

@@ -146,7 +146,7 @@ export default function RegioPage({
     <>
       {/* ── HERO ── */}
       {heroLight ? (
-        <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "80px" }}>
+        <section className="pt-[100px] lg:pt-[120px] pb-10 lg:pb-20" style={{ background: "#F7F8F6" }}>
           <div className="site-wrap">
             {/* Breadcrumb — light style */}
             <p style={{ fontSize: "13px", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
@@ -172,14 +172,14 @@ export default function RegioPage({
               style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontWeight: 800,
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
+                fontSize: "clamp(1.625rem, 5vw, 3.5rem)",
                 letterSpacing: "-0.03em",
                 color: "#1A1A1A",
               }}
             >
               Dakontmossing in <span style={{ color: "#9BCB6C" }}>{province}</span>
             </h1>
-            <p className="text-lg leading-relaxed" style={{ color: "#545454" }}>
+            <p className="text-base lg:text-lg leading-relaxed" style={{ color: "#545454" }}>
               {heroSubtitle ?? `Erkende dakspecialist, actief in heel ${province}. Persoonlijk contact met Yannick.`}
             </p>
           </div>
@@ -214,12 +214,12 @@ export default function RegioPage({
       )}
 
       {/* ── MAIN CONTENT ── */}
-      <section style={{ background: "#F7F8F6", padding: "60px 0 80px" }}>
+      <section className="pt-8 pb-12 lg:pt-[60px] lg:pb-[80px]" style={{ background: "#F7F8F6" }}>
         <div className="site-wrap">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8 lg:gap-12 items-start">
 
             {/* ── LEFT COLUMN ── */}
-            <div>
+            <div className="order-2 lg:order-1">
 
               {/* H2: Intro */}
               <h2
@@ -251,7 +251,7 @@ export default function RegioPage({
                 {municipalitySubtitle ?? "Vraag uw gratis diagnose aan in uw gemeente."}
               </p>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
                 {municipalities.map((m) => (
                   <Link
                     key={m.name}
@@ -327,7 +327,7 @@ export default function RegioPage({
             </div>
 
             {/* ── RIGHT SIDEBAR (js-sticky) ── */}
-            <div ref={sidebarContainerRef} style={{ alignSelf: "stretch", position: "relative" }}>
+            <div ref={sidebarContainerRef} className="order-1 lg:order-2" style={{ alignSelf: "stretch", position: "relative" }}>
             <div ref={sidebarCardRef}>
               <div
                 style={{
@@ -362,6 +362,7 @@ export default function RegioPage({
                     color: "#fff",
                     borderRadius: "8px",
                     padding: "13px 20px",
+                    minHeight: "44px",
                     fontSize: "14px",
                     fontWeight: 700,
                     fontFamily: "var(--font-montserrat)",
@@ -388,6 +389,7 @@ export default function RegioPage({
                     border: "1.5px solid #9BCB6C",
                     borderRadius: "8px",
                     padding: "11px 20px",
+                    minHeight: "44px",
                     color: sidebarPhoneHov ? "#9BCB6C" : "#1A1A1A",
                     fontFamily: "var(--font-montserrat)",
                     fontWeight: 700,
@@ -425,7 +427,7 @@ export default function RegioPage({
 
           {/* ── SERVICE CARDS — outside the 2-col grid so sticky stops before this ── */}
           {showServiceCards && (
-            <div style={{ marginTop: "64px" }}>
+            <div className="mt-10 lg:mt-[64px]">
               <h2
                 className="font-bold mb-6"
                 style={{
@@ -436,7 +438,7 @@ export default function RegioPage({
               >
                 Onze diensten in {province}
               </h2>
-              <div className="grid lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {serviceCards.map((s) => (
                   <ServiceCard key={s.id} s={s} />
                 ))}

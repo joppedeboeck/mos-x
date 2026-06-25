@@ -31,7 +31,7 @@ export default function SiteHero() {
 
       {/* Content */}
       <div
-        className="relative flex items-center"
+        className="hero-content-wrap relative flex items-center"
         style={{ height: "100vh", zIndex: 2, maxWidth: "1300px", margin: "0 auto", width: "100%", paddingLeft: "40px", paddingRight: "40px" }}
       >
         <div
@@ -68,7 +68,7 @@ export default function SiteHero() {
               style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontWeight: 800,
-                fontSize: "clamp(2.75rem, 5.5vw, 4.5rem)",
+                fontSize: "clamp(2rem, 5.5vw, 4.5rem)",
                 letterSpacing: "-0.028em",
                 color: "#FFFFFF",
               }}

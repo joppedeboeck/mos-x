@@ -327,6 +327,95 @@
 ::-webkit-scrollbar-thumb { background: #9BCB6C; border-radius: 3px; }
 
 /* ═══════════════════════════════════════════════
+   MOBILE RESPONSIVE OVERRIDES (≤ 1023px)
+═══════════════════════════════════════════════ */
+@media (max-width: 1023px) {
+
+  /* ── Hero: reduce side padding ── */
+  .hero-content-wrap {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* ── About Yannick: tighten outer padding ── */
+  .about-yannick-wrap {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .about-yannick-wrap .about-btns a {
+    flex: 1 1 100% !important;
+    justify-content: center !important;
+  }
+
+  /* ── Site-contact: 3-col → 1-col ── */
+  .site-contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding: 28px 20px !important;
+  }
+
+  /* ── SiteWerkwijze: stack step cards ── */
+  .werkwijze-steps-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .werkwijze-connector { display: none !important; }
+
+  /* ── Process step rows (dienst pages) ── */
+  .process-step-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 20px !important;
+  }
+  .process-step-label-col { width: auto !important; }
+  .process-step-divider { display: none !important; }
+
+  /* ── Horizontal CTA cards ── */
+  .cta-horizontal { padding: 24px 20px !important; }
+
+  /* ── USP stats bar (homepage): 2×2 ── */
+  .usp-stats-wrap {
+    flex-wrap: wrap !important;
+    padding: 24px 16px !important;
+  }
+  .usp-stats-wrap > div {
+    flex: 1 1 calc(50% - 16px) !important;
+    min-width: calc(50% - 16px) !important;
+    border-left: none !important;
+    border-top: 1px solid #E5E7EB !important;
+    padding: 16px 8px !important;
+  }
+  .usp-stats-wrap > div:first-child,
+  .usp-stats-wrap > div:nth-child(2) {
+    border-top: none !important;
+    padding-top: 0 !important;
+  }
+
+  /* ── Over-ons stats bar: 2×2 ── */
+  .over-ons-stats-wrap {
+    flex-wrap: wrap !important;
+    padding: 24px 16px !important;
+  }
+  .over-ons-stats-wrap > div {
+    flex: 1 1 calc(50% - 16px) !important;
+    min-width: calc(50% - 16px) !important;
+    border-left: none !important;
+    border-top: 1px solid #E5E7EB !important;
+    padding: 12px 8px !important;
+  }
+  .over-ons-stats-wrap > div:first-child,
+  .over-ons-stats-wrap > div:nth-child(2) {
+    border-top: none !important;
+    padding-top: 0 !important;
+  }
+
+  /* ── Realisaties small sliders ── */
+  .sliders-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ═══════════════════════════════════════════════
    LEGACY classes (kept for compatibility)
 ═══════════════════════════════════════════════ */
 .font-display { font-family: var(--font-playfair), Georgia, serif; }

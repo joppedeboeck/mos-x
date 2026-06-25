@@ -40,7 +40,7 @@ export default function DienstenPage() {
       {/* ── Service cards ── */}
       <section className="site-pad" style={{ background: "#F7F8F6", paddingTop: "60px" }}>
         <div className="site-wrap">
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {serviceCards.map((s) => (
               <ServiceCard key={s.id} s={s} />
             ))}

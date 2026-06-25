@@ -76,7 +76,7 @@ export default function DakcoatingPage() {
       {/* Waarom dakcoating? + video */}
       <section className="site-pad" style={{ background: "#F7F8F6", paddingTop: "0", paddingBottom: "0" }}>
         <div className="site-wrap">
-          <div className="grid gap-14 items-stretch" style={{ gridTemplateColumns: "1fr 0.7fr" }}>
+          <div className="grid gap-8 lg:gap-14 items-stretch grid-cols-1 lg:grid-cols-[1fr_0.7fr]">
             <div style={{ display: "flex", flexDirection: "column" }}>
               <p className="site-eyebrow mb-4">Waarom dakcoating?</p>
               <h2
@@ -191,7 +191,7 @@ export default function DakcoatingPage() {
       </section>
 
       {/* Info cards: waarom poreus + risicofactoren */}
-      <section style={{ background: "#F7F8F6", paddingTop: "160px", paddingBottom: "60px" }}>
+      <section className="pt-10 lg:pt-[160px] pb-[60px]" style={{ background: "#F7F8F6" }}>
         <div className="site-wrap">
           <div className="grid sm:grid-cols-2 gap-6">
 
@@ -265,6 +265,7 @@ export default function DakcoatingPage() {
                     e.currentTarget.style.borderColor = "#E5E7EB";
                     e.currentTarget.style.boxShadow = "0 2px 16px rgba(0,0,0,0.07)";
                   }}
+                  className="process-step-row"
                   style={{
                     background: "#FFFFFF",
                     border: "1px solid #E5E7EB",
@@ -283,7 +284,7 @@ export default function DakcoatingPage() {
                     <Icon size={22} color="#9BCB6C" strokeWidth={2} />
                   </div>
 
-                  <div style={{ flexShrink: 0, width: "290px" }}>
+                  <div className="process-step-label-col" style={{ flexShrink: 0, width: "290px" }}>
                     <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9BCB6C", marginBottom: "4px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
                       {s.step}
                     </p>
@@ -292,7 +293,7 @@ export default function DakcoatingPage() {
                     </p>
                   </div>
 
-                  <div style={{ width: "1px", height: "40px", background: "#E5E7EB", flexShrink: 0 }} />
+                  <div className="process-step-divider" style={{ width: "1px", height: "40px", background: "#E5E7EB", flexShrink: 0 }} />
 
                   <p style={{ fontSize: "14px", color: "#545454", lineHeight: 1.65, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
                     {s.desc}

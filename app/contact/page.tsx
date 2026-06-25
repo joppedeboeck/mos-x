@@ -61,10 +61,10 @@ export default function ContactPage() {
             <span style={{ color: "#9BCB6C" }}>Contact</span>
           </p>
           <h1 className="leading-tight mb-5"
-            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A", whiteSpace: "nowrap" }}>
+            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.625rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
             Neem contact op met <span style={{ color: "#9BCB6C" }}>Yannick.</span>
           </h1>
-          <p className="text-lg leading-relaxed" style={{ color: "#545454", whiteSpace: "nowrap" }}>
+          <p className="text-base lg:text-lg leading-relaxed" style={{ color: "#545454" }}>
             Vul het formulier in of bel Yannick direct. Je ontvangt binnen 24 uur een reactie.
           </p>
         </div>

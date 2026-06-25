@@ -11,7 +11,7 @@ export default function SiteAboutYannick() {
 
   return (
     <section style={{ background: "transparent", padding: "80px 0", overflow: "hidden" }}>
-      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
+      <div className="about-yannick-wrap" style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 40px" }}>
 
         <div className="flex flex-col lg:flex-row" style={{ gap: "32px", alignItems: "stretch" }}>
 
@@ -123,7 +123,7 @@ export default function SiteAboutYannick() {
             </div>
 
             {/* Buttons */}
-            <div style={{ display: "flex", gap: "12px", marginTop: "36px", flexWrap: "wrap" }}>
+            <div className="about-btns" style={{ display: "flex", gap: "12px", marginTop: "36px", flexWrap: "wrap" }}>
               <a
                 href="/over-ons"
                 style={{

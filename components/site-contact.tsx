@@ -20,7 +20,7 @@ export default function SiteContact() {
       zIndex: 20,
     }}>
       <div style={{ maxWidth: "1180px", margin: "0 auto" }}>
-        <div style={{
+        <div className="site-contact-grid" style={{
           background: `radial-gradient(ellipse at 100% 100%, rgba(154,202,99,0.15) 0%, transparent 60%), #0B0F0C`,
           border: "1px solid #9BCB6C",
           borderRadius: "28px",

@@ -71,7 +71,7 @@ export default function DakontmossingPage() {
             <span style={{ color: "#9BCB6C" }}>Zonder risico voor je dakpannen.</span>
           </h1>
 
-          <p className="text-lg leading-relaxed" style={{ color: "#545454", whiteSpace: "nowrap" }}>
+          <p className="text-base lg:text-lg leading-relaxed" style={{ color: "#545454" }}>
             Mos, algen en vervuiling professioneel verwijderd. De juiste aanpak voor elk type dak. Veilig voor je dakpannen.
           </p>
 
@@ -83,7 +83,7 @@ export default function DakontmossingPage() {
         <div className="site-wrap">
 
           {/* Two-col: text left, video right */}
-          <div className="grid gap-14 items-stretch" style={{ gridTemplateColumns: "1fr 0.7fr" }}>
+          <div className="grid gap-8 lg:gap-14 items-stretch grid-cols-1 lg:grid-cols-[1fr_0.7fr]">
             <div style={{ display: "flex", flexDirection: "column" }}>
               <p className="site-eyebrow mb-4">Waarom dakreiniging?</p>
               <h2
@@ -200,7 +200,7 @@ export default function DakontmossingPage() {
       </section>
 
       {/* â"€â"€ Waarom ontstaat mos? + Risicofactoren â"€â"€ */}
-      <section style={{ background: "#F7F8F6", paddingTop: "160px", paddingBottom: "60px" }}>
+      <section className="pt-10 lg:pt-[160px] pb-[60px]" style={{ background: "#F7F8F6" }}>
         <div className="site-wrap">
           <div className="grid sm:grid-cols-2 gap-6">
 
@@ -273,6 +273,7 @@ export default function DakontmossingPage() {
                     e.currentTarget.style.borderColor = "#E5E7EB";
                     e.currentTarget.style.boxShadow = "0 2px 16px rgba(0,0,0,0.07)";
                   }}
+                  className="process-step-row"
                   style={{
                     background: "#FFFFFF",
                     border: "1px solid #E5E7EB",
@@ -293,7 +294,7 @@ export default function DakontmossingPage() {
                   </div>
 
                   {/* Step label + title */}
-                  <div style={{ flexShrink: 0, width: "290px" }}>
+                  <div className="process-step-label-col" style={{ flexShrink: 0, width: "290px" }}>
                     <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9BCB6C", marginBottom: "4px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
                       {s.step}
                     </p>
@@ -303,7 +304,7 @@ export default function DakontmossingPage() {
                   </div>
 
                   {/* Divider */}
-                  <div style={{ width: "1px", height: "40px", background: "#E5E7EB", flexShrink: 0 }} />
+                  <div className="process-step-divider" style={{ width: "1px", height: "40px", background: "#E5E7EB", flexShrink: 0 }} />
 
                   {/* Description */}
                   <p style={{ fontSize: "14px", color: "#545454", lineHeight: 1.65, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>

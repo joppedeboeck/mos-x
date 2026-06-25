@@ -242,7 +242,7 @@ export default function RealisatiesPage() {
       {/* ── 2 small sliders ── */}
       <section style={{ background: "#F7F8F6", paddingBottom: "0" }}>
         <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 40px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+          <div className="sliders-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
             <div>
               <SmallSlider beforeSrc="/images/Velux%20voor%201.0.png" afterSrc="/images/Velux%20na%201.0.png" beforePosition="center center" afterPosition="center center" />
               <p style={{ marginTop: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "15px", color: "#1A1A1A", textAlign: "center" }}>Velux</p>

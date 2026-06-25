@@ -146,7 +146,7 @@ function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0]
 
 function Connector() {
   return (
-    <div style={{
+    <div className="werkwijze-connector" style={{
       width: "40px", flexShrink: 0,
       display: "flex", alignItems: "center", justifyContent: "center",
     }}>
@@ -192,7 +192,7 @@ export default function SiteWerkwijze() {
         </div>
 
         {/* Steps + connectors — flat siblings so alignItems:stretch works */}
-        <div style={{ display: "flex", alignItems: "stretch" }}>
+        <div className="werkwijze-steps-row" style={{ display: "flex", alignItems: "stretch" }}>
           {items}
         </div>
 

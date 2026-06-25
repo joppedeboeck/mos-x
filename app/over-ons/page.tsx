@@ -81,7 +81,7 @@ function StatsBar() {
   return (
     <section style={{ background: "#F7F8F6", paddingBottom: "48px" }}>
       <div className="site-wrap">
-        <div ref={ref} style={{ display: "flex", background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "32px 48px", flexWrap: "wrap", boxShadow: "0 2px 16px rgba(155,203,108,0.12)" }}>
+        <div ref={ref} className="over-ons-stats-wrap" style={{ display: "flex", background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "32px 48px", flexWrap: "wrap", boxShadow: "0 2px 16px rgba(155,203,108,0.12)" }}>
           {[
             { value: `${c55}+`, label: "Afgewerkte daken",        icon: <Droplets size={24} color="#9BCB6C" /> },
             { value: `${c24}u`, label: "Reactie op aanvragen",    icon: <Clock    size={24} color="#9BCB6C" /> },
@@ -125,7 +125,7 @@ export default function OverOnsPage() {
             <span style={{ color: "#9BCB6C" }}>Over ons</span>
           </p>
           <h1 className="leading-tight mb-4"
-            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A", whiteSpace: "nowrap" }}>
+            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.625rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
             Je dak in <span style={{ color: "#9BCB6C" }}>ervaren handen.</span>
           </h1>
           <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "18px", color: "#555555" }}>

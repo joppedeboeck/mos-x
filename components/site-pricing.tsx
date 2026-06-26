@@ -13,7 +13,7 @@ function StepIndicator({ step }: { step: number }) {
       <p style={{
         fontSize: "15px", fontWeight: 700,
         fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-        color: "#1A1A1A", marginBottom: "12px", letterSpacing: "-0.01em",
+        color: GREEN, marginBottom: "12px", letterSpacing: "-0.01em",
       }}>
         {step}. {STEP_NAMES[step - 1]}
       </p>

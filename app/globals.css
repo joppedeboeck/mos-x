@@ -403,7 +403,7 @@
   /* ── Site-contact: 3-col → 1-col ── */
   .site-contact-grid {
     grid-template-columns: 1fr !important;
-    gap: 28px !important;
+    gap: 28px;
     padding: 28px 20px !important;
   }
   .site-contact-grid > div { min-width: 0; }

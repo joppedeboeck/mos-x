@@ -11,6 +11,7 @@ export default function SiteHero() {
     >
       {/* Video background */}
       <video
+        className="site-hero-video"
         src="/videos/yannick-hero.mp4"
         autoPlay muted loop playsInline
         style={{

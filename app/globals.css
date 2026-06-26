@@ -322,6 +322,7 @@
   /* Contact CTA: marginTop:auto collapst op mobiel, expliciete ruimte */
   /* !important nodig omdat de div een inline marginBottom:"0" heeft */
   .contact-checkmarks { margin-bottom: 20px !important; }
+  .contact-hours { margin-bottom: 20px; }
 
 }
 

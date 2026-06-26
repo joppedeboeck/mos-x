@@ -166,7 +166,7 @@ export default function SiteContact() {
               </div>
             </div>
 
-            <p style={{
+            <p className="contact-hours" style={{
               fontSize: "13px", color: `rgba(255,255,255,0.5)`,
               fontFamily: "var(--font-inter), system-ui, sans-serif",
             }}>

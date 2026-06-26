@@ -379,6 +379,9 @@
 ::-webkit-scrollbar-track { background: #F7F8F6; }
 ::-webkit-scrollbar-thumb { background: #9BCB6C; border-radius: 3px; }
 
+/* Site-contact desktop gap */
+.site-contact-grid { gap: 56px; }
+
 /* ═══════════════════════════════════════════════
    MOBILE RESPONSIVE OVERRIDES (≤ 1023px)
 ═══════════════════════════════════════════════ */
@@ -494,7 +497,7 @@
 
 /* Contact CTA: scheidingslijn boven Col 2 + Col 3 op mobiel */
 @media (max-width: 640px) {
-  .site-contact-grid { row-gap: 0 !important; }
+  .site-contact-grid { gap: 0; }
   .contact-col-divider {
     border-top: 1px solid rgba(255,255,255,0.10);
     margin-top: 20px;

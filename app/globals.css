@@ -536,6 +536,13 @@
     border-top: none !important;
     padding-top: 0 !important;
   }
+  .usp-stats-wrap > div:nth-child(2) {
+    border-top: 1px solid #9BCB6C !important;
+    padding-top: 16px !important;
+  }
+  .usp-stats-wrap > div:nth-child(3) {
+    padding-bottom: 16px !important;
+  }
   .usp-stats-wrap > div:last-child {
     padding-bottom: 0 !important;
   }

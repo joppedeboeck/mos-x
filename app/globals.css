@@ -532,6 +532,7 @@
   .step-card-header-text p:last-child { margin-bottom: 0 !important; }
   .step-card-hdivider { display: none !important; }
   .step-card-desc { text-align: left; margin-bottom: 0 !important; }
+  .werkwijze-step-card a { margin-top: 16px !important; }
 }
 
 /* ═══════════════════════════════════════════════

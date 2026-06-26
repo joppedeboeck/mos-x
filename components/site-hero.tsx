@@ -51,16 +51,16 @@ export default function SiteHero() {
                 letterSpacing: "0.14em",
                 color: "#9BCB6C",
                 display: "flex",
-                alignItems: "center",
+                alignItems: "flex-start",
                 gap: "8px",
               }}
             >
-              <svg width="18" height="13" viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, borderRadius: "2px" }}>
+              <svg width="18" height="13" viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, borderRadius: "2px", marginTop: "1px" }}>
                 <rect x="0"  width="6"  height="13" fill="#000000" />
                 <rect x="6"  width="6"  height="13" fill="#FFE000" />
                 <rect x="12" width="6"  height="13" fill="#EF3340" />
               </svg>
-              HET EERSTE DAKONDERHOUDSCONCEPT VAN BELGIË
+              <span>HET EERSTE DAKONDERHOUDSCONCEPT VAN BELGIË</span>
             </p>
 
             <h1

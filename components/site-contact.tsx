@@ -42,7 +42,7 @@ export default function SiteContact() {
               fontSize: "9.5px", fontWeight: 700, textTransform: "uppercase",
               letterSpacing: "0.12em", color: GREEN, marginBottom: "16px",
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-              whiteSpace: "nowrap", display: "flex", alignItems: "center", gap: "6px",
+              display: "flex", alignItems: "flex-start", gap: "6px",
             }}>
               <svg width="16" height="12" viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, borderRadius: "2px" }}>
                 <rect x="0"  width="6"  height="13" fill="#000000" />
@@ -77,7 +77,7 @@ export default function SiteContact() {
               Jouw richtprijs
             </p>
             {/* Checkmarks */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "0" }}>
+            <div className="contact-checkmarks" style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "0" }}>
               {["Vrijblijvend", "Binnen 1 minuut", "Persoonlijk advies"].map((txt) => (
                 <div key={txt} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                   <CheckCircle size={18} color="#9BCB6C" strokeWidth={2.5} style={{ flexShrink: 0 }} />

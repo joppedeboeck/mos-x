@@ -316,6 +316,12 @@
     text-align: center;
   }
 
+  /* Werkwijze STAP 01: ruimte boven de knop */
+  .werkwijze-step-card > p:last-of-type { margin-bottom: 16px; }
+
+  /* Contact CTA: marginTop:auto collapst op mobiel, expliciete ruimte */
+  .contact-checkmarks { margin-bottom: 20px; }
+
 }
 
 .footer-grid {
@@ -398,6 +404,7 @@
     gap: 28px !important;
     padding: 28px 20px !important;
   }
+  .site-contact-grid > div { min-width: 0; }
 
   /* ── SiteWerkwijze: stack step cards ── */
   .werkwijze-steps-row {

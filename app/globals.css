@@ -320,7 +320,8 @@
   .werkwijze-step-card > p:last-of-type { margin-bottom: 16px; }
 
   /* Contact CTA: marginTop:auto collapst op mobiel, expliciete ruimte */
-  .contact-checkmarks { margin-bottom: 20px; }
+  /* !important nodig omdat de div een inline marginBottom:"0" heeft */
+  .contact-checkmarks { margin-bottom: 20px !important; }
 
 }
 

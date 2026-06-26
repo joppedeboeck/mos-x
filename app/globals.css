@@ -581,6 +581,22 @@
 }
 
 /* -----------------------------------------------
+   TRUSTINDEX widget overrides — show full review text
+----------------------------------------------- */
+.ti-review-item-body-text,
+.ti-review-item-text,
+.ti-review-text,
+.ti-review-item p,
+[class^="ti-"] p {
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  overflow: visible !important;
+  max-height: none !important;
+  display: block !important;
+  -webkit-box-orient: unset !important;
+}
+
+/* -----------------------------------------------
    LEGACY classes (kept for compatibility)
 ----------------------------------------------- */
 .font-display { font-family: var(--font-playfair), Georgia, serif; }

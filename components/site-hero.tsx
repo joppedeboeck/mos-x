@@ -6,12 +6,11 @@ import Link from "next/link";
 export default function SiteHero() {
   return (
     <section
-      className="site-hero-section relative overflow-hidden"
+      className="relative overflow-hidden"
       style={{ height: "100vh", minHeight: "100vh", background: "#1A1A1A", width: "100%", maxWidth: "100vw", overflow: "hidden" }}
     >
       {/* Video background */}
       <video
-        className="site-hero-video"
         src="/videos/yannick-hero.mp4"
         autoPlay muted loop playsInline
         style={{
@@ -23,7 +22,7 @@ export default function SiteHero() {
 
       {/* Gradient overlay */}
       <div
-        className="site-hero-gradient absolute inset-0"
+        className="absolute inset-0"
         style={{
           background: "linear-gradient(to right, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.88) 45%, rgba(26,26,26,0.55) 65%, rgba(26,26,26,0.30) 100%)",
           zIndex: 1,

@@ -29,10 +29,10 @@ export default function SiteAboutYannick() {
                 style={{
                   position: "absolute",
                   top: 0, left: 0,
-                  width: "88%",
+                  width: "100%",
                   height: "100%",
                   objectFit: "cover",
-                  objectPosition: "left 25%",
+                  objectPosition: "center 20%",
                   borderRadius: "16px",
                 }}
               />

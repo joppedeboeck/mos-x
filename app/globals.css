@@ -316,9 +316,6 @@
     text-align: center;
   }
 
-  /* Contact CTA: meer ruimte tussen gestapelde kolommen op mobiel */
-  .site-contact-grid { gap: 120px !important; }
-
   /* Werkwijze STAP 01: ruimte boven de knop */
   .werkwijze-step-card > p:last-of-type { margin-bottom: 16px; }
 
@@ -493,6 +490,11 @@
     padding: 0 !important;
     min-height: 220px !important;
   }
+}
+
+/* Contact CTA gap — moet ná het 1023px-blok staan zodat het wint */
+@media (max-width: 640px) {
+  .site-contact-grid { gap: 120px !important; }
 }
 
 /* ═══════════════════════════════════════════════

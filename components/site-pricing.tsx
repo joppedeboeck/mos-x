@@ -5,22 +5,22 @@ import { useState } from "react";
 const GREEN = "#9BCB6C";
 const TOTAL_STEPS = 5;
 
-function ProgressBar({ step }: { step: number }) {
-  const pct = Math.round((step / TOTAL_STEPS) * 100);
+const STEP_NAMES = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Richtprijs"];
+
+function StepIndicator({ step }: { step: number }) {
   return (
-    <div style={{ marginBottom: "28px" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-        <span style={{ fontSize: "13px", color: "#888", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-          Stap {step} van {TOTAL_STEPS}
-        </span>
-        <span style={{ fontSize: "13px", fontWeight: 700, color: GREEN, fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-          {pct}%
-        </span>
-      </div>
-      <div style={{ display: "flex", gap: "4px" }}>
+    <div style={{ textAlign: "center", marginBottom: "28px" }}>
+      <p style={{
+        fontSize: "15px", fontWeight: 700,
+        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+        color: "#1A1A1A", marginBottom: "12px", letterSpacing: "-0.01em",
+      }}>
+        {step}. {STEP_NAMES[step - 1]}
+      </p>
+      <div style={{ display: "flex", gap: "6px", justifyContent: "center" }}>
         {Array.from({ length: TOTAL_STEPS }).map((_, i) => (
           <div key={i} style={{
-            flex: 1, height: "4px", borderRadius: "2px",
+            flex: 1, maxWidth: "56px", height: "8px", borderRadius: "4px",
             background: i < step ? GREEN : "#E5E7EB",
             transition: "background 0.3s ease",
           }} />
@@ -161,8 +161,6 @@ export default function SitePricing() {
     { id: "geen", title: "Geen extra behandeling", bullets: [] },
   ];
 
-  const tabLabels = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Richtprijs"];
-
   return (
     <section id="calculator" className="site-pricing-section" style={{ background: "transparent", padding: "0 clamp(12px, 4vw, 40px) 60px", marginTop: "-40px", position: "relative", zIndex: 10 }}>
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
@@ -235,38 +233,8 @@ export default function SitePricing() {
             {/* ── RECHTS: tabs + stap content ── */}
             <div style={{ flex: "1 1 0" }}>
 
-              {/* Tab navigatie */}
-              {!done && (
-                <div style={{ display: "flex", justifyContent: "flex-start", marginBottom: "28px", gap: "24px", overflowX: "auto", WebkitOverflowScrolling: "touch" as const }}>
-                  {tabLabels.map((label, i) => {
-                    const tabStep = i + 1;
-                    const isActive = step === tabStep;
-                    const isDone = step > tabStep;
-                    return (
-                      <button
-                        key={label}
-                        onClick={() => isDone ? setStep(tabStep) : undefined}
-                        style={{
-                          padding: "10px 16px 8px", border: "none", background: "none",
-                          fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                          fontSize: "13px", fontWeight: isActive ? 700 : 500,
-                          color: isActive ? GREEN : isDone ? GREEN : "#AAAAAA",
-                          cursor: isDone ? "pointer" : "default",
-                          whiteSpace: "nowrap", flexShrink: 0,
-                          transition: "color 0.2s",
-                          display: "flex", flexDirection: "column", alignItems: "stretch",
-                        }}
-                      >
-                        <span>{tabStep}. {label}</span>
-                        <div style={{
-                          height: "3px", borderRadius: "2px", marginTop: "6px",
-                          background: isActive ? GREEN : "#E8E8E8",
-                        }} />
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
+              {/* Stap indicator */}
+              {!done && <StepIndicator step={step} />}
 
         <div className="site-pricing-steps" style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 clamp(0px, 3vw, 40px)", minHeight: "280px" }}>
 

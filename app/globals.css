@@ -514,14 +514,7 @@
   /* Hero: minder ingezoomd + gradient aangepast op mobiel */
   .site-hero-section { height: 100vh !important; min-height: 100vh !important; }
   .hero-content-wrap { height: 100vh !important; }
-  .site-hero-video {
-    width: 220% !important;
-    height: auto !important;
-    top: 50% !important;
-    left: -60% !important;
-    transform: translateY(-50%) !important;
-    object-fit: fill !important;
-  }
+
   .site-hero-gradient {
     background: linear-gradient(
       to right,

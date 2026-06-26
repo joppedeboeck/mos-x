@@ -518,7 +518,7 @@
   }
   /* Step card: horizontale layout op mobiel */
   .werkwijze-step-card { align-items: stretch; text-align: left; padding: 16px !important; }
-  .step-card-top { flex-direction: row; align-items: flex-end; gap: 14px; margin-bottom: 14px; }
+  .step-card-top { flex-direction: row; align-items: center; gap: 14px; margin-bottom: 14px; }
   .step-card-icon { margin-bottom: 0; }
   .step-card-vline {
     display: block;
@@ -529,7 +529,6 @@
     min-height: 36px;
   }
   .step-card-header-text { text-align: left; flex: 1; min-width: 0; }
-  .step-card-header-text p:last-child { margin-bottom: 0 !important; }
   .step-card-hdivider { display: none !important; }
   .step-card-desc { text-align: left; }
 }

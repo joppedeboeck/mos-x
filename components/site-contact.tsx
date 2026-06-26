@@ -68,7 +68,7 @@ export default function SiteContact() {
           </div>
 
           {/* ── Col 2: CTA button ── */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className="contact-col-divider" style={{ display: "flex", flexDirection: "column" }}>
             <p style={{
               fontSize: "11px", fontWeight: 700, textTransform: "uppercase",
               letterSpacing: "0.14em", color: GREEN, marginBottom: "16px",
@@ -114,7 +114,7 @@ export default function SiteContact() {
           </div>
 
           {/* ── Col 3: Yannick contact block ── */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className="contact-col-divider" style={{ display: "flex", flexDirection: "column" }}>
             <p style={{
               fontSize: "11px", fontWeight: 700, textTransform: "uppercase",
               letterSpacing: "0.14em", color: GREEN, marginBottom: "16px",

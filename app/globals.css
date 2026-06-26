@@ -492,9 +492,12 @@
   }
 }
 
-/* Contact CTA gap — moet ná het 1023px-blok staan zodat het wint */
+/* Contact CTA: scheidingslijn boven Col 2 + Col 3 op mobiel */
 @media (max-width: 640px) {
-  .site-contact-grid { gap: 40px !important; }
+  .contact-col-divider {
+    border-top: 1px solid rgba(255,255,255,0.10);
+    padding-top: 28px;
+  }
 }
 
 /* ═══════════════════════════════════════════════

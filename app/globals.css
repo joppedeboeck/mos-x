@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -494,7 +494,7 @@
 
 /* Contact CTA gap — moet ná het 1023px-blok staan zodat het wint */
 @media (max-width: 640px) {
-  .site-contact-grid { gap: 50px !important; }
+  .site-contact-grid { gap: 40px !important; }
 }
 
 /* ═══════════════════════════════════════════════

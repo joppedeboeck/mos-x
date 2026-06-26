@@ -88,7 +88,7 @@ export default function SiteReviews() {
   }, []);
 
   return (
-    <section className="site-pad" id="reviews" style={{ background: "#0B0F0C", position: "relative", overflow: "hidden" }}>
+    <section className="site-pad site-reviews-section" id="reviews" style={{ background: "#0B0F0C", position: "relative", overflow: "hidden" }}>
 
       {/* Decorative background photo right side */}
       <img

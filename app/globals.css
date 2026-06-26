@@ -581,6 +581,13 @@
 }
 
 /* -----------------------------------------------
+   Reviews section: extra top padding on mobile to clear statsbar curve
+----------------------------------------------- */
+@media (max-width: 1023px) {
+  .site-reviews-section { padding-top: 80px !important; }
+}
+
+/* -----------------------------------------------
    TRUSTINDEX widget overrides — show full review text
 ----------------------------------------------- */
 .ti-review-item-body-text,

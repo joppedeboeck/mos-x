@@ -517,8 +517,8 @@
     padding-right: 20px !important;
   }
   /* Step card: horizontale layout op mobiel */
-  .werkwijze-step-card { align-items: stretch; text-align: left; }
-  .step-card-top { flex-direction: row; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .werkwijze-step-card { align-items: stretch; text-align: left; padding: 16px !important; }
+  .step-card-top { flex-direction: row; align-items: flex-end; gap: 14px; margin-bottom: 14px; }
   .step-card-icon { margin-bottom: 0; }
   .step-card-vline {
     display: block;

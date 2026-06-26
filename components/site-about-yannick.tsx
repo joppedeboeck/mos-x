@@ -16,8 +16,8 @@ export default function SiteAboutYannick() {
         <div className="flex flex-col lg:flex-row" style={{ gap: "32px", alignItems: "stretch" }}>
 
           {/* ── LINKS: foto ── */}
-          <div style={{ flex: "0 0 55%", position: "relative" }}>
-            <div style={{
+          <div className="about-yannick-photo-wrap" style={{ flex: "0 0 55%", position: "relative" }}>
+            <div className="about-yannick-photo-inner" style={{
               position: "relative",
               height: "100%",
               minHeight: "460px",
@@ -25,6 +25,7 @@ export default function SiteAboutYannick() {
               <img
                 src="/images/Yannick_foto_3_0.png"
                 alt="Yannick - oprichter MOS-X"
+                className="about-yannick-photo"
                 style={{
                   position: "absolute",
                   top: 0, left: 0,

@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -65,9 +65,9 @@
   html { scroll-behavior: smooth; overflow-x: hidden; }
 }
 
-/* ═══════════════════════════════════════════════
-   DESIGN SYSTEM — site-* components
-═══════════════════════════════════════════════ */
+/* -----------------------------------------------
+   DESIGN SYSTEM -� site-* components
+----------------------------------------------- */
 
 @layer utilities {
 
@@ -219,9 +219,9 @@
   .site-pad-sm      { padding-top: 5rem;    padding-bottom: 5rem; }
 }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    MARQUEE ANIMATION (scrolling trust bar)
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -232,9 +232,9 @@
 }
 .marquee-track:hover { animation-play-state: paused; }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    CARD / SERVICE HOVER
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 .service-card {
   transition: box-shadow 300ms ease;
 }
@@ -259,14 +259,14 @@
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
 }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    NAV LINKS
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 .nav-link:hover { color: #9BCB6C !important; }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    NAVBAR / HERO CTA BUTTON (dark sections)
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 .nav-cta-btn,
 .hero-cta-btn {
   transition: background 250ms ease, border-color 250ms ease, color 250ms ease, box-shadow 250ms ease !important;
@@ -279,15 +279,15 @@
   box-shadow: 0 0 20px rgba(155,203,108,0.20);
 }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    FOOTER
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 .footer-link:hover       { color: #9BCB6C !important; transition: color 200ms; }
 .footer-muted-link:hover { color: rgba(255,255,255,0.7) !important; transition: color 200ms; }
 
-/* ═══════════════════════════════════════════════
-   MOBILE SMALL (≤ 640px) — FAB
-═══════════════════════════════════════════════ */
+/* -----------------------------------------------
+   MOBILE SMALL (= 640px) � FAB
+----------------------------------------------- */
 @media (max-width: 640px) {
 
   /* WhatsApp FAB: smaller, stays bottom-right */
@@ -338,9 +338,9 @@
   .footer-grid { grid-template-columns: 1.7fr 1fr 1fr 1fr 1.2fr; gap: 4rem; }
 }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    PRICING CARD
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 .pricing-card {
   transition: transform 250ms ease, box-shadow 250ms ease;
 }
@@ -349,9 +349,9 @@
   box-shadow: 0 12px 40px rgba(0,0,0,0.10) !important;
 }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    PROVINCE CARD (werkgebied + regio pages)
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 .province-card {
   transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
 }
@@ -361,9 +361,9 @@
   box-shadow: 0 8px 28px rgba(155,203,108,0.12) !important;
 }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    MUNICIPALITY CARD (regio pages)
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 .municipality-card {
   transition: border-color 200ms ease, background 200ms ease;
 }
@@ -372,9 +372,9 @@
   background: rgba(155,203,108,0.04) !important;
 }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    SCROLLBAR
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #F7F8F6; }
 ::-webkit-scrollbar-thumb { background: #9BCB6C; border-radius: 3px; }
@@ -382,11 +382,11 @@
 /* Site-contact desktop gap */
 .site-contact-grid { gap: 56px; }
 
-/* ── USP stat: desktop defaults ── */
+/* -- USP stat: desktop defaults -- */
 .usp-stat-inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .usp-stat-top { display: flex; flex-direction: column; align-items: center; }
 
-/* ── Werkwijze step card: desktop defaults ── */
+/* -- Werkwijze step card: desktop defaults -- */
 .werkwijze-step-card { align-items: center; text-align: center; }
 .step-card-top { display: flex; flex-direction: column; align-items: center; width: 100%; }
 .step-card-icon { margin-bottom: 16px; }
@@ -394,18 +394,18 @@
 .step-card-header-text { width: 100%; }
 .step-card-hdivider { align-self: center; }
 
-/* ═══════════════════════════════════════════════
-   MOBILE RESPONSIVE OVERRIDES (≤ 1023px)
-═══════════════════════════════════════════════ */
+/* -----------------------------------------------
+   MOBILE RESPONSIVE OVERRIDES (= 1023px)
+----------------------------------------------- */
 @media (max-width: 1023px) {
 
-  /* ── Hero: reduce side padding ── */
+  /* -- Hero: reduce side padding -- */
   .hero-content-wrap {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
 
-  /* ── About Yannick: tighten outer padding ── */
+  /* -- About Yannick: tighten outer padding -- */
   .about-yannick-wrap {
     padding-left: 20px !important;
     padding-right: 20px !important;
@@ -415,7 +415,7 @@
     justify-content: center !important;
   }
 
-  /* ── Site-contact: 3-col → 1-col ── */
+  /* -- Site-contact: 3-col ? 1-col -- */
   .site-contact-grid {
     grid-template-columns: 1fr !important;
     gap: 28px;
@@ -423,7 +423,7 @@
   }
   .site-contact-grid > div { min-width: 0; }
 
-  /* ── SiteWerkwijze: stack step cards ── */
+  /* -- SiteWerkwijze: stack step cards -- */
   .werkwijze-steps-row {
     flex-direction: column !important;
     align-items: stretch !important;
@@ -431,7 +431,7 @@
   }
   .werkwijze-connector { display: none !important; }
 
-  /* ── Process step rows (dienst pages) ── */
+  /* -- Process step rows (dienst pages) -- */
   .process-step-row {
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -441,10 +441,10 @@
   .process-step-label-col { width: auto !important; }
   .process-step-divider { display: none !important; }
 
-  /* ── Horizontal CTA cards ── */
+  /* -- Horizontal CTA cards -- */
   .cta-horizontal { padding: 24px 20px !important; }
 
-  /* ── USP stats bar (homepage): 2×2 ── */
+  /* -- USP stats bar (homepage): 2�2 -- */
   .usp-stats-wrap {
     flex-wrap: wrap !important;
     padding: 24px 16px !important;
@@ -466,7 +466,7 @@
     padding-bottom: 0 !important;
   }
 
-  /* ── Over-ons stats bar: 2×2 ── */
+  /* -- Over-ons stats bar: 2�2 -- */
   .over-ons-stats-wrap {
     flex-wrap: wrap !important;
     padding: 24px 16px !important;
@@ -484,16 +484,16 @@
     padding-top: 0 !important;
   }
 
-  /* ── Realisaties small sliders ── */
+  /* -- Realisaties small sliders -- */
   .sliders-grid { grid-template-columns: 1fr !important; }
 
-  /* ── Werkwijze step cards: fix flex-basis:0 collapse in column direction ── */
+  /* -- Werkwijze step cards: fix flex-basis:0 collapse in column direction -- */
   .werkwijze-step-card {
     flex: 0 0 auto !important;
     width: 100% !important;
   }
 
-  /* ── SitePricing wizard: reduce nested padding on mobile ── */
+  /* -- SitePricing wizard: reduce nested padding on mobile -- */
   .site-pricing-section {
     padding-left: 16px !important;
     padding-right: 16px !important;
@@ -520,23 +520,25 @@
     padding-top: 20px;
   }
   /* USP stats: 4 items gestacked op mobiel */
+  .usp-stats-wrap {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+    padding: 20px 16px !important;
+  }
   .usp-stats-wrap > div {
     flex: 1 1 100% !important;
     min-width: 100% !important;
     border-left: none !important;
     border-top: 1px solid #E5E7EB !important;
-    padding: 16px 0 0 !important;
+    padding: 16px 0 !important;
   }
   .usp-stats-wrap > div:first-child {
     border-top: none !important;
     padding-top: 0 !important;
   }
-  .usp-stats-wrap > div:nth-child(2) {
-    border-top: 1px solid #E5E7EB !important;
-    padding-top: 16px !important;
+  .usp-stats-wrap > div:last-child {
+    padding-bottom: 0 !important;
   }
-  .usp-stats-wrap > div:nth-child(3),
-  .usp-stats-wrap > div:nth-child(4) { padding-bottom: 0 !important; }
   .usp-stat-inner { align-items: flex-start !important; text-align: left !important; padding: 0 !important; }
   .usp-stat-top { flex-direction: row !important; align-items: center !important; gap: 12px; margin-bottom: 10px; }
   .usp-stat-icon { margin-bottom: 0 !important; }
@@ -567,9 +569,9 @@
   .werkwijze-step-card a { margin-top: 16px !important; }
 }
 
-/* ═══════════════════════════════════════════════
+/* -----------------------------------------------
    LEGACY classes (kept for compatibility)
-═══════════════════════════════════════════════ */
+----------------------------------------------- */
 .font-display { font-family: var(--font-playfair), Georgia, serif; }
 .section-pad    { @apply py-20 md:py-28 lg:py-36; }
 .section-pad-sm { @apply py-14 md:py-20 lg:py-24; }

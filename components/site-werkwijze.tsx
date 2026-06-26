@@ -40,10 +40,11 @@ function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0]
   const [hovered, setHovered] = useState(false);
   return (
     <div
+      className="werkwijze-step-card"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        flex: wide ? "1.6 1 0" : "1 1 0",
+        flex: wide ? "1.6 1 auto" : "1 1 auto",
         background: "#0B0F0C",
         border: `1px solid ${hovered ? "#9BCB6C" : "rgba(155,203,108,0.35)"}`,
         borderRadius: "16px",
@@ -96,7 +97,7 @@ function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0]
         fontSize: "14px", fontWeight: 700, color: "#FFFFFF",
         marginBottom: "10px", lineHeight: 1.3,
         fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-        whiteSpace: "nowrap", position: "relative",
+        position: "relative",
       }}>
         {title}
       </p>

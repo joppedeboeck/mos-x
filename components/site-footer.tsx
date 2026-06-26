@@ -85,16 +85,10 @@ export default function SiteFooter() {
       paddingTop: "30px",
       paddingBottom: "24px",
     }}>
-      <div style={{ maxWidth: "1180px", margin: "0 auto", padding: "0 40px" }}>
+      <div style={{ maxWidth: "1180px", margin: "0 auto", padding: "0 clamp(24px, 4vw, 40px)" }}>
 
         {/* ── Main grid ── */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1.7fr 1fr 1fr 1fr 1.2fr",
-          gap: "64px",
-        }}
-          className="grid-cols-1 md:grid-cols-2 lg:grid-footer"
-        >
+        <div className="footer-grid">
 
           {/* Col 1 — Brand */}
           <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
@@ -175,7 +169,7 @@ export default function SiteFooter() {
         </div>
 
         {/* ── Bottom bar ── */}
-        <div style={{
+        <div className="footer-bottom-bar" style={{
           borderTop: "1px solid rgba(255,255,255,0.08)",
           marginTop: "24px",
           paddingTop: "28px",

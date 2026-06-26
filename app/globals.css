@@ -85,8 +85,8 @@
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
-  .site-pad    { padding-top: 6.25rem; padding-bottom: 6.25rem; }
-  .site-pad-sm { padding-top: 4rem;    padding-bottom: 4rem; }
+  .site-pad    { padding-top: clamp(2.5rem, 10vw, 6.25rem); padding-bottom: clamp(2.5rem, 10vw, 6.25rem); }
+  .site-pad-sm { padding-top: clamp(1.75rem, 6vw, 4rem);  padding-bottom: clamp(1.75rem, 6vw, 4rem); }
 
   .site-eyebrow {
     font-family: var(--font-montserrat), system-ui, sans-serif;
@@ -286,6 +286,51 @@
 .footer-muted-link:hover { color: rgba(255,255,255,0.7) !important; transition: color 200ms; }
 
 /* ═══════════════════════════════════════════════
+   MOBILE SMALL (≤ 640px) — FAB
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+
+  /* WhatsApp FAB: smaller, stays bottom-right */
+  .whatsapp-fab {
+    width: 48px;
+    height: 48px;
+    bottom: 16px;
+    right: 16px;
+  }
+  .whatsapp-fab svg { width: 22px; height: 22px; }
+
+  /* Footer: center all text on mobile */
+  .footer-grid { text-align: center; }
+
+  /* Brand column: center children along the column axis */
+  .footer-grid > div:first-child { align-items: center !important; }
+
+  /* Social buttons row: center horizontally */
+  .footer-grid > div:first-child > div { justify-content: center !important; }
+
+  /* Bottom bar: center copyright + links */
+  .footer-bottom-bar {
+    justify-content: center !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+  }
+
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 640px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 2.5rem; }
+}
+@media (min-width: 1024px) {
+  .footer-grid { grid-template-columns: 1.7fr 1fr 1fr 1fr 1.2fr; gap: 4rem; }
+}
+
+/* ═══════════════════════════════════════════════
    PRICING CARD
 ═══════════════════════════════════════════════ */
 .pricing-card {
@@ -413,6 +458,29 @@
 
   /* ── Realisaties small sliders ── */
   .sliders-grid { grid-template-columns: 1fr !important; }
+
+  /* ── Werkwijze step cards: fix flex-basis:0 collapse in column direction ── */
+  .werkwijze-step-card {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+  }
+
+  /* ── SitePricing wizard: reduce nested padding on mobile ── */
+  .site-pricing-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-bottom: 40px !important;
+  }
+  .site-pricing-card {
+    padding: 24px 20px !important;
+  }
+  .site-pricing-left {
+    display: none !important;
+  }
+  .site-pricing-steps {
+    padding: 0 !important;
+    min-height: 220px !important;
+  }
 }
 
 /* ═══════════════════════════════════════════════

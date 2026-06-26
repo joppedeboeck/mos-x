@@ -164,17 +164,17 @@ export default function SitePricing() {
   const tabLabels = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Richtprijs"];
 
   return (
-    <section id="calculator" style={{ background: "transparent", padding: "0 40px 60px", marginTop: "-40px", position: "relative", zIndex: 10 }}>
+    <section id="calculator" className="site-pricing-section" style={{ background: "transparent", padding: "0 clamp(12px, 4vw, 40px) 60px", marginTop: "-40px", position: "relative", zIndex: 10 }}>
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
 
         {/* Witte zweefkaart */}
-        <div style={{ background: "#FFFFFF", borderRadius: "16px", boxShadow: "0 8px 48px rgba(0,0,0,0.15)", padding: "40px" }}>
+        <div className="site-pricing-card" style={{ background: "#FFFFFF", borderRadius: "16px", boxShadow: "0 8px 48px rgba(0,0,0,0.15)", padding: "clamp(20px, 4vw, 40px)" }}>
           <div className="flex flex-col lg:flex-row lg:items-stretch" style={{ gap: "48px" }}>
 
             {/* ── LINKS: uitleg ── */}
-            <div style={{
+            <div className="hidden lg:flex" style={{
               flex: "0 0 30%", minWidth: "220px",
-              display: "flex", flexDirection: "column", justifyContent: "flex-start",
+              flexDirection: "column", justifyContent: "flex-start",
               borderRight: "1px solid #EEEEEE",
               margin: "-40px 0 -40px -40px",
               padding: "48px 32px 0 40px",
@@ -237,7 +237,7 @@ export default function SitePricing() {
 
               {/* Tab navigatie */}
               {!done && (
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: "28px", gap: "24px", overflowX: "auto" }}>
+                <div style={{ display: "flex", justifyContent: "flex-start", marginBottom: "28px", gap: "24px", overflowX: "auto", WebkitOverflowScrolling: "touch" as const }}>
                   {tabLabels.map((label, i) => {
                     const tabStep = i + 1;
                     const isActive = step === tabStep;
@@ -268,7 +268,7 @@ export default function SitePricing() {
                 </div>
               )}
 
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 40px", minHeight: "280px" }}>
+        <div className="site-pricing-steps" style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 clamp(0px, 3vw, 40px)", minHeight: "280px" }}>
 
           {done ? (
             <div style={{ textAlign: "center", padding: "32px 0" }}>

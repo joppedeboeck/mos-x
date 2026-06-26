@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -66,7 +66,7 @@
 }
 
 /* -----------------------------------------------
-   DESIGN SYSTEM -� site-* components
+   DESIGN SYSTEM - site-* components
 ----------------------------------------------- */
 
 @layer utilities {
@@ -286,7 +286,7 @@
 .footer-muted-link:hover { color: rgba(255,255,255,0.7) !important; transition: color 200ms; }
 
 /* -----------------------------------------------
-   MOBILE SMALL (= 640px) � FAB
+   MOBILE SMALL (max-width: 640px) - FAB
 ----------------------------------------------- */
 @media (max-width: 640px) {
 
@@ -444,7 +444,7 @@
   /* -- Horizontal CTA cards -- */
   .cta-horizontal { padding: 24px 20px !important; }
 
-  /* -- USP stats bar (homepage): 2�2 -- */
+  /* -- USP stats bar (homepage): 2x2 -- */
   .usp-stats-wrap {
     flex-wrap: wrap !important;
     padding: 24px 16px !important;
@@ -466,7 +466,7 @@
     padding-bottom: 0 !important;
   }
 
-  /* -- Over-ons stats bar: 2�2 -- */
+  /* -- Over-ons stats bar: 2x2 -- */
   .over-ons-stats-wrap {
     flex-wrap: wrap !important;
     padding: 24px 16px !important;

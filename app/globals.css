@@ -457,6 +457,10 @@
     border-top: none !important;
     padding-top: 0 !important;
   }
+  .usp-stats-wrap > div:nth-child(3),
+  .usp-stats-wrap > div:nth-child(4) {
+    padding-bottom: 0 !important;
+  }
 
   /* ── Over-ons stats bar: 2×2 ── */
   .over-ons-stats-wrap {

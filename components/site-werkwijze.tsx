@@ -14,7 +14,7 @@ const steps = [
     Icon: MapPin,
     step: "STAP 02",
     title: "Yannick komt langs",
-    desc: "Yannick bekijkt de staat van je dak en adviseert wat nodig is. Soms een reiniging. Soms een coating. Soms niets.",
+    desc: "Yannick bekijkt de staat van je dak en adviseert wat nodig is.",
   },
   {
     Icon: FileText,

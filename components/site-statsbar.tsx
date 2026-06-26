@@ -45,9 +45,9 @@ export default function SiteStatsBar() {
         bottom: "-60px",
         left: "-15%",
         width: "130%",
-        height: "120px",
+        height: "100px",
         background: "#F7F8F6",
-        borderRadius: "0 0 50% 50% / 0 0 100% 100%",
+        borderRadius: "0 0 50% 50% / 0 0 55% 55%",
         zIndex: 1,
         pointerEvents: "none",
       }} />

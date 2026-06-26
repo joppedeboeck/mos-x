@@ -382,6 +382,14 @@
 /* Site-contact desktop gap */
 .site-contact-grid { gap: 56px; }
 
+/* ── Werkwijze step card: desktop defaults ── */
+.werkwijze-step-card { align-items: center; text-align: center; }
+.step-card-top { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.step-card-icon { margin-bottom: 16px; }
+.step-card-vline { display: none; }
+.step-card-header-text { width: 100%; }
+.step-card-hdivider { align-self: center; }
+
 /* ═══════════════════════════════════════════════
    MOBILE RESPONSIVE OVERRIDES (≤ 1023px)
 ═══════════════════════════════════════════════ */
@@ -508,6 +516,21 @@
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
+  /* Step card: horizontale layout op mobiel */
+  .werkwijze-step-card { align-items: stretch; text-align: left; }
+  .step-card-top { flex-direction: row; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .step-card-icon { margin-bottom: 0; }
+  .step-card-vline {
+    display: block;
+    width: 1px;
+    align-self: stretch;
+    background: rgba(155,203,108,0.35);
+    flex-shrink: 0;
+    min-height: 36px;
+  }
+  .step-card-header-text { text-align: left; flex: 1; min-width: 0; }
+  .step-card-hdivider { display: none !important; }
+  .step-card-desc { text-align: left; }
 }
 
 /* ═══════════════════════════════════════════════

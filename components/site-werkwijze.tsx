@@ -56,8 +56,6 @@ function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0]
         transition: "box-shadow 250ms ease, transform 250ms ease, border-color 250ms ease",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        textAlign: "center",
         position: "relative",
         overflow: "hidden",
       }}
@@ -69,48 +67,49 @@ function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0]
         pointerEvents: "none",
       }} />
 
-      {/* Icon circle */}
-      <div style={{
-        width: "48px", height: "48px", borderRadius: "50%",
-        background: "rgba(155,203,108,0.12)",
-        border: "1px solid rgba(155,203,108,0.25)",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        marginBottom: "16px",
-        flexShrink: 0,
-        position: "relative",
-      }}>
-        <Icon size={22} color="#9BCB6C" strokeWidth={2} />
+      {/* Top: icon | vertical line (mobile) | step label + title */}
+      <div className="step-card-top">
+        <div className="step-card-icon" style={{
+          width: "48px", height: "48px", borderRadius: "50%",
+          background: "rgba(155,203,108,0.12)",
+          border: "1px solid rgba(155,203,108,0.25)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          flexShrink: 0, position: "relative",
+        }}>
+          <Icon size={22} color="#9BCB6C" strokeWidth={2} />
+        </div>
+
+        <div className="step-card-vline" />
+
+        <div className="step-card-header-text">
+          <p style={{
+            fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em",
+            textTransform: "uppercase", color: "#9BCB6C", marginBottom: "6px",
+            fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+            whiteSpace: "nowrap", position: "relative",
+          }}>
+            {step}
+          </p>
+          <p style={{
+            fontSize: "14px", fontWeight: 700, color: "#FFFFFF",
+            marginBottom: "10px", lineHeight: 1.3,
+            fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+            position: "relative",
+          }}>
+            {title}
+          </p>
+        </div>
       </div>
 
-      {/* Step label */}
-      <p style={{
-        fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em",
-        textTransform: "uppercase", color: "#9BCB6C", marginBottom: "6px",
-        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-        whiteSpace: "nowrap", position: "relative",
-      }}>
-        {step}
-      </p>
-
-      {/* Title */}
-      <p style={{
-        fontSize: "14px", fontWeight: 700, color: "#FFFFFF",
-        marginBottom: "10px", lineHeight: 1.3,
-        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-        position: "relative",
-      }}>
-        {title}
-      </p>
-
-      {/* Green divider */}
-      <div style={{
+      {/* Green horizontal divider — desktop only, hidden on mobile */}
+      <div className="step-card-hdivider" style={{
         width: "32px", height: "2px", background: "#9BCB6C",
         borderRadius: "2px", marginBottom: "12px",
         flexShrink: 0, position: "relative",
       }} />
 
       {/* Description */}
-      <p style={{
+      <p className="step-card-desc" style={{
         fontSize: "13px", color: "rgba(255,255,255,0.55)", lineHeight: 1.65,
         fontFamily: "var(--font-inter), system-ui, sans-serif",
         position: "relative",

@@ -13,17 +13,21 @@ const stats: Stat[] = [
 
 function UspStat({ title, label, icon }: Stat) {
   return (
-    <div className="flex flex-col items-center justify-center text-center" style={{ padding: "0 24px" }}>
-      <div style={{ marginBottom: "12px" }}>{icon}</div>
-      <p style={{
-        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-        color: "#1A1A1A",
-        fontSize: "0.9375rem",
-        fontWeight: 700,
-        lineHeight: 1.25,
-        marginBottom: "6px",
-      }}>{title}</p>
-      <p style={{
+    <div className="usp-stat-inner" style={{ padding: "0 24px" }}>
+      <div className="usp-stat-top">
+        <div className="usp-stat-icon" style={{ marginBottom: "12px", flexShrink: 0 }}>
+          {icon}
+        </div>
+        <p className="usp-stat-title" style={{
+          fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+          color: "#1A1A1A",
+          fontSize: "0.9375rem",
+          fontWeight: 700,
+          lineHeight: 1.25,
+          marginBottom: "6px",
+        }}>{title}</p>
+      </div>
+      <p className="usp-stat-label" style={{
         color: "#545454",
         fontSize: "13px",
         fontWeight: 500,

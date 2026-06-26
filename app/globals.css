@@ -382,6 +382,10 @@
 /* Site-contact desktop gap */
 .site-contact-grid { gap: 56px; }
 
+/* ── USP stat: desktop defaults ── */
+.usp-stat-inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.usp-stat-top { display: flex; flex-direction: column; align-items: center; }
+
 /* ── Werkwijze step card: desktop defaults ── */
 .werkwijze-step-card { align-items: center; text-align: center; }
 .step-card-top { display: flex; flex-direction: column; align-items: center; width: 100%; }
@@ -515,6 +519,30 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+  /* USP stats: 4 items gestacked op mobiel */
+  .usp-stats-wrap > div {
+    flex: 1 1 100% !important;
+    min-width: 100% !important;
+    border-left: none !important;
+    border-top: 1px solid #E5E7EB !important;
+    padding: 16px 0 0 !important;
+  }
+  .usp-stats-wrap > div:first-child {
+    border-top: none !important;
+    padding-top: 0 !important;
+  }
+  .usp-stats-wrap > div:nth-child(2) {
+    border-top: 1px solid #E5E7EB !important;
+    padding-top: 16px !important;
+  }
+  .usp-stats-wrap > div:nth-child(3),
+  .usp-stats-wrap > div:nth-child(4) { padding-bottom: 0 !important; }
+  .usp-stat-inner { align-items: flex-start !important; text-align: left !important; padding: 0 !important; }
+  .usp-stat-top { flex-direction: row !important; align-items: center !important; gap: 12px; margin-bottom: 10px; }
+  .usp-stat-icon { margin-bottom: 0 !important; }
+  .usp-stat-title { text-align: left !important; margin-bottom: 0 !important; }
+  .usp-stat-label { text-align: left !important; margin-bottom: 0 !important; }
+
   /* Werkwijze step cards iets smaller op mobiel */
   .werkwijze-steps-row {
     padding-left: 20px !important;

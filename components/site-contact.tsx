@@ -52,7 +52,7 @@ export default function SiteContact() {
               Het eerste dakonderhoudsconcept van België
             </p>
             <h2 style={{
-              fontSize: "clamp(1.45rem, 2.2vw, 1.875rem)", fontWeight: 800,
+              fontSize: "clamp(1.9rem, 2.2vw, 1.9rem)", fontWeight: 800,
               color: "#FFFFFF", lineHeight: 1.2, letterSpacing: "-0.028em",
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               marginBottom: "14px",

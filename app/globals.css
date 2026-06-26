@@ -494,9 +494,11 @@
 
 /* Contact CTA: scheidingslijn boven Col 2 + Col 3 op mobiel */
 @media (max-width: 640px) {
+  .site-contact-grid { row-gap: 0 !important; }
   .contact-col-divider {
     border-top: 1px solid rgba(255,255,255,0.10);
-    padding-top: 28px;
+    margin-top: 20px;
+    padding-top: 20px;
   }
 }
 

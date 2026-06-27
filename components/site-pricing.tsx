@@ -9,7 +9,7 @@ const STEP_NAMES = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Ric
 
 function StepIndicator({ step }: { step: number }) {
   return (
-    <div style={{ textAlign: "center", marginBottom: "28px" }}>
+    <div className="lg:hidden" style={{ textAlign: "center", marginBottom: "28px" }}>
       <p style={{
         fontSize: "15px", fontWeight: 700,
         fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -153,6 +153,8 @@ export default function SitePricing() {
   const next = () => setStep(s => Math.min(s + 1, TOTAL_STEPS));
   const prev = () => setStep(s => Math.max(s - 1, 1));
 
+  const tabLabels = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Richtprijs"];
+
   const woningTypes = ["Vrijstaande woning", "Halfopen bebouwing", "Rijwoning"];
   const dakTypes = ["Dakpannen (keramisch of beton)", "Natuurleien", "Kunstleien (asbest vrij)", "Overzetdak", "Ik weet het niet"];
   const extraOpties = [
@@ -233,8 +235,41 @@ export default function SitePricing() {
             {/* ── RECHTS: tabs + stap content ── */}
             <div style={{ flex: "1 1 0" }}>
 
-              {/* Stap indicator */}
+              {/* Stap indicator — mobile only */}
               {!done && <StepIndicator step={step} />}
+
+              {/* Tab navigatie — desktop only */}
+              {!done && (
+                <div className="hidden lg:flex" style={{ justifyContent: "center", marginBottom: "28px", gap: "24px", overflowX: "auto", WebkitOverflowScrolling: "touch" as const }}>
+                  {tabLabels.map((label, i) => {
+                    const tabStep = i + 1;
+                    const isActive = step === tabStep;
+                    const isDone = step > tabStep;
+                    return (
+                      <button
+                        key={label}
+                        onClick={() => isDone ? setStep(tabStep) : undefined}
+                        style={{
+                          padding: "10px 16px 8px", border: "none", background: "none",
+                          fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                          fontSize: "13px", fontWeight: isActive ? 700 : 500,
+                          color: isActive ? GREEN : isDone ? GREEN : "#AAAAAA",
+                          cursor: isDone ? "pointer" : "default",
+                          whiteSpace: "nowrap", flexShrink: 0,
+                          transition: "color 0.2s",
+                          display: "flex", flexDirection: "column", alignItems: "stretch",
+                        }}
+                      >
+                        <span>{tabStep}. {label}</span>
+                        <div style={{
+                          height: "3px", borderRadius: "2px", marginTop: "6px",
+                          background: isActive ? GREEN : "#E8E8E8",
+                        }} />
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
 
         <div className="site-pricing-steps" style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 clamp(0px, 3vw, 40px)", minHeight: "280px" }}>
 

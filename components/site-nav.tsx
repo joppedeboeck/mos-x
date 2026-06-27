@@ -158,7 +158,7 @@ export default function SiteNav() {
             style={{ background: "#FFFFFF", borderLeft: "1px solid rgba(0,0,0,0.08)" }}
           >
             <div className="flex items-center justify-between mb-8">
-              <Image src="/images/logo.avif" alt="MOS-X" height={0} width={0}
+              <Image src="/images/logo.avif" alt="MOS-X" width={260} height={125}
                 style={{ height: "34px", width: "auto", objectFit: "contain" }} />
               <button onClick={() => setMobileOpen(false)} className="p-1 rounded-lg"
                 style={{ color: "#1A1A1A" }} aria-label="Menu sluiten">

@@ -180,9 +180,12 @@ export default function SiteNav() {
             </nav>
 
             <div className="space-y-3 pt-6" style={{ borderTop: "1px solid rgba(0,0,0,0.1)" }}>
-              <a href="tel:+32468352869" className="flex items-center gap-2 text-sm font-semibold"
-                style={{ color: "#1A1A1A" }}>
-                <Phone className="w-4 h-4" style={{ color: "#9BCB6C" }} />
+              <a href="tel:+32468352869" className="flex items-center justify-center gap-2 text-sm font-semibold"
+                style={{
+                  color: "#1A1A1A", border: "2px solid #9BCB6C", borderRadius: "50px",
+                  padding: "12px 20px", textDecoration: "none", fontFamily: "var(--font-montserrat)",
+                }}>
+                <Phone className="w-4 h-4" style={{ color: "#1A1A1A" }} />
                 +32 468 35 28 69
               </a>
               <Link href="/contact" onClick={() => setMobileOpen(false)}

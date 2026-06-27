@@ -176,7 +176,7 @@ export default function SitePricing() {
   ];
 
   return (
-    <section id="calculator" className="site-pricing-section" style={{ background: "transparent", padding: "0 clamp(12px, 4vw, 40px) 60px", marginTop: "-40px", position: "relative", zIndex: 10 }}>
+    <section id="calculator" className="site-pricing-section" style={{ background: "transparent", padding: "0 clamp(12px, 4vw, 40px) 60px", marginTop: "-69px", position: "relative", zIndex: 10 }}>
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
 
         {/* Witte zweefkaart */}

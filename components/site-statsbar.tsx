@@ -40,9 +40,9 @@ function UspStat({ title, label, icon }: Stat) {
 export default function SiteStatsBar() {
   return (
     <section style={{ background: "transparent", padding: "0 0 16px", position: "relative", zIndex: 5, overflowX: "clip", overflowY: "visible" }}>
-      <div style={{
+      <div className="statsbar-arch" style={{
         position: "absolute",
-        bottom: "-100px",
+        bottom: "-60px",
         left: "-15%",
         width: "130%",
         height: "160px",

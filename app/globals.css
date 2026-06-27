@@ -725,6 +725,13 @@
 }
 
 /* -----------------------------------------------
+   Statsbar arch: minder diep op mobile
+----------------------------------------------- */
+@media (max-width: 1023px) {
+  .statsbar-arch { height: 50px !important; }
+}
+
+/* -----------------------------------------------
    TRUSTINDEX widget overrides — show full review text
 ----------------------------------------------- */
 .ti-review-item-body-text,

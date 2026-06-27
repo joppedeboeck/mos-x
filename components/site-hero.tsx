@@ -7,7 +7,7 @@ export default function SiteHero() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ height: "calc(100vh + 20px)", minHeight: "calc(100vh + 20px)", background: "#1A1A1A", width: "100%", maxWidth: "100vw", overflow: "hidden" }}
+      style={{ height: "calc(100vh + 30px)", minHeight: "calc(100vh + 30px)", background: "#1A1A1A", width: "100%", maxWidth: "100vw", overflow: "hidden" }}
     >
       {/* Video background */}
       <video
@@ -32,7 +32,7 @@ export default function SiteHero() {
       {/* Content */}
       <div
         className="hero-content-wrap relative flex items-center"
-        style={{ height: "calc(100vh + 20px)", zIndex: 2, maxWidth: "1300px", margin: "0 auto", width: "100%", paddingLeft: "40px", paddingRight: "40px" }}
+        style={{ height: "calc(100vh + 30px)", zIndex: 2, maxWidth: "1300px", margin: "0 auto", width: "100%", paddingLeft: "40px", paddingRight: "40px" }}
       >
         <div
           className="w-full max-w-3xl"

@@ -156,7 +156,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
 
         {/* Checkmarks */}
         <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
-          {s.checks.map((item) => (
+          {s.checks.map((item, i) => (
             <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
               <span style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", height: "19.5px" }}>
                 <span style={{
@@ -170,6 +170,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
               <span style={{
                 fontSize: "13px", color: "#444444", lineHeight: 1.5,
                 fontFamily: "var(--font-inter), system-ui, sans-serif",
+                paddingTop: i === s.checks.length - 1 ? "2px" : "1px",
               }}>
                 {item}
               </span>

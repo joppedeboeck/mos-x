@@ -160,7 +160,7 @@ export function ServiceCard({ s, imageHeight = 380 }: { s: ServiceCardData; imag
             {s.desc}
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
-            {s.checks.map((item) => (
+            {s.checks.map((item, i) => (
               <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
                 <span style={{ flexShrink: 0, display: "inline-flex", alignItems: "center", height: "19.5px" }}>
                   <span style={{
@@ -171,7 +171,7 @@ export function ServiceCard({ s, imageHeight = 380 }: { s: ServiceCardData; imag
                     fontSize: "11px", color: "#FFFFFF", fontWeight: 700,
                   }}>✓</span>
                 </span>
-                <span style={{ fontSize: "13px", color: "#444444", lineHeight: 1.5, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{item}</span>
+                <span style={{ fontSize: "13px", color: "#444444", lineHeight: 1.5, fontFamily: "var(--font-inter), system-ui, sans-serif", paddingTop: i === s.checks.length - 1 ? "2px" : "1px" }}>{item}</span>
               </div>
             ))}
           </div>

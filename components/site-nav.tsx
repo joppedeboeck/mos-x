@@ -42,7 +42,7 @@ export default function SiteNav() {
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 1000,
-          width: "calc(100% - 80px)",
+          width: "calc(100% - 40px)",
           maxWidth: "1300px",
           transition: "all 0.3s ease",
         }}

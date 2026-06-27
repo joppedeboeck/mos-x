@@ -7,7 +7,7 @@ export default function SiteHero() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ height: "100vh", minHeight: "100vh", background: "#1A1A1A", width: "100%", maxWidth: "100vw", overflow: "hidden" }}
+      style={{ height: "calc(100vh + 20px)", minHeight: "calc(100vh + 20px)", background: "#1A1A1A", width: "100%", maxWidth: "100vw", overflow: "hidden" }}
     >
       {/* Video background */}
       <video
@@ -32,7 +32,7 @@ export default function SiteHero() {
       {/* Content */}
       <div
         className="hero-content-wrap relative flex items-center"
-        style={{ height: "100vh", zIndex: 2, maxWidth: "1300px", margin: "0 auto", width: "100%", paddingLeft: "40px", paddingRight: "40px" }}
+        style={{ height: "calc(100vh + 20px)", zIndex: 2, maxWidth: "1300px", margin: "0 auto", width: "100%", paddingLeft: "40px", paddingRight: "40px" }}
       >
         <div
           className="w-full max-w-3xl"
@@ -153,8 +153,14 @@ export default function SiteHero() {
         </div>
       </div>
 
-      {/* Wave onderaan */}
-      <div style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 3 }}>
+      {/* Wave onderaan — desktop */}
+      <div className="hidden lg:block" style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 3 }}>
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "80px" }}>
+          <path d="M0,0 C360,80 1080,80 1440,0 L1440,80 L0,80 Z" fill="#F7F8F6"/>
+        </svg>
+      </div>
+      {/* Wave onderaan — mobile */}
+      <div className="block lg:hidden" style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 3 }}>
         <svg viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "50px" }}>
           <path d="M0,0 C360,45 1080,45 1440,0 L1440,50 L0,50 Z" fill="#F7F8F6"/>
         </svg>

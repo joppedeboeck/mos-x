@@ -567,6 +567,7 @@
     gap: 12px !important;
     padding: 20px !important;
   }
+  .process-step-header { flex-shrink: 0; }
   .process-step-label-col { width: auto !important; }
   .process-step-divider { display: none !important; }
 

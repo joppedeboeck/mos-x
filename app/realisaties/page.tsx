@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Phone } from "lucide-react";
+import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
 const voorNaPhotos = [
@@ -174,12 +175,13 @@ export default function RealisatiesPage() {
       {/* ── Hero ── */}
       <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "24px" }}>
         <div className="site-wrap">
+          <BackLink href="/" />
           <p style={{ fontSize: "13px", color: "#9BCB6C", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
             <Link
               href="/"
               onMouseEnter={() => setHomeHovered(true)}
               onMouseLeave={() => setHomeHovered(false)}
-              style={{ color: homeHovered ? "#1A1A1A" : "#9BCB6C", textDecoration: "none", transition: "color 180ms ease" }}
+              style={{ color: homeHovered ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
             >Home</Link>
             <span style={{ margin: "0 6px", color: "#9BCB6C" }}>›</span>
             <span style={{ color: "#9BCB6C" }}>Realisaties</span>

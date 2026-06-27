@@ -154,14 +154,14 @@ export default function RegioPage({
                 href="/"
                 onMouseEnter={() => setHomeHov(true)}
                 onMouseLeave={() => setHomeHov(false)}
-                style={{ color: homeHov ? "#1A1A1A" : "#9BCB6C", textDecoration: "none", transition: "color 180ms ease" }}
+                style={{ color: homeHov ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
               >Home</Link>
               <span style={{ margin: "0 6px", color: "#9BCB6C" }}>&#8250;</span>
               <Link
                 href="/#werkgebied"
                 onMouseEnter={() => setRegioHov(true)}
                 onMouseLeave={() => setRegioHov(false)}
-                style={{ color: regioHov ? "#1A1A1A" : "#9BCB6C", textDecoration: "none", transition: "color 180ms ease" }}
+                style={{ color: regioHov ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
               >Regio&apos;s</Link>
               <span style={{ margin: "0 6px", color: "#9BCB6C" }}>&#8250;</span>
               <span style={{ color: "#9BCB6C" }}>{province}</span>
@@ -232,7 +232,7 @@ export default function RegioPage({
               >
                 {mainTitle ?? `MOS-X: uw dakspecialist in ${province}`}
               </h2>
-              <div className="space-y-4 mb-10" style={{ color: "#545454", fontSize: "16px", lineHeight: 1.75 }}>
+              <div className="space-y-4 mb-32 lg:mb-10" style={{ color: "#545454", fontSize: "16px", lineHeight: 1.75 }}>
                 {intro.map((p, i) => <p key={i}>{p}</p>)}
               </div>
 
@@ -251,7 +251,7 @@ export default function RegioPage({
                 {municipalitySubtitle ?? "Vraag uw gratis diagnose aan in uw gemeente."}
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10">
+              <div className="grid grid-cols-3 gap-2 mb-32 lg:mb-10">
                 {municipalities.map((m) => (
                   <Link
                     key={m.name}
@@ -260,13 +260,13 @@ export default function RegioPage({
                     style={{
                       border: "1px solid #E5E7EB",
                       borderRadius: "8px",
-                      padding: "14px 16px",
+                      padding: "10px 12px",
                       textDecoration: "none",
                       transition: "border-color 200ms ease",
                     }}
                   >
-                    <p className="font-bold text-sm" style={{ color: "#1A1A1A" }}>{m.name}</p>
-                    <p className="text-xs mt-0.5" style={{ color: "#545454" }}>{m.zip}</p>
+                    <p className="font-bold text-sm" style={{ color: "#1A1A1A", fontSize: "13px" }}>{m.name}</p>
+                    <p className="text-xs mt-0.5" style={{ color: "#9BCB6C", fontSize: "11px", fontWeight: 600 }}>{m.zip}</p>
                   </Link>
                 ))}
               </div>
@@ -427,7 +427,7 @@ export default function RegioPage({
 
           {/* ── SERVICE CARDS — outside the 2-col grid so sticky stops before this ── */}
           {showServiceCards && (
-            <div className="mt-10 lg:mt-[64px]">
+            <div className="mt-32 lg:mt-[64px]">
               <h2
                 className="font-bold mb-6"
                 style={{
@@ -438,7 +438,7 @@ export default function RegioPage({
               >
                 Onze diensten in {province}
               </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 services-grid">
                 {serviceCards.map((s) => (
                   <ServiceCard key={s.id} s={s} />
                 ))}

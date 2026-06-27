@@ -43,7 +43,7 @@ function PlaceholderImg({ label }: { label: string }) {
   );
 }
 
-function ChoiceRow({ label, onClick, selected }: { label: string; onClick: () => void; selected: boolean }) {
+function ChoiceRow({ label, onClick, selected, imgSrc }: { label: string; onClick: () => void; selected: boolean; imgSrc?: string }) {
   return (
     <button
       onClick={onClick}
@@ -55,7 +55,15 @@ function ChoiceRow({ label, onClick, selected }: { label: string; onClick: () =>
         transition: "all 0.2s ease", textAlign: "left", marginBottom: "10px",
       }}
     >
-      <PlaceholderImg label={label.split(" ")[0]} />
+      {imgSrc ? (
+        <img
+          src={imgSrc}
+          alt={label}
+          style={{ width: "72px", height: "56px", borderRadius: "8px", objectFit: "cover", flexShrink: 0 }}
+        />
+      ) : (
+        <PlaceholderImg label={label.split(" ")[0]} />
+      )}
       <div style={{ flex: 1, fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 600, fontSize: "15px", color: "#111" }}>
         {label}
       </div>
@@ -155,7 +163,11 @@ export default function SitePricing() {
 
   const tabLabels = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Richtprijs"];
 
-  const woningTypes = ["Vrijstaande woning", "Halfopen bebouwing", "Rijwoning"];
+  const woningTypes = [
+    { label: "Rijwoning",          img: "/images/Rijtjes.png" },
+    { label: "Halfopen bebouwing", img: "/images/halfopen.png" },
+    { label: "Vrijstaande woning", img: "/images/vrijstaand.png" },
+  ];
   const dakTypes = ["Dakpannen (keramisch of beton)", "Natuurleien", "Kunstleien (asbest vrij)", "Overzetdak", "Ik weet het niet"];
   const extraOpties = [
     { id: "hydrofuge", title: "Hydrofuge", bullets: ["Waterafstotende bescherming", "Mos en vuil hechten minder snel", "Dak blijft ademend"] },
@@ -333,7 +345,7 @@ export default function SitePricing() {
                     Wat voor type woning is het?
                   </h3>
                   {woningTypes.map(w => (
-                    <ChoiceRow key={w} label={w} selected={woning === w} onClick={() => { setWoning(w); setTimeout(next, 220); }} />
+                    <ChoiceRow key={w.label} label={w.label} imgSrc={w.img} selected={woning === w.label} onClick={() => { setWoning(w.label); setTimeout(next, 220); }} />
                   ))}
                 </div>
               )}

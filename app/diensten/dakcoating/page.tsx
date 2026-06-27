@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { CheckCircle, Phone, ArrowRight, ChevronDown, Droplets, ShieldCheck, Home, CloudRain } from "lucide-react";
+import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
 const steps = [
@@ -34,18 +35,20 @@ export default function DakcoatingPage() {
       <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "80px" }}>
         <div className="site-wrap">
 
+          <BackLink href="/diensten" />
+
           {/* Breadcrumb */}
           <p style={{ fontSize: "13px", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
             <Link href="/"
               onMouseEnter={() => setHomeHovered(true)}
               onMouseLeave={() => setHomeHovered(false)}
-              style={{ color: homeHovered ? "#1A1A1A" : "#9BCB6C", textDecoration: "none", transition: "color 180ms ease" }}
+              style={{ color: homeHovered ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
             >Home</Link>
             <span style={{ margin: "0 6px", color: "#9BCB6C" }}>&#8250;</span>
             <Link href="/diensten"
               onMouseEnter={() => setDienstenHovered(true)}
               onMouseLeave={() => setDienstenHovered(false)}
-              style={{ color: dienstenHovered ? "#1A1A1A" : "#9BCB6C", textDecoration: "none", transition: "color 180ms ease" }}
+              style={{ color: dienstenHovered ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
             >Diensten</Link>
             <span style={{ margin: "0 6px", color: "#9BCB6C" }}>&#8250;</span>
             <span style={{ color: "#9BCB6C" }}>Dakcoating</span>
@@ -77,7 +80,7 @@ export default function DakcoatingPage() {
       <section className="site-pad" style={{ background: "#F7F8F6", paddingTop: "0", paddingBottom: "0" }}>
         <div className="site-wrap">
           <div className="grid gap-8 lg:gap-14 items-stretch grid-cols-1 lg:grid-cols-[1fr_0.7fr]">
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div className="order-2 lg:order-1" style={{ display: "flex", flexDirection: "column" }}>
               <p className="site-eyebrow mb-4">Waarom dakcoating?</p>
               <h2
                 className="font-bold leading-tight mb-5"
@@ -118,7 +121,7 @@ export default function DakcoatingPage() {
             </div>
 
             {/* Video */}
-            <div style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.13)", aspectRatio: "4/4.2" }}>
+            <div className="order-1 lg:order-2" style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.13)", aspectRatio: "4/4.2" }}>
               <video
                 src="/videos/Dakcoating.mp4"
                 autoPlay muted loop playsInline
@@ -130,9 +133,9 @@ export default function DakcoatingPage() {
       </section>
 
       {/* Mid-page CTA */}
-      <section style={{ background: "#F7F8F6", paddingTop: "60px", paddingBottom: "0" }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "24px", paddingBottom: "80px" }}>
         <div className="site-wrap">
-          <div style={{
+          <div className="page-cta-bar" style={{
             background: "#FFFFFF",
             border: "1px solid #9BCB6C",
             borderRadius: "16px",
@@ -144,7 +147,7 @@ export default function DakcoatingPage() {
             flexWrap: "wrap",
             boxShadow: "0 2px 16px rgba(155,203,108,0.12)",
           }}>
-            <div style={{ flex: 1, minWidth: "260px" }}>
+            <div className="page-cta-text" style={{ flex: 1, minWidth: "260px" }}>
               <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1rem, 2vw, 1.25rem)", color: "#1A1A1A", letterSpacing: "-0.02em", marginBottom: "6px", lineHeight: 1.25 }}>
                 Geef je dak opnieuw bescherming en uitstraling.
               </p>
@@ -152,7 +155,7 @@ export default function DakcoatingPage() {
                 Een poreus dak wacht niet. Laat je dak tijdig coaten en voorkom vorstschade, slijtage en onnodige kosten.
               </p>
             </div>
-            <div style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>
+            <div className="page-cta-buttons" style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>
               <Link
                 href="/contact"
                 onMouseEnter={e => { e.currentTarget.style.background = "#7AB54E"; }}
@@ -191,7 +194,7 @@ export default function DakcoatingPage() {
       </section>
 
       {/* Info cards: waarom poreus + risicofactoren */}
-      <section className="pt-10 lg:pt-[160px] pb-[60px]" style={{ background: "#F7F8F6" }}>
+      <section className="pt-[60px] lg:pt-[160px] pb-[60px]" style={{ background: "#F7F8F6" }}>
         <div className="site-wrap">
           <div className="grid sm:grid-cols-2 gap-6">
 
@@ -238,7 +241,7 @@ export default function DakcoatingPage() {
       </section>
 
       {/* Process steps */}
-      <section style={{ background: "#F7F8F6", padding: "100px 0" }}>
+      <section style={{ background: "#F7F8F6", padding: "100px 0 16px" }}>
         <div className="site-wrap">
           <div style={{ marginBottom: "56px", textAlign: "center" }}>
             <p className="site-eyebrow mb-4">Onze werkwijze</p>
@@ -276,21 +279,22 @@ export default function DakcoatingPage() {
                     display: "flex", flexDirection: "row", alignItems: "center", gap: "28px",
                   }}
                 >
-                  <div style={{
-                    width: "52px", height: "52px", borderRadius: "50%", flexShrink: 0,
-                    background: "rgba(155,203,108,0.12)", border: "1px solid rgba(155,203,108,0.25)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                  }}>
-                    <Icon size={22} color="#9BCB6C" strokeWidth={2} />
-                  </div>
-
-                  <div className="process-step-label-col" style={{ flexShrink: 0, width: "290px" }}>
-                    <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9BCB6C", marginBottom: "4px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-                      {s.step}
-                    </p>
-                    <p style={{ fontSize: "15px", fontWeight: 700, color: "#1A1A1A", lineHeight: 1.3, fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-                      {s.title}
-                    </p>
+                  <div className="process-step-header" style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
+                    <div style={{
+                      width: "52px", height: "52px", borderRadius: "50%", flexShrink: 0,
+                      background: "rgba(155,203,108,0.12)", border: "1px solid rgba(155,203,108,0.25)",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                    }}>
+                      <Icon size={22} color="#9BCB6C" strokeWidth={2} />
+                    </div>
+                    <div className="process-step-label-col" style={{ minWidth: 0 }}>
+                      <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9BCB6C", marginBottom: "4px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                        {s.step}
+                      </p>
+                      <p style={{ fontSize: "15px", fontWeight: 700, color: "#1A1A1A", lineHeight: 1.3, fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                        {s.title}
+                      </p>
+                    </div>
                   </div>
 
                   <div className="process-step-divider" style={{ width: "1px", height: "40px", background: "#E5E7EB", flexShrink: 0 }} />
@@ -307,21 +311,22 @@ export default function DakcoatingPage() {
       </section>
 
       {/* Mini CTA */}
-      <section style={{ background: "#F7F8F6", padding: "72px 0", textAlign: "center" }}>
+      <section style={{ background: "#F7F8F6", padding: "16px 0 72px", textAlign: "center" }}>
         <div className="site-wrap">
-          <div style={{ background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "48px 40px", boxShadow: "0 2px 16px rgba(155,203,108,0.12)" }}>
-            <h2 style={{
+          <div style={{ background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "28px 40px", boxShadow: "0 2px 16px rgba(155,203,108,0.12)" }}>
+            <h2 className="mb-0 lg:mb-3" style={{
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontWeight: 800, fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
-              letterSpacing: "-0.025em", color: "#1A1A1A", marginBottom: "12px",
+              letterSpacing: "-0.025em", color: "#1A1A1A",
             }}>
               Benieuwd wat <span style={{ color: "#9BCB6C" }}>jouw dakcoating</span> kost?
             </h2>
-            <p style={{ fontSize: "15px", color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "28px" }}>
+            <p className="hidden lg:block" style={{ fontSize: "15px", color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "28px" }}>
               Benieuwd of dakcoating de juiste oplossing is voor jouw dak? Yannick geeft eerlijk advies op maat.
             </p>
             <Link
               href="/contact"
+              className="mt-7 lg:mt-0"
               onMouseEnter={e => { e.currentTarget.style.background = "#7AB54E"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "#9BCB6C"; }}
               style={{
@@ -387,7 +392,7 @@ export default function DakcoatingPage() {
       {/* Bottom CTA */}
       <section style={{ background: "#F7F8F6", paddingBottom: "80px" }}>
         <div className="site-wrap">
-          <div style={{
+          <div className="page-cta-bar" style={{
             background: "#0B0F0C",
             border: "1px solid rgba(155,203,108,0.25)",
             borderRadius: "16px",
@@ -398,7 +403,7 @@ export default function DakcoatingPage() {
             gap: "32px",
             flexWrap: "wrap",
           }}>
-            <div style={{ flex: 1, minWidth: "260px" }}>
+            <div className="page-cta-text" style={{ flex: 1, minWidth: "260px" }}>
               <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1rem, 2vw, 1.25rem)", color: "#FFFFFF", letterSpacing: "-0.02em", marginBottom: "6px", lineHeight: 1.25 }}>
                 Benieuwd wat <span style={{ color: "#9BCB6C" }}>jouw dakcoating</span> kost?
               </p>
@@ -406,7 +411,7 @@ export default function DakcoatingPage() {
                 Benieuwd of dakcoating de juiste oplossing is voor jouw dak? Yannick geeft eerlijk advies op maat.
               </p>
             </div>
-            <div style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>
+            <div className="page-cta-buttons" style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>
               <Link
                 href="/contact"
                 onMouseEnter={() => setWaHovered(true)}

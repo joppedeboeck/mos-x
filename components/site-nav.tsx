@@ -10,6 +10,12 @@ const links = [
   { label: "Realisaties", href: "/realisaties" },
   { label: "Over ons",    href: "/over-ons" },
   { label: "Contact",     href: "/contact" },
+  { label: "FAQ",         href: "/faq" },
+];
+
+const mobileLinks = [
+  { label: "Home",        href: "/" },
+  ...links,
 ];
 
 export default function SiteNav() {
@@ -106,13 +112,22 @@ export default function SiteNav() {
                 fontWeight: 600,
                 color: "#1A1A1A",
                 textDecoration: "none",
-                transition: "color 150ms ease",
+                border: "1px solid rgba(155,203,108,0.5)",
+                borderRadius: "8px",
+                padding: "7px 14px",
+                transition: "border-color 150ms ease, color 150ms ease",
                 whiteSpace: "nowrap",
               }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#9BCB6C")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#1A1A1A")}
+              onMouseEnter={e => {
+                e.currentTarget.style.color = "#9BCB6C";
+                e.currentTarget.style.borderColor = "#9BCB6C";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.color = "#1A1A1A";
+                e.currentTarget.style.borderColor = "rgba(155,203,108,0.5)";
+              }}
             >
-              <Phone style={{ width: "14px", height: "14px", color: "#9BCB6C", flexShrink: 0 }} />
+              <Phone style={{ width: "14px", height: "14px", color: "currentColor", flexShrink: 0 }} />
               +32 468 35 28 69
             </a>
             <Link
@@ -158,21 +173,23 @@ export default function SiteNav() {
             style={{ background: "#FFFFFF", borderLeft: "1px solid rgba(0,0,0,0.08)" }}
           >
             <div className="flex items-center justify-between mb-8">
-              <Image src="/images/logo.avif" alt="MOS-X" width={260} height={125}
-                style={{ height: "34px", width: "auto", objectFit: "contain" }} />
+              <Link href="/" onClick={() => setMobileOpen(false)}>
+                <Image src="/images/logo.avif" alt="MOS-X" width={260} height={125}
+                  style={{ height: "52px", width: "auto", objectFit: "contain" }} />
+              </Link>
               <button onClick={() => setMobileOpen(false)} className="p-1 rounded-lg"
                 style={{ color: "#1A1A1A" }} aria-label="Menu sluiten">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <nav className="flex flex-col gap-1 flex-1">
-              {links.map(l => (
+            <nav className="flex flex-col gap-1 flex-1 items-center">
+              {mobileLinks.map(l => (
                 <Link
                   key={l.href} href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="px-3 py-3 rounded-lg text-sm font-semibold"
-                  style={{ fontFamily: "var(--font-montserrat)", color: "var(--color-brand-green)", textDecoration: "none" }}
+                  className="px-3 py-3 rounded-lg font-semibold text-center w-full"
+                  style={{ fontFamily: "var(--font-montserrat)", color: "var(--color-brand-green)", textDecoration: "none", fontSize: "20px" }}
                 >
                   {l.label}
                 </Link>

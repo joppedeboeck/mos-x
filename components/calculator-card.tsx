@@ -4,9 +4,16 @@ import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+type House  = "rij" | "halfopen" | "vrijstaand";
 type Size   = "xs" | "sm" | "md" | "lg";
 type Roof   = "pannen" | "leien" | "plat" | "ander";
 type Moss   = "weinig" | "gemiddeld" | "veel";
+
+const HOUSE_OPTIONS: { value: House; label: string; sub: string; src: string }[] = [
+  { value: "rij",        label: "Rijwoning",          sub: "Aaneengesloten",  src: "/images/Rijtjes.png" },
+  { value: "halfopen",   label: "Halfopen",            sub: "Halfopen bouw",   src: "/images/halfopen.png" },
+  { value: "vrijstaand", label: "Vrijstaand",          sub: "Op eigen perceel", src: "/images/vrijstaand.png" },
+];
 
 const SIZE_AREAS: Record<Size, number>    = { xs: 40,  sm: 75, md: 125, lg: 180 };
 const ROOF_RATE:  Record<Roof, number>    = { pannen: 8.5, leien: 11, plat: 7, ander: 9 };
@@ -57,6 +64,7 @@ interface CalculatorCardProps {
 }
 
 export default function CalculatorCard({ compact = false }: CalculatorCardProps) {
+  const [house, setHouse] = useState<House>("rij");
   const [size, setSize] = useState<Size>("md");
   const [roof, setRoof] = useState<Roof>("pannen");
   const [moss, setMoss] = useState<Moss>("gemiddeld");
@@ -80,6 +88,68 @@ export default function CalculatorCard({ compact = false }: CalculatorCardProps)
       </p>
 
       <div className={`space-y-${compact ? "3" : "4"}`}>
+        {/* House type */}
+        <div>
+          <label className="block text-[10px] font-bold uppercase tracking-widest text-[#6B7280] mb-2"
+            style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+            Type woning
+          </label>
+          <div className="grid grid-cols-3 gap-2">
+            {HOUSE_OPTIONS.map(o => {
+              const selected = house === o.value;
+              return (
+                <button
+                  key={o.value}
+                  type="button"
+                  onClick={() => setHouse(o.value)}
+                  className="rounded-xl overflow-hidden text-left"
+                  style={{
+                    border: selected ? "2px solid #6DB33F" : "2px solid #E5E5E3",
+                    background: selected ? "rgba(109,179,63,0.05)" : "#fff",
+                    transition: "border-color 150ms ease, background 150ms ease",
+                    padding: 0,
+                  }}
+                >
+                  <div style={{ position: "relative" }}>
+                    <img
+                      src={o.src}
+                      alt={o.label}
+                      style={{
+                        width: "100%",
+                        height: compact ? "54px" : "66px",
+                        objectFit: "cover",
+                        display: "block",
+                      }}
+                    />
+                    {selected && (
+                      <span style={{
+                        position: "absolute", top: "4px", right: "4px",
+                        background: "#6DB33F", borderRadius: "50%",
+                        width: "16px", height: "16px",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                      }}>
+                        <svg width="8" height="6" viewBox="0 0 8 6" fill="none">
+                          <path d="M1 3L3 5L7 1" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-center font-bold"
+                    style={{
+                      fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                      fontSize: compact ? "9px" : "10px",
+                      color: selected ? "#6DB33F" : "#081012",
+                      padding: compact ? "4px 2px" : "5px 2px",
+                      lineHeight: 1.2,
+                    }}>
+                    {o.label}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Roof size */}
         <div>
           <label className="block text-[10px] font-bold uppercase tracking-widest text-[#6B7280] mb-1.5"

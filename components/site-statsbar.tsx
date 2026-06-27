@@ -42,12 +42,12 @@ export default function SiteStatsBar() {
     <section style={{ background: "transparent", padding: "0 0 16px", position: "relative", zIndex: 5, overflowX: "clip", overflowY: "visible" }}>
       <div style={{
         position: "absolute",
-        bottom: "-60px",
+        bottom: "-100px",
         left: "-15%",
         width: "130%",
-        height: "100px",
+        height: "160px",
         background: "#F7F8F6",
-        borderRadius: "0 0 50% 50% / 0 0 55% 55%",
+        borderRadius: "0 0 50% 50% / 0 0 100% 100%",
         zIndex: 1,
         pointerEvents: "none",
       }} />

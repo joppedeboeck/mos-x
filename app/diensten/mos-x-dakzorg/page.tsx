@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, Phone } from "lucide-react";
+import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
 const steps = [
@@ -27,15 +28,18 @@ export default function MosXDakzorgPage() {
       {/* ── Hero ── */}
       <section className="relative pt-36 pb-20 overflow-hidden" style={{ background: "#0B0F0C" }}>
         <div className="site-wrap relative z-10">
-          <Link
-            href="/diensten"
-            className="inline-flex items-center gap-1.5 text-xs mb-6"
-            style={{ color: "rgba(255,255,255,0.40)", fontFamily: "var(--font-montserrat)", textDecoration: "none", transition: "color 180ms ease" }}
-            onMouseEnter={e => { e.currentTarget.style.color = "#9BCB6C"; }}
-            onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.40)"; }}
-          >
-            ← Terug naar diensten
-          </Link>
+          <BackLink href="/diensten" label="Terug naar diensten" dark />
+          <p style={{ fontSize: "13px", marginBottom: "16px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+            <Link href="/" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 180ms ease" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
+              onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>Home</Link>
+            <span style={{ margin: "0 6px", color: "rgba(255,255,255,0.25)" }}>›</span>
+            <Link href="/diensten" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 180ms ease" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
+              onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>Diensten</Link>
+            <span style={{ margin: "0 6px", color: "rgba(255,255,255,0.25)" }}>›</span>
+            <span style={{ color: "#9BCB6C" }}>MOS-X Dakzorg</span>
+          </p>
           <div
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold mb-4"
             style={{ background: "#9BCB6C", color: "#fff", fontFamily: "var(--font-montserrat)" }}

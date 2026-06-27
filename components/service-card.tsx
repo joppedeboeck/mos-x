@@ -161,7 +161,7 @@ export function ServiceCard({ s, imageHeight = 380 }: { s: ServiceCardData; imag
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
             {s.checks.map((item) => (
-              <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
                 <span style={{
                   flexShrink: 0,
                   width: "18px", height: "18px",
@@ -169,6 +169,7 @@ export function ServiceCard({ s, imageHeight = 380 }: { s: ServiceCardData; imag
                   borderRadius: "50%",
                   display: "inline-flex", alignItems: "center", justifyContent: "center",
                   fontSize: "11px", color: "#FFFFFF", fontWeight: 700,
+                  marginTop: "1px",
                 }}>✓</span>
                 <span style={{ fontSize: "13px", color: "#444444", lineHeight: 1.5, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{item}</span>
               </div>

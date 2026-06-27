@@ -155,13 +155,13 @@ export default function SiteNav() {
           <div className="absolute inset-0 bg-black/60" onClick={() => setMobileOpen(false)} />
           <div
             className="relative ml-auto w-72 h-full flex flex-col p-6"
-            style={{ background: "#111111", borderLeft: "1px solid rgba(255,255,255,0.08)" }}
+            style={{ background: "#FFFFFF", borderLeft: "1px solid rgba(0,0,0,0.08)" }}
           >
             <div className="flex items-center justify-between mb-8">
               <Image src="/images/logo.avif" alt="MOS-X" height={0} width={0}
                 style={{ height: "34px", width: "auto", objectFit: "contain" }} />
               <button onClick={() => setMobileOpen(false)} className="p-1 rounded-lg"
-                style={{ color: "#FFFFFF" }} aria-label="Menu sluiten">
+                style={{ color: "#1A1A1A" }} aria-label="Menu sluiten">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -172,28 +172,28 @@ export default function SiteNav() {
                   key={l.href} href={l.href}
                   onClick={() => setMobileOpen(false)}
                   className="px-3 py-3 rounded-lg text-sm font-semibold"
-                  style={{ fontFamily: "var(--font-montserrat)", color: "#FFFFFF", textDecoration: "none", opacity: 0.85 }}
+                  style={{ fontFamily: "var(--font-montserrat)", color: "var(--color-brand-green)", textDecoration: "none" }}
                 >
                   {l.label}
                 </Link>
               ))}
             </nav>
 
-            <div className="space-y-3 pt-6" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+            <div className="space-y-3 pt-6" style={{ borderTop: "1px solid rgba(0,0,0,0.1)" }}>
               <a href="tel:+32468352869" className="flex items-center gap-2 text-sm font-semibold"
-                style={{ color: "#FFFFFF", opacity: 0.85 }}>
+                style={{ color: "#1A1A1A" }}>
                 <Phone className="w-4 h-4" style={{ color: "#9BCB6C" }} />
                 +32 468 35 28 69
               </a>
               <Link href="/contact" onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center w-full text-sm font-bold"
                 style={{
-                  background: "#9BCB6C", color: "#1A1A1A", borderRadius: "50px",
+                  background: "#9BCB6C", color: "#FFFFFF", borderRadius: "50px",
                   padding: "12px 20px", textDecoration: "none",
                   fontFamily: "var(--font-montserrat)",
                 }}
               >
-                Gratis Diagnose
+                Bereken je richtprijs
               </Link>
             </div>
           </div>

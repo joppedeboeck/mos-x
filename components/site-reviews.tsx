@@ -90,10 +90,11 @@ export default function SiteReviews() {
   return (
     <section className="site-pad site-reviews-section" id="reviews" style={{ background: "#0B0F0C", position: "relative", overflow: "hidden" }}>
 
-      {/* Decorative background photo right side */}
+      {/* Decorative background photo */}
       <img
         src="/images/IMG_5397.JPEG"
         aria-hidden="true"
+        className="reviews-bg-photo"
         style={{
           position: "absolute",
           left: 0,
@@ -107,8 +108,8 @@ export default function SiteReviews() {
           transform: "scaleX(-1)",
         }}
       />
-      {/* Gradient fade on right edge of photo */}
-      <div style={{
+      {/* Gradient overlay */}
+      <div className="reviews-bg-gradient" style={{
         position: "absolute",
         left: 0,
         top: 0,
@@ -163,6 +164,7 @@ export default function SiteReviews() {
       <img
         src="/images/mos-texture.png"
         alt=""
+        className="hidden lg:block"
         style={{
           position: "absolute",
           right: "-40px",
@@ -176,7 +178,7 @@ export default function SiteReviews() {
       />
 
       {/* Moss texture decoration */}
-      <div style={{
+      <div className="hidden lg:block" style={{
         position: "absolute",
         right: "-80px",
         top: "120px",

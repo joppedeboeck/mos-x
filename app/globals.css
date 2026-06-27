@@ -280,6 +280,20 @@
 }
 
 /* -----------------------------------------------
+   REVIEWS - mobile: full-width background photo
+----------------------------------------------- */
+@media (max-width: 1023px) {
+  .reviews-bg-photo {
+    width: 100% !important;
+    opacity: 0.35 !important;
+  }
+  .reviews-bg-gradient {
+    width: 100% !important;
+    background: linear-gradient(to bottom, #0B0F0C 0%, rgba(11,15,12,0.55) 30%, rgba(11,15,12,0.55) 70%, #0B0F0C 100%) !important;
+  }
+}
+
+/* -----------------------------------------------
    FOOTER
 ----------------------------------------------- */
 .footer-link:hover       { color: #9BCB6C !important; transition: color 200ms; }

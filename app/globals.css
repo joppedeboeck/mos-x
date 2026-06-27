@@ -349,6 +349,66 @@
 }
 
 /* -----------------------------------------------
+   REALISATIES LARGE SLIDER - mobile
+----------------------------------------------- */
+@media (max-width: 1023px) {
+  .large-slider {
+    height: 280px !important;
+  }
+}
+
+/* -----------------------------------------------
+   REALISATIES STATSBAR - mobile
+----------------------------------------------- */
+@media (max-width: 1023px) {
+  .realisaties-statsbar {
+    margin-top: 32px !important;
+    padding: 24px 0 !important;
+  }
+  .realisaties-stat {
+    flex: 1 !important;
+    padding: 0 !important;
+    border-left: none !important;
+  }
+  .realisaties-stat + .realisaties-stat {
+    border-left: 1px solid #E5E7EB !important;
+  }
+  .realisaties-stat p:first-child {
+    font-size: 1.35rem !important;
+    margin-bottom: 4px !important;
+  }
+  .realisaties-stat p:last-child {
+    font-size: 11px !important;
+  }
+}
+
+/* -----------------------------------------------
+   PAGE CTA BAR - mobile: stack vertically
+----------------------------------------------- */
+@media (max-width: 1023px) {
+  .page-cta-bar {
+    padding: 24px 20px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+  }
+  .page-cta-text {
+    text-align: center !important;
+  }
+  .page-cta-buttons {
+    flex-direction: column !important;
+    flex-shrink: 1 !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+  .page-cta-buttons a {
+    width: 100% !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* -----------------------------------------------
    FOOTER
 ----------------------------------------------- */
 .footer-link:hover       { color: #9BCB6C !important; transition: color 200ms; }
@@ -545,12 +605,19 @@
     min-width: calc(50% - 16px) !important;
     border-left: none !important;
     border-top: 1px solid #E5E7EB !important;
-    padding: 12px 8px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
   }
   .over-ons-stats-wrap > div:first-child,
   .over-ons-stats-wrap > div:nth-child(2) {
     border-top: none !important;
     padding-top: 0 !important;
+  }
+  .over-ons-stats-wrap > div:nth-child(3),
+  .over-ons-stats-wrap > div:nth-child(4) {
+    padding-bottom: 0 !important;
   }
 
   /* -- Realisaties small sliders -- */

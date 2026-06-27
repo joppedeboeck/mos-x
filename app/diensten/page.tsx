@@ -51,7 +51,7 @@ export default function DienstenPage() {
       {/* ── CTA block ── */}
       <section style={{ background: "#F7F8F6", paddingBottom: "80px" }}>
         <div className="site-wrap">
-          <div style={{
+          <div className="page-cta-bar" style={{
             background: "#0B0F0C",
             border: "1px solid rgba(155,203,108,0.25)",
             borderRadius: "16px",
@@ -63,20 +63,17 @@ export default function DienstenPage() {
             flexWrap: "wrap",
           }}>
             {/* Text */}
-            <div style={{ flex: 1, minWidth: "260px" }}>
+            <div className="page-cta-text" style={{ flex: 1, minWidth: "260px" }}>
               <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1rem, 2vw, 1.25rem)", color: "#FFFFFF", letterSpacing: "-0.02em", marginBottom: "6px", lineHeight: 1.25 }}>
                 Niet zeker wat <span style={{ color: "#9BCB6C" }}>jouw dak</span> nodig heeft?
               </p>
-              <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "2px" }}>
-                Niet elk dak heeft een coating nodig. Soms is een reiniging voldoende.
-              </p>
               <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                Yannick helpt je kiezen.
+                Niet elk dak heeft een coating nodig. <span className="block lg:hidden" />Soms is een reiniging voldoende. <span className="block lg:hidden" />Yannick helpt je kiezen.
               </p>
             </div>
 
             {/* Buttons */}
-            <div style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>
+            <div className="page-cta-buttons" style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>
               <a
                 href="https://wa.me/32468352869"
                 target="_blank"

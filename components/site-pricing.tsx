@@ -239,12 +239,14 @@ export default function SitePricing() {
               {!done && (
                 <div className="lg:hidden" style={{ textAlign: "center", marginBottom: "20px" }}>
                   <p style={{
-                    fontSize: "17px", fontWeight: 800,
+                    fontSize: "20px", fontWeight: 800,
                     fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                     color: "#111", letterSpacing: "-0.02em", lineHeight: 1.3,
+                    marginBottom: "16px",
                   }}>
                     Ontvang binnen 1 minuut een <span style={{ color: GREEN }}>richtprijs</span> voor jouw dak.
                   </p>
+                  <div style={{ width: "100%", height: "1px", background: "#E5E7EB", margin: "0 0 4px" }} />
                 </div>
               )}
 

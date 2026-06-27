@@ -80,17 +80,20 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
       }}
     >
       {/* Media area */}
-      <div className="relative overflow-hidden service-card-media" style={{ height: "380px", borderRadius: "12px 12px 0 0" }}>
-        <img
-          src={s.img}
-          alt={s.title}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ transition: "transform 400ms ease" }}
-        />
+      <div className="relative overflow-hidden service-card-media" style={{ height: "380px", borderRadius: "16px 16px 0 0" }}>
+        {!s.video && (
+          <img
+            src={s.img}
+            alt={s.title}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ transition: "transform 400ms ease" }}
+          />
+        )}
         {s.video && (
           <video
             ref={videoRef}
             src={s.video}
+            poster={s.img}
             autoPlay muted loop playsInline
             style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 65%", opacity: 1 }}
           />

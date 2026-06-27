@@ -88,8 +88,8 @@ function StatsBar() {
             { value: "100%",    label: "Vrijblijvend advies",     icon: <User     size={24} color="#9BCB6C" /> },
             { value: "1",       label: "Aanspreekpunt",           icon: <Calendar size={24} color="#9BCB6C" /> },
           ].map((s, i) => (
-            <div key={i} className="flex flex-col items-center justify-center text-center"
-              style={{ flex: "1 1 0", minWidth: "120px", borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", padding: "0 32px" }}>
+            <div key={i} className="flex flex-col items-center justify-center text-center over-ons-stat-item"
+              style={{ flex: "1 1 0", minWidth: "120px", borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", paddingLeft: "32px", paddingRight: "32px", paddingTop: 0, paddingBottom: 0 }}>
               <div style={{ marginBottom: "10px" }}>{s.icon}</div>
               <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, color: "#9BCB6C", fontSize: "2rem", lineHeight: 1, marginBottom: "8px" }}>
                 {s.value}
@@ -242,7 +242,7 @@ export default function OverOnsPage() {
       {/* ── CTA ── */}
       <section style={{ background: "#F7F8F6", paddingBottom: "80px" }}>
         <div className="site-wrap">
-          <div style={{
+          <div className="page-cta-bar" style={{
             background: "#0B0F0C",
             border: "1px solid #9BCB6C",
             borderRadius: "16px",
@@ -256,15 +256,15 @@ export default function OverOnsPage() {
             overflow: "hidden",
           }}>
             <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 100% 100%, rgba(155,203,108,0.15) 0%, transparent 60%)", pointerEvents: "none" }} />
-            <div style={{ flex: 1, minWidth: "260px", position: "relative", zIndex: 1 }}>
+            <div className="page-cta-text" style={{ flex: 1, minWidth: "260px", position: "relative", zIndex: 1 }}>
               <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1rem, 2vw, 1.2rem)", color: "#FFFFFF", letterSpacing: "-0.02em", marginBottom: "6px", lineHeight: 1.25 }}>
                 Benieuwd wat <span style={{ color: "#9BCB6C" }}>jouw dak</span> nodig heeft?
               </p>
               <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.5, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                Persoonlijk advies van Yannick. Geen verkooppraatjes. Geen verrassingen.
+                Persoonlijk advies van Yannick. <span className="block lg:hidden" />Geen verkooppraatjes. <span className="block lg:hidden" />Geen verrassingen.
               </p>
             </div>
-            <div style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap", position: "relative", zIndex: 1 }}>
+            <div className="page-cta-buttons" style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap", position: "relative", zIndex: 1 }}>
               <a
                 href="https://wa.me/32468352869"
                 target="_blank"

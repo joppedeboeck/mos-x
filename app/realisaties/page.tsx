@@ -7,10 +7,10 @@ import PageLayout from "@/components/page-layout";
 
 const voorNaPhotos = [
   { src: "/images/herentals-voor.png",    label: "VOOR", before: true,  caption: "Dakcoating, Herentals" },
-  { src: "/images/olen-voor.png",         label: "VOOR", before: true,  caption: "Dakreiniging, Olen" },
-  { src: "/images/koningshooikt-voor.jpg",label: "VOOR", before: true,  caption: "Dakreiniging, Koningshooikt" },
   { src: "/images/herentals-na.png",      label: "NA",   before: false, caption: "Dakcoating, Herentals" },
+  { src: "/images/olen-voor.png",         label: "VOOR", before: true,  caption: "Dakreiniging, Olen" },
   { src: "/images/olen-na.png",           label: "NA",   before: false, caption: "Dakreiniging, Olen" },
+  { src: "/images/koningshooikt-voor.jpg",label: "VOOR", before: true,  caption: "Dakreiniging, Koningshooikt" },
   { src: "/images/koningshooikt-na.jpg",  label: "NA",   before: false, caption: "Dakreiniging, Koningshooikt" },
 ];
 
@@ -28,6 +28,7 @@ function LargeSlider() {
   return (
     <div
       ref={ref}
+      className="large-slider"
       style={{
         position: "relative",
         width: "100%",
@@ -193,7 +194,7 @@ export default function RealisatiesPage() {
           </p>
 
           {/* Stats bar */}
-          <div style={{
+          <div className="realisaties-statsbar" style={{
             display: "flex",
             background: "#FFFFFF", border: "1px solid #9BCB6C",
             borderRadius: "16px", padding: "32px 48px",
@@ -201,17 +202,17 @@ export default function RealisatiesPage() {
             boxShadow: "0 2px 16px rgba(155,203,108,0.12)",
           }}>
             {[
-              { value: "55+",  label: "Afgewerkte daken" },
+              { value: "55+",  label: "Afgewerkte\ndaken" },
               { value: "100%", label: "Uitvoering door Yannick" },
               { value: "5★",   label: "Gemiddelde klantscore" },
             ].map((s, i) => (
-              <div key={i} className="flex flex-col items-center justify-center text-center"
+              <div key={i} className="realisaties-stat flex flex-col items-center justify-center text-center"
                 style={{ flex: 1, borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", padding: "0 32px" }}>
                 <p className="font-black leading-none"
                   style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#9BCB6C", fontSize: "2rem", marginBottom: "8px" }}>
                   {s.value}
                 </p>
-                <p className="text-sm" style={{ color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{s.label}</p>
+                <p className="text-sm" style={{ color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", whiteSpace: "pre-line" }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -261,7 +262,7 @@ export default function RealisatiesPage() {
           <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "1.5rem", letterSpacing: "-0.02em", color: "#1A1A1A", marginBottom: "40px" }}>
             Meer realisaties
           </h2>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             {voorNaPhotos.map((p, i) => (
               <div key={i} className="relative overflow-hidden"
                 style={{ borderRadius: "12px", aspectRatio: "4/3", boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}>

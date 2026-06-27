@@ -144,7 +144,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
       </div>
 
       {/* Card body */}
-      <div className="flex flex-col" style={{ padding: "24px", flex: 1 }}>
+      <div className="flex flex-col service-card-body" style={{ padding: "24px", flex: 1 }}>
         {/* Description */}
         <p style={{
           fontSize: "14px", lineHeight: 1.65, color: "#555555",
@@ -231,7 +231,7 @@ export default function SiteServices() {
       overflow: "hidden",
     }}>
       {/* Background photo — independently positioned */}
-      <div style={{
+      <div className="hidden lg:block" style={{
         position: "absolute",
         inset: 0,
         backgroundImage: "url('/images/diensten-bg.png')",
@@ -241,7 +241,7 @@ export default function SiteServices() {
       }} />
 
       {/* Gradient overlay — fades photo into dark left side */}
-      <div style={{
+      <div className="hidden lg:block" style={{
         position: "absolute",
         inset: 0,
         background: "linear-gradient(90deg, #0B0F0C 0%, #0B0F0C 70%, rgba(11,15,12,0.80) 80%, rgba(11,15,12,0.45) 90%, rgba(11,15,12,0.35) 100%)",
@@ -252,20 +252,35 @@ export default function SiteServices() {
       <img
         src="/images/mos-texture.png"
         alt=""
+        className="diensten-mos-texture"
         style={{
           position: "absolute",
           left: "-40px",
           top: "0",
-          height: "100%",
           width: "auto",
-          opacity: 0.35,
           pointerEvents: "none",
           zIndex: 2,
           transform: "scaleX(-1)",
         }}
       />
+      {/* Moss texture - bottom right */}
+      <img
+        src="/images/mos-texture.png"
+        alt=""
+        className="diensten-mos-texture-bottom"
+        style={{
+          position: "absolute",
+          left: "-40px",
+          bottom: "0",
+          width: "auto",
+          pointerEvents: "none",
+          zIndex: 2,
+          transform: "scaleX(-1)",
+        }}
+      />
+
       {/* Fade right edge of moss into dark background */}
-      <div style={{
+      <div className="diensten-mos-fade" style={{
         position: "absolute",
         left: 0,
         top: 0,

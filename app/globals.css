@@ -280,14 +280,57 @@
 }
 
 /* -----------------------------------------------
-   SERVICES - mobile: narrower cards, smaller image height
+   SERVICES
 ----------------------------------------------- */
+.diensten-mos-texture { opacity: 0.35; height: 100%; }
+.diensten-mos-texture-bottom { opacity: 0.35; height: 100%; display: none; }
+
 @media (max-width: 1023px) {
   .services-grid {
     padding: 0 16px !important;
   }
+  .diensten-mos-texture {
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 50% !important;
+    object-fit: cover !important;
+    object-position: right top !important;
+    transform: translateX(35%) !important;
+    opacity: 0.5 !important;
+  }
+  .diensten-mos-texture-bottom {
+    display: block !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    width: 100% !important;
+    height: 50% !important;
+    object-fit: cover !important;
+    object-position: right bottom !important;
+    transform: translateX(70%) !important;
+    opacity: 0.5 !important;
+  }
+  .diensten-mos-fade {
+    display: none !important;
+  }
   .service-card-media {
     height: 300px !important;
+  }
+  .service-card-body {
+    padding: 16px !important;
+  }
+  .service-card-body p:first-child {
+    margin-bottom: 12px !important;
+  }
+  .service-card-body > div:nth-child(2) {
+    gap: 6px !important;
+    margin-bottom: 14px !important;
+  }
+  .service-card-body > div:nth-child(2) span:last-child {
+    font-size: 11.5px !important;
   }
 }
 

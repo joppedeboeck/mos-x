@@ -235,6 +235,19 @@ export default function SitePricing() {
             {/* ── RECHTS: tabs + stap content ── */}
             <div style={{ flex: "1 1 0" }}>
 
+              {/* Titel — mobile only */}
+              {!done && (
+                <div className="lg:hidden" style={{ textAlign: "center", marginBottom: "20px" }}>
+                  <p style={{
+                    fontSize: "17px", fontWeight: 800,
+                    fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                    color: "#111", letterSpacing: "-0.02em", lineHeight: 1.3,
+                  }}>
+                    Ontvang binnen 1 minuut een <span style={{ color: GREEN }}>richtprijs</span> voor jouw dak.
+                  </p>
+                </div>
+              )}
+
               {/* Stap indicator — mobile only */}
               {!done && <StepIndicator step={step} />}
 

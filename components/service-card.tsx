@@ -93,7 +93,7 @@ export function ServiceCard({ s, imageHeight = 380 }: { s: ServiceCardData; imag
           display: "flex", flexDirection: "column",
         }}
       >
-        <div className="relative overflow-hidden" style={{ height: `${imageHeight}px`, borderRadius: "12px 12px 0 0" }}>
+        <div className="relative overflow-hidden service-card-media" style={{ height: `${imageHeight}px`, borderRadius: "12px 12px 0 0" }}>
           <img
             src={s.img}
             alt={s.title}
@@ -105,7 +105,7 @@ export function ServiceCard({ s, imageHeight = 380 }: { s: ServiceCardData; imag
               ref={videoRef}
               src={s.video}
               autoPlay muted loop playsInline
-              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 1 }}
+              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 65%", opacity: 1 }}
             />
           )}
           <div style={{
@@ -155,13 +155,13 @@ export function ServiceCard({ s, imageHeight = 380 }: { s: ServiceCardData; imag
           </div>
         </div>
 
-        <div className="flex flex-col" style={{ padding: "24px", flex: 1 }}>
+        <div className="flex flex-col service-card-body" style={{ padding: "24px", flex: 1 }}>
           <p style={{ fontSize: "14px", lineHeight: 1.65, color: "#555555", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "20px" }}>
             {s.desc}
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "24px" }}>
             {s.checks.map((item) => (
-              <div key={item} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+              <div key={item} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <span style={{
                   flexShrink: 0,
                   width: "18px", height: "18px",
@@ -169,7 +169,6 @@ export function ServiceCard({ s, imageHeight = 380 }: { s: ServiceCardData; imag
                   borderRadius: "50%",
                   display: "inline-flex", alignItems: "center", justifyContent: "center",
                   fontSize: "11px", color: "#FFFFFF", fontWeight: 700,
-                  marginTop: "1px",
                 }}>✓</span>
                 <span style={{ fontSize: "13px", color: "#444444", lineHeight: 1.5, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{item}</span>
               </div>

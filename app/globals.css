@@ -280,6 +280,18 @@
 }
 
 /* -----------------------------------------------
+   SERVICES - mobile: narrower cards, smaller image height
+----------------------------------------------- */
+@media (max-width: 1023px) {
+  .services-grid {
+    padding: 0 16px !important;
+  }
+  .service-card-media {
+    height: 300px !important;
+  }
+}
+
+/* -----------------------------------------------
    REVIEWS - mobile: full-width background photo
 ----------------------------------------------- */
 @media (max-width: 1023px) {

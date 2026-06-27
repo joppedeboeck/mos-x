@@ -80,7 +80,7 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
       }}
     >
       {/* Media area */}
-      <div className="relative overflow-hidden" style={{ height: "380px", borderRadius: "12px 12px 0 0" }}>
+      <div className="relative overflow-hidden service-card-media" style={{ height: "380px", borderRadius: "12px 12px 0 0" }}>
         <img
           src={s.img}
           alt={s.title}
@@ -303,7 +303,7 @@ export default function SiteServices() {
         </div>
 
         {/* 3-col grid */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-10">
+        <div className="grid lg:grid-cols-3 gap-6 mb-10 services-grid">
           {services.map((s) => (
             <ServiceCard key={s.id} s={s} />
           ))}

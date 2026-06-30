@@ -3,8 +3,9 @@ import SiteHero            from "@/components/site-hero";
 import SiteTrustBar        from "@/components/site-trustbar";
 import SiteServices        from "@/components/site-services";
 import SitePricing         from "@/components/site-pricing";
-import SiteStatsBar        from "@/components/site-statsbar";
-import SiteAboutYannick    from "@/components/site-about-yannick";
+import SiteStatsBar              from "@/components/site-statsbar";
+import SiteRealisatiesPreview   from "@/components/site-realisaties-preview";
+import SiteAboutYannick         from "@/components/site-about-yannick";
 import SiteWerkgebied      from "@/components/site-werkgebied";
 import SiteReviews         from "@/components/site-reviews";
 import SiteWerkwijze       from "@/components/site-werkwijze";
@@ -27,6 +28,9 @@ export default function HomePage() {
 
         {/* USP stats balk */}
         <SiteStatsBar />
+
+        {/* Voor/Na realisaties preview */}
+        <SiteRealisatiesPreview />
 
         {/* 4 · Klantbeoordelingen */}
         <SiteReviews />

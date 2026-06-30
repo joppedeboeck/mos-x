@@ -732,6 +732,15 @@
 }
 
 /* -----------------------------------------------
+   Realisaties preview grid: stack on mobile
+----------------------------------------------- */
+@media (max-width: 767px) {
+  .realisaties-preview-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* -----------------------------------------------
    TRUSTINDEX widget overrides — show full review text
 ----------------------------------------------- */
 .ti-review-item-body-text,

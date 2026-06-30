@@ -4,9 +4,10 @@ import { CheckCircle } from "lucide-react";
 
 export default function SiteAboutYannick() {
   const usps = [
-    { title: "Rechtstreeks contact", sub: "van eerste gesprek tot uitvoering" },
-    { title: "Alleen wat nodig is", sub: "niet meer, niet minder" },
-    { title: "Gespecialiseerd in daken", sub: "Geen algemeen klusbedrijf." },
+    { title: "Afspraken die je kunt vertrouwen",       sub: "" },
+    { title: "Premium kwaliteit zonder compromissen",  sub: "" },
+    { title: "Snelle en heldere communicatie",         sub: "" },
+    { title: "Een partner waarop je kunt blijven rekenen", sub: "" },
   ];
 
   return (
@@ -70,20 +71,20 @@ export default function SiteAboutYannick() {
           <div style={{ flex: "1 1 0" }}>
 
             {/* Headline */}
+            <p style={{
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              fontWeight: 600, fontSize: "12px", color: "#9BCB6C",
+              letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "12px",
+            }}>
+              WAAROM MOS-X
+            </p>
             <h2 style={{
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.15,
-              color: "#1A1A1A", marginBottom: "10px", letterSpacing: "-0.028em",
+              color: "#1A1A1A", marginBottom: "20px", letterSpacing: "-0.028em",
             }}>
-              <span style={{ color: "#9BCB6C" }}>Persoonlijk advies.</span><br />Een verzorgd dak.
+              Dakontmossing zonder zorgen.
             </h2>
-            <p style={{
-              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-              fontWeight: 600, fontSize: "15px", color: "#1A1A1A",
-              marginBottom: "20px", letterSpacing: "0.01em",
-            }}>
-              Rechtstreeks contact met <span style={{ color: "#9BCB6C" }}>Yannick</span>.
-            </p>
 
             {/* Body */}
             <p style={{
@@ -91,7 +92,7 @@ export default function SiteAboutYannick() {
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               marginBottom: "40px",
             }}>
-              Ik ben Yannick, oprichter van MOS-X. Ik bekijk elk dak persoonlijk en adviseer alleen wat het echt nodig heeft. Van reiniging en bescherming tot onderhoud van je dak op lange termijn. Zo weet je altijd wat je mag verwachten en wie verantwoordelijk is voor het resultaat.
+              Kiezen voor MOS-X is kiezen voor zekerheid. Niet alleen in het eindresultaat, maar tijdens het volledige traject. Van duidelijke communicatie en professionele uitvoering tot hoogwaardige producten en blijvende ondersteuning. Zo hoef jij je nergens zorgen over te maken.
             </p>
 
             {/* USPs */}
@@ -114,10 +115,10 @@ export default function SiteAboutYannick() {
                       fontWeight: 700, fontSize: "14px", color: "#1A1A1A",
                       marginBottom: "2px",
                     }}>{u.title}</p>
-                    <p style={{
+                    {u.sub && <p style={{
                       fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontSize: "13px", color: "#888888",
-                    }}>{u.sub}</p>
+                    }}>{u.sub}</p>}
                   </div>
                 </div>
               ))}

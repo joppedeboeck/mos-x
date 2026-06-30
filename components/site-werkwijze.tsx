@@ -7,36 +7,36 @@ const steps = [
   {
     Icon: Calculator,
     step: "STAP 01",
-    title: "Richtprijs aanvragen",
-    desc: "Vul de calculator in en ontvang direct een vrijblijvende richtprijs op maat.",
+    title: "Richtprijs berekenen",
+    desc: "Bereken eenvoudig online een richtprijs en krijg meteen een indicatie.",
   },
   {
     Icon: MapPin,
     step: "STAP 02",
-    title: "Yannick komt langs",
-    desc: "Yannick bekijkt de staat van je dak en adviseert wat nodig is.",
+    title: "Dakinspectie op locatie",
+    desc: "We komen langs om de staat van je dak te bekijken en jouw situatie te bespreken.",
   },
   {
     Icon: FileText,
     step: "STAP 03",
     title: "Offerte op maat",
-    desc: "Je weet exact wat er gebeurt, wat het kost en waarom.",
+    desc: "Je ontvangt een duidelijke offerte op maat, afgestemd op jouw dak en wensen.",
   },
   {
     Icon: Home,
     step: "STAP 04",
-    title: "Uitvoering",
-    desc: "Yannick voert het werk persoonlijk uit, netjes en efficiënt.",
+    title: "Professionele uitvoering",
+    desc: "Ons team voert de werken vakkundig en zorgvuldig uit, op het afgesproken moment.",
   },
   {
     Icon: ShieldCheck,
     step: "STAP 05",
-    title: "Nazorg & garantie",
-    desc: "Na het werk ontvang je garantie en blijft Yannick bereikbaar voor vragen.",
+    title: "Oplevering & nazorg",
+    desc: "We leveren pas op wanneer alles perfect is en blijven beschikbaar voor advies.",
   },
 ];
 
-function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0] & { showButton?: boolean; wide?: boolean }) {
+function StepCard({ Icon, step, title, desc, showButton, showBadge, wide }: typeof steps[0] & { showButton?: boolean; showBadge?: boolean; wide?: boolean }) {
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -117,6 +117,24 @@ function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0]
         {desc}
       </p>
 
+      {showBadge && (
+        <div style={{
+          marginTop: "20px",
+          display: "inline-flex", alignItems: "center", gap: "6px",
+          background: "rgba(155,203,108,0.12)",
+          border: "1px solid rgba(155,203,108,0.35)",
+          borderRadius: "8px", padding: "8px 14px",
+          position: "relative",
+        }}>
+          <ShieldCheck size={14} color="#9BCB6C" />
+          <span style={{
+            fontSize: "12px", fontWeight: 700, color: "#9BCB6C",
+            fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+            whiteSpace: "nowrap",
+          }}>MOS-X dakzorg beschikbaar</span>
+        </div>
+      )}
+
       {showButton && (
         <a
           href="#calculator"
@@ -166,7 +184,7 @@ export default function SiteWerkwijze() {
   const items = steps.flatMap((s, i) =>
     i < steps.length - 1
       ? [<StepCard key={`card-${i}`} {...s} showButton={i === 0} wide={i === 0} />, <Connector key={`conn-${i}`} />]
-      : [<StepCard key={`card-${i}`} {...s} />]
+      : [<StepCard key={`card-${i}`} {...s} showBadge />]
   );
 
   return (
@@ -180,14 +198,14 @@ export default function SiteWerkwijze() {
             fontFamily: "var(--font-montserrat), system-ui, sans-serif",
             letterSpacing: "-0.028em", lineHeight: 1.15, marginBottom: "16px",
           }}>
-            Van onzekerheid naar een <span style={{ color: "#9BCB6C" }}>proper en beschermd dak.</span>
+            Zo verloopt <span style={{ color: "#9BCB6C" }}>jouw traject</span> met MOS-X.
           </h2>
           <p style={{
             fontSize: "16px", color: "#666666", lineHeight: 1.7,
             fontFamily: "var(--font-inter), system-ui, sans-serif",
             maxWidth: "800px", margin: "0 auto",
           }}>
-            Geen verrassingen, geen verkooppraatjes. Zo verloopt een samenwerking&nbsp;met&nbsp;MOS-X.
+            Duidelijk, transparant en zonder verrassingen. Van eerste aanvraag tot een levenslang verzorgd dak.
           </p>
         </div>
 

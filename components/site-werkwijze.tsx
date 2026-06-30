@@ -44,7 +44,9 @@ function StepCard({ Icon, step, title, desc, showButton, showBadge, wide }: type
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        flex: wide ? "2.2 1 auto" : "1 1 auto",
+        flexGrow: wide ? 0 : 1,
+        flexShrink: wide ? 0 : 1,
+        flexBasis: wide ? "220px" : "0%",
         background: "#0B0F0C",
         border: `1px solid ${hovered ? "#9BCB6C" : "rgba(155,203,108,0.35)"}`,
         borderRadius: "16px",
@@ -119,7 +121,7 @@ function StepCard({ Icon, step, title, desc, showButton, showBadge, wide }: type
 
       {showBadge && (
         <div style={{
-          margin: "20px 8px 0",
+          marginTop: "20px",
           display: "flex", alignItems: "center", gap: "5px",
           background: "rgba(155,203,108,0.12)",
           border: "1px solid rgba(155,203,108,0.35)",
@@ -130,7 +132,6 @@ function StepCard({ Icon, step, title, desc, showButton, showBadge, wide }: type
           <span style={{
             fontSize: "11px", fontWeight: 700, color: "#9BCB6C",
             fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-            whiteSpace: "nowrap",
           }}>MOS-X dakzorg beschikbaar</span>
         </div>
       )}
@@ -139,7 +140,7 @@ function StepCard({ Icon, step, title, desc, showButton, showBadge, wide }: type
         <a
           href="#calculator"
           style={{
-            margin: "24px 8px 0",
+            marginTop: "24px",
             display: "inline-block",
             textAlign: "center",
             background: "#9BCB6C", color: "#FFFFFF",

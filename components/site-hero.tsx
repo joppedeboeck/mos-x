@@ -80,11 +80,9 @@ export default function SiteHero() {
 
             <p
               className="leading-relaxed mb-8"
-              style={{ color: "rgba(255,255,255,0.62)", fontSize: "18px", maxWidth: "520px" }}
+              style={{ color: "rgba(255,255,255,0.62)", fontSize: "18px", maxWidth: "620px" }}
             >
-              Je dak blijft jaar na jaar proper, verzorgd en waardevol.
-              <br />
-              Gereinigd, beschermd en onderhouden door MOS-X.
+              MOS-X reinigt, beschermt en onderhoudt je dak met een slim onderhoudsconcept, zodat het jaar na jaar in topconditie blijft.
             </p>
 
             {/* CTAs */}

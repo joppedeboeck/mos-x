@@ -82,10 +82,13 @@ export default function SiteAboutYannick() {
             <h2 style={{
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
               fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.15,
-              color: "#1A1A1A", marginBottom: "20px", letterSpacing: "-0.028em",
+              color: "#1A1A1A", marginBottom: "16px", letterSpacing: "-0.028em",
             }}>
               Dakontmossing<br /><span style={{ color: "#9BCB6C" }}>zonder zorgen.</span>
             </h2>
+
+            {/* Green accent line */}
+            <div style={{ width: "48px", height: "3px", background: "#9BCB6C", borderRadius: "2px", marginBottom: "20px" }} />
 
             {/* Body */}
             <p style={{

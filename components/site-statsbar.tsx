@@ -39,18 +39,7 @@ function UspStat({ title, label, icon }: Stat) {
 
 export default function SiteStatsBar() {
   return (
-    <section style={{ background: "transparent", padding: "0 0 16px", position: "relative", zIndex: 5, overflowX: "clip", overflowY: "visible" }}>
-      <div className="statsbar-arch" style={{
-        position: "absolute",
-        bottom: "-60px",
-        left: "-15%",
-        width: "130%",
-        height: "160px",
-        background: "#F7F8F6",
-        borderRadius: "0 0 50% 50% / 0 0 100% 100%",
-        zIndex: 1,
-        pointerEvents: "none",
-      }} />
+    <section style={{ background: "transparent", padding: "0 0 16px", position: "relative", zIndex: 5 }}>
       <div className="site-wrap">
         <div
           className="usp-stats-wrap"

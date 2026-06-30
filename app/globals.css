@@ -725,18 +725,17 @@
 }
 
 /* -----------------------------------------------
-   Statsbar arch: minder diep op mobile
------------------------------------------------ */
-@media (max-width: 1023px) {
-  .statsbar-arch { height: 50px !important; }
-}
-
-/* -----------------------------------------------
    Realisaties preview grid: stack on mobile
 ----------------------------------------------- */
 @media (max-width: 767px) {
   .realisaties-preview-grid {
     grid-template-columns: 1fr !important;
+  }
+  .realisaties-large-slider {
+    min-height: 260px !important;
+  }
+  .realisaties-wave {
+    height: 55px !important;
   }
 }
 

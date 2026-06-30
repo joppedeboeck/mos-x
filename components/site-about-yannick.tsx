@@ -84,7 +84,7 @@ export default function SiteAboutYannick() {
               fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", lineHeight: 1.15,
               color: "#1A1A1A", marginBottom: "20px", letterSpacing: "-0.028em",
             }}>
-              Dakontmossing zonder zorgen.
+              Dakontmossing<br /><span style={{ color: "#9BCB6C" }}>zonder zorgen.</span>
             </h2>
 
             {/* Body */}

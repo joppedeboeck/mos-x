@@ -1,14 +1,15 @@
 "use client";
 
-import { CheckCircle } from "lucide-react";
+import { ShieldCheck, Diamond, MessageCircle, Handshake, User, Calculator } from "lucide-react";
+
+const usps = [
+  { Icon: ShieldCheck,    title: "Afspraken die je kunt vertrouwen",       sub: "We doen wat we beloven, van start tot afwerking." },
+  { Icon: Diamond,        title: "Premium kwaliteit zonder compromissen",   sub: "We werken enkel met de beste producten en technieken." },
+  { Icon: MessageCircle,  title: "Snelle en heldere communicatie",          sub: "Je krijgt altijd snel antwoord en weet waar je aan toe bent." },
+  { Icon: Handshake,      title: "Een partner waarop je kunt blijven rekenen", sub: "Ook na de werken staan we voor je klaar." },
+];
 
 export default function SiteAboutYannick() {
-  const usps = [
-    { title: "Afspraken die je kunt vertrouwen",       sub: "" },
-    { title: "Premium kwaliteit zonder compromissen",  sub: "" },
-    { title: "Snelle en heldere communicatie",         sub: "" },
-    { title: "Een partner waarop je kunt blijven rekenen", sub: "" },
-  ];
 
   return (
     <section style={{ background: "transparent", padding: "80px 0", overflow: "hidden" }}>
@@ -96,29 +97,30 @@ export default function SiteAboutYannick() {
             </p>
 
             {/* USPs */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              {usps.map((u) => (
-                <div key={u.title} style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+              {usps.map(({ Icon, title, sub }) => (
+                <div key={title} style={{ display: "flex", alignItems: "flex-start", gap: "14px" }}>
                   <div style={{
                     flexShrink: 0,
-                    width: "34px", height: "34px",
+                    width: "36px", height: "36px",
                     background: "rgba(155,203,108,0.12)",
+                    border: "1px solid rgba(155,203,108,0.25)",
                     borderRadius: "50%",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     marginTop: "1px",
                   }}>
-                    <CheckCircle size={17} color="#9BCB6C" strokeWidth={2.5} />
+                    <Icon size={17} color="#9BCB6C" strokeWidth={2} />
                   </div>
                   <div>
                     <p style={{
                       fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                       fontWeight: 700, fontSize: "14px", color: "#1A1A1A",
-                      marginBottom: "2px",
-                    }}>{u.title}</p>
-                    {u.sub && <p style={{
+                      marginBottom: "3px",
+                    }}>{title}</p>
+                    <p style={{
                       fontFamily: "var(--font-inter), system-ui, sans-serif",
-                      fontSize: "13px", color: "#888888",
-                    }}>{u.sub}</p>}
+                      fontSize: "13px", color: "#888888", lineHeight: 1.5,
+                    }}>{sub}</p>
                   </div>
                 </div>
               ))}
@@ -129,7 +131,7 @@ export default function SiteAboutYannick() {
               <a
                 href="/over-ons"
                 style={{
-                  display: "inline-flex", alignItems: "center",
+                  display: "inline-flex", alignItems: "center", gap: "8px",
                   border: "2px solid #9BCB6C", color: "#9BCB6C",
                   background: "transparent", borderRadius: "8px",
                   padding: "12px 24px", fontSize: "15px", fontWeight: 700,
@@ -139,12 +141,13 @@ export default function SiteAboutYannick() {
                 onMouseEnter={e => { e.currentTarget.style.background = "#9BCB6C"; e.currentTarget.style.color = "#fff"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#9BCB6C"; }}
               >
+                <User size={16} strokeWidth={2} />
                 Meer over ons
               </a>
               <a
                 href="#calculator"
                 style={{
-                  display: "inline-flex", alignItems: "center",
+                  display: "inline-flex", alignItems: "center", gap: "8px",
                   background: "#9BCB6C", color: "#FFFFFF",
                   border: "2px solid #9BCB6C", borderRadius: "8px",
                   padding: "12px 24px", fontSize: "15px", fontWeight: 700,
@@ -154,6 +157,7 @@ export default function SiteAboutYannick() {
                 onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
               >
+                <Calculator size={16} strokeWidth={2} />
                 Bereken je richtprijs
               </a>
             </div>

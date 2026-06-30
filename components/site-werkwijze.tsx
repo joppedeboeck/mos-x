@@ -36,7 +36,7 @@ const steps = [
   },
 ];
 
-function StepCard({ Icon, step, title, desc, showButton, showBadge, wide }: typeof steps[0] & { showButton?: boolean; showBadge?: boolean; wide?: boolean }) {
+function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0] & { showButton?: boolean; wide?: boolean }) {
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -119,22 +119,6 @@ function StepCard({ Icon, step, title, desc, showButton, showBadge, wide }: type
         {desc}
       </p>
 
-      {showBadge && (
-        <div style={{
-          marginTop: "20px",
-          display: "flex", alignItems: "center", gap: "5px",
-          background: "rgba(155,203,108,0.12)",
-          border: "1px solid rgba(155,203,108,0.35)",
-          borderRadius: "8px", padding: "7px 10px",
-          position: "relative",
-        }}>
-          <ShieldCheck size={12} color="#9BCB6C" style={{ flexShrink: 0 }} />
-          <span style={{
-            fontSize: "11px", fontWeight: 700, color: "#9BCB6C",
-            fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-          }}>MOS-X dakzorg beschikbaar</span>
-        </div>
-      )}
 
       {showButton && (
         <a
@@ -185,7 +169,7 @@ export default function SiteWerkwijze() {
   const items = steps.flatMap((s, i) =>
     i < steps.length - 1
       ? [<StepCard key={`card-${i}`} {...s} showButton={i === 0} wide={i === 0} />, <Connector key={`conn-${i}`} />]
-      : [<StepCard key={`card-${i}`} {...s} showBadge />]
+      : [<StepCard key={`card-${i}`} {...s} />]
   );
 
   return (

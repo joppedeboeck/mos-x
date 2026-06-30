@@ -119,7 +119,7 @@ function StepCard({ Icon, step, title, desc, showButton, showBadge, wide }: type
 
       {showBadge && (
         <div style={{
-          marginTop: "20px",
+          margin: "20px 8px 0",
           display: "flex", alignItems: "center", gap: "5px",
           background: "rgba(155,203,108,0.12)",
           border: "1px solid rgba(155,203,108,0.35)",
@@ -139,7 +139,7 @@ function StepCard({ Icon, step, title, desc, showButton, showBadge, wide }: type
         <a
           href="#calculator"
           style={{
-            marginTop: "24px",
+            margin: "24px 8px 0",
             display: "inline-block",
             textAlign: "center",
             background: "#9BCB6C", color: "#FFFFFF",

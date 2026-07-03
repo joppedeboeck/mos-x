@@ -158,7 +158,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* ── Onderhouden is Overhouden ── */}
-      <section style={{ background: "#F7F8F6", padding: "80px 0" }}>
+      <section style={{ background: "#FFFFFF", padding: "80px 0" }}>
         <div className="site-wrap">
           <div className="over-ons-mission-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
 

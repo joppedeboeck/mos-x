@@ -383,6 +383,57 @@ export default function OverOnsPage() {
         </div>
       </section>
 
+      {/* ── Achter MOS-X / Yannick ── */}
+      <section style={{ background: "#FFFFFF", padding: "80px 0" }}>
+        <div className="site-wrap">
+          <div className="over-ons-yannick-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 0.6fr", gap: "40px", alignItems: "stretch" }}>
+
+            {/* Links: tekst */}
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "12px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                Achter MOS-X
+              </p>
+              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.25rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "24px" }}>
+                Hallo, ik ben <span style={{ color: "#9BCB6C" }}>Yannick.</span>
+              </h2>
+              <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.8, marginBottom: "14px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                MOS-X is voor mij meer dan een bedrijf. Het is de kans om te bewijzen dat vakmanschap, duidelijke communicatie en persoonlijke service nog altijd hand in hand kunnen gaan.
+              </p>
+              <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.8, marginBottom: "14px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                Ik wil dat klanten zich nooit hoeven af te vragen wanneer ze antwoord krijgen, wie verantwoordelijk is voor hun project of wat de volgende stap is. Daarom ben ik zelf jouw aanspreekpunt, van het eerste contact tot de oplevering.
+              </p>
+              <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.8, marginBottom: "28px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                Voor mij stopt een project niet wanneer de werken klaar zijn. Het stopt wanneer jij met een goed gevoel terugkijkt op je keuze voor MOS-X.
+              </p>
+              <p style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic", fontSize: "22px", color: "#1A1A1A", letterSpacing: "0.02em" }}>
+                Yannick
+              </p>
+            </div>
+
+            {/* Midden: foto */}
+            <div style={{ borderRadius: "16px", overflow: "hidden", minHeight: "460px" }}>
+              <img
+                src="/images/Yannick_voor_camionet.png"
+                alt="Yannick - oprichter MOS-X"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+              />
+            </div>
+
+            {/* Rechts: donker quote blok */}
+            <div style={{ background: "#0B0F0C", borderRadius: "16px", padding: "36px 28px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <span style={{ fontSize: "48px", color: "#9BCB6C", fontFamily: "Georgia, serif", lineHeight: 0.7, marginBottom: "24px", display: "block" }}>"</span>
+              <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "1.2rem", color: "#FFFFFF", lineHeight: 1.4, marginBottom: "16px" }}>
+                We bouwen niet alleen aan daken.
+              </p>
+              <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "1.2rem", color: "#9BCB6C", lineHeight: 1.4 }}>
+                We bouwen aan vertrouwen.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section style={{ background: "#F7F8F6", paddingBottom: "80px" }}>
         <div className="site-wrap">

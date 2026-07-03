@@ -60,7 +60,7 @@ export default function SiteHero() {
                 <rect x="6"  width="6"  height="13" fill="#FFE000" />
                 <rect x="12" width="6"  height="13" fill="#EF3340" />
               </svg>
-              <span>HET EERSTE DAKONDERHOUDSCONCEPT VAN BELGIË</span>
+              <span>Actief regio Antwerpen, Limburg, Vlaams-Brabant</span>
             </p>
 
             <h1

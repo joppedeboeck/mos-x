@@ -118,7 +118,7 @@ const projectCarouselPhotos: { src: string; type?: "video"; caption: string }[] 
   { src: "/images/3.JPEG",  caption: "Dakreiniging Schilde" },
   { src: "/images/4.jpg",   caption: "Dakreiniging Schilde" },
   { src: "/images/5.JPEG",  caption: "Dakreiniging Schilde" },
-  { src: "/images/6.MP4",   type: "video", caption: "Dakreiniging Schilde" },
+  { src: "/images/6.1.mp4", type: "video", caption: "Dakreiniging Schilde" },
   { src: "/images/7.JPEG",  caption: "Dakreiniging Schilde" },
   { src: "/images/8.JPEG",  caption: "Dakreiniging Schilde" },
   { src: "/images/9.JPEG",  caption: "Dakreiniging Schilde" },

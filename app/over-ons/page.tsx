@@ -267,7 +267,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* ── Onze Ambitie ── */}
-      <section style={{ background: "#FFFFFF", padding: "0 0 90px 0" }}>
+      <section style={{ background: "#F7F8F6", padding: "0 0 90px 0" }}>
         <div className="site-wrap" style={{ paddingTop: 0, paddingBottom: 0 }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }}>
 
@@ -306,9 +306,9 @@ export default function OverOnsPage() {
                     style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 33%", transform: "scale(1.1)", transformOrigin: "center 33%" }}
                   />
                   {/* Fade bovenkant */}
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to bottom, #FFFFFF, transparent)", pointerEvents: "none" }} />
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to bottom, #F7F8F6, transparent)", pointerEvents: "none" }} />
                   {/* Fade onderkant */}
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to top, #FFFFFF, transparent)", pointerEvents: "none" }} />
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to top, #F7F8F6, transparent)", pointerEvents: "none" }} />
                 </div>
               </div>
             </div>

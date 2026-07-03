@@ -128,10 +128,10 @@ export default function OverOnsPage() {
           </p>
           <h1 className="leading-tight mb-4"
             style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.625rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
-            Je dak in <span style={{ color: "#9BCB6C" }}>ervaren handen.</span>
+            WIJ ZORGEN VOOR DAKEN.<br /><span style={{ color: "#9BCB6C" }}>EN VOOR GEMOEDSRUST.</span>
           </h1>
           <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "18px", color: "#555555" }}>
-            Persoonlijk advies en een plan om je dak jarenlang proper, beschermd en verzorgd te houden.
+            Wij helpen huiseigenaars hun dak zo lang mogelijk in topconditie te houden met professioneel onderhoud, eerlijke adviezen en een persoonlijke aanpak.
           </p>
         </div>
       </section>

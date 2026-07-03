@@ -53,7 +53,7 @@ function LargeSlider() {
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "16px", left: "50%", transform: "translateX(-50%)", fontSize: "11px", color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-montserrat), system-ui, sans-serif", pointerEvents: "none", transition: "opacity 500ms", opacity: split === 50 ? 1 : 0, whiteSpace: "nowrap" }}>
-        â† sleep â†’
+        &larr; sleep &rarr;
       </div>
     </div>
   );

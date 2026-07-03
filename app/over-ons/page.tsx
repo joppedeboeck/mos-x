@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { CheckCircle, Phone, Droplets, Clock, User, Calendar } from "lucide-react";
+import { CheckCircle, Phone, Droplets, Clock, User, Calendar, MessageCircle, Home, ShieldCheck, Headphones, Handshake } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
@@ -293,6 +293,61 @@ export default function OverOnsPage() {
                 )}
               </div>
             ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── Gemoedsrust ── */}
+      <section style={{ background: "#FFFFFF", padding: "80px 0 0" }}>
+        <div className="site-wrap">
+
+          {/* Top: label + heading links, 6 cards rechts */}
+          <div className="over-ons-gemoedsrust-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: "56px", alignItems: "start", marginBottom: "48px" }}>
+
+            {/* Links */}
+            <div>
+              <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "12px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                Waar klanten ons voor kiezen
+              </p>
+              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4vw, 2.75rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "20px" }}>
+                Gemoedsrust.
+              </h2>
+              <p style={{ fontSize: "15px", color: "#555555", lineHeight: 1.75, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                Een proper dak is belangrijk. Maar uiteindelijk kiezen klanten voor iets veel waardevollers: de zekerheid dat alles correct verloopt.
+              </p>
+            </div>
+
+            {/* Rechts: 6 cards */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
+              {[
+                { Icon: User,          title: "Rechtstreeks contact met Yannick",        desc: "Geen callcenter of tussenpersonen. Je hebt altijd één vast aanspreekpunt." },
+                { Icon: MessageCircle, title: "Snelle communicatie",                      desc: "Vragen blijven niet dagen liggen. Je weet snel waar je aan toe bent." },
+                { Icon: Calendar,      title: "Afspraken worden nagekomen",               desc: "We zeggen wat we doen en doen wat we zeggen." },
+                { Icon: Home,          title: "Respect voor jouw woning",                 desc: "We behandelen jouw woning alsof het onze eigen woning is." },
+                { Icon: ShieldCheck,   title: "Professionele producten en technieken",    desc: "We werken uitsluitend met hoogwaardige materialen en veilige technieken." },
+                { Icon: Headphones,    title: "Ook na de uitvoering bereikbaar",          desc: "Onze service stopt niet wanneer de werken klaar zijn." },
+              ].map(({ Icon, title, desc }) => (
+                <div key={title} style={{ background: "#F7F8F6", border: "1px solid #E5E7EB", borderRadius: "14px", padding: "20px 18px" }}>
+                  <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "rgba(155,203,108,0.12)", border: "1px solid rgba(155,203,108,0.25)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "14px" }}>
+                    <Icon size={18} color="#9BCB6C" strokeWidth={2} />
+                  </div>
+                  <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13px", color: "#1A1A1A", marginBottom: "6px", lineHeight: 1.3 }}>{title}</p>
+                  <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "12px", color: "#666666", lineHeight: 1.6 }}>{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom: donker quote blok */}
+          <div style={{ background: "#0B0F0C", borderRadius: "16px", padding: "32px 48px", display: "flex", alignItems: "center", gap: "28px", position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 0% 50%, rgba(155,203,108,0.10) 0%, transparent 60%)", pointerEvents: "none" }} />
+            <span style={{ fontSize: "56px", color: "#9BCB6C", fontFamily: "Georgia, serif", lineHeight: 0.7, flexShrink: 0, opacity: 0.9, position: "relative" }}>"</span>
+            <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "15px", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, position: "relative", flex: 1 }}>
+              Wij willen niet dat je klant bent tot de factuur betaald is.<br />
+              Wij willen dat je weet dat je ook nadien nog op ons kunt rekenen.
+            </p>
+            <Handshake size={40} color="#9BCB6C" strokeWidth={1.5} style={{ flexShrink: 0, opacity: 0.8, position: "relative" }} />
           </div>
 
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Phone, MapPin, CheckCircle } from "lucide-react";
 import BackLink from "@/components/back-link";
@@ -135,6 +135,15 @@ function ProjectCarousel() {
   const next = () => setIdx(i => (i + 1) % projectCarouselPhotos.length);
   const isVideo = item.type === "video";
 
+  // Auto-advance elke 4 seconden, pauzeert bij video's
+  useEffect(() => {
+    if (isVideo) return;
+    const timer = setInterval(() => {
+      setIdx(i => (i + 1) % projectCarouselPhotos.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [idx, isVideo]);
+
   return (
     <div style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "100%", minHeight: "380px", boxShadow: "0 4px 24px rgba(0,0,0,0.10)", background: "#000" }}>
       {isVideo ? (
@@ -149,7 +158,13 @@ function ProjectCarousel() {
           <source src={item.src} type="video/mp4" />
         </video>
       ) : (
-        <img key={item.src} src={item.src} alt={item.caption} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} draggable={false} />
+        <>
+          {/* Wazig achtergrond */}
+          <img key={item.src + "-bg"} src={item.src} alt="" aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", filter: "blur(18px)", transform: "scale(1.08)", pointerEvents: "none" }} draggable={false} />
+          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.25)" }} />
+          {/* Volledige foto */}
+          <img key={item.src} src={item.src} alt={item.caption} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block" }} draggable={false} />
+        </>
       )}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.55) 100%)" }} />
       {isVideo && (

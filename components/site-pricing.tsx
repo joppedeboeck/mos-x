@@ -231,7 +231,7 @@ export default function SitePricing() {
                 fontSize: "clamp(1.2rem, 1.8vw, 1.55rem)", letterSpacing: "-0.02em",
                 color: "#111", marginBottom: "24px", lineHeight: 1.25,
               }}>
-                Ontvang een <span style={{ color: GREEN }}>richtprijs</span> voor jouw dakreiniging
+                Ontvang een <span style={{ color: GREEN }}>richtprijs</span><br />voor jouw dakreiniging
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 {["Binnen 1 minuut resultaat", "Persoonlijk dakadvies", "Vrijblijvend en zonder verplichtingen"].map((txt) => (
@@ -256,7 +256,7 @@ export default function SitePricing() {
                     color: "#111", letterSpacing: "-0.02em", lineHeight: 1.3,
                     marginBottom: "16px",
                   }}>
-                    Ontvang een <span style={{ color: GREEN }}>richtprijs</span> voor jouw dakreiniging
+                    Ontvang een <span style={{ color: GREEN }}>richtprijs</span><br />voor jouw dakreiniging
                   </p>
                   <div style={{ width: "100%", height: "1px", background: "#E5E7EB", margin: "0 0 4px" }} />
                 </div>

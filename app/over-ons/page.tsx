@@ -137,6 +137,65 @@ export default function OverOnsPage() {
       </section>
 
 
+      {/* ── Onderhouden is Overhouden ── */}
+      <section style={{ background: "#FFFFFF", padding: "80px 0" }}>
+        <div className="site-wrap">
+          <div className="over-ons-mission-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
+
+            {/* Links: tekst */}
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
+                <div style={{ width: "38px", height: "38px", borderRadius: "10px", border: "1px solid rgba(155,203,108,0.5)", background: "rgba(155,203,108,0.10)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9BCB6C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/><circle cx="17" cy="8" r="3" fill="#9BCB6C" fillOpacity="0.3"/><path d="M15.5 6.5 C16 5.5 17.5 5 18.5 6" strokeWidth="1.5"/></svg>
+                </div>
+                <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                  Waarom MOS-X bestaat
+                </p>
+              </div>
+
+              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "24px" }}>
+                Onderhouden<br />is Overhouden.
+              </h2>
+
+              <p style={{ fontSize: "15px", color: "#555555", lineHeight: 1.75, marginBottom: "14px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                Te vaak wordt een vervuild dak gezien als een dak dat vervangen moet worden, terwijl professioneel onderhoud de levensduur vaak nog jarenlang kan verlengen.
+              </p>
+              <p style={{ fontSize: "15px", color: "#555555", lineHeight: 1.75, marginBottom: "14px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                Dat is vandaag belangrijker dan ooit. De kosten voor dakrenovaties en bouwmaterialen blijven stijgen, terwijl een goed onderhouden dak een dure renovatie vaak jarenlang kan uitstellen.
+              </p>
+              <p style={{ fontSize: "15px", color: "#1A1A1A", fontWeight: 700, lineHeight: 1.75, marginBottom: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                Daarom bestaat MOS-X.
+              </p>
+              <p style={{ fontSize: "15px", color: "#555555", lineHeight: 1.75, marginBottom: "24px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                Wij helpen huiseigenaars hun dak professioneel te reinigen, beschermen en onderhouden, zodat het zo lang mogelijk in topconditie blijft. Zo bieden we een slimme, duurzame én betaalbare oplossing voor de toekomst van je woning.
+              </p>
+
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", background: "rgba(155,203,108,0.08)", border: "1px solid rgba(155,203,108,0.3)", borderRadius: "10px", padding: "14px 18px" }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9BCB6C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: "2px" }}><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 3.4-2.86 6.7-5 8-2.36-.32-4.27-2.59-4.27-2.59"/><path d="M3.17 15.88A6.35 6.35 0 0 1 2 12c0-2.38 1.32-4.44 3.12-5.53C7 5.26 9 5 11 5.29"/></svg>
+                <p style={{ fontSize: "14px", color: "#2a6b0f", fontWeight: 600, lineHeight: 1.6, fontFamily: "var(--font-inter), system-ui, sans-serif", fontStyle: "italic" }}>
+                  Want goed onderhoud vandaag kan een dure dakrenovatie morgen voorkomen.
+                </p>
+              </div>
+            </div>
+
+            {/* Rechts: voor/na */}
+            <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 32px rgba(0,0,0,0.10)", aspectRatio: "4/3" }}>
+              <img src="/images/Before slider 3.0.png" alt="Dak voor behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }} />
+              <div style={{ position: "absolute", inset: 0, clipPath: "inset(0 0 0 50%)" }}>
+                <img src="/images/After slide 2.0.png" alt="Dak na behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }} />
+              </div>
+              <div style={{ position: "absolute", top: 0, bottom: 0, left: "50%", width: "2px", background: "rgba(255,255,255,0.8)", transform: "translateX(-50%)" }} />
+              <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "36px", height: "36px", borderRadius: "50%", background: "#FFFFFF", border: "2px solid #9BCB6C", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
+                <span style={{ fontSize: "13px", color: "#9BCB6C", fontWeight: 700 }}>›</span>
+              </div>
+              <div style={{ position: "absolute", bottom: "14px", left: "14px", background: "rgba(0,0,0,0.65)", color: "#fff", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>VOOR</div>
+              <div style={{ position: "absolute", bottom: "14px", right: "14px", background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── Het verhaal ── */}
       <section className="site-pad" style={{ background: "#F7F8F6", paddingBottom: "0" }}>
         <div className="site-wrap">

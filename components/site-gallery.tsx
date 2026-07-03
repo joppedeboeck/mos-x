@@ -82,7 +82,7 @@ function SliderCard({ p }: { p: (typeof projects)[0] }) {
           <div className="absolute bottom-3 right-3">
             <span className="px-3 py-1 rounded-full text-[10px] font-bold bg-[#6DB33F] text-white"
               style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-              NA ✓
+              NA
             </span>
           </div>
         </div>
@@ -184,5 +184,6 @@ export default function SiteGallery() {
     </section>
   );
 }
+
 
 

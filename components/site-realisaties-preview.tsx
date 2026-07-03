@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef } from "react";
 import Link from "next/link";
@@ -43,7 +43,7 @@ function LargeSlider() {
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
           draggable={false} />
         <div style={{ position: "absolute", top: "16px", right: "16px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-          NA ✓
+          NA
         </div>
       </div>
       <div style={{ position: "absolute", top: 0, bottom: 0, width: "2px", left: `${split}%`, background: "rgba(255,255,255,0.75)", zIndex: 10, pointerEvents: "none" }}>
@@ -53,7 +53,7 @@ function LargeSlider() {
         </div>
       </div>
       <div style={{ position: "absolute", bottom: "16px", left: "50%", transform: "translateX(-50%)", fontSize: "11px", color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-montserrat), system-ui, sans-serif", pointerEvents: "none", transition: "opacity 500ms", opacity: split === 50 ? 1 : 0, whiteSpace: "nowrap" }}>
-        ← sleep →
+        â† sleep â†’
       </div>
     </div>
   );
@@ -89,7 +89,7 @@ function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPos
         <div style={{ position: "absolute", top: "12px", left: "12px", zIndex: 5, background: "rgba(0,0,0,0.65)", color: "#FFFFFF", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>VOOR</div>
         <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${split}%)` }}>
           <img src={afterSrc} alt="Na" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: afterPosition }} draggable={false} />
-          <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA ✓</div>
+          <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA</div>
         </div>
         <div style={{ position: "absolute", top: 0, bottom: 0, width: "2px", left: `${split}%`, background: "rgba(255,255,255,0.75)", zIndex: 10, pointerEvents: "none" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "36px", height: "36px", borderRadius: "50%", background: "#FFFFFF", border: "2px solid #9BCB6C", boxShadow: "0 2px 8px rgba(0,0,0,0.18)", display: "flex", alignItems: "center", justifyContent: "center", gap: "2px" }}>
@@ -150,7 +150,7 @@ export default function SiteRealisatiesPreview() {
 
       </div>
 
-      {/* SVG golf — symmetrische transitie naar donkere reviews sectie */}
+      {/* SVG golf â€” symmetrische transitie naar donkere reviews sectie */}
       <div style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 3 }}>
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="realisaties-wave" style={{ display: "block", width: "100%", height: "80px" }}>
           <path d="M0,0 C360,80 1080,80 1440,0 L1440,80 L0,80 Z" fill="#0B0F0C"/>
@@ -160,3 +160,4 @@ export default function SiteRealisatiesPreview() {
     </section>
   );
 }
+

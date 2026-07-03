@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
@@ -48,7 +48,7 @@ function LargeSlider() {
       {/* Voor */}
       <img src="/images/IMG_5414.JPEG" alt="Voor behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", pointerEvents: "none" }} draggable={false} />
 
-      {/* Na — geclipped */}
+      {/* Na â€” geclipped */}
       <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${pos}%)`, pointerEvents: "none" }}>
         <img src="/images/IMG_5436.JPEG" alt="Na behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} draggable={false} />
       </div>
@@ -95,7 +95,7 @@ function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPos
       <div style={{ position: "absolute", top: "12px", left: "12px", zIndex: 5, background: "rgba(0,0,0,0.65)", color: "#FFFFFF", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>VOOR</div>
       <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${split}%)` }}>
         <img src={afterSrc} alt="Na" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: afterPosition }} draggable={false} />
-        <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA ✓</div>
+        <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA</div>
       </div>
       <div style={{ position: "absolute", top: 0, bottom: 0, width: "2px", left: `${split}%`, background: "rgba(255,255,255,0.75)", zIndex: 10, pointerEvents: "none" }}>
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "36px", height: "36px", borderRadius: "50%", background: "#FFFFFF", border: "2px solid #9BCB6C", boxShadow: "0 2px 8px rgba(0,0,0,0.18)", display: "flex", alignItems: "center", justifyContent: "center", gap: "2px" }}>
@@ -193,7 +193,7 @@ export default function RealisatiesPage() {
   return (
     <PageLayout>
 
-      {/* ── Hero ── */}
+      {/* â”€â”€ Hero â”€â”€ */}
       <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "24px" }}>
         <div className="site-wrap">
           <BackLink href="/" />
@@ -204,7 +204,7 @@ export default function RealisatiesPage() {
               onMouseLeave={() => setHomeHovered(false)}
               style={{ color: homeHovered ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
             >Home</Link>
-            <span style={{ margin: "0 6px", color: "#9BCB6C" }}>›</span>
+            <span style={{ margin: "0 6px", color: "#9BCB6C" }}>â€º</span>
             <span style={{ color: "#9BCB6C" }}>Realisaties</span>
           </p>
           <h1 className="leading-tight max-w-3xl"
@@ -227,7 +227,7 @@ export default function RealisatiesPage() {
             {[
               { value: "55+",  label: "Afgewerkte\ndaken" },
               { value: "100%", label: "Uitvoering door Yannick" },
-              { value: "5★",   label: "Gemiddelde klantscore" },
+              { value: "5â˜…",   label: "Gemiddelde klantscore" },
             ].map((s, i) => (
               <div key={i} className="realisaties-stat flex flex-col items-center justify-center text-center"
                 style={{ flex: 1, borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", padding: "0 32px" }}>
@@ -242,7 +242,7 @@ export default function RealisatiesPage() {
         </div>
       </section>
 
-      {/* ── Uitgelicht project ── */}
+      {/* â”€â”€ Uitgelicht project â”€â”€ */}
       <section style={{ background: "#F7F8F6", paddingTop: "48px" }}>
         <div className="site-wrap">
           <div style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", padding: "40px 48px" }}>
@@ -259,7 +259,7 @@ export default function RealisatiesPage() {
               <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(155,203,108,0.1)", border: "1px solid rgba(155,203,108,0.3)", borderRadius: "50px", padding: "5px 12px", marginBottom: "18px" }}>
                 <MapPin size={12} color="#9BCB6C" />
                 <span style={{ fontSize: "12px", fontWeight: 600, color: "#555555", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>Schilde, Antwerpen</span>
-                <span style={{ fontSize: "12px", color: "#9BCB6C", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: "0 4px" }}>·</span>
+                <span style={{ fontSize: "12px", color: "#9BCB6C", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: "0 4px" }}>Â·</span>
                 <span style={{ fontSize: "12px", color: "#888888", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>met hoogwerker uitgevoerd</span>
               </div>
               <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.7, marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
@@ -276,7 +276,7 @@ export default function RealisatiesPage() {
               <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: "10px", paddingTop: "20px" }}>
                 {[
                   { label: "Type dakpannen", value: "Betonpannen" },
-                  { label: "Oppervlakte", value: "325 m²" },
+                  { label: "Oppervlakte", value: "325 mÂ²" },
                   { label: "Duur",        value: "2d" },
                   { label: "Jaar",        value: "2026" },
                 ].map((s, i) => (
@@ -307,7 +307,7 @@ export default function RealisatiesPage() {
         </div>
       </section>
 
-      {/* ── Voor & Na foto grid ── */}
+      {/* â”€â”€ Voor & Na foto grid â”€â”€ */}
       <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "64px" }}>
         <div className="site-wrap">
           <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "1.5rem", letterSpacing: "-0.02em", color: "#1A1A1A", marginBottom: "40px" }}>
@@ -332,7 +332,7 @@ export default function RealisatiesPage() {
         </div>
       </section>
 
-      {/* ── Werkgebied kaart ── */}
+      {/* â”€â”€ Werkgebied kaart â”€â”€ */}
       <section style={{ background: "#F7F8F6", padding: "0 0 48px" }}>
         <div className="site-wrap">
           <div style={{
@@ -349,7 +349,7 @@ export default function RealisatiesPage() {
                 Actief in <span style={{ color: "#9BCB6C" }}>jouw regio.</span>
               </h2>
               <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.6, marginBottom: "16px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                We komen dagelijks langs in jouw regio om snel en efficiënt te helpen waar het er écht toe doet.
+                We komen dagelijks langs in jouw regio om snel en efficiÃ«nt te helpen waar het er Ã©cht toe doet.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                 {["Antwerpen", "Limburg", "Vlaams-Brabant", "Oost-Vlaanderen"].map(r => (
@@ -363,7 +363,7 @@ export default function RealisatiesPage() {
             <div style={{ position: "absolute", top: 0, bottom: 0, left: "calc(50% - 60px)", right: 0, overflow: "hidden" }}>
               <img
                 src="/images/Werkgebieden foto.png"
-                alt="Werkgebied MOS-X — Antwerpen, Oost-Vlaanderen, Vlaams-Brabant, Limburg"
+                alt="Werkgebied MOS-X â€” Antwerpen, Oost-Vlaanderen, Vlaams-Brabant, Limburg"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", transform: "translateX(8%)" }}
               />
             </div>
@@ -379,7 +379,7 @@ export default function RealisatiesPage() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* â”€â”€ CTA â”€â”€ */}
       <section style={{ background: "#F7F8F6", paddingTop: "60px", paddingBottom: "60px" }}>
         <div className="site-wrap">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 text-center sm:text-left"
@@ -414,3 +414,4 @@ export default function RealisatiesPage() {
     </PageLayout>
   );
 }
+

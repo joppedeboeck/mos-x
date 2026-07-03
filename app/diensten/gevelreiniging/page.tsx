@@ -77,7 +77,7 @@ export default function GevelreinigingPage() {
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(28,31,26,0.8) 0%, transparent 50%)" }} />
               <div className="absolute bottom-4 right-4">
                 <span className="px-3 py-1 rounded-full text-[10px] font-bold text-white"
-                  style={{ fontFamily: "var(--font-montserrat)", background: "#9BCB6C" }}>NA ✓</span>
+                  style={{ fontFamily: "var(--font-montserrat)", background: "#9BCB6C" }}>NA</span>
               </div>
             </div>
           </div>
@@ -232,3 +232,4 @@ export default function GevelreinigingPage() {
     </PageLayout>
   );
 }
+

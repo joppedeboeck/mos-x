@@ -32,15 +32,15 @@ function LargeSlider() {
       onTouchMove={e => move(e.touches[0].clientX)}
       onTouchEnd={() => (dragging.current = false)}
     >
-      <img src="/images/Before slider 3.0.png" alt="Voor behandeling"
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }}
+      <img src="/images/IMG_5414.JPEG" alt="Voor behandeling"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
         draggable={false} />
       <div style={{ position: "absolute", top: "16px", left: "16px", zIndex: 5, background: "rgba(0,0,0,0.65)", color: "#FFFFFF", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
         VOOR
       </div>
       <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${split}%)` }}>
-        <img src="/images/After slide 2.0.png" alt="Na behandeling"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }}
+        <img src="/images/IMG_5436.JPEG" alt="Na behandeling"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
           draggable={false} />
         <div style={{ position: "absolute", top: "16px", right: "16px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
           NA ✓
@@ -73,10 +73,10 @@ function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPos
   };
 
   return (
-    <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+    <div style={{ flex: 1 }}>
       <div
         ref={ref}
-        style={{ position: "relative", width: "100%", flex: 1, minHeight: "200px", borderRadius: "12px", overflow: "hidden", cursor: "col-resize", userSelect: "none", boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
+        style={{ position: "relative", width: "100%", height: "100%", minHeight: "200px", borderRadius: "12px", overflow: "hidden", cursor: "col-resize", userSelect: "none", boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
         onMouseDown={() => (dragging.current = true)}
         onMouseMove={e => { if (dragging.current) move(e.clientX); }}
         onMouseUp={() => (dragging.current = false)}
@@ -97,8 +97,10 @@ function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPos
             <ChevronRight style={{ width: "12px", height: "12px", color: "#9BCB6C" }} />
           </div>
         </div>
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)", padding: "20px 14px 10px", pointerEvents: "none", zIndex: 5 }}>
+          <p style={{ margin: 0, fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13px", color: "#FFFFFF", textAlign: "center" }}>{label}</p>
+        </div>
       </div>
-      <p style={{ marginTop: "10px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#1A1A1A", textAlign: "center" }}>{label}</p>
     </div>
   );
 }

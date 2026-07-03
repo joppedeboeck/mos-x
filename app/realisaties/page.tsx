@@ -112,34 +112,58 @@ function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPos
   );
 }
 
-const projectCarouselPhotos = [
-  { src: "/images/IMG_5414.JPEG",           label: "VOOR", caption: "Dak voor reiniging" },
-  { src: "/images/IMG_5436.JPEG",           label: "NA",   caption: "Dak na reiniging" },
-  { src: "/images/Velux%20voor%201.0.png",  label: "VOOR", caption: "Velux voor reiniging" },
-  { src: "/images/Velux%20na%201.0.png",    label: "NA",   caption: "Velux na reiniging" },
-  { src: "/images/Goot%20voor.JPEG",        label: "VOOR", caption: "Dakgoot voor reiniging" },
-  { src: "/images/Goot%20na.JPEG",          label: "NA",   caption: "Dakgoot na reiniging" },
+const projectCarouselPhotos: { src: string; type?: "video"; caption: string }[] = [
+  { src: "/images/1.JPEG",  caption: "Dakreiniging Schilde" },
+  { src: "/images/2.JPEG",  caption: "Dakreiniging Schilde" },
+  { src: "/images/3.JPEG",  caption: "Dakreiniging Schilde" },
+  { src: "/images/4.jpg",   caption: "Dakreiniging Schilde" },
+  { src: "/images/5.JPEG",  caption: "Dakreiniging Schilde" },
+  { src: "/images/6.MP4",   type: "video", caption: "Dakreiniging Schilde" },
+  { src: "/images/7.JPEG",  caption: "Dakreiniging Schilde" },
+  { src: "/images/8.JPEG",  caption: "Dakreiniging Schilde" },
+  { src: "/images/9.JPEG",  caption: "Dakreiniging Schilde" },
+  { src: "/images/10.MP4",  type: "video", caption: "Dakreiniging Schilde" },
+  { src: "/images/11.jpg",  caption: "Dakreiniging Schilde" },
+  { src: "/images/12.jpg",  caption: "Dakreiniging Schilde" },
+  { src: "/images/13.jpg",  caption: "Dakreiniging Schilde" },
 ];
 
 function ProjectCarousel() {
   const [idx, setIdx] = useState(0);
-  const photo = projectCarouselPhotos[idx];
+  const item = projectCarouselPhotos[idx];
   const prev = () => setIdx(i => (i - 1 + projectCarouselPhotos.length) % projectCarouselPhotos.length);
   const next = () => setIdx(i => (i + 1) % projectCarouselPhotos.length);
+  const isVideo = item.type === "video";
 
   return (
-    <div style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "100%", minHeight: "380px", boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}>
-      <img src={photo.src} alt={photo.caption} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} draggable={false} />
+    <div style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "100%", minHeight: "380px", boxShadow: "0 4px 24px rgba(0,0,0,0.10)", background: "#000" }}>
+      {isVideo ? (
+        <video
+          key={item.src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+        >
+          <source src={item.src} type="video/mp4" />
+        </video>
+      ) : (
+        <img key={item.src} src={item.src} alt={item.caption} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} draggable={false} />
+      )}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.55) 100%)" }} />
-      <div style={{ position: "absolute", top: "12px", left: "12px", background: photo.label === "NA" ? "#9BCB6C" : "rgba(0,0,0,0.65)", color: photo.label === "NA" ? "#1A1A1A" : "#FFFFFF", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-        {photo.label === "NA" ? "NA ✓" : "VOOR"}
-      </div>
-      <p style={{ position: "absolute", bottom: "44px", left: "16px", color: "#FFFFFF", fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-montserrat), system-ui, sans-serif", margin: 0 }}>{photo.caption}</p>
+      {isVideo && (
+        <div style={{ position: "absolute", top: "12px", left: "12px", background: "rgba(0,0,0,0.65)", color: "#FFFFFF", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif", display: "flex", alignItems: "center", gap: "5px" }}>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="white"><polygon points="2,1 9,5 2,9"/></svg>
+          VIDEO
+        </div>
+      )}
+      <p style={{ position: "absolute", bottom: "44px", left: "16px", color: "#FFFFFF", fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-montserrat), system-ui, sans-serif", margin: 0 }}>{item.caption}</p>
       <p style={{ position: "absolute", bottom: "18px", left: "50%", transform: "translateX(-50%)", color: "rgba(255,255,255,0.65)", fontSize: "12px", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: 0, whiteSpace: "nowrap" }}>{idx + 1} / {projectCarouselPhotos.length}</p>
-      <button onClick={prev} aria-label="Vorige foto" style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", background: "rgba(255,255,255,0.90)", border: "none", borderRadius: "50%", width: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}>
+      <button onClick={prev} aria-label="Vorige" style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", background: "rgba(255,255,255,0.90)", border: "none", borderRadius: "50%", width: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}>
         <ChevronLeft size={18} color="#1A1A1A" />
       </button>
-      <button onClick={next} aria-label="Volgende foto" style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", background: "rgba(255,255,255,0.90)", border: "none", borderRadius: "50%", width: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}>
+      <button onClick={next} aria-label="Volgende" style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", background: "rgba(255,255,255,0.90)", border: "none", borderRadius: "50%", width: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}>
         <ChevronRight size={18} color="#1A1A1A" />
       </button>
     </div>
@@ -237,8 +261,8 @@ export default function RealisatiesPage() {
               <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: "10px", paddingTop: "20px" }}>
                 {[
                   { label: "Type dakpannen", value: "Betonpannen" },
-                  { label: "Oppervlakte", value: "300 m²" },
-                  { label: "Duur",        value: "10u" },
+                  { label: "Oppervlakte", value: "325 m²" },
+                  { label: "Duur",        value: "2d" },
                   { label: "Jaar",        value: "2026" },
                 ].map((s, i) => (
                   <div key={i} style={{ background: "#F7F8F6", border: "1px solid #E5E7EB", borderRadius: "10px", padding: "12px 14px" }}>

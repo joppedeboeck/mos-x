@@ -8,14 +8,14 @@ import PageLayout from "@/components/page-layout";
 
 const projecten = [
   {
-    title: "Dakcoating",
+    title: "Dakreiniging + Dakcoating",
     location: "Herentals",
     category: "dakcoating" as const,
     voorImg: "/images/herentals-voor.png",
     naImg: "/images/herentals-na.png",
     type: "Keramische pannen",
     opp: "210 m²",
-    duur: "3 dagen",
+    duur: "2 dagen",
   },
   {
     title: "Dakreiniging",
@@ -390,7 +390,7 @@ export default function RealisatiesPage() {
                     <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 2, background: "#9BCB6C", color: "#1A1A1A", padding: "4px 11px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA</div>
                     <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%)", zIndex: 1 }} />
                     <p style={{ position: "absolute", bottom: "12px", left: "12px", right: "12px", zIndex: 2, color: "#FFFFFF", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13px", margin: 0 }}>
-                      {p.title + " — " + p.location}
+                      {p.title + " - " + p.location}
                     </p>
                   </div>
                   {/* Meta chips */}

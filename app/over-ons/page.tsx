@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
-import { Phone, User, Calendar, MessageCircle, Home, ShieldCheck, Headphones, Handshake, TrendingUp, Leaf, BarChart2, Sparkles } from "lucide-react";
+import { Phone, User, Calendar, MessageCircle, Home, ShieldCheck, Headphones, Handshake, TrendingUp, Leaf, BarChart2, Settings } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
@@ -202,89 +202,6 @@ export default function OverOnsPage() {
         </div>
       </section>
 
-      {/* ── Onze Ambitie ── */}
-      <section style={{ background: "#FFFFFF", padding: "0 0 90px 0" }}>
-        <div className="site-wrap" style={{ paddingTop: 0, paddingBottom: 0 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }}>
-
-            {/* ── Links: tekst boven, foto onder ── */}
-            <div style={{ display: "flex", flexDirection: "column" }}>
-
-              {/* Tekst */}
-              <div style={{ paddingTop: "80px", paddingRight: "56px", paddingBottom: "28px" }}>
-                <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "12px" }}>
-                  Onze ambitie
-                </p>
-                <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 3.2vw, 2.8rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "20px" }}>
-                  De toekomst van<br /><span style={{ color: "#9BCB6C" }}>dakonderhoud.</span>
-                </h2>
-                <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#1A1A1A", marginBottom: "14px" }}>
-                  Slim onderhouden, langer beschermd.
-                </p>
-                <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.75, marginBottom: "12px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                  Wij geloven dat de toekomst niet alleen ligt in het vervangen van daken, maar vooral in het slim onderhouden ervan.
-                </p>
-                <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.75, marginBottom: "12px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                  Nieuwe technieken, innovatieve coatings en duurzamere producten maken het vandaag mogelijk om bestaande daken langer te beschermen dan ooit tevoren.
-                </p>
-                <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.75, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                  Daar willen wij een voortrekkersrol in spelen. Niet door de grootste te worden, maar door de standaard in dakonderhoud elke dag een beetje hoger te leggen.
-                </p>
-              </div>
-
-              {/* Foto — vult resterende ruimte, paddingBottom matcht rechterkolom */}
-              <div style={{ flex: 1, paddingBottom: "80px" }}>
-                <div style={{ position: "relative", overflow: "hidden", height: "100%", minHeight: "180px" }}>
-                  <img
-                    src="/images/Foto dak.jpg"
-                    alt=""
-                    aria-hidden="true"
-                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 33%", transform: "scale(1.1)", transformOrigin: "center 33%" }}
-                  />
-                  {/* Fade bovenkant */}
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to bottom, #FFFFFF, transparent)", pointerEvents: "none" }} />
-                  {/* Fade onderkant */}
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to top, #FFFFFF, transparent)", pointerEvents: "none" }} />
-                </div>
-              </div>
-            </div>
-
-            {/* ── Rechts: genummerde items ── */}
-            <div style={{ paddingTop: "80px", paddingLeft: "56px", paddingBottom: "80px" }}>
-              {/* Label */}
-              <p style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.13em", marginBottom: "28px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-                <span style={{ color: "#9BCB6C" }}>Waarom wij </span>
-                <span style={{ color: "#1A1A1A" }}>geloven in deze toekomst</span>
-              </p>
-
-              {/* Cards */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                {[
-                  { Icon: BarChart2,   title: "Besparen op dure renovaties",         desc: "Goed onderhoud verlengt de levensduur van je dak met jaren en bespaart je duizenden euro's.",                   num: "01" },
-                  { Icon: Leaf,        title: "Beter voor het milieu",               desc: "Minder grondstoffen, minder afval en een lagere CO₂-uitstoot dan bij een volledige dakvervanging.",             num: "02" },
-                  { Icon: ShieldCheck, title: "Coatings die het verschil maken",     desc: "Nieuwe generatie coatings bieden een langere bescherming, betere prestaties en een mooier, netter resultaat.",  num: "03" },
-                  { Icon: Sparkles,    title: "Reinigen met de nieuwste technieken", desc: "Moderne reinigingsmethodes zijn veiliger voor je dak, efficiënter en zorgen voor een diepgaander resultaat.",   num: "04" },
-                  { Icon: Home,        title: "Slimme keuze voor vandaag én morgen", desc: "Steeds meer huiseigenaars kiezen voor onderhoud als verstandige en duurzame investering in hun woning.",        num: "05" },
-                ].map(({ Icon, title, desc, num }) => (
-                  <div key={title} style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "14px", padding: "18px 20px", display: "flex", gap: "16px", alignItems: "center", boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
-                    <div style={{ width: "52px", height: "52px", borderRadius: "50%", background: "rgba(155,203,108,0.10)", border: "1.5px solid rgba(155,203,108,0.30)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <Icon size={22} color="#9BCB6C" strokeWidth={1.75} />
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13.5px", color: "#1A1A1A", marginBottom: "4px" }}>{title}</p>
-                      <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "12.5px", color: "#666666", lineHeight: 1.6 }}>{desc}</p>
-                    </div>
-                    <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "22px", color: "#E5E7EB", flexShrink: 0, lineHeight: 1 }}>{num}</p>
-                  </div>
-                ))}
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       {/* ── Gemoedsrust ── */}
       <section style={{ background: "#0B0F0C", padding: "80px 0", position: "relative", overflow: "hidden" }}>
 
@@ -346,6 +263,89 @@ export default function OverOnsPage() {
             <Handshake size={40} color="#9BCB6C" strokeWidth={1.5} style={{ flexShrink: 0, opacity: 0.80 }} />
           </div>
 
+        </div>
+      </section>
+
+      {/* ── Onze Ambitie ── */}
+      <section style={{ background: "#FFFFFF", padding: "0 0 90px 0" }}>
+        <div className="site-wrap" style={{ paddingTop: 0, paddingBottom: 0 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }}>
+
+            {/* ── Links: tekst boven, foto onder ── */}
+            <div style={{ display: "flex", flexDirection: "column" }}>
+
+              {/* Tekst */}
+              <div style={{ paddingTop: "80px", paddingRight: "56px", paddingBottom: "28px" }}>
+                <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "12px" }}>
+                  Onze ambitie
+                </p>
+                <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 3.2vw, 2.8rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "20px" }}>
+                  De toekomst van<br /><span style={{ color: "#9BCB6C" }}>dakonderhoud.</span>
+                </h2>
+                <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#1A1A1A", marginBottom: "14px" }}>
+                  Slim onderhouden, langer beschermd.
+                </p>
+                <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.75, marginBottom: "12px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                  Wij geloven dat de toekomst niet alleen ligt in het vervangen van daken, maar vooral in het slim onderhouden ervan.
+                </p>
+                <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.75, marginBottom: "12px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                  Nieuwe technieken, innovatieve coatings en duurzamere producten maken het vandaag mogelijk om bestaande daken langer te beschermen dan ooit tevoren.
+                </p>
+                <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.75, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                  Daar willen wij een voortrekkersrol in spelen. Niet door de grootste te worden, maar door de standaard in dakonderhoud elke dag een beetje hoger te leggen.
+                </p>
+              </div>
+
+              {/* Foto — vult resterende ruimte, paddingBottom matcht rechterkolom */}
+              <div style={{ flex: 1, paddingBottom: "80px" }}>
+                <div style={{ position: "relative", overflow: "hidden", height: "100%", minHeight: "180px" }}>
+                  <img
+                    src="/images/Foto dak.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 33%", transform: "scale(1.1)", transformOrigin: "center 33%" }}
+                  />
+                  {/* Fade bovenkant */}
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to bottom, #FFFFFF, transparent)", pointerEvents: "none" }} />
+                  {/* Fade onderkant */}
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to top, #FFFFFF, transparent)", pointerEvents: "none" }} />
+                </div>
+              </div>
+            </div>
+
+            {/* ── Rechts: genummerde items ── */}
+            <div style={{ paddingTop: "80px", paddingLeft: "56px", paddingBottom: "80px" }}>
+              {/* Label */}
+              <p style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.13em", marginBottom: "28px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                <span style={{ color: "#9BCB6C" }}>Waarom wij </span>
+                <span style={{ color: "#1A1A1A" }}>geloven in deze toekomst</span>
+              </p>
+
+              {/* Cards */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+                {[
+                  { Icon: BarChart2,   title: "Renovaties worden steeds duurder",    desc: "Onderhoud wordt daardoor een steeds interessantere investering.",                                                  num: "01" },
+                  { Icon: ShieldCheck, title: "Coatings blijven evolueren",          desc: "Nieuwe generaties coatings bieden een langere bescherming en een duurzamer resultaat.",                          num: "02" },
+                  { Icon: Leaf,        title: "Minder impact op het milieu",         desc: "Een dak behouden vraagt minder grondstoffen en produceert minder afval dan een volledige vervanging.",          num: "03" },
+                  { Icon: Settings,    title: "Betere technieken",                   desc: "Professionele reinigingsmethodes worden steeds veiliger en efficientere voor bestaande dakpannen.",             num: "04" },
+                  { Icon: Home,        title: "Meer focus op behoud",                desc: "Steeds meer huiseigenaars kiezen ervoor hun woning slim te onderhouden in plaats van meteen te renoveren.",    num: "05" },
+                ].map(({ Icon, title, desc, num }) => (
+                  <div key={title} style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "14px", padding: "18px 20px", display: "flex", gap: "16px", alignItems: "center", boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
+                    <div style={{ width: "52px", height: "52px", borderRadius: "50%", background: "rgba(155,203,108,0.10)", border: "1.5px solid rgba(155,203,108,0.30)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <Icon size={22} color="#9BCB6C" strokeWidth={1.75} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13.5px", color: "#1A1A1A", marginBottom: "4px" }}>{title}</p>
+                      <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "12.5px", color: "#666666", lineHeight: 1.6 }}>{desc}</p>
+                    </div>
+                    <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "22px", color: "#E5E7EB", flexShrink: 0, lineHeight: 1 }}>{num}</p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </section>
 

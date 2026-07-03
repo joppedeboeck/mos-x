@@ -5,7 +5,7 @@ import { useState } from "react";
 const GREEN = "#9BCB6C";
 const TOTAL_STEPS = 5;
 
-const STEP_NAMES = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Richtprijs"];
+const STEP_NAMES = ["Daktype", "Woningtype", "Oppervlakte", "Extra opties", "Richtprijs"];
 
 function StepIndicator({ step }: { step: number }) {
   return (
@@ -161,7 +161,7 @@ export default function SitePricing() {
   const next = () => setStep(s => Math.min(s + 1, TOTAL_STEPS));
   const prev = () => setStep(s => Math.max(s - 1, 1));
 
-  const tabLabels = ["Oppervlakte", "Woningtype", "Daktype", "Extra opties", "Richtprijs"];
+  const tabLabels = ["Daktype", "Woningtype", "Oppervlakte", "Extra opties", "Richtprijs"];
 
   const woningTypes = [
     { label: "Rijwoning",          img: "/images/Rijtjes.png" },
@@ -228,7 +228,7 @@ export default function SitePricing() {
               </span>
               <h2 style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800,
-                fontSize: "clamp(1.2rem, 1.8vw, 1.55rem)", letterSpacing: "-0.02em",
+                fontSize: "clamp(1.05rem, 1.5vw, 1.35rem)", letterSpacing: "-0.02em",
                 color: "#111", marginBottom: "24px", lineHeight: 1.25,
               }}>
                 Ontvang een <span style={{ color: GREEN }}>richtprijs</span><br />voor jouw dakreiniging
@@ -315,6 +315,28 @@ export default function SitePricing() {
 
               {step === 1 && (
                 <div>
+                  <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
+                    Wat voor dakpannen liggen op je dak?
+                  </h3>
+                  {dakTypes.map(d => (
+                    <ChoiceRow key={d} label={d} selected={dak === d} onClick={() => { setDak(d); setTimeout(next, 220); }} />
+                  ))}
+                </div>
+              )}
+
+              {step === 2 && (
+                <div>
+                  <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
+                    Wat voor type woning is het?
+                  </h3>
+                  {woningTypes.map(w => (
+                    <ChoiceRow key={w.label} label={w.label} imgSrc={w.img} selected={woning === w.label} onClick={() => { setWoning(w.label); setTimeout(next, 220); }} />
+                  ))}
+                </div>
+              )}
+
+              {step === 3 && (
+                <div>
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "28px" }}>
                     Hoe groot is je dak ongeveer?
                   </h3>
@@ -336,28 +358,6 @@ export default function SitePricing() {
                     <span>50 m²</span><span>300 m²</span>
                   </div>
                   <NextBtn onClick={next} />
-                </div>
-              )}
-
-              {step === 2 && (
-                <div>
-                  <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
-                    Wat voor type woning is het?
-                  </h3>
-                  {woningTypes.map(w => (
-                    <ChoiceRow key={w.label} label={w.label} imgSrc={w.img} selected={woning === w.label} onClick={() => { setWoning(w.label); setTimeout(next, 220); }} />
-                  ))}
-                </div>
-              )}
-
-              {step === 3 && (
-                <div>
-                  <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
-                    Wat voor dakpannen liggen op je dak?
-                  </h3>
-                  {dakTypes.map(d => (
-                    <ChoiceRow key={d} label={d} selected={dak === d} onClick={() => { setDak(d); setTimeout(next, 220); }} />
-                  ))}
                 </div>
               )}
 

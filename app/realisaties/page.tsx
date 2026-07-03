@@ -135,12 +135,12 @@ function ProjectCarousel() {
   const next = () => setIdx(i => (i + 1) % projectCarouselPhotos.length);
   const isVideo = item.type === "video";
 
-  // Auto-advance elke 4 seconden, pauzeert bij video's
+  // Auto-advance elke 4 seconden (6s bij video's)
   useEffect(() => {
-    if (isVideo) return;
+    const delay = isVideo ? 6000 : 4000;
     const timer = setInterval(() => {
       setIdx(i => (i + 1) % projectCarouselPhotos.length);
-    }, 4000);
+    }, delay);
     return () => clearInterval(timer);
   }, [idx, isVideo]);
 

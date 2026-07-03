@@ -131,13 +131,11 @@ export default function OverOnsPage() {
             WIJ ZORGEN VOOR DAKEN.<br /><span style={{ color: "#9BCB6C" }}>EN VOOR GEMOEDSRUST.</span>
           </h1>
           <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "18px", color: "#555555" }}>
-            Wij helpen huiseigenaars hun dak zo lang mogelijk in topconditie te houden met professioneel onderhoud, eerlijke adviezen en een persoonlijke aanpak.
+            Wij helpen huiseigenaars hun dak zo lang mogelijk in topconditie te houden met professioneel onderhoud,<br />eerlijke adviezen en een persoonlijke aanpak.
           </p>
         </div>
       </section>
 
-      {/* ── Stats bar ── */}
-      <StatsBar />
 
       {/* ── Het verhaal ── */}
       <section className="site-pad" style={{ background: "#F7F8F6", paddingBottom: "0" }}>

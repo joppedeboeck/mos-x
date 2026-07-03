@@ -68,7 +68,7 @@ function LargeSlider() {
   );
 }
 
-function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPosition = "50% 70%", height = "350px" }: { beforeSrc: string; afterSrc: string; beforePosition?: string; afterPosition?: string; height?: string }) {
+function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPosition = "50% 70%", height = "350px", title }: { beforeSrc: string; afterSrc: string; beforePosition?: string; afterPosition?: string; height?: string; title?: string }) {
   const [split, setSplit] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -103,6 +103,11 @@ function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPos
           <ChevronRight style={{ width: "12px", height: "12px", color: "#9BCB6C" }} />
         </div>
       </div>
+      {title && (
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)", padding: "20px 14px 10px", pointerEvents: "none", zIndex: 5 }}>
+          <p style={{ margin: 0, fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13px", color: "#FFFFFF", textAlign: "center" }}>{title}</p>
+        </div>
+      )}
     </div>
   );
 }
@@ -249,20 +254,14 @@ export default function RealisatiesPage() {
           </div>
 
           {/* Foto carrousel + gestapelde Velux/Dakgoot sliders */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginTop: "32px", paddingTop: "32px", alignItems: "stretch" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "24px", marginTop: "32px", paddingTop: "32px", alignItems: "stretch" }}>
             {/* Links: foto carrousel */}
             <ProjectCarousel />
 
             {/* Rechts: Velux boven, Dakgoot onder */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <div>
-                <SmallSlider beforeSrc="/images/Velux%20voor%201.0.png" afterSrc="/images/Velux%20na%201.0.png" beforePosition="center center" afterPosition="center center" height="160px" />
-                <p style={{ marginTop: "10px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#1A1A1A", textAlign: "center", margin: "10px 0 0" }}>Velux</p>
-              </div>
-              <div>
-                <SmallSlider beforeSrc="/images/Goot%20voor.JPEG" afterSrc="/images/Goot%20na.JPEG" height="160px" />
-                <p style={{ marginTop: "10px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#1A1A1A", textAlign: "center", margin: "10px 0 0" }}>Dakgoot</p>
-              </div>
+              <SmallSlider beforeSrc="/images/Velux%20voor%201.0.png" afterSrc="/images/Velux%20na%201.0.png" beforePosition="center center" afterPosition="center center" height="210px" title="Velux" />
+              <SmallSlider beforeSrc="/images/Goot%20voor.JPEG" afterSrc="/images/Goot%20na.JPEG" height="210px" title="Dakgoot" />
             </div>
           </div>
           </div>

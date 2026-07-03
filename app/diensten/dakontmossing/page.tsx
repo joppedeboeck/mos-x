@@ -8,7 +8,7 @@ import PageLayout from "@/components/page-layout";
 
 const steps = [
   { step: "STAP 01", Icon: Search,        title: "Nazicht & voorbereiding",           desc: "We controleren het dak, signaleren eventuele beschadigingen en plaatsen bladvangers om verstoppingen tijdens de reiniging te voorkomen." },
-  { step: "STAP 02", Icon: Droplets,      title: "Professionele dakreiniging",        desc: "Met professionele stoom- en hogedrukapparatuur verwijderen we mos, algen en vervuiling grondig van het dak. De druk wordt afgestemd op het type dakbedekking zodat de reiniging doeltreffend Ã©n veilig verloopt." },
+  { step: "STAP 02", Icon: Droplets,      title: "Professionele dakreiniging",        desc: "Met professionele stoom- en hogedrukapparatuur verwijderen we mos, algen en vervuiling grondig van het dak. De druk wordt afgestemd op het type dakbedekking zodat de reiniging doeltreffend én veilig verloopt." },
   { step: "STAP 03", Icon: ShieldCheck,   title: "Preventieve anti-mosbehandeling",  desc: "Na de reiniging brengen we een biologisch afbreekbare anti-mosbehandeling aan. Zo wordt nieuwe mosvorming afgeremd en blijft het dak langer proper." },
   { step: "STAP 04", Icon: Home,          title: "Reiniging rondom de woning",       desc: "Tijdens de werken kunnen mosresten op muren, ramen, terras of oprit terechtkomen. Daarom reinigen we de omgeving zorgvuldig zodat alles netjes wordt achtergelaten." },
   { step: "STAP 05", Icon: CloudRain,     title: "Dakgoten ledigen",                 desc: "We maken de dakgoten volledig leeg en spoelen indien nodig de afvoerleidingen door. Zo voorkomen we verstoppingen en kan regenwater opnieuw vlot wegstromen." },
@@ -16,7 +16,7 @@ const steps = [
 
 
 const faqs = [
-  { q: "Is hogedruk slecht voor een dak?", a: "Niet wanneer het correct wordt toegepast. Het type dak, de staat van de dakpannen en de juiste instellingen bepalen welke reinigingstechniek geschikt is. MOS-X gebruikt aangepaste technieken waarbij de druk wordt afgestemd op het dak, zodat het resultaat veilig Ã©n doeltreffend is." },
+  { q: "Is hogedruk slecht voor een dak?", a: "Niet wanneer het correct wordt toegepast. Het type dak, de staat van de dakpannen en de juiste instellingen bepalen welke reinigingstechniek geschikt is. MOS-X gebruikt aangepaste technieken waarbij de druk wordt afgestemd op het dak, zodat het resultaat veilig én doeltreffend is." },
   { q: "Wanneer zie ik resultaat?", a: "Het grootste deel van het resultaat is onmiddellijk zichtbaar na de reiniging. Eventuele resterende vervuiling kan verder verdwijnen door regen en weersinvloeden." },
   { q: "Moet ik thuis zijn tijdens de behandeling?", a: "Voor de inspectie is dat handig. Tijdens de uitvoering zelf is dat meestal niet nodig." },
   { q: "Is een coating nodig na een reiniging?", a: "Niet altijd. Tijdens de inspectie krijg je eerlijk advies op basis van de staat van je dak. Soms volstaat een reiniging. Soms is een bijkomende bescherming interessant." },
@@ -207,7 +207,7 @@ export default function DakontmossingPage() {
         <div className="site-wrap">
           <div className="grid sm:grid-cols-2 gap-6">
 
-            {/* Kaart 1 â€" Waarom ontstaat mos? */}
+            {/* Kaart 1 — Waarom ontstaat mos? */}
             <div className="rounded-2xl p-8" style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
               <h3 className="font-black mb-4"
                 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#1A1A1A", fontSize: "1.1rem" }}>
@@ -221,7 +221,7 @@ export default function DakontmossingPage() {
               </p>
             </div>
 
-            {/* Kaart 2 â€" Risicofactoren */}
+            {/* Kaart 2 — Risicofactoren */}
             <div className="rounded-2xl p-8" style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
               <h3 className="font-black mb-4"
                 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#1A1A1A", fontSize: "1.1rem" }}>
@@ -248,7 +248,7 @@ export default function DakontmossingPage() {
         </div>
       </section>
 
-      {/* â"€â"€ Process â€" homepage style â"€â"€ */}
+      {/* â"€â"€ Process — homepage style â"€â"€ */}
       <section style={{ background: "#F7F8F6", padding: "100px 0 16px" }}>
         <div className="site-wrap">
           <div style={{ marginBottom: "56px", textAlign: "center" }}>

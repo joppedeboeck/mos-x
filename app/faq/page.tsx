@@ -10,55 +10,38 @@ const faqGroups = [
   {
     category: "Prijs",
     items: [
-      { q: "Wat kost dakontmossing en dakcoating in Vlaanderen?", a: "Dakreiniging start vanaf €350 voor een gemiddelde woning in Vlaanderen. Dakcoating start vanaf €850. De exacte prijs hangt af van de oppervlakte, het type dak en de staat van de dakbedekking. Je ontvangt altijd een vaste prijs vooraf, geen verrassingen achteraf." },
-      { q: "Kan ik een richtprijs krijgen zonder dat iemand langskomt?", a: "Ja. Via de richtprijscalculator op de homepage krijg je binnen 60 seconden een eerste indicatie op basis van je daktype en oppervlakte. Zo weet je meteen of het binnen je budget past, zonder verplichtingen." },
-      { q: "Zijn er verborgen kosten bovenop de offerte?", a: "Nee. De prijs die je in de offerte ziet, is de prijs die je betaalt. Gootreiniging en fotoreportage zijn standaard inbegrepen. Enkel bij onverwachte bijkomende schade die vooraf niet zichtbaar was, vragen we jouw akkoord voordat we extra werk uitvoeren." },
+      { q: "Wat kost een dakreiniging?", a: "De prijs hangt af van verschillende factoren, zoals de grootte en bereikbaarheid van je dak, de mate van vervuiling en de gekozen behandeling. Daarom ontvang je bij MOS-X altijd een vrijblijvende richtprijs op maat. Binnen één minuut weet je al waar je ongeveer aan toe bent." },
+      { q: "Hoe wordt de prijs van een dakreiniging berekend?", a: "Elk dak is anders. Daarom houden we rekening met verschillende factoren, zoals de oppervlakte, de bereikbaarheid, het type dak, de hellingsgraad, de mate van vervuiling en de gewenste behandeling. Zo betaal je alleen voor de werken die jouw dak écht nodig heeft." },
     ],
   },
   {
-    category: "Proces",
+    category: "Dak & Reiniging",
     items: [
-      { q: "Is hogedruk slecht voor dakpannen?", a: "Niet wanneer het correct wordt uitgevoerd. De juiste druk hangt af van het type dakbedekking en de staat van de pannen. MOS-X stemt de reinigingstechniek altijd af op jouw dak zodat de reiniging doeltreffend én veilig verloopt." },
-      { q: "Wat is het verschil tussen dakreiniging en dakcoating?", a: "Dakreiniging verwijdert mos, algen en vuil van het dakoppervlak. Dakcoating brengt een beschermende laag aan die het dak jarenlang beschermt tegen vocht, algen en slijtage. Niet elk dak heeft een coating nodig. Tijdens de inspectie krijg je eerlijk advies over wat het beste past bij jouw situatie." },
-      { q: "Wanneer is dakcoating nodig?", a: "Dakcoating is aangeraden wanneer betonpannen of kunstleien poreus geworden zijn en hun beschermlaag verloren hebben. Tijdens de inspectie beoordelen we of coating noodzakelijk of aangeraden is voor jouw dak." },
-      { q: "Moet mijn dak eerst gereinigd worden voor een coating?", a: "Ja. Een coating hecht alleen goed op een proper en droog dakoppervlak. Daarom wordt een dakreiniging altijd uitgevoerd voor de coating wordt aangebracht. Dit kan in dezelfde opdracht worden gecombineerd." },
-      { q: "Wat gebeurt er als ik na de inspectie besluit niets te doen?", a: "Dat is volledig jouw keuze. Er wordt nooit druk gezet. Als je dak niets nodig heeft, zeggen we dat gewoon." },
-      { q: "Hoe lang duurt de uitvoering?", a: "Een dakreiniging duurt gemiddeld een halve dag voor een standaard woning. Een dakcoating neemt doorgaans een volledige werkdag in beslag. Je ontvangt na afloop een fotoreportage van voor en na de werken." },
+      { q: "Hoe weet ik of mijn dak gereinigd moet worden?", a: "Zie je mosvorming, groene aanslag of donkere vervuiling op je dak? Dan is het meestal tijd om in te grijpen. Hoe langer mos blijft liggen, hoe meer vocht het vasthoudt en hoe groter de kans op slijtage van je dak. Twijfel je? Dan bekijken we de staat van je dak graag tijdens een vrijblijvende inspectie." },
+      { q: "Kan elk type dak gereinigd worden?", a: "Ja. We reinigen vrijwel alle soorten daken, waaronder betonnen dakpannen, keramische dakpannen en leien. Alleen asbestdaken mogen we wettelijk niet reinigen." },
+      { q: "Hoe lang blijft mijn dak proper na een dakreiniging?", a: "Dat hangt af van de ligging van je woning, de hoeveelheid schaduw, omliggende bomen, de vochtigheid van de omgeving en het type dak. Tijdens de inspectie geven we je een realistische inschatting van het verwachte resultaat. Wil je je dak zo lang mogelijk in topconditie houden? Dan adviseren we je graag over de mogelijkheden voor extra bescherming of periodiek onderhoud." },
+      { q: "Is dakreiniging schadelijk voor mijn dak of tuin?", a: "Nee. We passen onze werkwijze aan op het type dak en beschermen je tuin, gevel en omgeving waar nodig. Daarnaast werken we met professionele, milieubewuste producten en vermijden we agressieve producten zoals chloor wanneer dat niet nodig is. Zo reinigen we je dak veilig én met respect voor je woning." },
     ],
   },
   {
-    category: "Timing",
+    category: "Coating & Aanpak",
     items: [
-      { q: "Hoe vaak moet je een dak laten ontmossen?", a: "Gemiddeld wordt aangeraden om een dak elke 3 tot 5 jaar te laten reinigen, afhankelijk van de ligging, het daktype en de omgeving. Woningen tussen veel bomen of in vochtige regio's hebben vaker onderhoud nodig." },
-      { q: "Wanneer zie ik resultaat na een dakreiniging?", a: "Bij dakcoating zie je het resultaat meteen na de uitvoering. Bij dakreiniging wordt het resultaat zichtbaar binnen 4 tot 6 weken, wanneer het behandelde mos afsterft en bij regen afspoelt." },
-      { q: "Hoe snel kan MOS-X bij mij langskomen?", a: "Gemiddeld plannen we de inspectie binnen 5 tot 10 werkdagen na je aanvraag. Na de inspectie ontvang je de offerte binnen 24 uur." },
-    ],
-  },
-  {
-    category: "Garantie",
-    items: [
-      { q: "Hoe lang blijft de dakcoating beschermen?", a: "Op dakcoating geeft MOS-X tot 10 jaar garantie. Je ontvangt een schriftelijke garantie na de uitvoering." },
-      { q: "Wat als er tijdens de werken een dakpan breekt?", a: "MOS-X werkt met een volledige burgerlijke aansprakelijkheidsverzekering. Bij eventuele schade tijdens de uitvoering wordt dit gedekt. Je staat nooit voor onverwachte kosten." },
-      { q: "Wat als ik na de behandeling toch niet tevreden ben?", a: "We staan 100% achter ons werk. Als je niet tevreden bent met het resultaat, komen we langs om het te bekijken en waar nodig gratis bij te werken." },
+      { q: "Wanneer is een dakcoating de juiste keuze?", a: "Een dakcoating is vooral interessant wanneer dakpannen door de jaren heen poreus zijn geworden of hun beschermlaag verloren hebben. Dit komt vaak voor bij oudere betonnen dakpannen en bepaalde leien. Tijdens de inspectie beoordelen we de staat van je dak en adviseren we alleen een coating wanneer die écht een meerwaarde biedt." },
+      { q: "Is een hoogwerker nodig voor mijn dak?", a: "Niet altijd. Wanneer we veilig met een ladder kunnen werken, doen we dat ook. In sommige situaties is een hoogwerker de veiligste en meest efficiënte oplossing, bijvoorbeeld bij hogere of moeilijk bereikbare woningen. Tijdens de inspectie bepalen we welke werkwijze het meest geschikt is voor jouw dak." },
+      { q: "Ik heb zonnepanelen. Wat betekent dat voor de dakreiniging?", a: "Geen probleem. We stemmen onze werkwijze af op daken met zonnepanelen. Indien gewenst kunnen de zonnepanelen tijdens de werken professioneel worden gereinigd. Bij een dakcoating werken we zorgvuldig rondom de installatie, zodat zowel je dak als je zonnepanelen optimaal beschermd blijven." },
     ],
   },
   {
     category: "Praktisch",
     items: [
-      { q: "Moet ik thuis zijn tijdens de dakwerken?", a: "Voor de inspectie is het aangeraden dat je thuis bent. Voor de uitvoering zelf hoeft dat niet, maar het is prettig als er iemand telefonisch bereikbaar is." },
+      { q: "Moet ik thuis zijn tijdens de werken?", a: "Nee, dat is meestal niet nodig. Zolang we toegang hebben tot het dak en gebruik kunnen maken van een wateraansluiting, kunnen de werken in de meeste gevallen zonder jouw aanwezigheid uitgevoerd worden. Uiteraard houden we je steeds op de hoogte." },
+      { q: "Moet mijn dak eerst geïnspecteerd worden?", a: "Ja. Elk dak is anders. Daarom bekijken we eerst de staat van je dak voordat we een behandeling adviseren. Zo ben je zeker van een veilige aanpak én krijg je eerlijk advies dat volledig afgestemd is op jouw dak." },
     ],
   },
   {
-    category: "Werkgebied",
+    category: "Garantie",
     items: [
-      { q: "Waar is MOS-X actief in België?", a: "MOS-X is actief in de provincies Antwerpen, Oost-Vlaanderen, Vlaams-Brabant en Limburg. We bedienen meer dan 80 gemeenten in heel Vlaanderen. Twijfel je of we in jouw gemeente werken? Bel ons en we bevestigen het meteen." },
-    ],
-  },
-  {
-    category: "Vertrouwen",
-    items: [
-      { q: "Is MOS-X een erkend en verzekerd bedrijf?", a: "Ja. MOS-X is een officieel geregistreerd bedrijf met volledige burgerlijke aansprakelijkheidsverzekering. Je werkt altijd met een erkende professional." },
-      { q: "Waarom zou ik kiezen voor MOS-X en niet voor een goedkopere concurrent?", a: "Een goedkopere offerte zonder inspectie betekent vaak een aanpak die niet afgestemd is op jouw dak. MOS-X inspecteert altijd eerst, past de techniek aan op het type dakbedekking en geeft een vaste prijs vooraf. Dat is geen extra kost, dat is zekerheid." },
+      { q: "Krijg ik garantie op de uitgevoerde werken?", a: "Ja. Op onze dakcoatings bieden we tot 10 jaar garantie, afhankelijk van de gekozen behandeling. Vooraf leggen we steeds duidelijk uit welke garantie van toepassing is, zodat je precies weet waar je op kunt rekenen." },
     ],
   },
 ];

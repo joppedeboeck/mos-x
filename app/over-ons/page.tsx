@@ -1,106 +1,62 @@
-﻿"use client";
+"use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
-import { CheckCircle, Phone, Droplets, Clock, User, Calendar, MessageCircle, Home, ShieldCheck, Headphones, Handshake } from "lucide-react";
+import { Phone, User, Calendar, MessageCircle, Home, ShieldCheck, Headphones, Handshake, TrendingUp, Leaf, BarChart2, Sparkles } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
-function useCountUp(target: number, active: boolean, duration = 1500) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (!active) return;
-    let start: number | null = null;
-    const step = (timestamp: number) => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      setCount(Math.floor(progress * target));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [active, target, duration]);
-  return count;
-}
+function BeforeAfterSlider() {
+  const [pos, setPos] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
 
-const bullets = [
-  "Één vast aanspreekpunt van advies tot oplevering.",
-  "Volledig verzekerd. Inclusief burgerlijke aansprakelijkheid.",
-  "Tot 10 jaar garantie op dakcoating",
-  "Actief in Antwerpen, Oost-Vlaanderen, Vlaams-Brabant en Limburg.",
-  "Eerlijke prijs vooraf, geen verrassingen achteraf",
-];
-
-type Card = {
-  title: string;
-  body: string;
-  subBody?: string[];
-  bodyLines?: string[];
-  checks?: string[];
-};
-
-const cards: Card[] = [
-  {
-    title: "Wat klanten waarderen",
-    body: "Je weet vooraf wat je dak nodig heeft, wat het kost en wie het werk uitvoert. Geen verrassingen achteraf.",
-    subBody: [
-      "Klanten komen voor een reiniging of coating. Ze blijven omdat MOS-X verder kijkt dan de opdracht van vandaag.",
-      "Jouw dak is een van de grootste investeringen van je woning. Wij zorgen ervoor dat het dat ook blijft.",
-      "Na elk bezoek ontvang je een volledig rapport over de staat van je dak en wat er uitgevoerd werd.",
-      "Planning verloopt snel en flexibel, zodat je niet lang hoeft te wachten.",
-    ],
-  },
-  {
-    title: "Waarom MOS-X anders werkt",
-    body: "",
-    bodyLines: [
-      "De meeste dakbedrijven worden pas gebeld wanneer er een probleem is.",
-      "MOS-X werkt anders. Wij reinigen, beschermen en onderhouden je dak zodat het jaar na jaar in topconditie blijft.",
-      "Zo vermijd je lekkages, gebroken dakpannen, verstopte dakgoten en vochtproblemen voor ze duur worden.",
-      "Daarom kijken we niet alleen naar vandaag, maar ook naar wat je dak nodig heeft om proper, beschermd en verzorgd te blijven.",
-    ],
-  },
-];
-
-function StatsBar() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
-  const c55 = useCountUp(55, active);
-  const c24 = useCountUp(24, active);
-  const c3  = useCountUp(3,  active);
-
-  useEffect(() => {
-    const el = ref.current;
+  const updatePos = useCallback((clientX: number) => {
+    const el = containerRef.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setActive(true); observer.disconnect(); } },
-      { threshold: 0.3 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+    const { left, width } = el.getBoundingClientRect();
+    const pct = Math.min(100, Math.max(0, ((clientX - left) / width) * 100));
+    setPos(pct);
   }, []);
 
+  const onMouseDown = (e: React.MouseEvent) => { dragging.current = true; updatePos(e.clientX); };
+  const onMouseMove = (e: React.MouseEvent) => { if (dragging.current) updatePos(e.clientX); };
+  const onMouseUp = () => { dragging.current = false; };
+  const onTouchStart = (e: React.TouchEvent) => { dragging.current = true; updatePos(e.touches[0].clientX); };
+  const onTouchMove = (e: React.TouchEvent) => { if (dragging.current) updatePos(e.touches[0].clientX); };
+
   return (
-    <section style={{ background: "#F7F8F6", paddingBottom: "48px" }}>
-      <div className="site-wrap">
-        <div ref={ref} className="over-ons-stats-wrap" style={{ display: "flex", background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "32px 48px", flexWrap: "wrap", boxShadow: "0 2px 16px rgba(155,203,108,0.12)" }}>
-          {[
-            { value: `${c55}+`, label: "Afgewerkte daken",        icon: <Droplets size={24} color="#9BCB6C" /> },
-            { value: `${c24}u`, label: "Reactie op aanvragen",    icon: <Clock    size={24} color="#9BCB6C" /> },
-            { value: "100%",    label: "Vrijblijvend advies",     icon: <User     size={24} color="#9BCB6C" /> },
-            { value: "1",       label: "Aanspreekpunt",           icon: <Calendar size={24} color="#9BCB6C" /> },
-          ].map((s, i) => (
-            <div key={i} className="flex flex-col items-center justify-center text-center over-ons-stat-item"
-              style={{ flex: "1 1 0", minWidth: "120px", borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", paddingLeft: "32px", paddingRight: "32px", paddingTop: 0, paddingBottom: 0 }}>
-              <div style={{ marginBottom: "10px" }}>{s.icon}</div>
-              <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, color: "#9BCB6C", fontSize: "2rem", lineHeight: 1, marginBottom: "8px" }}>
-                {s.value}
-              </p>
-              <p style={{ fontSize: "13px", color: "#555555", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{s.label}</p>
-            </div>
-          ))}
-        </div>
+    <div
+      ref={containerRef}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseUp}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onMouseUp}
+      style={{ position: "relative", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 32px rgba(0,0,0,0.10)", aspectRatio: "4/3", cursor: "ew-resize", userSelect: "none" }}
+    >
+      {/* Voor */}
+      <img src="/images/IMG_5414.JPEG" alt="Dak voor behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", pointerEvents: "none" }} />
+
+      {/* Na — geclipped */}
+      <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${pos}%)`, pointerEvents: "none" }}>
+        <img src="/images/IMG_5436.JPEG" alt="Dak na behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
       </div>
-    </section>
+
+      {/* Lijn */}
+      <div style={{ position: "absolute", top: 0, bottom: 0, left: `${pos}%`, width: "2px", background: "#FFFFFF", transform: "translateX(-50%)", pointerEvents: "none" }} />
+
+      {/* Handle */}
+      <div style={{ position: "absolute", top: "50%", left: `${pos}%`, transform: "translate(-50%, -50%)", width: "40px", height: "40px", borderRadius: "50%", background: "#FFFFFF", border: "2px solid #9BCB6C", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 12px rgba(0,0,0,0.20)", pointerEvents: "none" }}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9BCB6C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/></svg>
+      </div>
+
+      {/* Labels */}
+      <div style={{ position: "absolute", bottom: "14px", left: "14px", background: "rgba(0,0,0,0.65)", color: "#fff", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif", pointerEvents: "none" }}>VOOR</div>
+      <div style={{ position: "absolute", bottom: "14px", right: "14px", background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif", pointerEvents: "none" }}>NA</div>
+    </div>
   );
 }
 
@@ -113,8 +69,21 @@ export default function OverOnsPage() {
     <PageLayout>
 
       {/* ── Hero ── */}
-      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "80px" }}>
-        <div className="site-wrap">
+      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
+
+        {/* Foto rechterhelft */}
+        <div style={{ position: "absolute", top: 0, left: "60%", right: 0, bottom: 0, zIndex: 0, overflow: "hidden" }}>
+          <img
+            src="/images/Weer een dak ontmost.jpg"
+            alt="Dak ontmossing"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center" }}
+          />
+          {/* Gradient fade vanuit links */}
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #F7F8F6 0%, #F7F8F6 5%, transparent 60%)" }} />
+        </div>
+
+        {/* Tekst */}
+        <div className="site-wrap" style={{ position: "relative", zIndex: 1 }}>
           <BackLink href="/" />
           <p style={{ fontSize: "13px", color: "#9BCB6C", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
             <Link
@@ -128,14 +97,13 @@ export default function OverOnsPage() {
           </p>
           <h1 className="leading-tight mb-4"
             style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.625rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A" }}>
-            WIJ ZORGEN VOOR DAKEN.<br /><span style={{ color: "#9BCB6C" }}>EN VOOR GEMOEDSRUST.</span>
+            Wij zorgen voor daken.<br /><span style={{ color: "#9BCB6C" }}>En voor gemoedsrust.</span>
           </h1>
           <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "18px", color: "#555555" }}>
-            Wij helpen huiseigenaars hun dak zo lang mogelijk in topconditie te houden met professioneel onderhoud,<br />eerlijke adviezen en een persoonlijke aanpak.
+            Wij helpen huiseigenaars hun dak zo lang mogelijk in topconditie te houden met<br />professioneel onderhoud, eerlijke adviezen en een persoonlijke aanpak.
           </p>
         </div>
       </section>
-
 
       {/* ── Onderhouden is Overhouden ── */}
       <section style={{ background: "#FFFFFF", padding: "80px 0" }}>
@@ -144,17 +112,12 @@ export default function OverOnsPage() {
 
             {/* Links: tekst */}
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-                <div style={{ width: "38px", height: "38px", borderRadius: "10px", border: "1px solid rgba(155,203,108,0.5)", background: "rgba(155,203,108,0.10)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9BCB6C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/><circle cx="17" cy="8" r="3" fill="#9BCB6C" fillOpacity="0.3"/><path d="M15.5 6.5 C16 5.5 17.5 5 18.5 6" strokeWidth="1.5"/></svg>
-                </div>
-                <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-                  Waarom MOS-X bestaat
-                </p>
-              </div>
+              <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "20px" }}>
+                Waarom MOS-X bestaat
+              </p>
 
-              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "24px" }}>
-                Onderhouden<br />is Overhouden.
+              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.6vw, 2.1rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "24px", whiteSpace: "nowrap" }}>
+                Onderhouden is <span style={{ color: "#9BCB6C" }}>Overhouden.</span>
               </h2>
 
               <p style={{ fontSize: "15px", color: "#555555", lineHeight: 1.75, marginBottom: "14px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
@@ -170,179 +133,165 @@ export default function OverOnsPage() {
                 Wij helpen huiseigenaars hun dak professioneel te reinigen, beschermen en onderhouden, zodat het zo lang mogelijk in topconditie blijft. Zo bieden we een slimme, duurzame én betaalbare oplossing voor de toekomst van je woning.
               </p>
 
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", background: "rgba(155,203,108,0.08)", border: "1px solid rgba(155,203,108,0.3)", borderRadius: "10px", padding: "14px 18px" }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9BCB6C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: "2px" }}><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 3.4-2.86 6.7-5 8-2.36-.32-4.27-2.59-4.27-2.59"/><path d="M3.17 15.88A6.35 6.35 0 0 1 2 12c0-2.38 1.32-4.44 3.12-5.53C7 5.26 9 5 11 5.29"/></svg>
-                <p style={{ fontSize: "14px", color: "#2a6b0f", fontWeight: 600, lineHeight: 1.6, fontFamily: "var(--font-inter), system-ui, sans-serif", fontStyle: "italic" }}>
-                  Want goed onderhoud vandaag kan een dure dakrenovatie morgen voorkomen.
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
+                <div style={{ width: "36px", height: "36px", borderRadius: "50%", border: "1.5px solid #9BCB6C", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <Leaf size={16} color="#9BCB6C" strokeWidth={1.75} />
+                </div>
+                <p style={{ fontSize: "14px", color: "#4a8a20", fontWeight: 600, lineHeight: 1, fontFamily: "var(--font-inter), system-ui, sans-serif", whiteSpace: "nowrap", margin: 0 }}>
+                  Een dak dat je kunt behouden, hoef je niet te vervangen.
                 </p>
               </div>
             </div>
 
-            {/* Rechts: voor/na */}
-            <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 32px rgba(0,0,0,0.10)", aspectRatio: "4/3" }}>
-              <img src="/images/Before slider 3.0.png" alt="Dak voor behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }} />
-              <div style={{ position: "absolute", inset: 0, clipPath: "inset(0 0 0 50%)" }}>
-                <img src="/images/After slide 2.0.png" alt="Dak na behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }} />
-              </div>
-              <div style={{ position: "absolute", top: 0, bottom: 0, left: "50%", width: "2px", background: "rgba(255,255,255,0.8)", transform: "translateX(-50%)" }} />
-              <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "36px", height: "36px", borderRadius: "50%", background: "#FFFFFF", border: "2px solid #9BCB6C", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>
-                <span style={{ fontSize: "13px", color: "#9BCB6C", fontWeight: 700 }}>›</span>
-              </div>
-              <div style={{ position: "absolute", bottom: "14px", left: "14px", background: "rgba(0,0,0,0.65)", color: "#fff", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>VOOR</div>
-              <div style={{ position: "absolute", bottom: "14px", right: "14px", background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA</div>
-            </div>
+            {/* Rechts: interactieve voor/na slider */}
+            <BeforeAfterSlider />
 
           </div>
         </div>
       </section>
 
-      {/* ── Het verhaal ── */}
-      <section className="site-pad" style={{ background: "#F7F8F6", paddingBottom: "0" }}>
-        <div className="site-wrap">
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
+      {/* ── Onze Ambitie ── */}
+      <section style={{ background: "#FFFFFF", padding: "0 0 90px 0" }}>
+        <div className="site-wrap" style={{ paddingTop: 0, paddingBottom: 0 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }}>
 
-            {/* Tekst */}
-            <div>
-              <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "16px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-                Waarom klanten voor Yannick kiezen
-              </p>
-              <h2 className="font-bold leading-tight mb-6"
-                style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontSize: "2rem", letterSpacing: "-0.02em", color: "#111111" }}>
-                Meer dan een dakreiniging.
-                <br />
-                <span style={{ color: "#9BCB6C" }}>Een plan voor de lange termijn.</span>
-              </h2>
-              <p className="text-sm leading-relaxed" style={{ color: "#555555", marginBottom: "14px" }}>
-                Wanneer je contact opneemt met MOS-X, heb je één vast aanspreekpunt: Yannick.
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: "#555555", marginBottom: "14px" }}>
-                Hij bekijkt je dak persoonlijk, geeft advies op maat en blijft jouw vaste aanspreekpunt van advies tot oplevering.
-              </p>
-              <p className="text-sm leading-relaxed mb-8" style={{ color: "#555555" }}>
-                Je weet vooraf wat er nodig is, wat het kost en wat je mag verwachten. Geen verrassingen achteraf. Gewoon duidelijk advies, een eerlijke prijs en een verzorgd resultaat.
-              </p>
-              <ul className="space-y-3">
-                {bullets.map((b, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "#9BCB6C" }} />
-                    <span className="text-sm" style={{ color: "#555555" }}>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* ── Links: tekst boven, foto onder ── */}
+            <div style={{ display: "flex", flexDirection: "column" }}>
 
-            {/* Yannick card */}
-            <div className="relative">
-              <div
-                className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative"
-                style={{ border: "1px solid #EEEEEE", boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}
-              >
-                <img src="/images/Yannick_foto_3_0.png" alt="Yannick" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "left 25%" }} />
-                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 50%)" }} />
-                <div className="absolute bottom-5 left-5 right-5">
-                  <p className="font-black text-white text-xl" style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-                    Yannick
-                  </p>
-                  <p className="text-sm" style={{ color: "#9BCB6C" }}>Oprichter &amp; Vakspecialist MOS-X</p>
+              {/* Tekst */}
+              <div style={{ paddingTop: "80px", paddingRight: "56px", paddingBottom: "28px" }}>
+                <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "12px" }}>
+                  Onze ambitie
+                </p>
+                <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 3.2vw, 2.8rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "20px" }}>
+                  De toekomst van<br /><span style={{ color: "#9BCB6C" }}>dakonderhoud.</span>
+                </h2>
+                <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#1A1A1A", marginBottom: "14px" }}>
+                  Slim onderhouden, langer beschermd.
+                </p>
+                <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.75, marginBottom: "12px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                  Wij geloven dat de toekomst niet alleen ligt in het vervangen van daken, maar vooral in het slim onderhouden ervan.
+                </p>
+                <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.75, marginBottom: "12px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                  Nieuwe technieken, innovatieve coatings en duurzamere producten maken het vandaag mogelijk om bestaande daken langer te beschermen dan ooit tevoren.
+                </p>
+                <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.75, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                  Daar willen wij een voortrekkersrol in spelen. Niet door de grootste te worden, maar door de standaard in dakonderhoud elke dag een beetje hoger te leggen.
+                </p>
+              </div>
+
+              {/* Foto — vult resterende ruimte, paddingBottom matcht rechterkolom */}
+              <div style={{ flex: 1, paddingBottom: "80px" }}>
+                <div style={{ position: "relative", overflow: "hidden", height: "100%", minHeight: "180px" }}>
+                  <img
+                    src="/images/Foto dak.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 33%", transform: "scale(1.1)", transformOrigin: "center 33%" }}
+                  />
+                  {/* Fade bovenkant */}
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to bottom, #FFFFFF, transparent)", pointerEvents: "none" }} />
+                  {/* Fade onderkant */}
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "72px", background: "linear-gradient(to top, #FFFFFF, transparent)", pointerEvents: "none" }} />
                 </div>
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
+            {/* ── Rechts: genummerde items ── */}
+            <div style={{ paddingTop: "80px", paddingLeft: "56px", paddingBottom: "80px" }}>
+              {/* Label */}
+              <p style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.13em", marginBottom: "28px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                <span style={{ color: "#9BCB6C" }}>Waarom wij </span>
+                <span style={{ color: "#1A1A1A" }}>geloven in deze toekomst</span>
+              </p>
 
-      {/* ── Missie & Visie ── */}
-      <section style={{ background: "#F7F8F6", paddingTop: "60px", paddingBottom: "80px" }}>
-        <div className="site-wrap">
-          <div className="grid sm:grid-cols-2 gap-6 mb-14">
-            {cards.map((c, i) => (
-              <div key={i} className="rounded-2xl p-8"
-                style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
-                <h3 className="font-black mb-4"
-                  style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#9BCB6C", fontSize: "1.1rem" }}>
-                  {c.title}
-                </h3>
-                {"bodyLines" in c && c.bodyLines ? (
-                  <p className="text-sm leading-relaxed" style={{ color: "#555555", marginBottom: "0" }}>
-                    {c.bodyLines.map((line, j) => (
-                      <span key={j}>{line}{j < c.bodyLines!.length - 1 && <><br /><br /></>}</span>
-                    ))}
-                  </p>
-                ) : (
-                  <p className="text-sm leading-relaxed" style={{ color: "#555555", marginBottom: (c.checks || ("subBody" in c && c.subBody)) ? "12px" : "0" }}>{c.body}</p>
-                )}
-                {"subBody" in c && c.subBody && (
-                  Array.isArray(c.subBody) ? (
-                    (c.subBody as string[]).map((sb, j) => (
-                      <p key={j} className="text-sm leading-relaxed" style={{ color: "#555555", marginBottom: "12px" }}>{sb}</p>
-                    ))
-                  ) : (
-                    <p className="text-sm leading-relaxed" style={{ color: "#555555", marginBottom: "16px" }}>{c.subBody as string}</p>
-                  )
-                )}
-                {c.checks && (
-                  <ul className="space-y-2">
-                    {c.checks.map((ch, j) => (
-                      <li key={j} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "#9BCB6C" }} />
-                        <span className="text-sm" style={{ color: "#555555" }}>{ch}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+              {/* Cards */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+                {[
+                  { Icon: BarChart2,   title: "Besparen op dure renovaties",         desc: "Goed onderhoud verlengt de levensduur van je dak met jaren en bespaart je duizenden euro's.",                   num: "01" },
+                  { Icon: Leaf,        title: "Beter voor het milieu",               desc: "Minder grondstoffen, minder afval en een lagere CO₂-uitstoot dan bij een volledige dakvervanging.",             num: "02" },
+                  { Icon: ShieldCheck, title: "Coatings die het verschil maken",     desc: "Nieuwe generatie coatings bieden een langere bescherming, betere prestaties en een mooier, netter resultaat.",  num: "03" },
+                  { Icon: Sparkles,    title: "Reinigen met de nieuwste technieken", desc: "Moderne reinigingsmethodes zijn veiliger voor je dak, efficiënter en zorgen voor een diepgaander resultaat.",   num: "04" },
+                  { Icon: Home,        title: "Slimme keuze voor vandaag én morgen", desc: "Steeds meer huiseigenaars kiezen voor onderhoud als verstandige en duurzame investering in hun woning.",        num: "05" },
+                ].map(({ Icon, title, desc, num }) => (
+                  <div key={title} style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "14px", padding: "18px 20px", display: "flex", gap: "16px", alignItems: "center", boxShadow: "0 2px 10px rgba(0,0,0,0.05)" }}>
+                    <div style={{ width: "52px", height: "52px", borderRadius: "50%", background: "rgba(155,203,108,0.10)", border: "1.5px solid rgba(155,203,108,0.30)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <Icon size={22} color="#9BCB6C" strokeWidth={1.75} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13.5px", color: "#1A1A1A", marginBottom: "4px" }}>{title}</p>
+                      <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "12.5px", color: "#666666", lineHeight: 1.6 }}>{desc}</p>
+                    </div>
+                    <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "22px", color: "#E5E7EB", flexShrink: 0, lineHeight: 1 }}>{num}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
+            </div>
+
+          </div>
         </div>
       </section>
 
       {/* ── Gemoedsrust ── */}
-      <section style={{ background: "#FFFFFF", padding: "80px 0 0" }}>
-        <div className="site-wrap">
+      <section style={{ background: "#0B0F0C", padding: "80px 0", position: "relative", overflow: "hidden" }}>
 
-          {/* Rij 1: label+heading links | subtitle rechts */}
-          <div style={{ display: "flex", alignItems: "flex-end", gap: "48px", marginBottom: "40px", flexWrap: "wrap" }}>
+        {/* Groene radial glow */}
+        <div style={{ position: "absolute", width: "700px", height: "700px", background: "radial-gradient(circle, rgba(155,203,108,0.08) 0%, transparent 70%)", left: "-150px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none", zIndex: 0 }} />
+        {/* Mos texture rechts */}
+        <div style={{ position: "absolute", right: 0, top: 0, width: "520px", height: "100%", pointerEvents: "none", zIndex: 0 }}>
+          <img src="/images/mos-texture.png" alt="" aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "right center", opacity: 0.28, display: "block", mixBlendMode: "screen" }} />
+          {/* Fade links + boven + onder */}
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #0B0F0C 0%, #0B0F0C 20%, transparent 72%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, #0B0F0C 0%, transparent 25%, transparent 75%, #0B0F0C 100%)", pointerEvents: "none" }} />
+        </div>
+
+        <div className="site-wrap" style={{ position: "relative", zIndex: 1 }}>
+
+          {/* Header: label+heading | verticale lijn | beschrijving */}
+          <div style={{ display: "flex", alignItems: "center", gap: "48px", marginBottom: "48px", flexWrap: "wrap" }}>
             <div style={{ flex: "0 0 auto" }}>
-              <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "8px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+              <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "10px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
                 Waar klanten ons voor kiezen
               </p>
-              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4vw, 2.75rem)", letterSpacing: "-0.028em", lineHeight: 1.05, color: "#1A1A1A", margin: 0 }}>
+              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 4vw, 2.75rem)", letterSpacing: "-0.028em", lineHeight: 1.05, color: "#FFFFFF", margin: 0 }}>
                 Gemoedsrust<span style={{ color: "#9BCB6C" }}>.</span>
               </h2>
             </div>
-            <p style={{ flex: 1, minWidth: "260px", fontSize: "15px", color: "#555555", lineHeight: 1.7, fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "4px" }}>
-              Een proper dak is belangrijk. Maar uiteindelijk kiezen klanten voor iets veel waardevollers: de zekerheid dat alles correct verloopt.
+            <div style={{ width: "1px", height: "64px", background: "rgba(255,255,255,0.15)", flexShrink: 0 }} />
+            <p style={{ flex: 1, minWidth: "260px", fontSize: "15px", color: "rgba(255,255,255,0.60)", lineHeight: 1.75, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+              Een proper dak is belangrijk. Maar uiteinidelijk kiezen klanten<br />voor iets veel waardevollers: de zekerheid dat alles correct verloopt.
             </p>
           </div>
 
-          {/* Rij 2: 6 cards in één horizontale rij */}
-          <div className="gemoedsrust-cards" style={{ display: "flex", gap: "16px", marginBottom: "32px" }}>
+          {/* 6 cards met subtekst */}
+          <div className="gemoedsrust-cards" style={{ display: "flex", gap: "12px", marginBottom: "24px" }}>
             {[
-              { Icon: User,          title: "Rechtstreeks contact met Yannick",     desc: "Geen callcenter of tussenpersonen. Je hebt altijd één vast aanspreekpunt." },
-              { Icon: MessageCircle, title: "Snelle communicatie",                   desc: "Vragen blijven niet dagen liggen. Je weet snel waar je aan toe bent." },
-              { Icon: Calendar,      title: "Afspraken worden nagekomen",            desc: "We zeggen wat we doen en doen wat we zeggen." },
-              { Icon: Home,          title: "Respect voor jouw woning",              desc: "We behandelen jouw woning alsof het onze eigen woning is." },
-              { Icon: ShieldCheck,   title: "Professionele producten en technieken", desc: "We werken uitsluitend met hoogwaardige materialen en veilige technieken." },
-              { Icon: Headphones,    title: "Ook na de uitvoering bereikbaar",       desc: "Onze service stopt niet wanneer de werken klaar zijn." },
+              { Icon: User,          title: "Rechtstreeks contact met Yannick",      desc: "Één vast aanspreekpunt van begin tot eind." },
+              { Icon: MessageCircle, title: "Snelle communicatie",                   desc: "Duidelijke antwoorden en korte lijnen." },
+              { Icon: Calendar,      title: "Afspraken worden nagekomen",            desc: "We doen wat we beloven, op het afgesproken moment." },
+              { Icon: Home,          title: "Respect voor jouw woning",              desc: "We werken netjes en met oog voor detail." },
+              { Icon: ShieldCheck,   title: "Professionele producten en technieken", desc: "Duurzame oplossingen met bewezen kwaliteit." },
+              { Icon: Headphones,    title: "Ook na de uitvoering bereikbaar",       desc: "We blijven beschikbaar voor advies en opvolging." },
             ].map(({ Icon, title, desc }) => (
-              <div key={title} style={{ flex: "1 1 0", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "14px", padding: "24px 16px", textAlign: "center", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
-                <Icon size={32} color="#9BCB6C" strokeWidth={1.5} style={{ marginBottom: "14px" }} />
-                <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13px", color: "#1A1A1A", marginBottom: "8px", lineHeight: 1.35 }}>{title}</p>
-                <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "12px", color: "#666666", lineHeight: 1.6 }}>{desc}</p>
+              <div key={title} style={{ flex: "1 1 0", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "28px 18px 24px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div style={{ width: "56px", height: "56px", borderRadius: "50%", background: "rgba(155,203,108,0.10)", border: "1.5px solid rgba(155,203,108,0.25)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "14px", flexShrink: 0 }}>
+                  <Icon size={24} color="#9BCB6C" strokeWidth={1.5} />
+                </div>
+                <div style={{ width: "24px", height: "2px", background: "#9BCB6C", borderRadius: "2px", marginBottom: "14px" }} />
+                <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13px", color: "#FFFFFF", lineHeight: 1.4 }}>{title}</p>
               </div>
             ))}
           </div>
 
-          {/* Rij 3: donker quote blok */}
-          <div style={{ background: "#0B0F0C", borderRadius: "16px", padding: "28px 48px", display: "flex", alignItems: "center", gap: "28px" }}>
-            <span style={{ fontSize: "52px", color: "#9BCB6C", fontFamily: "Georgia, serif", lineHeight: 0.7, flexShrink: 0 }}>"</span>
-            <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "15px", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, flex: 1 }}>
+          {/* Quote blok */}
+          <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "32px 52px", display: "flex", alignItems: "center", gap: "32px" }}>
+            <span style={{ fontSize: "56px", color: "#9BCB6C", fontFamily: "Georgia, serif", lineHeight: 0.7, flexShrink: 0 }}>"</span>
+            <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "15px", color: "rgba(255,255,255,0.80)", lineHeight: 1.8, flex: 1, textAlign: "center" }}>
               Wij willen niet dat je klant bent tot de factuur betaald is.<br />
-              Wij willen dat je ook nadien nog met vertrouwen op ons kunt rekenen.
+              Wij willen dat je ook nadien nog <strong style={{ color: "#9BCB6C", fontWeight: 700 }}>met vertrouwen</strong> op ons kunt rekenen.
             </p>
-            <Handshake size={40} color="#9BCB6C" strokeWidth={1.5} style={{ flexShrink: 0, opacity: 0.85 }} />
+            <Handshake size={40} color="#9BCB6C" strokeWidth={1.5} style={{ flexShrink: 0, opacity: 0.80 }} />
           </div>
 
         </div>
@@ -359,14 +308,16 @@ export default function OverOnsPage() {
                 <img src="/images/yannick-werk.png" alt="Yannick aan het werk" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
               </div>
               <div style={{ borderRadius: "14px", overflow: "hidden", aspectRatio: "3/4" }}>
-                <img src="/images/Foto_dakzorg.png" alt="MOS-X producten" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+                <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+                  <source src="/videos/Dakcoating.mp4" type="video/mp4" />
+                </video>
               </div>
             </div>
 
             {/* Rechts: tekst */}
             <div>
               <p style={{ fontSize: "12px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", marginBottom: "12px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-                Beter vandaag, nog beter morgen
+                We blijven investeren
               </p>
               <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "24px" }}>
                 Vandaag goed.<br /><span style={{ color: "#9BCB6C" }}>Morgen nog beter.</span>
@@ -384,9 +335,9 @@ export default function OverOnsPage() {
       </section>
 
       {/* ── Achter MOS-X / Yannick ── */}
-      <section style={{ background: "#FFFFFF", padding: "80px 0" }}>
+      <section style={{ background: "#F7F8F6", padding: "80px 0" }}>
         <div className="site-wrap">
-          <div className="over-ons-yannick-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 0.6fr", gap: "40px", alignItems: "stretch" }}>
+          <div className="over-ons-yannick-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "56px", alignItems: "center" }}>
 
             {/* Links: tekst */}
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -410,24 +361,25 @@ export default function OverOnsPage() {
               </p>
             </div>
 
-            {/* Midden: foto */}
-            <div style={{ borderRadius: "16px", overflow: "hidden", minHeight: "460px" }}>
+            {/* Rechts: foto met quote overlay */}
+            <div style={{ borderRadius: "16px", overflow: "hidden", height: "400px", position: "relative" }}>
               <img
-                src="/images/Yannick_voor_camionet.png"
+                src="/images/Yannick_foto_3_0.png"
                 alt="Yannick - oprichter MOS-X"
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%" }}
               />
-            </div>
-
-            {/* Rechts: donker quote blok */}
-            <div style={{ background: "#0B0F0C", borderRadius: "16px", padding: "36px 28px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <span style={{ fontSize: "48px", color: "#9BCB6C", fontFamily: "Georgia, serif", lineHeight: 0.7, marginBottom: "24px", display: "block" }}>"</span>
-              <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "1.2rem", color: "#FFFFFF", lineHeight: 1.4, marginBottom: "16px" }}>
-                We bouwen niet alleen aan daken.
-              </p>
-              <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "1.2rem", color: "#9BCB6C", lineHeight: 1.4 }}>
-                We bouwen aan vertrouwen.
-              </p>
+              {/* Quote overlay onderaan */}
+              <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "rgba(11,15,12,0.88)", backdropFilter: "blur(6px)", padding: "18px 24px", borderTop: "1px solid rgba(155,203,108,0.20)", display: "flex", alignItems: "center", gap: "16px" }}>
+                <span style={{ fontSize: "42px", color: "#9BCB6C", fontFamily: "Georgia, serif", lineHeight: 0.7, flexShrink: 0, marginTop: "-4px" }}>"</span>
+                <div>
+                  <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#FFFFFF", lineHeight: 1.4, marginBottom: "3px" }}>
+                    We bouwen niet alleen aan daken.
+                  </p>
+                  <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#9BCB6C", lineHeight: 1.4 }}>
+                    We bouwen aan vertrouwen.
+                  </p>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -456,7 +408,7 @@ export default function OverOnsPage() {
                 Benieuwd wat <span style={{ color: "#9BCB6C" }}>jouw dak</span> nodig heeft?
               </p>
               <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.5, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                Persoonlijk advies van Yannick. <span className="block lg:hidden" />Geen verkooppraatjes. <span className="block lg:hidden" />Geen verrassingen.
+                Persoonlijk advies van Yannick.
               </p>
             </div>
             <div className="page-cta-buttons" style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap", position: "relative", zIndex: 1 }}>

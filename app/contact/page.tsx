@@ -1,10 +1,11 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, Phone, Mail, MapPin, Clock } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
+
 
 const includes = [
   "Reactie binnen 24 uur",
@@ -45,6 +46,16 @@ export default function ContactPage() {
   const [homeHovered, setHomeHovered] = useState(false);
   const [dienst, setDienst] = useState("");
 
+  useEffect(() => {
+    const el = document.getElementById("trustindex-widget");
+    if (!el) return;
+    const s = document.createElement("script");
+    s.defer = true;
+    s.async = true;
+    s.src = "https://cdn.trustindex.io/loader.js?8fa48bf752f98026fa9684ae694";
+    el.appendChild(s);
+  }, []);
+
   return (
     <PageLayout>
 
@@ -73,7 +84,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── Main content ── */}
-      <section className="site-pad" style={{ background: "#F7F8F6", paddingTop: "24px" }}>
+      <section className="site-pad" style={{ background: "#F7F8F6", paddingTop: "24px", paddingBottom: "30px" }}>
         <div className="site-wrap">
           <div className="grid lg:grid-cols-[1fr_380px] gap-10 items-start">
 
@@ -156,60 +167,54 @@ export default function ContactPage() {
                   Verstuur bericht <ArrowRight className="w-5 h-5" />
                 </button>
 
-                <p className="text-center text-xs" style={{ color: "#AAAAAA", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                  Yannick reageert binnen 24 uur
-                </p>
+                {/* 3 trust-chips onder de knop */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "8px", marginTop: "4px" }}>
+                  {includes.map((item, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", background: "#F7F8F6", border: "1px solid #E5E7EB", borderRadius: "8px", padding: "8px 6px" }}>
+                      <CheckCircle size={13} color="#9BCB6C" style={{ flexShrink: 0 }} />
+                      <span style={{ fontSize: "11px", fontWeight: 600, color: "#555555", fontFamily: "var(--font-inter), system-ui, sans-serif", lineHeight: 1, whiteSpace: "nowrap" }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
               </form>
             </div>
 
             {/* ── Sidebar ── */}
             <div className="space-y-5">
 
-              {/* Wat mag je verwachten */}
-              <div className="rounded-2xl p-6"
-                style={{ background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", boxShadow: "0 2px 16px rgba(155,203,108,0.12)" }}>
-                <p className="font-black mb-4"
-                  style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#111111" }}>
-                  Wat mag je verwachten?
-                </p>
-                <ul className="space-y-3">
-                  {includes.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle className="w-4 h-4 mt-0.5 shrink-0" style={{ color: "#9BCB6C" }} />
-                      <span className="text-sm" style={{ color: "#555555" }}>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Direct bellen */}
+              {/* Direct contact */}
               <div className="rounded-xl p-6" style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "12px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
-                <p className="font-black mb-4"
+                <p className="font-black mb-5"
                   style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#111111" }}>
-                  Liever direct bellen?
+                  Liever direct contact?
                 </p>
-                <div className="space-y-3">
-                  <a href="tel:+32468352869" className="flex items-center gap-3 text-sm" style={{ color: "#555555", textDecoration: "none" }}>
-                    <Phone className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
-                    +32 468 35 28 69
-                  </a>
-                  <a href="mailto:info@mos-x.be" className="flex items-center gap-3 text-sm" style={{ color: "#555555", textDecoration: "none" }}>
-                    <Mail className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
-                    info@mos-x.be
-                  </a>
-                  <div className="flex items-center gap-3 text-sm" style={{ color: "#555555" }}>
-                    <MapPin className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
-                    2280 Grobbendonk, Bovenpad 100
-                  </div>
-                  <div className="flex items-center gap-3 text-sm" style={{ color: "#555555" }}>
-                    <Clock className="w-4 h-4 shrink-0" style={{ color: "#9BCB6C" }} />
-                    Ma - Za: 08:00 - 17:00 · Zo: Gesloten
-                  </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+                  {[
+                    { href: "tel:+32468352869",   Icon: Phone,  text: "+32 468 35 28 69",      sub: null },
+                    { href: "mailto:info@mos-x.be", Icon: Mail, text: "info@mos-x.be",          sub: null },
+                    { href: null,                  Icon: MapPin, text: "Bovenpad 100",           sub: "2280 Grobbendonk" },
+                    { href: null,                  Icon: Clock,  text: "Ma – Za: 08:00 – 17:00", sub: "Zo: Gesloten" },
+                  ].map(({ href, Icon, text, sub }, i) => {
+                    const inner = (
+                      <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                        <div style={{ width: "38px", height: "38px", borderRadius: "50%", background: "#9BCB6C", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                          <Icon size={16} color="#FFFFFF" strokeWidth={2} />
+                        </div>
+                        <div>
+                          <p style={{ fontSize: "13.5px", fontWeight: 600, color: "#111111", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: 0 }}>{text}</p>
+                          {sub && <p style={{ fontSize: "12px", color: "#888888", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: 0 }}>{sub}</p>}
+                        </div>
+                      </div>
+                    );
+                    return href
+                      ? <a key={i} href={href} style={{ textDecoration: "none" }}>{inner}</a>
+                      : <div key={i}>{inner}</div>;
+                  })}
                   <iframe
                     src="https://maps.google.com/maps?q=MOS-X+Dakontmossing+Coating+Grobbendonk&output=embed"
                     width="100%"
                     height="160"
-                    style={{ border: "none", borderRadius: "8px", marginTop: "12px", display: "block" }}
+                    style={{ border: "none", borderRadius: "8px", display: "block" }}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
@@ -231,26 +236,77 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Werkgebied */}
-              <div className="rounded-xl p-6" style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "12px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
-                <p className="text-[10px] font-bold uppercase tracking-widest mb-4"
-                  style={{ color: "#AAAAAA", fontFamily: "var(--font-montserrat)" }}>
-                  Werkgebied
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {regions.map(r => (
-                    <span key={r} className="px-2.5 py-1 text-[11px]"
-                      style={{ background: "#F0F7E8", border: "1px solid #9BCB6C", color: "#5A9E2F", borderRadius: "50px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                      {r}
-                    </span>
-                  ))}
-                </div>
-                <p className="text-xs mt-3" style={{ color: "#AAAAAA", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                  Yannick werkt in heel Vlaanderen.
-                </p>
-              </div>
 
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Reviews ── */}
+      <section style={{ background: "#F7F8F6", padding: "4px 0 30px" }}>
+        <div className="site-wrap">
+          <div style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", padding: "40px 48px" }}>
+            <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.028em", color: "#1A1A1A", marginBottom: "32px" }}>
+              Wat klanten over ons <span style={{ color: "#9BCB6C" }}>zeggen.</span>
+            </h2>
+            {/* Trustindex widget — script wordt via useEffect binnenin dit element geladen */}
+            <div id="trustindex-widget" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Werkgebied kaart ── */}
+      <section style={{ background: "#F7F8F6", padding: "0 0 48px" }}>
+        <div className="site-wrap">
+          <div style={{
+            position: "relative",
+            background: "#FFFFFF",
+            border: "1px solid #E5E7EB",
+            borderRadius: "16px",
+            boxShadow: "0 2px 16px rgba(0,0,0,0.07)",
+            overflow: "hidden",
+            minHeight: "250px",
+          }}>
+
+            {/* Links: tekst — neemt linkerhelft */}
+            <div style={{ width: "50%", padding: "32px 64px 32px 40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "10px" }}>
+                Actief in <span style={{ color: "#9BCB6C" }}>jouw regio.</span>
+              </h2>
+              <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.6, marginBottom: "16px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                We komen dagelijks langs in jouw regio om snel en efficiënt te helpen waar het er écht toe doet.
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                {["Antwerpen", "Limburg", "Vlaams-Brabant", "Oost-Vlaanderen"].map(r => (
+                  <div key={r} style={{ display: "flex", alignItems: "center", gap: "8px", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "10px", padding: "9px 14px", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
+                    <MapPin size={14} color="#9BCB6C" style={{ flexShrink: 0 }} />
+                    <span style={{ fontSize: "13.5px", color: "#1A1A1A", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700 }}>{r}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Rechts: kaart — absoluut gepositioneerd, start vroeg genoeg voor de pijl */}
+            <div style={{ position: "absolute", top: 0, bottom: 0, left: "calc(50% - 60px)", right: 0, overflow: "hidden" }}>
+              <img
+                src="/images/Werkgebieden foto.png"
+                alt="Werkgebied MOS-X — Antwerpen, Oost-Vlaanderen, Vlaams-Brabant, Limburg"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", transform: "translateX(8%)" }}
+              />
+            </div>
+
+            {/* Pijl/chevron SVG overgang */}
+            <svg
+              style={{ position: "absolute", top: 0, left: "calc(50% - 60px)", width: "120px", height: "100%", zIndex: 10, pointerEvents: "none" }}
+              preserveAspectRatio="none"
+              viewBox="0 0 100 100"
+            >
+              {/* Wit vlak met ">"-vorm rechtsrand */}
+              <polygon points="0,0 40,0 70,50 40,100 0,100" fill="white" />
+              {/* Groene pijllijn */}
+              <polyline points="40,0 70,50 40,100" fill="none" stroke="#9BCB6C" strokeWidth="1.2" vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+            </svg>
+
           </div>
         </div>
       </section>

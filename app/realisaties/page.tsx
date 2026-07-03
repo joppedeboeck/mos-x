@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, Phone } from "lucide-react";
+import { ChevronLeft, ChevronRight, Phone, MapPin, CheckCircle } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
@@ -16,116 +16,59 @@ const voorNaPhotos = [
 ];
 
 function LargeSlider() {
-  const [split, setSplit] = useState(50);
-  const ref = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
 
-  const move = (cx: number) => {
-    if (!ref.current) return;
-    const r = ref.current.getBoundingClientRect();
-    setSplit(Math.min(95, Math.max(5, ((cx - r.left) / r.width) * 100)));
-  };
+  const updatePos = useCallback((clientX: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const { left, width } = el.getBoundingClientRect();
+    setPos(Math.min(100, Math.max(0, ((clientX - left) / width) * 100)));
+  }, []);
+
+  const onMouseDown = (e: React.MouseEvent) => { dragging.current = true; updatePos(e.clientX); };
+  const onMouseMove = (e: React.MouseEvent) => { if (dragging.current) updatePos(e.clientX); };
+  const onMouseUp = () => { dragging.current = false; };
+  const onTouchStart = (e: React.TouchEvent) => { dragging.current = true; updatePos(e.touches[0].clientX); };
+  const onTouchMove = (e: React.TouchEvent) => { if (dragging.current) updatePos(e.touches[0].clientX); };
 
   return (
     <div
-      ref={ref}
-      className="large-slider"
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "500px",
-        borderRadius: "16px",
-        overflow: "hidden",
-        cursor: "col-resize",
-        userSelect: "none",
-        boxShadow: "0 4px 32px rgba(0,0,0,0.10)",
-      }}
-      onMouseDown={() => (dragging.current = true)}
-      onMouseMove={e => { if (dragging.current) move(e.clientX); }}
-      onMouseUp={() => (dragging.current = false)}
-      onMouseLeave={() => (dragging.current = false)}
-      onTouchStart={() => (dragging.current = true)}
-      onTouchMove={e => move(e.touches[0].clientX)}
-      onTouchEnd={() => (dragging.current = false)}
+      ref={containerRef}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseUp}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onMouseUp}
+      style={{ position: "relative", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 32px rgba(0,0,0,0.10)", height: "100%", cursor: "ew-resize", userSelect: "none" }}
     >
-      {/* Before (VOOR) — base layer, full width */}
-      <img
-        src="/images/Before slider 3.0.png"
-        alt="Voor behandeling"
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }}
-        draggable={false}
-      />
-      {/* VOOR label — top left */}
-      <div style={{
-        position: "absolute", top: "16px", left: "16px", zIndex: 5,
-        background: "rgba(0,0,0,0.65)", color: "#FFFFFF",
-        padding: "6px 14px", borderRadius: "50px",
-        fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em",
-        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-      }}>
-        VOOR
+      {/* Voor */}
+      <img src="/images/IMG_5414.JPEG" alt="Voor behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", pointerEvents: "none" }} draggable={false} />
+
+      {/* Na — geclipped */}
+      <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${pos}%)`, pointerEvents: "none" }}>
+        <img src="/images/IMG_5436.JPEG" alt="Na behandeling" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} draggable={false} />
       </div>
 
-      {/* After (NA) — overlay clipped to right side */}
-      <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${split}%)` }}>
-        <img
-          src="/images/After slide 2.0.png"
-          alt="Na behandeling"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "50% 70%" }}
-          draggable={false}
-        />
-        {/* NA label — top right */}
-        <div style={{
-          position: "absolute", top: "16px", right: "16px", zIndex: 5,
-          background: "#9BCB6C", color: "#1A1A1A",
-          padding: "6px 14px", borderRadius: "50px",
-          fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em",
-          fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-        }}>
-          NA ✓
-        </div>
+      {/* Lijn */}
+      <div style={{ position: "absolute", top: 0, bottom: 0, left: `${pos}%`, width: "2px", background: "#FFFFFF", transform: "translateX(-50%)", pointerEvents: "none" }} />
+
+      {/* Handle */}
+      <div style={{ position: "absolute", top: "50%", left: `${pos}%`, transform: "translate(-50%, -50%)", width: "40px", height: "40px", borderRadius: "50%", background: "#FFFFFF", border: "2px solid #9BCB6C", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 12px rgba(0,0,0,0.20)", pointerEvents: "none" }}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9BCB6C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l-6-6 6-6"/><path d="M15 6l6 6-6 6"/></svg>
       </div>
 
-      {/* Divider line + handle */}
-      <div
-        style={{
-          position: "absolute", top: 0, bottom: 0, width: "2px",
-          left: `${split}%`, background: "rgba(255,255,255,0.75)",
-          zIndex: 10, pointerEvents: "none",
-        }}
-      >
-        <div style={{
-          position: "absolute", top: "50%", left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "44px", height: "44px", borderRadius: "50%",
-          background: "#FFFFFF",
-          border: "2px solid #9BCB6C",
-          boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
-          display: "flex", alignItems: "center", justifyContent: "center", gap: "2px",
-        }}>
-          <ChevronLeft style={{ width: "14px", height: "14px", color: "#9BCB6C" }} />
-          <ChevronRight style={{ width: "14px", height: "14px", color: "#9BCB6C" }} />
-        </div>
-      </div>
-
-      {/* Drag hint */}
-      <div style={{
-        position: "absolute", bottom: "16px", left: "50%",
-        transform: "translateX(-50%)",
-        fontSize: "11px", color: "rgba(255,255,255,0.7)",
-        fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-        pointerEvents: "none",
-        transition: "opacity 500ms",
-        opacity: split === 50 ? 1 : 0,
-        whiteSpace: "nowrap",
-      }}>
-        ← sleep →
-      </div>
+      {/* Labels */}
+      <div style={{ position: "absolute", bottom: "14px", left: "14px", background: "rgba(0,0,0,0.65)", color: "#fff", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif", pointerEvents: "none" }}>VOOR</div>
+      <div style={{ position: "absolute", bottom: "14px", right: "14px", background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif", pointerEvents: "none" }}>NA</div>
     </div>
   );
 }
 
-function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPosition = "50% 70%" }: { beforeSrc: string; afterSrc: string; beforePosition?: string; afterPosition?: string }) {
+function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPosition = "50% 70%", height = "350px" }: { beforeSrc: string; afterSrc: string; beforePosition?: string; afterPosition?: string; height?: string }) {
   const [split, setSplit] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -139,7 +82,7 @@ function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPos
   return (
     <div
       ref={ref}
-      style={{ position: "relative", width: "100%", height: "350px", borderRadius: "12px", overflow: "hidden", cursor: "col-resize", userSelect: "none", boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
+      style={{ position: "relative", width: "100%", height, borderRadius: "12px", overflow: "hidden", cursor: "col-resize", userSelect: "none", boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
       onMouseDown={() => (dragging.current = true)}
       onMouseMove={e => { if (dragging.current) move(e.clientX); }}
       onMouseUp={() => (dragging.current = false)}
@@ -160,6 +103,40 @@ function SmallSlider({ beforeSrc, afterSrc, beforePosition = "50% 70%", afterPos
           <ChevronRight style={{ width: "12px", height: "12px", color: "#9BCB6C" }} />
         </div>
       </div>
+    </div>
+  );
+}
+
+const projectCarouselPhotos = [
+  { src: "/images/IMG_5414.JPEG",           label: "VOOR", caption: "Dak voor reiniging" },
+  { src: "/images/IMG_5436.JPEG",           label: "NA",   caption: "Dak na reiniging" },
+  { src: "/images/Velux%20voor%201.0.png",  label: "VOOR", caption: "Velux voor reiniging" },
+  { src: "/images/Velux%20na%201.0.png",    label: "NA",   caption: "Velux na reiniging" },
+  { src: "/images/Goot%20voor.JPEG",        label: "VOOR", caption: "Dakgoot voor reiniging" },
+  { src: "/images/Goot%20na.JPEG",          label: "NA",   caption: "Dakgoot na reiniging" },
+];
+
+function ProjectCarousel() {
+  const [idx, setIdx] = useState(0);
+  const photo = projectCarouselPhotos[idx];
+  const prev = () => setIdx(i => (i - 1 + projectCarouselPhotos.length) % projectCarouselPhotos.length);
+  const next = () => setIdx(i => (i + 1) % projectCarouselPhotos.length);
+
+  return (
+    <div style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "100%", minHeight: "380px", boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}>
+      <img src={photo.src} alt={photo.caption} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }} draggable={false} />
+      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.55) 100%)" }} />
+      <div style={{ position: "absolute", top: "12px", left: "12px", background: photo.label === "NA" ? "#9BCB6C" : "rgba(0,0,0,0.65)", color: photo.label === "NA" ? "#1A1A1A" : "#FFFFFF", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+        {photo.label === "NA" ? "NA ✓" : "VOOR"}
+      </div>
+      <p style={{ position: "absolute", bottom: "44px", left: "16px", color: "#FFFFFF", fontSize: "13px", fontWeight: 600, fontFamily: "var(--font-montserrat), system-ui, sans-serif", margin: 0 }}>{photo.caption}</p>
+      <p style={{ position: "absolute", bottom: "18px", left: "50%", transform: "translateX(-50%)", color: "rgba(255,255,255,0.65)", fontSize: "12px", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: 0, whiteSpace: "nowrap" }}>{idx + 1} / {projectCarouselPhotos.length}</p>
+      <button onClick={prev} aria-label="Vorige foto" style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", background: "rgba(255,255,255,0.90)", border: "none", borderRadius: "50%", width: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}>
+        <ChevronLeft size={18} color="#1A1A1A" />
+      </button>
+      <button onClick={next} aria-label="Volgende foto" style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", background: "rgba(255,255,255,0.90)", border: "none", borderRadius: "50%", width: "36px", height: "36px", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,0.18)" }}>
+        <ChevronRight size={18} color="#1A1A1A" />
+      </button>
     </div>
   );
 }
@@ -221,39 +198,73 @@ export default function RealisatiesPage() {
         </div>
       </section>
 
-      {/* ── Large before/after slider ── */}
-      <section style={{ background: "#F7F8F6", paddingTop: "48px", paddingBottom: "0" }}>
-        <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 40px" }}>
-          <LargeSlider />
-        </div>
-      </section>
+      {/* ── Uitgelicht project ── */}
+      <section style={{ background: "#F7F8F6", paddingTop: "48px" }}>
+        <div className="site-wrap">
+          <div style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", padding: "40px 48px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "48px", alignItems: "stretch" }}>
 
-      {/* ── Project description ── */}
-      <section style={{ background: "#F7F8F6" }}>
-        <div style={{ maxWidth: "1000px", margin: "24px auto", padding: "0 40px" }}>
-          <div style={{ background: "#F0F9E8", borderRadius: "16px", padding: "20px 48px", textAlign: "center" }}>
-            <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "24px", color: "#1A1A1A", marginBottom: "16px", letterSpacing: "-0.01em" }}>
-              Dakreiniging in Schilde
-            </h2>
-            <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "16px", color: "#555555", lineHeight: 1.7 }}>
-              Dit dak was zwaar vervuild door mos en algen. Na de reiniging kregen de dakpannen opnieuw hun oorspronkelijke kleur terug. Ook de dakgoten en velux werden grondig gereinigd voor een volledig verzorgd resultaat.
-            </p>
+            {/* Links: project info */}
+            <div>
+              <p style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#9BCB6C", fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "10px" }}>
+                Uitgelicht project
+              </p>
+              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.028em", color: "#1A1A1A", marginBottom: "14px" }}>
+                Dakreiniging in Schilde
+              </h2>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(155,203,108,0.1)", border: "1px solid rgba(155,203,108,0.3)", borderRadius: "50px", padding: "5px 12px", marginBottom: "18px" }}>
+                <MapPin size={12} color="#9BCB6C" />
+                <span style={{ fontSize: "12px", fontWeight: 600, color: "#555555", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>Schilde, Antwerpen</span>
+                <span style={{ fontSize: "12px", color: "#9BCB6C", fontFamily: "var(--font-inter), system-ui, sans-serif", margin: "0 4px" }}>·</span>
+                <span style={{ fontSize: "12px", color: "#888888", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>met hoogwerker uitgevoerd</span>
+              </div>
+              <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.7, marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                Dit dak was zwaar vervuild door mos en algen. Na de reiniging kregen de dakpannen opnieuw hun oorspronkelijke kleur terug. Ook de dakgoten en velux werden grondig gereinigd voor een volledig verzorgd resultaat.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "9px", marginBottom: "24px" }}>
+                {["Professionele dakreiniging", "Dakgoten gereinigd", "Controle en vervanging van enkele dakpannen"].map((item, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <CheckCircle size={16} color="#9BCB6C" style={{ flexShrink: 0 }} />
+                    <span style={{ fontSize: "14px", color: "#333333", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: "10px", paddingTop: "20px" }}>
+                {[
+                  { label: "Type dakpannen", value: "Betonpannen" },
+                  { label: "Oppervlakte", value: "300 m²" },
+                  { label: "Duur",        value: "10u" },
+                  { label: "Jaar",        value: "2026" },
+                ].map((s, i) => (
+                  <div key={i} style={{ background: "#F7F8F6", border: "1px solid #E5E7EB", borderRadius: "10px", padding: "12px 14px" }}>
+                    <p style={{ fontSize: "11px", color: "#9E9E9E", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "4px" }}>{s.label}</p>
+                    <p style={{ fontSize: "13px", fontWeight: 700, color: "#1A1A1A", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>{s.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Rechts: voor/na slider */}
+            <LargeSlider />
           </div>
-        </div>
-      </section>
 
-      {/* ── 2 small sliders ── */}
-      <section style={{ background: "#F7F8F6", paddingBottom: "0" }}>
-        <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "0 40px" }}>
-          <div className="sliders-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
-            <div>
-              <SmallSlider beforeSrc="/images/Velux%20voor%201.0.png" afterSrc="/images/Velux%20na%201.0.png" beforePosition="center center" afterPosition="center center" />
-              <p style={{ marginTop: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "15px", color: "#1A1A1A", textAlign: "center" }}>Velux</p>
+          {/* Foto carrousel + gestapelde Velux/Dakgoot sliders */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginTop: "32px", paddingTop: "32px", alignItems: "stretch" }}>
+            {/* Links: foto carrousel */}
+            <ProjectCarousel />
+
+            {/* Rechts: Velux boven, Dakgoot onder */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div>
+                <SmallSlider beforeSrc="/images/Velux%20voor%201.0.png" afterSrc="/images/Velux%20na%201.0.png" beforePosition="center center" afterPosition="center center" height="160px" />
+                <p style={{ marginTop: "10px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#1A1A1A", textAlign: "center", margin: "10px 0 0" }}>Velux</p>
+              </div>
+              <div>
+                <SmallSlider beforeSrc="/images/Goot%20voor.JPEG" afterSrc="/images/Goot%20na.JPEG" height="160px" />
+                <p style={{ marginTop: "10px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#1A1A1A", textAlign: "center", margin: "10px 0 0" }}>Dakgoot</p>
+              </div>
             </div>
-            <div>
-              <SmallSlider beforeSrc="/images/Goot%20voor.JPEG" afterSrc="/images/Goot%20na.JPEG" />
-              <p style={{ marginTop: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "15px", color: "#1A1A1A", textAlign: "center" }}>Dakgoot</p>
-            </div>
+          </div>
           </div>
         </div>
       </section>
@@ -279,6 +290,53 @@ export default function RealisatiesPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Werkgebied kaart ── */}
+      <section style={{ background: "#F7F8F6", padding: "0 0 48px" }}>
+        <div className="site-wrap">
+          <div style={{
+            position: "relative",
+            background: "#FFFFFF",
+            border: "1px solid #E5E7EB",
+            borderRadius: "16px",
+            boxShadow: "0 2px 16px rgba(0,0,0,0.07)",
+            overflow: "hidden",
+            minHeight: "250px",
+          }}>
+            <div style={{ width: "50%", padding: "32px 64px 32px 40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.028em", lineHeight: 1.1, color: "#1A1A1A", marginBottom: "10px" }}>
+                Actief in <span style={{ color: "#9BCB6C" }}>jouw regio.</span>
+              </h2>
+              <p style={{ fontSize: "14px", color: "#555555", lineHeight: 1.6, marginBottom: "16px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                We komen dagelijks langs in jouw regio om snel en efficiënt te helpen waar het er écht toe doet.
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                {["Antwerpen", "Limburg", "Vlaams-Brabant", "Oost-Vlaanderen"].map(r => (
+                  <div key={r} style={{ display: "flex", alignItems: "center", gap: "8px", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "10px", padding: "9px 14px", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
+                    <MapPin size={14} color="#9BCB6C" style={{ flexShrink: 0 }} />
+                    <span style={{ fontSize: "13.5px", color: "#1A1A1A", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700 }}>{r}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={{ position: "absolute", top: 0, bottom: 0, left: "calc(50% - 60px)", right: 0, overflow: "hidden" }}>
+              <img
+                src="/images/Werkgebieden foto.png"
+                alt="Werkgebied MOS-X — Antwerpen, Oost-Vlaanderen, Vlaams-Brabant, Limburg"
+                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", transform: "translateX(8%)" }}
+              />
+            </div>
+            <svg
+              style={{ position: "absolute", top: 0, left: "calc(50% - 60px)", width: "120px", height: "100%", zIndex: 10, pointerEvents: "none" }}
+              preserveAspectRatio="none"
+              viewBox="0 0 100 100"
+            >
+              <polygon points="0,0 40,0 70,50 40,100 0,100" fill="white" />
+              <polyline points="40,0 70,50 40,100" fill="none" stroke="#9BCB6C" strokeWidth="1.2" vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+            </svg>
           </div>
         </div>
       </section>

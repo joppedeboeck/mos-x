@@ -5,7 +5,7 @@ import { useState } from "react";
 const GREEN = "#9BCB6C";
 const TOTAL_STEPS = 5;
 
-const STEP_NAMES = ["Daktype", "Woningtype", "Oppervlakte", "Extra opties", "Richtprijs"];
+const STEP_NAMES = ["Woningtype", "Daktype", "Oppervlakte", "Extra opties", "Richtprijs"];
 
 function StepIndicator({ step }: { step: number }) {
   return (
@@ -161,7 +161,7 @@ export default function SitePricing() {
   const next = () => setStep(s => Math.min(s + 1, TOTAL_STEPS));
   const prev = () => setStep(s => Math.max(s - 1, 1));
 
-  const tabLabels = ["Daktype", "Woningtype", "Oppervlakte", "Extra opties", "Richtprijs"];
+  const tabLabels = ["Woningtype", "Daktype", "Oppervlakte", "Extra opties", "Richtprijs"];
 
   const woningTypes = [
     { label: "Rijwoning",          img: "/images/Rijtjes.png" },
@@ -316,10 +316,10 @@ export default function SitePricing() {
               {step === 1 && (
                 <div>
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
-                    Wat voor dakpannen liggen op je dak?
+                    Wat voor type woning is het?
                   </h3>
-                  {dakTypes.map(d => (
-                    <ChoiceRow key={d} label={d} selected={dak === d} onClick={() => { setDak(d); setTimeout(next, 220); }} />
+                  {woningTypes.map(w => (
+                    <ChoiceRow key={w.label} label={w.label} imgSrc={w.img} selected={woning === w.label} onClick={() => { setWoning(w.label); setTimeout(next, 220); }} />
                   ))}
                 </div>
               )}
@@ -327,10 +327,10 @@ export default function SitePricing() {
               {step === 2 && (
                 <div>
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
-                    Wat voor type woning is het?
+                    Wat voor dakpannen liggen op je dak?
                   </h3>
-                  {woningTypes.map(w => (
-                    <ChoiceRow key={w.label} label={w.label} imgSrc={w.img} selected={woning === w.label} onClick={() => { setWoning(w.label); setTimeout(next, 220); }} />
+                  {dakTypes.map(d => (
+                    <ChoiceRow key={d} label={d} selected={dak === d} onClick={() => { setDak(d); setTimeout(next, 220); }} />
                   ))}
                 </div>
               )}

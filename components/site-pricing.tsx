@@ -228,7 +228,7 @@ export default function SitePricing() {
               </span>
               <h2 style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800,
-                fontSize: "clamp(1.3rem, 2vw, 1.7rem)", letterSpacing: "-0.02em",
+                fontSize: "clamp(1.2rem, 1.8vw, 1.55rem)", letterSpacing: "-0.02em",
                 color: "#111", marginBottom: "24px", lineHeight: 1.25,
               }}>
                 Ontvang een <span style={{ color: GREEN }}>richtprijs</span> voor jouw dakreiniging

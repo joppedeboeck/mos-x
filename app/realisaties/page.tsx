@@ -234,8 +234,7 @@ export default function RealisatiesPage() {
           </p>
           <h1 className="leading-tight max-w-3xl"
             style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A", marginBottom: "16px" }}>
-            Onze realisaties spreken
-            <span style={{ color: "#9BCB6C" }}> voor zich.</span>
+            Onze realisaties<br /><span style={{ color: "#9BCB6C" }}>spreken voor zich.</span>
           </h1>
           <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "18px", color: "#555555", marginBottom: "32px" }}>
             Echte projecten. Eerlijke resultaten.

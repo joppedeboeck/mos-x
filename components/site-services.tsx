@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { Droplets, Shield, CalendarCheck, LayoutGrid, ArrowRight, ShieldCheck } from "lucide-react";
+import { Droplets, Shield, CalendarCheck, LayoutGrid, ArrowRight, ShieldCheck, ChevronRight } from "lucide-react";
 
 const services = [
   {
@@ -351,7 +351,7 @@ export default function SiteServices() {
           >
             <LayoutGrid size={16} style={{ flexShrink: 0 }} />
             Bekijk alle diensten
-            <ArrowRight size={16} style={{ flexShrink: 0 }} />
+            <ChevronRight size={15} strokeWidth={2.5} style={{ marginLeft: "2px" }} />
           </Link>
         </div>
       </div>

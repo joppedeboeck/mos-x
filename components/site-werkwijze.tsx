@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Calculator, MapPin, FileText, Home, ShieldCheck } from "lucide-react";
+import { Calculator, MapPin, FileText, Home, ShieldCheck, ChevronRight } from "lucide-react";
 
 const steps = [
   {
@@ -122,11 +122,10 @@ function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0]
 
       {showButton && (
         <a
-          href="#calculator"
+          href="/#calculator"
           style={{
             marginTop: "24px",
-            display: "inline-block",
-            textAlign: "center",
+            display: "inline-flex", alignItems: "center", gap: "8px",
             background: "#9BCB6C", color: "#FFFFFF",
             fontWeight: 700, fontSize: "13px",
             borderRadius: "8px", padding: "10px 20px",
@@ -135,12 +134,12 @@ function StepCard({ Icon, step, title, desc, showButton, wide }: typeof steps[0]
             border: "2px solid #9BCB6C",
             transition: "background 200ms ease, color 200ms ease",
             whiteSpace: "nowrap",
-            position: "relative",
           }}
           onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
           onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
         >
           Bereken je richtprijs
+          <ChevronRight size={14} strokeWidth={2.5} />
         </a>
       )}
     </div>

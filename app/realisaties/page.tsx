@@ -28,6 +28,16 @@ const projecten = [
     duur: "2 dagen",
   },
   {
+    title: "Dakreiniging + Dakcoating",
+    location: "Bevel",
+    category: "dakcoating" as const,
+    voorImg: "/images/Before bevel.jpg",
+    naImg: "/images/Na bevel.jpg",
+    type: "Keramische pannen",
+    opp: "180 m²",
+    duur: "2 dagen",
+  },
+  {
     title: "Dakreiniging",
     location: "Koningshooikt",
     category: "dakreiniging" as const,
@@ -214,6 +224,18 @@ export default function RealisatiesPage() {
   const [ctaGreenHovered, setCtaGreenHovered] = useState(false);
   const [ctaPhoneHovered, setCtaPhoneHovered] = useState(false);
   const [filterTab, setFilterTab] = useState("alle");
+  const trustindexRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = trustindexRef.current;
+    if (!container) return;
+    if (container.querySelector('script[src*="trustindex"]')) return;
+    const s = document.createElement("script");
+    s.async = true;
+    s.defer = true;
+    s.src = "https://cdn.trustindex.io/loader.js?1b15ba67596980480f76d1d0d69";
+    container.appendChild(s);
+  }, []);
 
   return (
     <PageLayout>
@@ -247,22 +269,21 @@ export default function RealisatiesPage() {
             style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A", marginBottom: "16px" }}>
             Onze realisaties<br /><span style={{ color: "#9BCB6C" }}>spreken voor zich.</span>
           </h1>
-          <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "18px", color: "#555555", marginBottom: "32px" }}>
+          <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "18px", color: "#555555", marginBottom: "24px" }}>
             Echte projecten. Eerlijke resultaten.
           </p>
 
-          {/* Stats floating card */}
-          <div style={{ position: "absolute", bottom: "-32px", right: 0, width: "480px", background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "20px 32px", display: "flex", boxShadow: "0 4px 24px rgba(155,203,108,0.18)", zIndex: 2 }}>
-            {[
-              { value: "55+",  label: "Afgewerkte daken" },
-              { value: "100%", label: "Uitvoering door Yannick" },
-              { value: "5\u2605",   label: "Gemiddelde klantscore" },
-            ].map((s, i) => (
-              <div key={i} style={{ flex: 1, borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", padding: "0 20px", textAlign: "center" }}>
-                <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#9BCB6C", fontSize: "1.6rem", fontWeight: 800, marginBottom: "4px", lineHeight: 1 }}>{s.value}</p>
-                <p style={{ color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "12px" }}>{s.label}</p>
-              </div>
-            ))}
+          {/* Stats inline card */}
+          <div style={{ display: "inline-flex", alignItems: "center", background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "16px 0", boxShadow: "0 4px 24px rgba(155,203,108,0.18)", minWidth: "560px" }}>
+            {/* Stat: daken */}
+            <div style={{ flex: "0 0 38%", padding: "0 28px", textAlign: "center" }}>
+              <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#9BCB6C", fontSize: "1.6rem", fontWeight: 800, marginBottom: "4px", lineHeight: 1 }}>55+</p>
+              <p style={{ color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "12px", margin: 0 }}>Afgewerkte daken</p>
+            </div>
+            {/* Divider */}
+            <div style={{ width: "1px", alignSelf: "stretch", background: "#E5E7EB" }} />
+            {/* Trustindex widget — script wordt via useEffect binnenin dit element geladen */}
+            <div ref={trustindexRef} style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 28px", zoom: 0.65 }} />
           </div>
 
         </div>
@@ -430,7 +451,7 @@ export default function RealisatiesPage() {
                 We komen dagelijks langs in jouw regio om snel en efficiënt te helpen waar het er écht toe doet.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-                {["Antwerpen", "Limburg", "Vlaams-Brabant", "Oost-Vlaanderen"].map(r => (
+                {["Antwerpen", "Limburg", "Vlaams-Brabant"].map(r => (
                   <div key={r} style={{ display: "flex", alignItems: "center", gap: "8px", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "10px", padding: "9px 14px", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
                     <MapPin size={14} color="#9BCB6C" style={{ flexShrink: 0 }} />
                     <span style={{ fontSize: "13.5px", color: "#1A1A1A", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700 }}>{r}</span>
@@ -440,8 +461,8 @@ export default function RealisatiesPage() {
             </div>
             <div style={{ position: "absolute", top: 0, bottom: 0, left: "calc(50% - 60px)", right: 0, overflow: "hidden" }}>
               <img
-                src="/images/Werkgebieden foto.png"
-                alt="Werkgebied MOS-X - Antwerpen, Oost-Vlaanderen, Vlaams-Brabant, Limburg"
+                src="/images/Werkgebied foto 3 plaatsen.png"
+                alt="Werkgebied MOS-X - Antwerpen, Vlaams-Brabant, Limburg"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", transform: "translateX(8%)" }}
               />
             </div>
@@ -468,15 +489,16 @@ export default function RealisatiesPage() {
                 Benieuwd wat mogelijk is voor <span style={{ color: "#9BCB6C" }}>jouw dak</span>?
               </p>
               <p className="text-sm" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                Ontvang een persoonlijke richtprijs en eerlijk advies van Yannick.
+                Ontvang een persoonlijke richtprijs en advies van Yannick.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 justify-center shrink-0" style={{ position: "relative", zIndex: 1 }}>
-              <Link href="/#contact" className="inline-flex items-center gap-2"
+              <Link href="/#calculator" className="inline-flex items-center gap-2"
                 style={{ background: ctaGreenHovered ? "#7AB54E" : "#9BCB6C", color: "#FFFFFF", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none", transition: "background-color 0.2s ease" }}
                 onMouseEnter={() => setCtaGreenHovered(true)}
                 onMouseLeave={() => setCtaGreenHovered(false)}>
                 Bereken je richtprijs
+                <ChevronRight size={14} strokeWidth={2.5} />
               </Link>
               <a href="tel:+32468352869" className="inline-flex items-center gap-2"
                 style={{ background: "transparent", border: ctaPhoneHovered ? "1px solid #9BCB6C" : "1px solid rgba(155,203,108,0.5)", color: ctaPhoneHovered ? "#9BCB6C" : "#FFFFFF", borderRadius: "8px", padding: "12px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", textDecoration: "none", transition: "border-color 0.2s ease, color 0.2s ease" }}

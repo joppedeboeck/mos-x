@@ -41,14 +41,14 @@ export default function SiteContact() {
               fontSize: "9.5px", fontWeight: 700, textTransform: "uppercase",
               letterSpacing: "0.12em", color: GREEN, marginBottom: "16px",
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-              display: "flex", alignItems: "flex-start", gap: "6px",
+              display: "flex", alignItems: "center", gap: "10px",
             }}>
               <svg width="16" height="12" viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, borderRadius: "2px" }}>
                 <rect x="0"  width="6"  height="13" fill="#000000" />
                 <rect x="6"  width="6"  height="13" fill="#FFE000" />
                 <rect x="12" width="6"  height="13" fill="#EF3340" />
               </svg>
-              Het eerste dakonderhoudsconcept van België
+              Actief regio Antwerpen, Limburg,{" "}<br />Vlaams-Brabant
             </p>
             <h2 style={{
               fontSize: "clamp(1.9rem, 2.2vw, 1.9rem)", fontWeight: 800,
@@ -108,7 +108,7 @@ export default function SiteContact() {
                 boxSizing: "border-box",
               }}
             >
-              BEREKEN JE RICHTPRIJS →
+              BEREKEN JE RICHTPRIJS
             </a>
           </div>
 
@@ -168,8 +168,9 @@ export default function SiteContact() {
             <p className="contact-hours" style={{
               fontSize: "13px", color: `rgba(255,255,255,0.5)`,
               fontFamily: "var(--font-inter), system-ui, sans-serif",
+              marginBottom: "16px",
             }}>
-              Ma – Za: 08:00 – 17:00 · Zo: Gesloten
+              Ma - Za: 08:00 - 17:00<br />Zo: Gesloten
             </p>
 
             {/* Phone button — pushed to bottom with marginTop auto */}

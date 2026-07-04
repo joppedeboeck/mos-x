@@ -140,7 +140,7 @@ export default function SiteCta() {
 
             {/* Primary CTA button */}
             <a
-              href="#calculator"
+              href="/#calculator"
               onMouseEnter={() => setBtnHovered(true)}
               onMouseLeave={() => setBtnHovered(false)}
               style={{
@@ -154,7 +154,7 @@ export default function SiteCta() {
                 marginBottom: "14px",
               }}
             >
-              PRIJS BEREKENEN →
+              PRIJS BEREKENEN
             </a>
 
             <p style={{

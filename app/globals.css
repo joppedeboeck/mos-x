@@ -793,3 +793,14 @@
 .section-dark {
   background: linear-gradient(170deg, #071910 0%, #0D2E1B 50%, #071910 100%);
 }
+
+/* FAQ 2-col grid: stack on mobile */
+@media (max-width: 767px) {
+  .faq-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Hide Trustindex expired trial bottom banner (direct body child only, not the inline widgets) */
+body > div:has(img[src*="trustindex.io/assets/platform/Trustindex/logo.svg"]) {
+  display: none !important;
+}
+

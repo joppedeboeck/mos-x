@@ -15,7 +15,6 @@ const includes = [
 
 const regions = [
   "Vlaams-Brabant",
-  "Oost-Vlaanderen",
   "Antwerpen",
   "Limburg",
 ];
@@ -185,7 +184,7 @@ export default function ContactPage() {
                     { href: "tel:+32468352869",   Icon: Phone,  text: "+32 468 35 28 69",      sub: null },
                     { href: "mailto:info@mos-x.be", Icon: Mail, text: "info@mos-x.be",          sub: null },
                     { href: null,                  Icon: MapPin, text: "Bovenpad 100",           sub: "2280 Grobbendonk" },
-                    { href: null,                  Icon: Clock,  text: "Ma – Za: 08:00 – 17:00", sub: "Zo: Gesloten" },
+                    { href: null,                  Icon: Clock,  text: "Ma - Za: 08:00 - 17:00", sub: "Zo: Gesloten" },
                   ].map(({ href, Icon, text, sub }, i) => {
                     const inner = (
                       <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
@@ -269,7 +268,7 @@ export default function ContactPage() {
                 We komen dagelijks langs in jouw regio om snel en efficiënt te helpen waar het er écht toe doet.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-                {["Antwerpen", "Limburg", "Vlaams-Brabant", "Oost-Vlaanderen"].map(r => (
+                {["Antwerpen", "Limburg", "Vlaams-Brabant"].map(r => (
                   <div key={r} style={{ display: "flex", alignItems: "center", gap: "8px", background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "10px", padding: "9px 14px", boxShadow: "0 1px 4px rgba(0,0,0,0.05)" }}>
                     <MapPin size={14} color="#9BCB6C" style={{ flexShrink: 0 }} />
                     <span style={{ fontSize: "13.5px", color: "#1A1A1A", fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700 }}>{r}</span>
@@ -281,8 +280,8 @@ export default function ContactPage() {
             {/* Rechts: kaart — absoluut gepositioneerd, start vroeg genoeg voor de pijl */}
             <div style={{ position: "absolute", top: 0, bottom: 0, left: "calc(50% - 60px)", right: 0, overflow: "hidden" }}>
               <img
-                src="/images/Werkgebieden foto.png"
-                alt="Werkgebied MOS-X — Antwerpen, Oost-Vlaanderen, Vlaams-Brabant, Limburg"
+                src="/images/Werkgebied foto 3 plaatsen.png"
+                alt="Werkgebied MOS-X — Antwerpen, Vlaams-Brabant, Limburg"
                 style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block", transform: "translateX(8%)" }}
               />
             </div>

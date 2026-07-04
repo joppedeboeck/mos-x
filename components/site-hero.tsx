@@ -1,9 +1,23 @@
 "use client";
 
-import { Star, Phone, Tv } from "lucide-react";
+import { Phone, Tv, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useRef, useEffect } from "react";
 
 export default function SiteHero() {
+  const trustindexRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = trustindexRef.current;
+    if (!container) return;
+    if (container.querySelector('script[src*="trustindex"]')) return;
+    const s = document.createElement("script");
+    s.async = true;
+    s.defer = true;
+    s.src = "https://cdn.trustindex.io/loader.js?1b15ba67596980480f76d1d0d69";
+    container.appendChild(s);
+  }, []);
+
   return (
     <section
       className="relative overflow-hidden"
@@ -88,7 +102,7 @@ export default function SiteHero() {
             {/* CTAs */}
             <div className="flex flex-wrap gap-3 mb-8">
               <Link
-                href="/contact"
+                href="/#calculator"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: "8px",
                   background: "#9BCB6C", color: "#fff", borderRadius: "8px",
@@ -99,7 +113,8 @@ export default function SiteHero() {
                 onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
               >
-                Bereken je richtprijs &rarr;
+                Bereken je richtprijs
+                <ChevronRight size={15} strokeWidth={2.5} />
               </Link>
               <a
                 href="tel:+32468352869"
@@ -124,14 +139,9 @@ export default function SiteHero() {
 
             {/* Trust indicators */}
             <div className="flex items-center gap-3 mb-8" style={{ flexWrap: "wrap" }}>
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" style={{ color: "#F9A825" }} />
-                ))}
-              </div>
-              <span className="text-sm font-semibold" style={{ color: "rgba(255,255,255,0.65)" }}>
-                5.0 · 13 beoordelingen
-              </span>
+              {/* Trustindex widget — script wordt via useEffect binnenin dit element geladen */}
+              <div ref={trustindexRef} />
+
               <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "14px" }}>·</span>
               <span style={{
                 display: "inline-flex", alignItems: "center", gap: "5px",

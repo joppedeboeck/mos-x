@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+
 function LargeSlider() {
   const [split, setSplit] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
@@ -144,7 +145,8 @@ export default function SiteRealisatiesPreview() {
             onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
             onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
           >
-            Bekijk alle realisaties &rarr;
+            Bekijk alle realisaties
+            <ChevronRight size={15} strokeWidth={2.5} style={{ marginLeft: "2px" }} />
           </Link>
         </div>
 

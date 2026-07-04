@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronRight } from "lucide-react";
 
 const links = [
   { label: "Diensten",    href: "/diensten" },
@@ -131,7 +131,7 @@ export default function SiteNav() {
               +32 468 35 28 69
             </a>
             <Link
-              href="/contact"
+              href="/#calculator"
               style={{
                 background: "#9BCB6C",
                 color: "#FFFFFF",
@@ -142,13 +142,14 @@ export default function SiteNav() {
                 fontFamily: "var(--font-montserrat)",
                 textDecoration: "none",
                 transition: "background 200ms ease",
-                display: "inline-block",
+                display: "inline-flex", alignItems: "center", gap: "6px",
                 whiteSpace: "nowrap",
               }}
               onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
               onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
             >
               Bereken je richtprijs
+              <ChevronRight size={13} strokeWidth={2.5} />
             </Link>
           </div>
 
@@ -221,7 +222,7 @@ export default function SiteNav() {
                 <Phone className="w-4 h-4" style={{ color: "#1A1A1A" }} />
                 +32 468 35 28 69
               </a>
-              <Link href="/contact" onClick={() => setMobileOpen(false)}
+              <Link href="/#calculator" onClick={() => setMobileOpen(false)}
                 className="flex items-center justify-center w-full text-sm font-bold"
                 style={{
                   background: "#9BCB6C", color: "#FFFFFF", borderRadius: "50px",
@@ -230,6 +231,7 @@ export default function SiteNav() {
                 }}
               >
                 Bereken je richtprijs
+                <ChevronRight size={13} strokeWidth={2.5} />
               </Link>
             </div>
           </div>

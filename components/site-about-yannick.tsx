@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldCheck, Diamond, MessageCircle, Handshake, User, Calculator } from "lucide-react";
+import { ShieldCheck, Diamond, MessageCircle, Handshake, User, Calculator, ChevronRight } from "lucide-react";
 
 const usps = [
   { Icon: ShieldCheck,    title: "Afspraken die je kunt vertrouwen",       sub: "We doen wat we beloven, van start tot afwerking." },
@@ -144,11 +144,10 @@ export default function SiteAboutYannick() {
                 onMouseEnter={e => { e.currentTarget.style.background = "#9BCB6C"; e.currentTarget.style.color = "#fff"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#9BCB6C"; }}
               >
-                <User size={16} strokeWidth={2} />
                 Meer over ons
               </a>
               <a
-                href="#calculator"
+                href="/#calculator"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: "8px",
                   background: "#9BCB6C", color: "#FFFFFF",
@@ -160,8 +159,8 @@ export default function SiteAboutYannick() {
                 onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
                 onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
               >
-                <Calculator size={16} strokeWidth={2} />
                 Bereken je richtprijs
+                <ChevronRight size={14} strokeWidth={2.5} />
               </a>
             </div>
 

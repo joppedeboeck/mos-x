@@ -142,7 +142,7 @@ export default function SiteFooter() {
             <span style={colTitle}>Regio&apos;s</span>
             <FLink href="/regio/antwerpen">Antwerpen</FLink>
             <FLink href="/regio/limburg">Limburg</FLink>
-            <FLink href="/regio/oost-vlaanderen">Oost-Vlaanderen</FLink>
+
             <FLink href="/regio/vlaams-brabant">Vlaams-Brabant</FLink>
           </div>
 

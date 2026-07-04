@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CheckCircle, Phone, ArrowRight, ChevronDown, Droplets, ShieldCheck, Home, CloudRain } from "lucide-react";
+import { CheckCircle, Phone, ArrowRight, ChevronDown, Droplets, ShieldCheck, Home, CloudRain, ChevronRight } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
@@ -157,7 +157,7 @@ export default function DakcoatingPage() {
             </div>
             <div className="page-cta-buttons" style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>
               <Link
-                href="/contact"
+                href="/#calculator"
                 onMouseEnter={e => { e.currentTarget.style.background = "#7AB54E"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "#9BCB6C"; }}
                 style={{
@@ -170,6 +170,7 @@ export default function DakcoatingPage() {
                 }}
               >
                 Bereken je richtprijs
+                <ChevronRight size={14} strokeWidth={2.5} />
               </Link>
               <a
                 href="tel:+32468352869"
@@ -325,7 +326,7 @@ export default function DakcoatingPage() {
               Benieuwd of dakcoating de juiste oplossing is voor jouw dak? Yannick geeft eerlijk advies op maat.
             </p>
             <Link
-              href="/contact"
+              href="/#calculator"
               className="mt-7 lg:mt-0"
               onMouseEnter={e => { e.currentTarget.style.background = "#7AB54E"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "#9BCB6C"; }}
@@ -338,7 +339,8 @@ export default function DakcoatingPage() {
                 transition: "background-color 0.2s ease",
               }}
             >
-              Bereken je richtprijs <ArrowRight size={16} />
+              Bereken je richtprijs
+              <ChevronRight size={14} strokeWidth={2.5} />
             </Link>
           </div>
         </div>
@@ -413,7 +415,7 @@ export default function DakcoatingPage() {
             </div>
             <div className="page-cta-buttons" style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>
               <Link
-                href="/contact"
+                href="/#calculator"
                 onMouseEnter={() => setWaHovered(true)}
                 onMouseLeave={() => setWaHovered(false)}
                 style={{
@@ -426,7 +428,8 @@ export default function DakcoatingPage() {
                   whiteSpace: "nowrap", transition: "background-color 0.2s ease",
                 }}
               >
-                Bereken je richtprijs <ArrowRight size={15} />
+                Bereken je richtprijs
+                <ChevronRight size={14} strokeWidth={2.5} />
               </Link>
               <a
                 href="tel:+32468352869"

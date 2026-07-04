@@ -2,7 +2,7 @@
 
 import { ReactNode, useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { CheckCircle, Phone, Star, ArrowRight } from "lucide-react";
+import { CheckCircle, Phone, Star, ArrowRight, ChevronRight } from "lucide-react";
 import { ServiceCard, serviceCards } from "@/components/service-card";
 import SiteContact from "@/components/site-contact";
 
@@ -352,7 +352,7 @@ export default function RegioPage({
                 <div style={{ borderTop: "1px solid #E5E7EB", marginBottom: "20px" }} />
 
                 <Link
-                  href="/contact"
+                  href="/#calculator"
                   onMouseEnter={() => setSidebarBtnHov(true)}
                   onMouseLeave={() => setSidebarBtnHov(false)}
                   style={{
@@ -373,7 +373,8 @@ export default function RegioPage({
                     transition: "background 200ms ease",
                   }}
                 >
-                  {sidebarButton ?? "Gratis diagnose aanvragen"}{" "}&rarr;
+                  {sidebarButton ?? "Gratis diagnose aanvragen"}
+                  <ChevronRight size={14} strokeWidth={2.5} style={{ marginLeft: "2px" }} />
                 </Link>
 
                 <a
@@ -477,7 +478,7 @@ export default function RegioPage({
               </div>
               <div style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>
                 <Link
-                  href="/contact"
+                  href="/#calculator"
                   onMouseEnter={() => setDarkBtnHov(true)}
                   onMouseLeave={() => setDarkBtnHov(false)}
                   style={{
@@ -490,7 +491,8 @@ export default function RegioPage({
                     whiteSpace: "nowrap", transition: "background-color 0.2s ease",
                   }}
                 >
-                  {ctaButton ?? "Gratis diagnose aanvragen"}{" "}<ArrowRight size={15} />
+                  {ctaButton ?? "Gratis diagnose aanvragen"}
+                  <ChevronRight size={14} strokeWidth={2.5} />
                 </Link>
                 <a
                   href="tel:+32468352869"
@@ -536,7 +538,7 @@ export default function RegioPage({
                 {ctaSubline ?? `Yannick inspecteert uw dak persoonlijk in heel ${province}. Volledig gratis, geen verplichtingen.`}
               </p>
               <Link
-                href="/contact"
+                href="/#calculator"
                 onMouseEnter={() => setCtaBtnHov(true)}
                 onMouseLeave={() => setCtaBtnHov(false)}
                 style={{
@@ -555,7 +557,8 @@ export default function RegioPage({
                   transition: "background-color 0.2s ease",
                 }}
               >
-                {ctaButton ?? "Gratis diagnose aanvragen"}{" "}&rarr;
+                {ctaButton ?? "Gratis diagnose aanvragen"}
+                <ChevronRight size={14} strokeWidth={2.5} style={{ marginLeft: "2px" }} />
               </Link>
             </div>
           ) : (
@@ -575,7 +578,7 @@ export default function RegioPage({
                 {ctaSubline ?? `Yannick inspecteert uw dak persoonlijk in heel ${province}. Volledig gratis, geen verplichtingen.`}
               </p>
               <Link
-                href="/contact"
+                href="/#calculator"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -591,7 +594,8 @@ export default function RegioPage({
                   transition: "background 200ms ease",
                 }}
               >
-                {ctaButton ?? "Gratis diagnose aanvragen"}{" "}&rarr;
+                {ctaButton ?? "Gratis diagnose aanvragen"}
+                <ChevronRight size={14} strokeWidth={2.5} style={{ marginLeft: "2px" }} />
               </Link>
             </div>
           )}

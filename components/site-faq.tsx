@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronRight } from "lucide-react";
 
 const faqs = [
   {
@@ -81,9 +82,9 @@ function FaqItem({ faq, defaultOpen }: { faq: typeof faqs[0]; defaultOpen?: bool
           </p>
           {faq.btn && (
             <a
-              href="#calculator"
+              href="/#calculator"
               style={{
-                display: "inline-block", marginTop: "16px",
+                display: "inline-flex", alignItems: "center", gap: "8px", marginTop: "16px",
                 background: "#9BCB6C", color: "#FFFFFF",
                 fontWeight: 700, fontSize: "13px",
                 borderRadius: "8px", padding: "10px 20px",
@@ -94,7 +95,8 @@ function FaqItem({ faq, defaultOpen }: { faq: typeof faqs[0]; defaultOpen?: bool
               onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
               onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
             >
-              Bereken je richtprijs →
+              Bereken je richtprijs
+              <ChevronRight size={14} strokeWidth={2.5} />
             </a>
           )}
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { ChevronRight } from "lucide-react";
 
 const GOOGLE_REVIEW_URL = "https://www.google.com/search?sca_esv=bcc915fd4b92abab&rlz=1C1GCEU_enBE1139BE1139&hl=nl-BE&sxsrf=ANbL-n6TrSUrDpAkVOrNUQ51U5GNZs9b_Q:1781020093012&q=MOS-X+%7C+Dakontmossing+%26+Coating+Reviews&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qORc7vib1r0gQO2ABjRXpl_uRZy99-xBVdTGpP89RMUA3yzcvCK6A2AazedCdjGkX1gn8bkQ%3D&uds=ALYpb_mOSBfVE_qjsUIUDwhXk-cv8R5BmJbdPhES1TRqg_vpjJyijAOWQNUWx-ymHj1rypkaCI5vDZLjKLW1ObrTyqmMebN8NP7CqX96tO1wgBatLBTT6ccEki20RIqT8UXa_cZv3U6K&sa=X&ved=2ahUKEwiuju3vwPqUAxVNRaQEHUolF-wQ3PALegQIMBAF&biw=1920&bih=911&dpr=1";
 
@@ -20,7 +21,9 @@ const outlineBtnStyle: React.CSSProperties = {
 };
 
 const greenBtnStyle: React.CSSProperties = {
-  display: "inline-block",
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "8px",
   border: "none",
   color: "#FFFFFF",
   background: "#9BCB6C",
@@ -66,6 +69,7 @@ function GreenGoogleBtn({ text, url }: { text: string; url: string }) {
       onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#9BCB6C"; }}
     >
       {text}
+      <ChevronRight size={14} strokeWidth={2.5} />
     </a>
   );
 }
@@ -155,7 +159,7 @@ export default function SiteReviews() {
         />
 
         <div style={{ textAlign: "center", marginTop: "32px", position: "relative", zIndex: 2 }}>
-          <GreenGoogleBtn text="Bekijk alle reviews op Google →" url={GOOGLE_REVIEW_URL} />
+          <GreenGoogleBtn text="Bekijk alle reviews op Google" url={GOOGLE_REVIEW_URL} />
         </div>
 
       </div>

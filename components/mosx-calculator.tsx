@@ -16,10 +16,10 @@ const SERVICES: { id: ServiceId; label: string; emoji: string }[] = [
 ];
 
 const ROOF_TYPES = [
-  { id: "pannen",  label: "Dakpannen",  base: { dakontmossing: 4.5, dakcoating: 8.0 } },
-  { id: "leien",   label: "Leien dak",  base: { dakontmossing: 5.5, dakcoating: 9.5 } },
-  { id: "plat",    label: "Plat dak",   base: { dakontmossing: 5.0, dakcoating: 7.5 } },
-  { id: "metaal",  label: "Metalen dak", base: { dakontmossing: 4.5, dakcoating: 8.5 } },
+  { id: "pannen",  label: "Dakpannen",   img: "/images/Betonpannen.jpg",  base: { dakontmossing: 4.5, dakcoating: 8.0 } },
+  { id: "leien",   label: "Leien dak",   img: "/images/Natuurleien.jpg",  base: { dakontmossing: 5.5, dakcoating: 9.5 } },
+  { id: "plat",    label: "Plat dak",    img: null,                        base: { dakontmossing: 5.0, dakcoating: 7.5 } },
+  { id: "metaal",  label: "Metalen dak", img: null,                        base: { dakontmossing: 4.5, dakcoating: 8.5 } },
 ];
 
 const FACADE_TYPES = [
@@ -207,13 +207,16 @@ export default function MosxCalculator() {
                       <button
                         key={t.id}
                         onClick={() => isDak ? setRoofType(t.id) : setFacadeType(t.id)}
-                        className={`p-3.5 rounded-xl border-2 text-left transition-all`}
+                        className={`rounded-xl border-2 text-left transition-all overflow-hidden`}
                         style={{
                           borderColor: active ? "#1A5C36" : "#E3E0D8",
                           background:  active ? "#EAF4EE" : "white",
                         }}
                       >
-                        <p className={`font-semibold text-sm ${active ? "text-[#1A5C36]" : "text-[#111613]"}`}>
+                        {t.img && (
+                          <img src={t.img} alt={t.label} style={{ width: "100%", height: "72px", objectFit: "cover", display: "block" }} />
+                        )}
+                        <p className={`font-semibold text-sm p-3 ${active ? "text-[#1A5C36]" : "text-[#111613]"}`}>
                           {t.label}
                         </p>
                       </button>

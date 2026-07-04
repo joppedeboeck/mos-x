@@ -168,7 +168,13 @@ export default function SitePricing() {
     { label: "Halfopen bebouwing", img: "/images/halfopen.png" },
     { label: "Vrijstaande woning", img: "/images/vrijstaand.png" },
   ];
-  const dakTypes = ["Dakpannen (keramisch of beton)", "Natuurleien", "Kunstleien (asbest vrij)", "Overzetdak", "Ik weet het niet"];
+  const dakTypes = [
+    { label: "Dakpannen (keramisch of beton)", img: "/images/Betonpannen.jpg" },
+    { label: "Natuurleien",                    img: "/images/Natuurleien.jpg" },
+    { label: "Kunstleien (asbest vrij)",       img: undefined },
+    { label: "Overzetdak",                     img: undefined },
+    { label: "Ik weet het niet",               img: undefined },
+  ];
   const extraOpties = [
     { id: "hydrofuge", title: "Hydrofuge", bullets: ["Waterafstotende bescherming", "Mos en vuil hechten minder snel", "Dak blijft ademend"] },
     { id: "coating", title: "Dakcoating — tot 10 jaar garantie", bullets: ["Nieuwe kleur en uitstraling", "Beschermt tegen mos en algen", "Verlengt de levensduur van het dak"] },
@@ -330,7 +336,7 @@ export default function SitePricing() {
                     Wat voor dakpannen liggen op je dak?
                   </h3>
                   {dakTypes.map(d => (
-                    <ChoiceRow key={d} label={d} selected={dak === d} onClick={() => { setDak(d); setTimeout(next, 220); }} />
+                    <ChoiceRow key={d.label} label={d.label} imgSrc={d.img} selected={dak === d.label} onClick={() => { setDak(d.label); setTimeout(next, 220); }} />
                   ))}
                 </div>
               )}

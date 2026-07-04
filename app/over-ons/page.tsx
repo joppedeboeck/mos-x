@@ -209,9 +209,9 @@ export default function OverOnsPage() {
         <div style={{ position: "absolute", width: "700px", height: "700px", background: "radial-gradient(circle, rgba(155,203,108,0.08) 0%, transparent 70%)", left: "-150px", top: "50%", transform: "translateY(-50%)", pointerEvents: "none", zIndex: 0 }} />
         {/* Mos texture rechts */}
         <div style={{ position: "absolute", right: 0, top: 0, width: "520px", height: "100%", pointerEvents: "none", zIndex: 0 }}>
-          <img src="/images/mos-texture.png" alt="" aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "right center", opacity: 0.28, display: "block", mixBlendMode: "screen" }} />
+          <img src="/images/mos-texture.png" alt="" aria-hidden="true" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "right center", opacity: 0.50, display: "block", mixBlendMode: "screen" }} />
           {/* Fade links + boven + onder */}
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #0B0F0C 0%, #0B0F0C 20%, transparent 72%)", pointerEvents: "none" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #0B0F0C 0%, #0B0F0C 15%, transparent 65%)", pointerEvents: "none" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, #0B0F0C 0%, transparent 25%, transparent 75%, #0B0F0C 100%)", pointerEvents: "none" }} />
         </div>
 
@@ -254,7 +254,7 @@ export default function OverOnsPage() {
           </div>
 
           {/* Quote blok */}
-          <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "32px 52px", display: "flex", alignItems: "center", gap: "32px" }}>
+          <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "20px 52px", display: "flex", alignItems: "center", gap: "32px" }}>
             <span style={{ fontSize: "56px", color: "#9BCB6C", fontFamily: "Georgia, serif", lineHeight: 0.7, flexShrink: 0 }}>"</span>
             <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "15px", color: "rgba(255,255,255,0.80)", lineHeight: 1.8, flex: 1, textAlign: "center" }}>
               Wij willen niet dat je klant bent tot de factuur betaald is.<br />

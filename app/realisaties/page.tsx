@@ -219,8 +219,19 @@ export default function RealisatiesPage() {
     <PageLayout>
 
       {/* â"€â"€ Hero â"€â"€ */}
-      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "24px" }}>
-        <div className="site-wrap">
+      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "24px", position: "relative", overflow: "hidden" }}>
+
+        {/* Foto rechterhelft */}
+        <div style={{ position: "absolute", top: 0, left: "52%", right: 0, bottom: 0, zIndex: 0, overflow: "hidden" }}>
+          <img
+            src="/images/Lichtaart - After.png"
+            alt="Dakreiniging resultaat"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #F7F8F6 0%, #F7F8F6 5%, transparent 55%)" }} />
+        </div>
+
+        <div className="site-wrap" style={{ position: "relative", zIndex: 1 }}>
           <BackLink href="/" />
           <p style={{ fontSize: "13px", color: "#9BCB6C", marginBottom: "20px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
             <Link

@@ -124,7 +124,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label style={labelStyle}>Gemeente / Postcode *</label>
-                    <input type="text" name="gemeente" required placeholder="bv. Gent of 9000" style={inputStyle} />
+                    <input type="text" name="gemeente" required placeholder="bv. Lier of 2500" style={inputStyle} />
                   </div>
                 </div>
 

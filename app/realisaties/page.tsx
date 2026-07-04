@@ -252,7 +252,7 @@ export default function RealisatiesPage() {
           </p>
 
           {/* Stats floating card */}
-          <div style={{ position: "absolute", bottom: "0px", right: 0, width: "480px", background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "20px 32px", display: "flex", boxShadow: "0 4px 24px rgba(155,203,108,0.18)", zIndex: 2 }}>
+          <div style={{ position: "absolute", bottom: "-32px", right: 0, width: "480px", background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "20px 32px", display: "flex", boxShadow: "0 4px 24px rgba(155,203,108,0.18)", zIndex: 2 }}>
             {[
               { value: "55+",  label: "Afgewerkte daken" },
               { value: "100%", label: "Uitvoering door Yannick" },

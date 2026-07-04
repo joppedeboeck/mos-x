@@ -72,14 +72,14 @@ export default function OverOnsPage() {
       <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "50px", position: "relative", overflow: "hidden" }}>
 
         {/* Foto rechterhelft */}
-        <div style={{ position: "absolute", top: 0, left: "60%", right: 0, bottom: 0, zIndex: 0, overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: 0, left: "52%", right: 0, bottom: 0, zIndex: 0, overflow: "hidden" }}>
           <img
             src="/images/Weer een dak ontmost.jpg"
             alt="Dak ontmossing"
             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center" }}
           />
           {/* Gradient fade vanuit links */}
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #F7F8F6 0%, #F7F8F6 5%, transparent 60%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #F7F8F6 0%, #F7F8F6 5%, transparent 55%)" }} />
         </div>
 
         {/* Tekst */}

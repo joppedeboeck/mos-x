@@ -255,7 +255,7 @@ export default function RealisatiesPage() {
       </section>
 
       {/* Stats bar */}
-      <section style={{ background: "#F7F8F6", padding: "0 0 48px 0" }}>
+      <section style={{ background: "#FFFFFF", padding: "0 0 48px 0" }}>
         <div className="site-wrap">
           {/* Stats bar */}
           <div className="realisaties-statsbar" style={{
@@ -286,7 +286,7 @@ export default function RealisatiesPage() {
 
 
       {/* â"€â"€ Uitgelicht project â"€â"€ */}
-      <section style={{ background: "#F7F8F6", paddingTop: "48px" }}>
+      <section style={{ background: "#FFFFFF", paddingTop: "48px" }}>
         <div className="site-wrap">
           <div style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", padding: "40px 48px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "48px", alignItems: "stretch" }}>
@@ -351,7 +351,7 @@ export default function RealisatiesPage() {
       </section>
 
       {/* Bekijk meer projecten */}
-      <section style={{ background: "#F7F8F6", padding: "80px 0" }}>
+      <section style={{ background: "#FFFFFF", padding: "80px 0" }}>
         <div className="site-wrap">
           <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 3vw, 2.25rem)", letterSpacing: "-0.028em", color: "#1A1A1A", marginBottom: "28px" }}>
             Bekijk meer <span style={{ color: "#9BCB6C" }}>projecten.</span>
@@ -426,7 +426,7 @@ export default function RealisatiesPage() {
       </section>
 
       {/* â"€â"€ Werkgebied kaart â"€â"€ */}
-      <section style={{ background: "#F7F8F6", padding: "0 0 48px" }}>
+      <section style={{ background: "#FFFFFF", padding: "0 0 48px" }}>
         <div className="site-wrap">
           <div style={{
             position: "relative",
@@ -473,7 +473,7 @@ export default function RealisatiesPage() {
       </section>
 
       {/* â"€â"€ CTA â"€â"€ */}
-      <section style={{ background: "#F7F8F6", paddingTop: "60px", paddingBottom: "60px" }}>
+      <section style={{ background: "#FFFFFF", paddingTop: "60px", paddingBottom: "60px" }}>
         <div className="site-wrap">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 text-center sm:text-left"
             style={{ background: "#0B0F0C", border: "1px solid #9BCB6C", borderRadius: "16px", position: "relative", overflow: "hidden" }}>

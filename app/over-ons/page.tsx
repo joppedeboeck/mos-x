@@ -267,7 +267,7 @@ export default function OverOnsPage() {
       </section>
 
       {/* ── Onze Ambitie ── */}
-      <section style={{ background: "#F7F8F6", padding: "0 0 90px 0" }}>
+      <section style={{ background: "#F7F8F6", padding: "0 0 56px 0" }}>
         <div className="site-wrap" style={{ paddingTop: 0, paddingBottom: 0 }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0" }}>
 

@@ -254,7 +254,7 @@ export default function OverOnsPage() {
           </div>
 
           {/* Quote blok */}
-          <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "14px 52px", display: "flex", alignItems: "center", justifyContent: "center", gap: "24px" }}>
+          <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "14px 52px", display: "flex", alignItems: "center", justifyContent: "center", gap: "48px" }}>
             <span style={{ fontSize: "56px", color: "#9BCB6C", fontFamily: "Georgia, serif", lineHeight: 0.7, flexShrink: 0 }}>"</span>
             <p style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "15px", color: "rgba(255,255,255,0.80)", lineHeight: 1.8, textAlign: "center" }}>
               Wij willen niet dat je klant bent tot de factuur betaald is.<br />

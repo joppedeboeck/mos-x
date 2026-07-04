@@ -69,7 +69,7 @@ export default function OverOnsPage() {
     <PageLayout>
 
       {/* ── Hero ── */}
-      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "40px", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "50px", position: "relative", overflow: "hidden" }}>
 
         {/* Foto rechterhelft */}
         <div style={{ position: "absolute", top: 0, left: "52%", right: 0, bottom: 0, zIndex: 0, overflow: "hidden" }}>

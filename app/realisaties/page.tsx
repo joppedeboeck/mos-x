@@ -219,7 +219,7 @@ export default function RealisatiesPage() {
     <PageLayout>
 
       {/* â"€â"€ Hero â"€â"€ */}
-      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "24px", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
 
         {/* Foto rechterhelft */}
         <div style={{ position: "absolute", top: 0, left: "52%", right: 0, bottom: 0, zIndex: 0, overflow: "hidden" }}>
@@ -251,6 +251,12 @@ export default function RealisatiesPage() {
             Echte projecten. Eerlijke resultaten.
           </p>
 
+        </div>
+      </section>
+
+      {/* Stats bar */}
+      <section style={{ background: "#F7F8F6", padding: "0 0 48px 0" }}>
+        <div className="site-wrap">
           {/* Stats bar */}
           <div className="realisaties-statsbar" style={{
             display: "flex",
@@ -276,6 +282,8 @@ export default function RealisatiesPage() {
           </div>
         </div>
       </section>
+
+
 
       {/* â"€â"€ Uitgelicht project â"€â"€ */}
       <section style={{ background: "#F7F8F6", paddingTop: "48px" }}>

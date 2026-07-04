@@ -139,20 +139,12 @@ export default function ContactPage() {
                   </select>
                 </div>
 
-                {dienst === "andere" && (
-                  <div>
-                    <label style={labelStyle}>Bericht *</label>
-                    <textarea name="bericht" required rows={4} placeholder="Vertel ons waarmee we je kunnen helpen..."
-                      style={{ ...inputStyle, resize: "none" as const }} />
-                  </div>
-                )}
-                {dienst !== "andere" && dienst !== "" && (
-                  <div>
-                    <label style={labelStyle}>Bericht (optioneel)</label>
-                    <textarea name="bericht" rows={4} placeholder="Extra informatie over je dak of situatie..."
-                      style={{ ...inputStyle, resize: "none" as const }} />
-                  </div>
-                )}
+                <div>
+                  <label style={labelStyle}>{dienst === "andere" ? "Bericht *" : "Bericht (optioneel)"}</label>
+                  <textarea name="bericht" required={dienst === "andere"} rows={4}
+                    placeholder={dienst === "andere" ? "Vertel ons waarmee we je kunnen helpen..." : "Extra informatie over je dak of situatie..."}
+                    style={{ ...inputStyle, resize: "none" as const }} />
+                </div>
 
                 <button
                   type="submit"

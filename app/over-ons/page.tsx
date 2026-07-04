@@ -243,7 +243,7 @@ export default function OverOnsPage() {
               { Icon: ShieldCheck,   title: "Professionele producten en technieken", desc: "Duurzame oplossingen met bewezen kwaliteit." },
               { Icon: Headphones,    title: "Ook na de uitvoering bereikbaar",       desc: "We blijven beschikbaar voor advies en opvolging." },
             ].map(({ Icon, title, desc }) => (
-              <div key={title} style={{ flex: "1 1 0", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "28px 18px 24px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div key={title} style={{ flex: "1 1 0", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "18px 18px 16px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div style={{ width: "56px", height: "56px", borderRadius: "50%", background: "rgba(155,203,108,0.10)", border: "1.5px solid rgba(155,203,108,0.25)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "14px", flexShrink: 0 }}>
                   <Icon size={24} color="#9BCB6C" strokeWidth={1.5} />
                 </div>

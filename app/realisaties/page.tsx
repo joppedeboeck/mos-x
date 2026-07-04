@@ -219,7 +219,7 @@ export default function RealisatiesPage() {
     <PageLayout>
 
       {/* â"€â"€ Hero â"€â"€ */}
-      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
+      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "120px", position: "relative", overflow: "hidden" }}>
 
         {/* Foto rechterhelft */}
         <div style={{ position: "absolute", top: 0, left: "52%", right: 0, bottom: 0, zIndex: 0, overflow: "hidden" }}>
@@ -251,35 +251,20 @@ export default function RealisatiesPage() {
             Echte projecten. Eerlijke resultaten.
           </p>
 
-        </div>
-      </section>
-
-      {/* Stats bar */}
-      <section style={{ background: "#FFFFFF", padding: "0 0 48px 0" }}>
-        <div className="site-wrap">
-          {/* Stats bar */}
-          <div className="realisaties-statsbar" style={{
-            display: "flex",
-            background: "#FFFFFF", border: "1px solid #9BCB6C",
-            borderRadius: "16px", padding: "32px 48px",
-            marginTop: "120px", marginBottom: "32px",
-            boxShadow: "0 2px 16px rgba(155,203,108,0.12)",
-          }}>
+          {/* Stats floating card */}
+          <div style={{ position: "absolute", bottom: "24px", right: 0, width: "480px", background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "20px 32px", display: "flex", boxShadow: "0 4px 24px rgba(155,203,108,0.18)", zIndex: 2 }}>
             {[
-              { value: "55+",  label: "Afgewerkte\ndaken" },
+              { value: "55+",  label: "Afgewerkte daken" },
               { value: "100%", label: "Uitvoering door Yannick" },
-              { value: "5★",   label: "Gemiddelde klantscore" },
+              { value: "5\u2605",   label: "Gemiddelde klantscore" },
             ].map((s, i) => (
-              <div key={i} className="realisaties-stat flex flex-col items-center justify-center text-center"
-                style={{ flex: 1, borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", padding: "0 32px" }}>
-                <p className="font-black leading-none"
-                  style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#9BCB6C", fontSize: "2rem", marginBottom: "8px" }}>
-                  {s.value}
-                </p>
-                <p className="text-sm" style={{ color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", whiteSpace: "pre-line" }}>{s.label}</p>
+              <div key={i} style={{ flex: 1, borderLeft: i > 0 ? "1px solid #E5E7EB" : "none", padding: "0 20px", textAlign: "center" }}>
+                <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#9BCB6C", fontSize: "1.6rem", fontWeight: 800, marginBottom: "4px", lineHeight: 1 }}>{s.value}</p>
+                <p style={{ color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "12px" }}>{s.label}</p>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 

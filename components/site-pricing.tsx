@@ -79,6 +79,44 @@ function ChoiceRow({ label, onClick, selected, imgSrc }: { label: string; onClic
   );
 }
 
+function ChoiceCard({ label, onClick, selected, imgSrc }: { label: string; onClick: () => void; selected: boolean; imgSrc?: string }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        display: "flex", flexDirection: "column", alignItems: "stretch",
+        padding: 0, borderRadius: "14px", cursor: "pointer", overflow: "hidden",
+        border: selected ? `2px solid ${GREEN}` : "2px solid #E5E7EB",
+        background: selected ? "rgba(90,158,47,0.04)" : "#FFFFFF",
+        transition: "border-color 0.2s ease, box-shadow 0.2s ease",
+        boxShadow: selected ? "0 0 0 3px rgba(155,203,108,0.2)" : "0 2px 8px rgba(0,0,0,0.06)",
+        position: "relative", textAlign: "left",
+      }}
+    >
+      {imgSrc ? (
+        <img src={imgSrc} alt={label} style={{ width: "100%", height: "120px", objectFit: "cover", display: "block" }} />
+      ) : (
+        <div style={{ width: "100%", height: "120px", background: "#F0F0F0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", color: "#AAA" }}>
+          Geen foto
+        </div>
+      )}
+      <div style={{ padding: "12px 14px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+        <span style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "14px", color: "#111", lineHeight: 1.3 }}>
+          {label}
+        </span>
+        <div style={{
+          width: "20px", height: "20px", borderRadius: "50%", flexShrink: 0,
+          border: selected ? "none" : "2px solid #DDD",
+          background: selected ? GREEN : "transparent",
+          display: "flex", alignItems: "center", justifyContent: "center",
+        }}>
+          {selected && <svg width="10" height="10" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>}
+        </div>
+      </div>
+    </button>
+  );
+}
+
 function ExtraCard({ title, bullets, selected, onClick }: { title: string; bullets: string[]; selected: boolean; onClick: () => void }) {
   return (
     <button
@@ -324,9 +362,11 @@ export default function SitePricing() {
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
                     Wat voor type woning is het?
                   </h3>
-                  {woningTypes.map(w => (
-                    <ChoiceRow key={w.label} label={w.label} imgSrc={w.img} selected={woning === w.label} onClick={() => { setWoning(w.label); setTimeout(next, 220); }} />
-                  ))}
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "14px" }}>
+                    {woningTypes.map(w => (
+                      <ChoiceCard key={w.label} label={w.label} imgSrc={w.img} selected={woning === w.label} onClick={() => { setWoning(w.label); setTimeout(next, 220); }} />
+                    ))}
+                  </div>
                 </div>
               )}
 

@@ -33,14 +33,14 @@ function LargeSlider() {
       onTouchMove={e => move(e.touches[0].clientX)}
       onTouchEnd={() => (dragging.current = false)}
     >
-      <img src="/images/IMG_5414.JPEG" alt="Voor behandeling"
+      <img src="/images/Before bevel.jpg" alt="Voor behandeling"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
         draggable={false} />
       <div style={{ position: "absolute", top: "16px", left: "16px", zIndex: 5, background: "rgba(0,0,0,0.65)", color: "#FFFFFF", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
         VOOR
       </div>
       <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${split}%)` }}>
-        <img src="/images/IMG_5436.JPEG" alt="Na behandeling"
+        <img src="/images/Na bevel.jpg" alt="Na behandeling"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
           draggable={false} />
         <div style={{ position: "absolute", top: "16px", right: "16px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>

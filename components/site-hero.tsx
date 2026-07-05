@@ -140,7 +140,9 @@ export default function SiteHero() {
             {/* Trust indicators */}
             <div className="flex items-center gap-3 mb-8" style={{ flexWrap: "wrap" }}>
               {/* Trustindex widget — script wordt via useEffect binnenin dit element geladen */}
-              <div ref={trustindexRef} />
+              <div style={{ transformOrigin: "left center", transform: "scale(0.82)", display: "inline-block" }}>
+                <div ref={trustindexRef} />
+              </div>
 
               <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "14px" }}>·</span>
               <span style={{

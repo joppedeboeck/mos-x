@@ -170,7 +170,9 @@ export default function DakontmossingPage() {
               </div>
 
               {/* Google Reviews widget — script wordt via useEffect binnenin dit element geladen */}
-              <div ref={trustindexRef} style={{ marginTop: "20px" }} />
+              <div style={{ marginTop: "20px" }}>
+                <div ref={trustindexRef} style={{ display: "inline-block" }} />
+              </div>
             </div>
 
             {/* Right: video + Yannick overlay */}

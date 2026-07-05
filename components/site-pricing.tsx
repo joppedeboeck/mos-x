@@ -94,9 +94,9 @@ function ChoiceCard({ label, onClick, selected, imgSrc }: { label: string; onCli
       }}
     >
       {imgSrc ? (
-        <img src={imgSrc} alt={label} style={{ width: "100%", height: "120px", objectFit: "cover", display: "block" }} />
+        <img src={imgSrc} alt={label} style={{ width: "100%", height: "190px", objectFit: "cover", display: "block" }} />
       ) : (
-        <div style={{ width: "100%", height: "120px", background: "#F0F0F0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", color: "#AAA" }}>
+        <div style={{ width: "100%", height: "190px", background: "#F0F0F0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", color: "#AAA" }}>
           Geen foto
         </div>
       )}
@@ -224,7 +224,7 @@ export default function SitePricing() {
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
 
         {/* Witte zweefkaart */}
-        <div className="site-pricing-card" style={{ background: "#FFFFFF", borderRadius: "16px", boxShadow: "0 8px 48px rgba(0,0,0,0.15)", padding: "clamp(20px, 4vw, 40px)" }}>
+        <div className="site-pricing-card" style={{ background: "#FFFFFF", borderRadius: "16px", boxShadow: "0 8px 48px rgba(0,0,0,0.15)", padding: "clamp(20px, 4vw, 40px) clamp(20px, 4vw, 40px) clamp(60px, 4vw, 80px)" }}>
           <div className="flex flex-col lg:flex-row lg:items-stretch" style={{ gap: "48px" }}>
 
             {/* ── LINKS: uitleg ── */}
@@ -232,7 +232,7 @@ export default function SitePricing() {
               flex: "0 0 30%", minWidth: "220px",
               flexDirection: "column", justifyContent: "flex-start",
               borderRight: "1px solid #EEEEEE",
-              margin: "-40px 0 -40px -40px",
+              margin: "-40px 0 -80px -40px",
               padding: "48px 32px 0 40px",
               borderRadius: "16px 0 0 16px",
               position: "relative",
@@ -375,9 +375,12 @@ export default function SitePricing() {
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
                     Wat voor dakpannen liggen op je dak?
                   </h3>
-                  {dakTypes.map(d => (
-                    <ChoiceRow key={d.label} label={d.label} imgSrc={d.img} selected={dak === d.label} onClick={() => { setDak(d.label); setTimeout(next, 220); }} />
-                  ))}
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px", marginBottom: "12px" }}>
+                    {dakTypes.filter(d => d.label !== "Ik weet het niet").map(d => (
+                      <ChoiceCard key={d.label} label={d.label} imgSrc={d.img} selected={dak === d.label} onClick={() => { setDak(d.label); setTimeout(next, 220); }} />
+                    ))}
+                  </div>
+                  <ChoiceRow key="ik-weet-het-niet" label="Ik weet het niet" selected={dak === "Ik weet het niet"} onClick={() => { setDak("Ik weet het niet"); setTimeout(next, 220); }} />
                 </div>
               )}
 

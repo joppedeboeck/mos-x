@@ -138,23 +138,23 @@ export default function SiteHero() {
             </div>
 
             {/* Trust indicators */}
-            <div className="flex items-center gap-3 mb-8" style={{ flexWrap: "wrap" }}>
-              {/* Trustindex widget — script wordt via useEffect binnenin dit element geladen */}
-              <div style={{ transformOrigin: "left center", transform: "scale(0.82)", display: "inline-block" }}>
-                <div ref={trustindexRef} />
+            <div className="flex items-center gap-4 mb-8" style={{ flexWrap: "wrap" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", overflow: "hidden", height: "30px", padding: "0 6px", background: "white", borderRadius: "10px" }}>
+                <div style={{ display: "inline-block", zoom: 0.75, flexShrink: 0 }}>
+                  <div ref={trustindexRef} />
+                </div>
               </div>
-
-              <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "14px" }}>·</span>
               <span style={{
                 display: "inline-flex", alignItems: "center", gap: "5px",
-                background: "#FFFFFF", color: "#1A1A1A",
-                borderRadius: "6px", padding: "4px 10px",
-                fontSize: "11px", fontWeight: 600,
-                fontFamily: "var(--font-inter), system-ui, sans-serif",
+                background: "transparent",
+                border: "1.5px solid rgba(255,255,255,0.6)",
+                borderRadius: "8px", padding: "6px 12px",
                 whiteSpace: "nowrap",
               }}>
-                <Tv style={{ width: "11px", height: "11px", flexShrink: 0 }} />
-                Bekend van VTM Lifestyle &amp; Wonen
+                <Tv style={{ width: "11px", height: "11px", flexShrink: 0, color: "#FFFFFF" }} />
+                <span style={{ fontSize: "12px", fontWeight: 900, fontFamily: "var(--font-montserrat), system-ui, sans-serif", textTransform: "uppercase", letterSpacing: "0.05em", color: "#FFFFFF" }}>VTM Lifestyle</span>
+                <span style={{ fontSize: "13px", fontStyle: "italic", fontWeight: 700, fontFamily: "Georgia, serif", color: "#FFFFFF" }}>&amp;</span>
+                <span style={{ fontSize: "12px", fontStyle: "italic", fontWeight: 400, fontFamily: "Georgia, serif", color: "#FF6600" }}>Wonen</span>
               </span>
             </div>
           </div>

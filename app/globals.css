@@ -799,39 +799,6 @@
   .faq-grid { grid-template-columns: 1fr !important; }
 }
 
-/* Trustindex: reduce card height by compressing internal padding */
-#trustindex-widget .ti-review,
-#trustindex-widget [class*="review-item"],
-#trustindex-widget [class*="ti-review"] {
-  padding: 12px !important;
-}
-#trustindex-widget .ti-review-content,
-#trustindex-widget [class*="review-content"] {
-  padding: 10px !important;
-}
-#trustindex-widget .ti-review-header,
-#trustindex-widget [class*="review-header"] {
-  padding-bottom: 6px !important;
-  margin-bottom: 6px !important;
-}
-#trustindex-widget .ti-review-text,
-#trustindex-widget [class*="review-text"] {
-  font-size: 13px !important;
-  line-height: 1.4 !important;
-}
-
-/* Trustindex: force 3 review cards visible on desktop */
-#trustindex-widget .ti-widget-reviews,
-#trustindex-widget .ti-reviews-container {
-  grid-template-columns: repeat(3, 1fr) !important;
-}
-#trustindex-widget [class*="slider"] li,
-#trustindex-widget [class*="review-item"],
-#trustindex-widget .ti-review-item {
-  min-width: 0 !important;
-  flex: 0 0 calc(33.333% - 16px) !important;
-  max-width: calc(33.333% - 16px) !important;
-}
 
 /* Hide Trustindex expired trial bottom banner (direct body child only, not the inline widgets) */
 body > div:has(img[src*="trustindex.io/assets/platform/Trustindex/logo.svg"]) {

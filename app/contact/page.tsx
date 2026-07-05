@@ -52,7 +52,7 @@ export default function ContactPage() {
     const s = document.createElement("script");
     s.defer = true;
     s.async = true;
-    s.src = "https://cdn.trustindex.io/loader.js?fef0a94745e4774d1e565f515dc";
+    s.src = "https://cdn.trustindex.io/loader.js?8fa48bf752f98026fa9684ae694";
     el.appendChild(s);
   }, []);
 

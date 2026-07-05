@@ -224,7 +224,7 @@ export default function SitePricing() {
       <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
 
         {/* Witte zweefkaart */}
-        <div className="site-pricing-card" style={{ background: "#FFFFFF", borderRadius: "16px", boxShadow: "0 8px 48px rgba(0,0,0,0.15)", padding: "clamp(20px, 4vw, 40px) clamp(20px, 4vw, 40px) clamp(60px, 4vw, 80px)" }}>
+        <div className="site-pricing-card" style={{ background: "#FFFFFF", borderRadius: "16px", boxShadow: "0 8px 48px rgba(0,0,0,0.15)", padding: "clamp(20px, 4vw, 40px) clamp(20px, 4vw, 40px) 80px" }}>
           <div className="flex flex-col lg:flex-row lg:items-stretch" style={{ gap: "48px" }}>
 
             {/* ── LINKS: uitleg ── */}

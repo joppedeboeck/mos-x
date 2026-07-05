@@ -52,7 +52,7 @@ export default function ContactPage() {
     const s = document.createElement("script");
     s.defer = true;
     s.async = true;
-    s.src = "https://cdn.trustindex.io/loader.js?8fa48bf752f98026fa9684ae694";
+    s.src = "https://cdn.trustindex.io/loader.js?fef0a94745e4774d1e565f515dc";
     el.appendChild(s);
   }, []);
 
@@ -242,7 +242,7 @@ export default function ContactPage() {
               Wat klanten over ons <span style={{ color: "#9BCB6C" }}>zeggen.</span>
             </h2>
             {/* Trustindex widget — script wordt via useEffect binnenin dit element geladen */}
-            <div id="trustindex-widget" />
+            <div id="trustindex-widget" style={{ width: "100%" }} />
           </div>
         </div>
       </section>

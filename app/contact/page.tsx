@@ -48,6 +48,7 @@ export default function ContactPage() {
   useEffect(() => {
     const el = document.getElementById("trustindex-widget");
     if (!el) return;
+    if (el.querySelector('script[src*="trustindex"]')) return;
     const s = document.createElement("script");
     s.defer = true;
     s.async = true;

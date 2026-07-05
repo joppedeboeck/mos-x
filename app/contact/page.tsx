@@ -241,8 +241,8 @@ export default function ContactPage() {
             <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.028em", color: "#1A1A1A", marginBottom: "16px" }}>
               Wat klanten over ons <span style={{ color: "#9BCB6C" }}>zeggen.</span>
             </h2>
-            {/* Trustindex widget — script wordt via useEffect binnenin dit element geladen */}
-            <div id="trustindex-widget" style={{ width: "100%" }} />
+            {/* Trustindex widget — negatieve marge compenseert kaart-padding zodat widget breed genoeg is voor 3 cards */}
+            <div id="trustindex-widget" style={{ margin: "0 -24px -20px" }} />
           </div>
         </div>
       </section>

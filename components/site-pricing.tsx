@@ -55,14 +55,12 @@ function ChoiceRow({ label, onClick, selected, imgSrc }: { label: string; onClic
         transition: "all 0.2s ease", textAlign: "left", marginBottom: "10px",
       }}
     >
-      {imgSrc ? (
+      {imgSrc && (
         <img
           src={imgSrc}
           alt={label}
           style={{ width: "72px", height: "56px", borderRadius: "8px", objectFit: "cover", flexShrink: 0 }}
         />
-      ) : (
-        <PlaceholderImg label={label.split(" ")[0]} />
       )}
       <div style={{ flex: 1, fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 600, fontSize: "15px", color: "#111" }}>
         {label}

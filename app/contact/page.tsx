@@ -237,8 +237,8 @@ export default function ContactPage() {
       {/* ── Reviews ── */}
       <section style={{ background: "#F7F8F6", padding: "4px 0 30px" }}>
         <div className="site-wrap">
-          <div style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", padding: "40px 48px" }}>
-            <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.028em", color: "#1A1A1A", marginBottom: "32px" }}>
+          <div style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", padding: "24px 32px" }}>
+            <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.028em", color: "#1A1A1A", marginBottom: "16px" }}>
               Wat klanten over ons <span style={{ color: "#9BCB6C" }}>zeggen.</span>
             </h2>
             {/* Trustindex widget — script wordt via useEffect binnenin dit element geladen */}

@@ -237,12 +237,12 @@ export default function ContactPage() {
       {/* ── Reviews ── */}
       <section style={{ background: "#F7F8F6", padding: "4px 0 30px" }}>
         <div className="site-wrap">
-          <div style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", padding: "20px 24px" }}>
-            <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.028em", color: "#1A1A1A", marginBottom: "16px", textAlign: "center" }}>
+          <div style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)", padding: "16px 24px" }}>
+            <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.5rem, 2.5vw, 2rem)", letterSpacing: "-0.028em", color: "#1A1A1A", marginBottom: "8px", textAlign: "center" }}>
               Wat klanten over ons <span style={{ color: "#9BCB6C" }}>zeggen.</span>
             </h2>
             {/* Trustindex widget — negatieve marge compenseert kaart-padding zodat widget breed genoeg is voor 3 cards */}
-            <div id="trustindex-widget" style={{ margin: "0 -24px -20px" }} />
+            <div id="trustindex-widget" style={{ margin: "0 -24px -16px" }} />
           </div>
         </div>
       </section>

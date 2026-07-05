@@ -209,8 +209,8 @@ export default function SitePricing() {
   const dakTypes = [
     { label: "Dakpannen (keramisch of beton)", img: "/images/Betonpannen.jpg" },
     { label: "Natuurleien",                    img: "/images/Natuurleien.jpg" },
-    { label: "Kunstleien (asbest vrij)",       img: undefined },
-    { label: "Overzetdak",                     img: undefined },
+    { label: "Kunstleien (asbest vrij)",       img: "/images/Kunstleien.jfif" },
+    { label: "Overzetdak",                     img: "/images/Overzetdak.png" },
     { label: "Ik weet het niet",               img: undefined },
   ];
   const extraOpties = [

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronLeft } from "lucide-react";
 
 const GREEN = "#9BCB6C";
 const TOTAL_STEPS = 5;
@@ -442,11 +443,17 @@ export default function SitePricing() {
               <div style={{ marginTop: "16px", display: "flex", alignItems: "center", justifyContent: step > 1 ? "flex-start" : "center" }}>
                 {step > 1 && (
                   <button onClick={prev} style={{
-                    background: "none", border: "none", cursor: "pointer",
-                    fontSize: "14px", color: "#888", fontFamily: "var(--font-inter), system-ui, sans-serif",
-                    display: "flex", alignItems: "center", gap: "4px", padding: 0,
-                  }}>
-                    ← Terug
+                    background: "rgba(155,203,108,0.12)", border: "1.5px solid rgba(155,203,108,0.5)",
+                    borderRadius: "24px", cursor: "pointer",
+                    fontSize: "14px", fontWeight: 600, color: GREEN,
+                    fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                    display: "inline-flex", alignItems: "center", gap: "6px",
+                    padding: "8px 18px",
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(155,203,108,0.22)"; e.currentTarget.style.borderColor = GREEN; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(155,203,108,0.12)"; e.currentTarget.style.borderColor = "rgba(155,203,108,0.5)"; }}
+                  >
+                    <ChevronLeft size={15} strokeWidth={2.5} /> Terug
                   </button>
                 )}
               </div>

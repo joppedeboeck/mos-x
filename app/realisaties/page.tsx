@@ -262,7 +262,7 @@ export default function RealisatiesPage() {
               onMouseLeave={() => setHomeHovered(false)}
               style={{ color: homeHovered ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
             >Home</Link>
-            <span style={{ margin: "0 6px", color: "#9BCB6C" }}>›</span>
+            <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "#9BCB6C" }} />
             <span style={{ color: "#9BCB6C" }}>Realisaties</span>
           </p>
           <h1 className="leading-tight max-w-3xl"

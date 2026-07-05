@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, ShieldCheck } from "lucide-react";
+import { Phone, ShieldCheck, ChevronRight } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 import { ServiceCard, serviceCards } from "@/components/service-card";
@@ -27,7 +27,7 @@ export default function DienstenPage() {
               onMouseLeave={() => setHomeHovered(false)}
               style={{ color: homeHovered ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
             >Home</Link>
-            <span style={{ margin: "0 6px", color: "#9BCB6C" }}>›</span>
+            <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "#9BCB6C" }} />
             <span style={{ color: "#9BCB6C" }}>Diensten</span>
           </p>
           <h1 className="leading-tight" style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.03em", color: "#1A1A1A", marginBottom: "10px", lineHeight: 1.15 }}>

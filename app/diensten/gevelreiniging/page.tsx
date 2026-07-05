@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle, Phone, ChevronRight } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
@@ -33,11 +33,11 @@ export default function GevelreinigingPage() {
             <Link href="/" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 180ms ease" }}
               onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
               onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>Home</Link>
-            <span style={{ margin: "0 6px", color: "rgba(255,255,255,0.25)" }}>›</span>
+            <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "rgba(255,255,255,0.25)" }} />
             <Link href="/diensten" style={{ color: "rgba(255,255,255,0.45)", textDecoration: "none", transition: "color 180ms ease" }}
               onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.9)")}
               onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.45)")}>Diensten</Link>
-            <span style={{ margin: "0 6px", color: "rgba(255,255,255,0.25)" }}>›</span>
+            <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "rgba(255,255,255,0.25)" }} />
             <span style={{ color: "#9BCB6C" }}>Gevelreiniging</span>
           </p>
           <p className="site-eyebrow mb-4">Dienst</p>

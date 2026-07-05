@@ -156,14 +156,14 @@ export default function RegioPage({
                 onMouseLeave={() => setHomeHov(false)}
                 style={{ color: homeHov ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
               >Home</Link>
-              <span style={{ margin: "0 6px", color: "#9BCB6C" }}>&#8250;</span>
+              <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "#9BCB6C" }} />
               <Link
                 href="/#werkgebied"
                 onMouseEnter={() => setRegioHov(true)}
                 onMouseLeave={() => setRegioHov(false)}
                 style={{ color: regioHov ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
               >Regio&apos;s</Link>
-              <span style={{ margin: "0 6px", color: "#9BCB6C" }}>&#8250;</span>
+              <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "#9BCB6C" }} />
               <span style={{ color: "#9BCB6C" }}>{province}</span>
             </p>
 
@@ -190,9 +190,9 @@ export default function RegioPage({
             {/* Breadcrumb — dark style */}
             <nav className="flex items-center gap-2 mb-6 text-sm" style={{ color: "rgba(255,255,255,0.40)" }}>
               <Link href="/" style={{ color: "rgba(255,255,255,0.40)", textDecoration: "none" }}>Home</Link>
-              <span>/</span>
+              <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", color: "rgba(255,255,255,0.40)" }} />
               <Link href="/#werkgebied" style={{ color: "rgba(255,255,255,0.40)", textDecoration: "none" }}>Regio&apos;s</Link>
-              <span>/</span>
+              <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", color: "rgba(255,255,255,0.40)" }} />
               <span style={{ color: "rgba(255,255,255,0.70)" }}>{province}</span>
             </nav>
 

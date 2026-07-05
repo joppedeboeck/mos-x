@@ -19,7 +19,7 @@ const services = [
       "Meer uitstraling voor je woning",
       "Langere levensduur van je dak",
     ],
-    link: "Meer over dakreiniging →",
+    link: "Meer over dakreiniging",
   },
   {
     id: "dak-coaten",
@@ -36,7 +36,7 @@ const services = [
       "Bescherming tegen regen, vorst en UV",
       "Uitstel van een dure renovatie",
     ],
-    link: "Meer over dakcoating →",
+    link: "Meer over dakcoating",
   },
   {
     id: "dakabonnement",
@@ -53,7 +53,7 @@ const services = [
       "Jaarlijkse controle door een specialist",
       "Problemen oplossen vóór ze duur worden",
     ],
-    link: "Ontdek MOS-X Dakzorg →",
+    link: "Ontdek MOS-X Dakzorg",
   },
 ];
 
@@ -186,8 +186,10 @@ function ServiceCard({ s }: { s: typeof services[0] }) {
           <span style={{
             color: "#9BCB6C", fontSize: "14px", fontWeight: 600,
             fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+            display: "inline-flex", alignItems: "center", gap: "4px",
           }}>
             {s.link}
+            <ChevronRight size={15} strokeWidth={2.5} />
           </span>
         </div>
       </div>

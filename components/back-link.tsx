@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
 export default function BackLink({
   href,
@@ -39,7 +39,7 @@ export default function BackLink({
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <ArrowLeft size={13} strokeWidth={2.5} />
+        <ChevronLeft size={13} strokeWidth={2.5} />
         {label}
       </Link>
     );
@@ -68,7 +68,7 @@ export default function BackLink({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <ArrowLeft size={13} color={hovered ? "#7AB54E" : "#9BCB6C"} strokeWidth={2.5} />
+      <ChevronLeft size={13} color={hovered ? "#7AB54E" : "#9BCB6C"} strokeWidth={2.5} />
       {label}
     </Link>
   );

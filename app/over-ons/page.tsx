@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
-import { Phone, User, Calendar, MessageCircle, Home, ShieldCheck, Headphones, Handshake, TrendingUp, Leaf, BarChart2, Settings } from "lucide-react";
+import { Phone, User, Calendar, MessageCircle, Home, ShieldCheck, Headphones, Handshake, TrendingUp, Leaf, BarChart2, Settings, ChevronRight } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
@@ -92,7 +92,7 @@ export default function OverOnsPage() {
               onMouseLeave={() => setHomeHovered(false)}
               style={{ color: homeHovered ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
             >Home</Link>
-            <span style={{ margin: "0 6px", color: "#9BCB6C" }}>›</span>
+            <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "#9BCB6C" }} />
             <span style={{ color: "#9BCB6C" }}>Over ons</span>
           </p>
           <h1 className="leading-tight mb-4"

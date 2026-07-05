@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { Phone, Plus, Minus } from "lucide-react";
+import { Phone, Plus, Minus, ChevronRight } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
@@ -178,7 +178,7 @@ export default function FaqPage() {
               onMouseLeave={() => setHomeHov(false)}
               style={{ color: homeHov ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
             >Home</Link>
-            <span style={{ margin: "0 6px", color: "#9BCB6C" }}>›</span>
+            <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "#9BCB6C" }} />
             <span style={{ color: "#9BCB6C" }}>FAQ</span>
           </p>
           <h1

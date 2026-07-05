@@ -79,7 +79,7 @@ function ChoiceRow({ label, onClick, selected, imgSrc }: { label: string; onClic
   );
 }
 
-function ChoiceCard({ label, onClick, selected, imgSrc }: { label: string; onClick: () => void; selected: boolean; imgSrc?: string }) {
+function ChoiceCard({ label, onClick, selected, imgSrc, imgHeight = 190 }: { label: string; onClick: () => void; selected: boolean; imgSrc?: string; imgHeight?: number }) {
   return (
     <button
       onClick={onClick}
@@ -94,9 +94,9 @@ function ChoiceCard({ label, onClick, selected, imgSrc }: { label: string; onCli
       }}
     >
       {imgSrc ? (
-        <img src={imgSrc} alt={label} style={{ width: "100%", height: "190px", objectFit: "cover", display: "block" }} />
+        <img src={imgSrc} alt={label} style={{ width: "100%", height: `${imgHeight}px`, objectFit: "cover", display: "block" }} />
       ) : (
-        <div style={{ width: "100%", height: "190px", background: "#F0F0F0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", color: "#AAA" }}>
+        <div style={{ width: "100%", height: `${imgHeight}px`, background: "#F0F0F0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", color: "#AAA" }}>
           Geen foto
         </div>
       )}
@@ -375,9 +375,9 @@ export default function SitePricing() {
                   <h3 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "18px", color: "#111", marginBottom: "20px" }}>
                     Wat voor dakpannen liggen op je dak?
                   </h3>
-                  <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px", marginBottom: "12px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "8px", marginBottom: "8px" }}>
                     {dakTypes.filter(d => d.label !== "Ik weet het niet").map(d => (
-                      <ChoiceCard key={d.label} label={d.label} imgSrc={d.img} selected={dak === d.label} onClick={() => { setDak(d.label); setTimeout(next, 220); }} />
+                      <ChoiceCard key={d.label} label={d.label} imgSrc={d.img} imgHeight={120} selected={dak === d.label} onClick={() => { setDak(d.label); setTimeout(next, 220); }} />
                     ))}
                   </div>
                   <ChoiceRow key="ik-weet-het-niet" label="Ik weet het niet" selected={dak === "Ik weet het niet"} onClick={() => { setDak("Ik weet het niet"); setTimeout(next, 220); }} />

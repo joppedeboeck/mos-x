@@ -220,7 +220,7 @@ export default function DakontmossingPage() {
                   { Icon: ShieldCheck, title: "Helpt de levensduur van je dak verlengen" },
                   { Icon: Sparkles,    title: "Je woning krijgt opnieuw een frisse uitstraling" },
                 ].map((item, i) => (
-                  <div key={i} style={{ display: "flex", gap: "14px", alignItems: "center" }}>
+                  <div key={i} style={{ display: "flex", gap: "14px", alignItems: "center", marginTop: i === 2 || i === 3 ? "16px" : "0" }}>
                     <div style={{ width: "52px", height: "52px", borderRadius: "12px", background: "#FFFFFF", border: "1.5px solid #9BCB6C", boxShadow: "0 2px 8px rgba(155,203,108,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                       <item.Icon size={26} color="#9BCB6C" strokeWidth={2} />
                     </div>

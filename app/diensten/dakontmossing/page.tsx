@@ -670,11 +670,9 @@ export default function DakontmossingPage() {
                     {f.cta && (
                       <Link
                         href="/#calculator"
-                        onMouseEnter={e => { e.currentTarget.style.color = "#7AB54E"; }}
-                        onMouseLeave={e => { e.currentTarget.style.color = "#9BCB6C"; }}
-                        style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "12px", background: "#9BCB6C", color: "#FFFFFF", borderRadius: "8px", padding: "9px 18px", fontWeight: 700, fontSize: "13px", textDecoration: "none", fontFamily: "var(--font-montserrat), system-ui, sans-serif", transition: "background 180ms ease" }}
                         onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#7AB54E"; }}
                         onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#9BCB6C"; }}
+                        style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "12px", background: "#9BCB6C", color: "#FFFFFF", borderRadius: "8px", padding: "9px 18px", fontWeight: 700, fontSize: "13px", textDecoration: "none", fontFamily: "var(--font-montserrat), system-ui, sans-serif", transition: "background 180ms ease" }}
                       >
                         Bereken vrijblijvend je richtprijs
                         <ChevronRight size={14} strokeWidth={2.5} />

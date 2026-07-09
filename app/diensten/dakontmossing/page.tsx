@@ -214,10 +214,11 @@ export default function DakontmossingPage() {
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 {[
-                  { title: "Mos houdt vocht vast",          desc: "Vocht versnelt de slijtage van je dakpannen." },
-                  { title: "Meer kans op vorstschade",      desc: "Water zet uit bij vorst waardoor je dakpannen sneller kunnen barsten." },
-                  { title: "Verstopte dakgoten",            desc: "Mos spoelt naar de goten en belemmert een goede afwatering." },
-                  { title: "Kortere levensduur van je dak", desc: "Achterstallig onderhoud kan op lange termijn leiden tot onnodige kosten." },
+                  { title: "Geen loskomend mos rond je woning",          desc: "Minder vuil op terras, oprit en rondom je huis." },
+                  { title: "Minder kans op verstopte dakgoten",          desc: "Water kan opnieuw vlot worden afgevoerd." },
+                  { title: "Minder kans op vochtproblemen",              desc: "Mos houdt vocht langer vast op je dakoppervlak." },
+                  { title: "Helpt de levensduur van je dak verlengen",   desc: "Goed onderhoud houdt je dak langer in goede staat." },
+                  { title: "Je woning krijgt opnieuw een frisse uitstraling", desc: "Je woning oogt meteen verzorgder en aantrekkelijker." },
                 ].map((item, i) => (
                   <div key={i} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
                     <CheckCircle size={20} color="#9BCB6C" strokeWidth={2.5} style={{ flexShrink: 0, marginTop: "2px" }} />

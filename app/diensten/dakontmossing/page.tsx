@@ -201,7 +201,7 @@ export default function DakontmossingPage() {
 
             {/* Right — text */}
             <div>
-              <p className="site-eyebrow mb-4">Waarom mos verwijderen belangrijk is</p>
+              <p className="site-eyebrow mb-4">Waarom je dak laten ontmossen?</p>
               <h2 style={{
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontWeight: 800, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)",

@@ -214,12 +214,11 @@ export default function DakontmossingPage() {
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px 28px" }}>
                 {[
-                  { Icon: Leaf,       title: "Geen mosresten rondom je woning",        desc: "Minder vuil op terras, oprit en rondom je huis." },
-                  { Icon: Sparkles,   title: "Frisse uitstraling",                     desc: "Je woning krijgt opnieuw een verzorgde uitstraling." },
-                  { Icon: Droplets,   title: "Minder verstopte dakgoten",              desc: "Water kan opnieuw vlot worden afgevoerd." },
-                  { Icon: ShieldCheck,title: "Behoud van je dak",                      desc: "Goed onderhoud helpt je dak langer in goede staat houden." },
-                  { Icon: CloudRain,  title: "Minder vochtbelasting",                  desc: "Mos houdt vocht langer vast op je dakoppervlak." },
-                  { Icon: Euro,       title: "Vermijd onnodige kosten",                desc: "Onderhoud vandaag voorkomt grote(re) zorgen morgen." },
+                  { Icon: Leaf,        title: "Geen loskomend mos rond je woning",           desc: "Minder vuil op terras, oprit en rondom je huis." },
+                  { Icon: Droplets,    title: "Minder kans op verstopte dakgoten",           desc: "Water kan opnieuw vlot worden afgevoerd." },
+                  { Icon: CloudRain,   title: "Minder kans op vochtproblemen",               desc: "Mos houdt vocht langer vast op je dakoppervlak." },
+                  { Icon: ShieldCheck, title: "Helpt de levensduur van je dak verlengen",    desc: "Goed onderhoud houdt je dak langer in goede staat." },
+                  { Icon: Sparkles,    title: "Je woning krijgt opnieuw een frisse uitstraling", desc: "Je woning oogt meteen verzorgder en aantrekkelijker." },
                 ].map((item, i) => (
                   <div key={i} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
                     <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "rgba(155,203,108,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>

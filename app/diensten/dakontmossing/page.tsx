@@ -212,7 +212,7 @@ export default function DakontmossingPage() {
                 <span style={{ color: "#9BCB6C" }}>Geniet opnieuw van een verzorgd dak.</span>
               </h2>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px 28px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "44px 28px" }}>
                 {[
                   { Icon: Leaf,        title: "Geen loskomend mos rond je woning" },
                   { Icon: Droplets,    title: "Minder kans op verstopte dakgoten" },

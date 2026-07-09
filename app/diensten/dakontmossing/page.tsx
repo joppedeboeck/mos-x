@@ -206,7 +206,7 @@ export default function DakontmossingPage() {
                 fontFamily: "var(--font-montserrat), system-ui, sans-serif",
                 fontWeight: 800, fontSize: "clamp(1.6rem, 2.8vw, 2.2rem)",
                 letterSpacing: "-0.028em", lineHeight: 1.15,
-                color: "#1A1A1A", marginBottom: "42px",
+                color: "#1A1A1A", marginBottom: "38px",
               }}>
                 Voorkom problemen.<br />
                 <span style={{ color: "#9BCB6C" }}>Geniet opnieuw van een verzorgd dak.</span>

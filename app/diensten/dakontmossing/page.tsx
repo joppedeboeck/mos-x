@@ -221,7 +221,7 @@ export default function DakontmossingPage() {
                   { Icon: Sparkles,    title: "Je woning krijgt opnieuw een frisse uitstraling" },
                 ].map((item, i) => (
                   <div key={i} style={{ display: "flex", gap: "14px", alignItems: "center" }}>
-                    <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "rgba(155,203,108,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "#FFFFFF", border: "1.5px solid #9BCB6C", boxShadow: "0 2px 8px rgba(155,203,108,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                       <item.Icon size={20} color="#9BCB6C" strokeWidth={2} />
                     </div>
                     <p style={{

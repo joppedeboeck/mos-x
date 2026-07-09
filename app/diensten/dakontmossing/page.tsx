@@ -208,8 +208,8 @@ export default function DakontmossingPage() {
                 letterSpacing: "-0.028em", lineHeight: 1.15,
                 color: "#1A1A1A", marginBottom: "32px",
               }}>
-                Voorkom schade.<br />
-                <span style={{ color: "#9BCB6C" }}>Bespaar op lange termijn.</span>
+                Voorkom problemen.<br />
+                <span style={{ color: "#9BCB6C" }}>Geniet opnieuw van een verzorgd dak.</span>
               </h2>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>

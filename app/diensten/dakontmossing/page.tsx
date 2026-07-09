@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle, Phone, ArrowRight, ChevronDown, Search, Droplets, CloudRain, ShieldCheck, Home, ChevronRight, ChevronLeft } from "lucide-react";
+import { CheckCircle, Phone, ArrowRight, ChevronDown, Search, Droplets, CloudRain, ShieldCheck, Home, ChevronRight, ChevronLeft, Leaf, Sparkles, Euro } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
@@ -212,24 +212,27 @@ export default function DakontmossingPage() {
                 <span style={{ color: "#9BCB6C" }}>Geniet opnieuw van een verzorgd dak.</span>
               </h2>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px 28px" }}>
                 {[
-                  { title: "Geen loskomend mos rond je woning",          desc: "Minder vuil op terras, oprit en rondom je huis." },
-                  { title: "Minder kans op verstopte dakgoten",          desc: "Water kan opnieuw vlot worden afgevoerd." },
-                  { title: "Minder kans op vochtproblemen",              desc: "Mos houdt vocht langer vast op je dakoppervlak." },
-                  { title: "Helpt de levensduur van je dak verlengen",   desc: "Goed onderhoud houdt je dak langer in goede staat." },
-                  { title: "Je woning krijgt opnieuw een frisse uitstraling", desc: "Je woning oogt meteen verzorgder en aantrekkelijker." },
+                  { Icon: Leaf,       title: "Geen mosresten rondom je woning",        desc: "Minder vuil op terras, oprit en rondom je huis." },
+                  { Icon: Sparkles,   title: "Frisse uitstraling",                     desc: "Je woning krijgt opnieuw een verzorgde uitstraling." },
+                  { Icon: Droplets,   title: "Minder verstopte dakgoten",              desc: "Water kan opnieuw vlot worden afgevoerd." },
+                  { Icon: ShieldCheck,title: "Behoud van je dak",                      desc: "Goed onderhoud helpt je dak langer in goede staat houden." },
+                  { Icon: CloudRain,  title: "Minder vochtbelasting",                  desc: "Mos houdt vocht langer vast op je dakoppervlak." },
+                  { Icon: Euro,       title: "Vermijd onnodige kosten",                desc: "Onderhoud vandaag voorkomt grote(re) zorgen morgen." },
                 ].map((item, i) => (
                   <div key={i} style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
-                    <CheckCircle size={20} color="#9BCB6C" strokeWidth={2.5} style={{ flexShrink: 0, marginTop: "2px" }} />
+                    <div style={{ width: "42px", height: "42px", borderRadius: "10px", background: "rgba(155,203,108,0.15)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <item.Icon size={20} color="#9BCB6C" strokeWidth={2} />
+                    </div>
                     <div>
                       <p style={{
                         fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                        fontWeight: 700, fontSize: "15px", color: "#1A1A1A", marginBottom: "4px",
+                        fontWeight: 700, fontSize: "14px", color: "#1A1A1A", marginBottom: "4px", lineHeight: 1.3,
                       }}>{item.title}</p>
                       <p style={{
                         fontFamily: "var(--font-inter), system-ui, sans-serif",
-                        fontSize: "14px", color: "#545454", lineHeight: 1.6,
+                        fontSize: "13px", color: "#545454", lineHeight: 1.6,
                       }}>{item.desc}</p>
                     </div>
                   </div>

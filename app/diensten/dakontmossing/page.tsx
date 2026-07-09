@@ -3,27 +3,106 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle, Phone, ArrowRight, ChevronDown, Search, Droplets, CloudRain, ShieldCheck, Home, ChevronRight, ChevronLeft, Leaf, Sparkles, Euro } from "lucide-react";
+import { CheckCircle, Phone, ArrowRight, ChevronDown, Search, Droplets, CloudRain, ShieldCheck, Home, ChevronRight, ChevronLeft, Leaf, Sparkles, Euro, AlertTriangle, HelpCircle } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
 
 const steps = [
-  { step: "STAP 01", Icon: Search,        title: "Nazicht & voorbereiding",           desc: "We controleren het dak, signaleren eventuele beschadigingen en plaatsen bladvangers om verstoppingen tijdens de reiniging te voorkomen." },
-  { step: "STAP 02", Icon: Droplets,      title: "Professionele dakreiniging",        desc: "Met professionele stoom- en hogedrukapparatuur verwijderen we mos, algen en vervuiling grondig van het dak. De druk wordt afgestemd op het type dakbedekking zodat de reiniging doeltreffend én veilig verloopt." },
-  { step: "STAP 03", Icon: ShieldCheck,   title: "Preventieve anti-mosbehandeling",  desc: "Na de reiniging brengen we een biologisch afbreekbare anti-mosbehandeling aan. Zo wordt nieuwe mosvorming afgeremd en blijft het dak langer proper." },
-  { step: "STAP 04", Icon: Home,          title: "Reiniging rondom de woning",       desc: "Tijdens de werken kunnen mosresten op muren, ramen, terras of oprit terechtkomen. Daarom reinigen we de omgeving zorgvuldig zodat alles netjes wordt achtergelaten." },
-  { step: "STAP 05", Icon: CloudRain,     title: "Dakgoten ledigen",                 desc: "We maken de dakgoten volledig leeg en spoelen indien nodig de afvoerleidingen door. Zo voorkomen we verstoppingen en kan regenwater opnieuw vlot wegstromen." },
+  { step: "STAP 01", Icon: Search,        title: "Dakcontrole & voorbereiding",      desc: "Voor we starten bekijken we de algemene staat van je dak. Zo bepalen we de juiste aanpak voor jouw dak." },
+  { step: "STAP 02", Icon: Droplets,      title: "Professionele dakreiniging",       desc: "Mos, algen en vervuiling worden grondig verwijderd met professionele apparatuur." },
+  { step: "STAP 03", Icon: ShieldCheck,   title: "Dakcontrole na reiniging",         desc: "Na het reinigen controleren we het volledige dak opnieuw. Zo worden eventuele verborgen aandachtspunten beter zichtbaar." },
+  { step: "STAP 04", Icon: Home,          title: "Bescherming van je dak",           desc: "Afhankelijk van het type dak en jouw wensen voorzien we een extra beschermlaag om je dak langer in goede staat te houden." },
+  { step: "STAP 05", Icon: CloudRain,     title: "Omgeving netjes achtergelaten",    desc: "Een dakreiniging stopt voor ons niet boven op het dak. We zorgen dat ook rondom je woning alles verzorgd wordt." },
 ];
 
 
-const faqs = [
-  { q: "Is hogedruk slecht voor een dak?", a: "Niet wanneer het correct wordt toegepast. Het type dak, de staat van de dakpannen en de juiste instellingen bepalen welke reinigingstechniek geschikt is. MOS-X gebruikt aangepaste technieken waarbij de druk wordt afgestemd op het dak, zodat het resultaat veilig én doeltreffend is." },
-  { q: "Wanneer zie ik resultaat?", a: "Het grootste deel van het resultaat is onmiddellijk zichtbaar na de reiniging. Eventuele resterende vervuiling kan verder verdwijnen door regen en weersinvloeden." },
-  { q: "Moet ik thuis zijn tijdens de behandeling?", a: "Voor de inspectie is dat handig. Tijdens de uitvoering zelf is dat meestal niet nodig." },
-  { q: "Is een coating nodig na een reiniging?", a: "Niet altijd. Tijdens de inspectie krijg je eerlijk advies op basis van de staat van je dak. Soms volstaat een reiniging. Soms is een bijkomende bescherming interessant." },
+const faqs: { q: string; a: string; cta?: boolean }[] = [
   { q: "Hoe lang blijft mijn dak proper?", a: "Dat hangt af van de ligging van je woning, de hoeveelheid bomen rondom en de weersomstandigheden. Met een preventieve behandeling of MOS-X Dakzorg blijft je dak doorgaans langer proper en goed onderhouden." },
+  { q: "Wat kost een dakreiniging?", a: "Geen enkel dak is hetzelfde. De prijs hangt af van de oppervlakte, bereikbaarheid, vervuiling, het type dakbedekking en de gekozen afwerking.\n\nDaarom werken wij niet met standaardprijzen per m², maar bekijken we jouw dak persoonlijk zodat je een correcte richtprijs ontvangt.", cta: true },
+  { q: "Hoe vaak moet je een dak laten reinigen?", a: "Dit hangt sterk af van de ligging en omgeving van je woning. Een dak met veel schaduw, bomen of vocht zal sneller opnieuw vervuilen dan een dak dat veel zon krijgt.\n\nGemiddeld volstaat een professionele reiniging ongeveer om de 7 à 10 jaar. In bosrijke of vochtige omgevingen kan onderhoud sneller nodig zijn.\n\nEen controle om de 2 à 3 jaar helpt om beginnende mosvorming of kleine problemen tijdig op te merken." },
+  { q: "Is een dakcoating nodig na het reinigen?", a: "Een dakcoating is niet verplicht, maar kan afhankelijk van de staat van je dak sterk aanbevolen zijn.\n\nNa verloop van tijd verliezen sommige dakpannen hun oorspronkelijke beschermlaag. Een professionele coating brengt opnieuw een beschermende laag aan die helpt tegen:\n✓ vochtopname\n✓ weersinvloeden\n✓ vorstschade\n✓ nieuwe mosvorming\n\nZo blijft je dak langer beschermd en verzorgd." },
+  { q: "Wat hoort er niet thuis bij een dakreiniging?", a: "Niet elke reinigingsmethode is geschikt voor elk dak. Een verkeerde aanpak kan meer schade veroorzaken dan oplossen.\n\nDaarom vermijden wij:\n✓ extreem hoge werkdruk\n✓ agressieve producten zoals bleekwater, javel of chloor\n✓ schadelijke chemische behandelingen\n\nGeen enkele dakpan heeft onnodig extreme druk nodig. De juiste combinatie van techniek, materiaal en ervaring bepaalt het resultaat." },
+  { q: "Welke kleine herstellingen kunnen jullie uitvoeren?", a: "Tijdens de werken controleren we ook de algemene staat van je dak. Kleine herstellingen kunnen vaak meteen meegenomen worden.\n\nDenk aan:\n✓ vervangen van beschadigde dakpannen\n✓ herstellen of vernieuwen van nokpannen\n✓ uitcementeren van nokken\n✓ kleine metselwerken of voegwerken\n✓ plaatsen van vogelwering\n✓ kleine herstellingen aan dakgoten of afvoer\n✓ algemene daknazichten" },
+  { q: "Wat gebeurt er met mos en vuil na de reiniging?", a: "Alle losgekomen mos, vuil en resten worden zorgvuldig verzameld tijdens de afwerking.\n\nWe kunnen het afval meenemen en correct verwerken. Wie dit liever zelf gebruikt, bijvoorbeeld als groenafval of compostmateriaal, kan dit uiteraard aangeven." },
+  { q: "Reinigen jullie asbesthoudende daken?", a: "Nee. Asbesthoudende dakmaterialen mogen volgens de huidige regelgeving niet gereinigd of ontmost worden.\n\nBij vermoeden van asbest bekijken we dit vooraf. Veiligheid en correcte uitvoering gaan altijd voor." },
+  { q: "Reinigen jullie ook daken in mijn regio?", a: "MOS-X is actief in verschillende regio's waaronder:\n✓ Antwerpen\n✓ Limburg\n✓ Vlaams-Brabant\n\nTwijfel je of we tot bij jou komen? Neem gerust contact op." },
 ];
 
+
+function RealisatieLargeSlider() {
+  const [split, setSplit] = useState(50);
+  const ref = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
+  const move = (cx: number) => {
+    if (!ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    setSplit(Math.min(95, Math.max(5, ((cx - r.left) / r.width) * 100)));
+  };
+  return (
+    <div ref={ref} style={{ position: "relative", width: "100%", height: "100%", minHeight: "460px", borderRadius: "16px", overflow: "hidden", cursor: "col-resize", userSelect: "none", boxShadow: "0 4px 32px rgba(0,0,0,0.10)" }}
+      onMouseDown={() => (dragging.current = true)}
+      onMouseMove={e => { if (dragging.current) move(e.clientX); }}
+      onMouseUp={() => (dragging.current = false)}
+      onMouseLeave={() => (dragging.current = false)}
+      onTouchStart={() => (dragging.current = true)}
+      onTouchMove={e => move(e.touches[0].clientX)}
+      onTouchEnd={() => (dragging.current = false)}
+    >
+      <img src="/images/IMG_5414.JPEG" alt="Voor" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }} draggable={false} />
+      <div style={{ position: "absolute", top: "16px", left: "16px", zIndex: 5, background: "rgba(0,0,0,0.65)", color: "#FFFFFF", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>VOOR</div>
+      <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${split}%)` }}>
+        <img src="/images/IMG_5436.JPEG" alt="Na" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }} draggable={false} />
+        <div style={{ position: "absolute", top: "16px", right: "16px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA</div>
+      </div>
+      <div style={{ position: "absolute", top: 0, bottom: 0, width: "2px", left: `${split}%`, background: "rgba(255,255,255,0.75)", zIndex: 10, pointerEvents: "none" }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "44px", height: "44px", borderRadius: "50%", background: "#FFFFFF", border: "2px solid #9BCB6C", boxShadow: "0 2px 12px rgba(0,0,0,0.18)", display: "flex", alignItems: "center", justifyContent: "center", gap: "2px" }}>
+          <ChevronLeft style={{ width: "14px", height: "14px", color: "#9BCB6C" }} />
+          <ChevronRight style={{ width: "14px", height: "14px", color: "#9BCB6C" }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RealisatieSmallSlider({ beforeSrc, afterSrc, label }: { beforeSrc: string; afterSrc: string; label: string }) {
+  const [split, setSplit] = useState(50);
+  const ref = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
+  const move = (cx: number) => {
+    if (!ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    setSplit(Math.min(95, Math.max(5, ((cx - r.left) / r.width) * 100)));
+  };
+  return (
+    <div style={{ flex: 1 }}>
+      <div ref={ref} style={{ position: "relative", width: "100%", height: "100%", minHeight: "200px", borderRadius: "12px", overflow: "hidden", cursor: "col-resize", userSelect: "none", boxShadow: "0 4px 24px rgba(0,0,0,0.10)" }}
+        onMouseDown={() => (dragging.current = true)}
+        onMouseMove={e => { if (dragging.current) move(e.clientX); }}
+        onMouseUp={() => (dragging.current = false)}
+        onMouseLeave={() => (dragging.current = false)}
+        onTouchStart={() => (dragging.current = true)}
+        onTouchMove={e => move(e.touches[0].clientX)}
+        onTouchEnd={() => (dragging.current = false)}
+      >
+        <img src={beforeSrc} alt="Voor" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} draggable={false} />
+        <div style={{ position: "absolute", top: "12px", left: "12px", zIndex: 5, background: "rgba(0,0,0,0.65)", color: "#FFFFFF", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>VOOR</div>
+        <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 0 ${split}%)` }}>
+          <img src={afterSrc} alt="Na" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} draggable={false} />
+          <div style={{ position: "absolute", top: "12px", right: "12px", zIndex: 5, background: "#9BCB6C", color: "#1A1A1A", padding: "5px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>NA</div>
+        </div>
+        <div style={{ position: "absolute", top: 0, bottom: 0, width: "2px", left: `${split}%`, background: "rgba(255,255,255,0.75)", zIndex: 10, pointerEvents: "none" }}>
+          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "36px", height: "36px", borderRadius: "50%", background: "#FFFFFF", border: "2px solid #9BCB6C", boxShadow: "0 2px 8px rgba(0,0,0,0.18)", display: "flex", alignItems: "center", justifyContent: "center", gap: "2px" }}>
+            <ChevronLeft style={{ width: "12px", height: "12px", color: "#9BCB6C" }} />
+            <ChevronRight style={{ width: "12px", height: "12px", color: "#9BCB6C" }} />
+          </div>
+        </div>
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)", padding: "20px 14px 10px", pointerEvents: "none", zIndex: 5 }}>
+          <p style={{ margin: 0, fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 700, fontSize: "13px", color: "#FFFFFF", textAlign: "center" }}>{label}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function VoorkomSlider() {
   const [split, setSplit] = useState(50);
@@ -87,106 +166,128 @@ export default function DakontmossingPage() {
   return (
     <PageLayout>
 
-      {/* â"€â"€ Hero (light) â"€â"€ */}
-      {/* Hero — two-col */}
-      <section style={{ background: "#F7F8F6", paddingTop: "120px", paddingBottom: "80px" }}>
-        <div className="site-wrap">
+      {/* Hero — dark two-col */}
+      <section style={{ background: "#111111", paddingTop: "160px", paddingBottom: "280px", position: "relative", overflow: "hidden", minHeight: "96vh" }}>
 
-          <BackLink href="/diensten" />
+        {/* Video desktop — absoluut, vult de volledige rechterhelft van de sectie */}
+        <div className="hidden lg:block" style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "44%", zIndex: 1 }}>
+          <video
+            src="/videos/Dakreiniging_yannick.mp4"
+            autoPlay muted loop playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+          {/* Gradient van boven: subtiel, video is direct zichtbaar */}
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(17,17,17,0.55) 0%, rgba(17,17,17,0.2) 18%, transparent 38%)", pointerEvents: "none" }} />
+          {/* Gradient van links: vervaagt naar tekst */}
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #111111 0%, rgba(17,17,17,0.9) 10%, rgba(17,17,17,0.3) 28%, transparent 52%)", pointerEvents: "none" }} />
+        </div>
+
+        <div className="site-wrap" style={{ position: "relative", zIndex: 2 }}>
+
+          <BackLink href="/diensten" dark />
 
           {/* Breadcrumb */}
-          <p style={{ fontSize: "13px", marginBottom: "28px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+          <p style={{ fontSize: "13px", marginBottom: "60px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
             <Link
               href="/"
               onMouseEnter={() => setHomeHovered(true)}
               onMouseLeave={() => setHomeHovered(false)}
-              style={{ color: homeHovered ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
+              style={{ color: homeHovered ? "#9BCB6C" : "rgba(255,255,255,0.55)", textDecoration: "none", transition: "color 180ms ease" }}
             >Home</Link>
             <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "#9BCB6C" }} />
             <Link
               href="/diensten"
               onMouseEnter={() => setDienstenHovered(true)}
               onMouseLeave={() => setDienstenHovered(false)}
-              style={{ color: dienstenHovered ? "#9BCB6C" : "#1A1A1A", textDecoration: "none", transition: "color 180ms ease" }}
+              style={{ color: dienstenHovered ? "#9BCB6C" : "rgba(255,255,255,0.55)", textDecoration: "none", transition: "color 180ms ease" }}
             >Diensten</Link>
             <ChevronRight size={13} strokeWidth={2} style={{ display: "inline", verticalAlign: "middle", margin: "0 3px", color: "#9BCB6C" }} />
             <span style={{ color: "#9BCB6C" }}>Dakreiniging</span>
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-            {/* Left: text + buttons */}
-            <div>
-              <p className="site-eyebrow mb-4">Professionele dakontmossing</p>
-              <h1
+          {/* Tekst — linkerhelft op desktop, vol op mobile */}
+          <div className="lg:w-1/2">
+            <p className="site-eyebrow mb-4">Professionele dakontmossing</p>
+            <h1
+              style={{
+                fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(1.75rem, 3.2vw, 2.625rem)",
+                letterSpacing: "-0.03em",
+                color: "#FFFFFF",
+                lineHeight: 1.12,
+                marginBottom: "20px",
+              }}
+            >
+              Geef je dak opnieuw<br />
+              <span style={{ color: "#9BCB6C" }}>jaren bescherming.</span>
+            </h1>
+            <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.65)", lineHeight: 1.65, marginBottom: "56px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+              Mos en vuil houden vocht vast en laten je dak sneller verouderen.<br />
+              Met een professionele reiniging verwijderen we vervuiling veilig<br />
+              en helpen we je dak langer in goede staat te houden.
+            </p>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+              <Link
+                href="/#calculator"
+                onMouseEnter={e => { e.currentTarget.style.background = "#7AB54E"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#9BCB6C"; }}
                 style={{
-                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                  fontWeight: 800,
-                  fontSize: "clamp(1.75rem, 3.2vw, 2.625rem)",
-                  letterSpacing: "-0.03em",
-                  color: "#1A1A1A",
-                  lineHeight: 1.12,
-                  marginBottom: "20px",
+                  display: "inline-flex", alignItems: "center", gap: "8px",
+                  background: "#9BCB6C", color: "#FFFFFF", borderRadius: "10px",
+                  padding: "14px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  fontWeight: 700, fontSize: "15px", textDecoration: "none",
+                  transition: "background 200ms ease",
                 }}
               >
-                Geef je dak opnieuw<br />
-                <span style={{ color: "#9BCB6C" }}>jaren bescherming.</span>
-              </h1>
-              <p style={{ fontSize: "16px", color: "#545454", lineHeight: 1.65, marginBottom: "36px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                Mos en vuil houden vocht vast en laten je dak sneller verouderen.<br />
-                Met een professionele reiniging verwijderen we vervuiling veilig<br />
-                en helpen we je dak langer in goede staat te houden.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <Link
-                  href="/#calculator"
-                  onMouseEnter={e => { e.currentTarget.style.background = "#7AB54E"; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = "#9BCB6C"; }}
-                  style={{
-                    display: "inline-flex", alignItems: "center", gap: "8px",
-                    background: "#9BCB6C", color: "#FFFFFF", borderRadius: "10px",
-                    padding: "14px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                    fontWeight: 700, fontSize: "15px", textDecoration: "none",
-                    transition: "background 200ms ease",
-                  }}
-                >
-                  Bereken je richtprijs
-                  <ChevronRight size={15} strokeWidth={2.5} />
-                </Link>
-                <a
-                  href="tel:+32468352869"
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#9BCB6C"; e.currentTarget.style.color = "#9BCB6C"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(26,26,26,0.25)"; e.currentTarget.style.color = "#1A1A1A"; }}
-                  style={{
-                    display: "inline-flex", alignItems: "center", gap: "8px",
-                    background: "transparent", color: "#1A1A1A",
-                    border: "1.5px solid rgba(26,26,26,0.25)", borderRadius: "10px",
-                    padding: "14px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-                    fontWeight: 700, fontSize: "15px", textDecoration: "none",
-                    transition: "border-color 200ms ease, color 200ms ease",
-                  }}
-                >
-                  <Phone size={16} />
-                  +32 468 35 28 69
-                </a>
-              </div>
-
-              {/* Google Reviews widget — script wordt via useEffect binnenin dit element geladen */}
-              <div style={{ marginTop: "20px" }}>
-                <div ref={trustindexRef} style={{ display: "inline-block" }} />
-              </div>
+                Bereken je richtprijs
+                <ChevronRight size={15} strokeWidth={2.5} />
+              </Link>
+              <a
+                href="tel:+32468352869"
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "#9BCB6C"; e.currentTarget.style.color = "#9BCB6C"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; e.currentTarget.style.color = "rgba(255,255,255,0.85)"; }}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "8px",
+                  background: "transparent", color: "rgba(255,255,255,0.85)",
+                  border: "1.5px solid rgba(255,255,255,0.25)", borderRadius: "10px",
+                  padding: "14px 24px", fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  fontWeight: 700, fontSize: "15px", textDecoration: "none",
+                  transition: "border-color 200ms ease, color 200ms ease",
+                }}
+              >
+                <Phone size={16} />
+                +32 468 35 28 69
+              </a>
             </div>
 
-            {/* Right: video + Yannick overlay */}
-            <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,0.15)", aspectRatio: "4/4.2" }}>
-              <video
-                src="/videos/Dakreiniging_yannick.mp4"
-                autoPlay muted loop playsInline
-                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              />
+            {/* Google Reviews widget */}
+            <div style={{ marginTop: "20px" }}>
+              <div ref={trustindexRef} style={{ display: "inline-block" }} />
             </div>
-
           </div>
+
+          {/* Video — mobile: in de flow onder de tekst */}
+          <div className="block lg:hidden" style={{ marginTop: "36px", borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3" }}>
+            <video
+              src="/videos/Dakreiniging_yannick.mp4"
+              autoPlay muted loop playsInline
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          </div>
+        </div>
+
+        {/* Wave onderaan — desktop */}
+        <div className="hidden lg:block" style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 3 }}>
+          <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "80px" }}>
+            <path d="M0,0 C360,80 1080,80 1440,0 L1440,80 L0,80 Z" fill="#F7F8F6"/>
+          </svg>
+        </div>
+        {/* Wave onderaan — mobile */}
+        <div className="block lg:hidden" style={{ position: "absolute", bottom: "-1px", left: 0, width: "100%", overflow: "hidden", lineHeight: 0, zIndex: 3 }}>
+          <svg viewBox="0 0 1440 50" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: "50px" }}>
+            <path d="M0,0 C360,45 1080,45 1440,0 L1440,50 L0,50 Z" fill="#F7F8F6"/>
+          </svg>
         </div>
       </section>
 
@@ -299,171 +400,224 @@ export default function DakontmossingPage() {
         </div>
       </section>
 
-      <section className="pt-10 lg:pt-[100px] pb-[100px]" style={{ background: "#F7F8F6" }}>
+      <section className="pt-16 lg:pt-[100px] pb-[180px]" style={{ background: "#F7F8F6" }}>
         <div className="site-wrap">
-          <div className="grid sm:grid-cols-2 gap-6">
+          {/* Header */}
+          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+            <p className="site-eyebrow mb-4">Welke daken ontmossen wij?</p>
+            <h2 style={{
+              fontSize: "clamp(1.5rem, 2.5vw, 2rem)", fontWeight: 800, color: "#1A1A1A",
+              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+              letterSpacing: "-0.028em", lineHeight: 1.15, marginBottom: "16px",
+            }}>
+              Elk dak vraagt zijn eigen aanpak.
+            </h2>
+            <p style={{ fontSize: "16px", color: "#545454", lineHeight: 1.65, fontFamily: "var(--font-inter), system-ui, sans-serif", maxWidth: "540px", margin: "0 auto" }}>
+              Elk dakmateriaal heeft zijn eigen eigenschappen. Daarom stemmen we onze reiniging af op het type dak en de staat van de dakbedekking.
+            </p>
+          </div>
 
-            {/* Kaart 1 — Voordelen van dakreiniging */}
-            <div className="rounded-2xl p-8" style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
-              <h3 className="font-black mb-5"
-                style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#1A1A1A", fontSize: "1.1rem" }}>
-                Voordelen van dakreiniging
-              </h3>
-              <ul className="space-y-3">
-                {[
-                  { title: "Langer levensduur",        desc: "Propere dakpannen gaan langer mee en hebben minder slijtage." },
-                  { title: "Betere waterafvoer",        desc: "Vrije dakgoten voorkomen opstuwing en lekkages." },
-                  { title: "Minder vorstschade",        desc: "Droge dakpannen barsten niet bij vriesweer." },
-                  { title: "Verzorgde uitstraling",     desc: "Een proper dak geeft je woning direct een frissere look." },
-                  { title: "Bespaar op renovatiekosten", desc: "Regelmatig onderhoud is altijd goedkoper dan een dakvervanging." },
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#9BCB6C" }} />
-                    <span className="text-sm" style={{ color: "#555555", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                      <strong style={{ color: "#1A1A1A", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>{item.title}</strong> — {item.desc}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+          {/* 3×2 foto grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "10px", marginBottom: "10px" }}>
+            {[
+              { label: "Betonpannen",           img: "/images/2.JPEG" },
+              { label: "Keramische pannen",     img: "/images/Betonpannen.jpg" },
+              { label: "Tegelpannen",           img: "/images/dak-coaten.webp" },
+              { label: "Kunst- en natuurleien", img: "/images/Natuurleien.jpg" },
+              { label: "Metalen daken",         img: null },
+              { label: "Andere daktypes",       img: "/images/dak-reinigen.webp" },
+            ].map((type, i) => (
+              <div key={i} style={{
+                position: "relative", borderRadius: "12px", overflow: "hidden", height: "200px",
+                background: type.img ? undefined : "linear-gradient(135deg, #1e2a1e 0%, #2a3a2a 100%)",
+              }}>
+                {type.img && (
+                  <img
+                    src={type.img}
+                    alt={type.label}
+                    style={{
+                      width: "100%", height: "100%", objectFit: "cover", display: "block",
+                      objectPosition: type.img.includes("dak-reinigen") ? "right center" : "center",
+                    }}
+                  />
+                )}
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)" }} />
+                <div style={{ position: "absolute", bottom: "14px", left: "14px" }}>
+                  <span style={{ color: "#FFFFFF", fontWeight: 700, fontSize: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
+                    {type.label}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Info container */}
+          <div style={{
+            background: "#FFFFFF", border: "1.5px solid #9BCB6C", borderRadius: "16px",
+            boxShadow: "0 2px 16px rgba(155,203,108,0.12)",
+            display: "flex", overflow: "hidden",
+          }}>
+            {/* Links: Asbesthoudende daken */}
+            <div style={{ flex: 1, minWidth: 0, padding: "14px 28px", display: "flex", gap: "14px", alignItems: "center" }}>
+              <div style={{ width: "56px", height: "56px", borderRadius: "50%", background: "rgba(155,203,108,0.15)", border: "1.5px solid #E5E7EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <AlertTriangle size={28} color="#9BCB6C" strokeWidth={2.5} />
+              </div>
+              <div>
+                <p style={{ fontWeight: 700, fontSize: "15px", color: "#1A1A1A", marginBottom: "6px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>Asbesthoudende daken</p>
+                <p style={{ fontSize: "13px", color: "#545454", lineHeight: 1.5, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                  Asbesthoudende dakmaterialen mogen volgens de huidige wetgeving niet ontmost of gereinigd worden.
+                </p>
+              </div>
             </div>
 
-            {/* Kaart 2 — Waarom MOS-X */}
-            <div className="rounded-2xl p-8" style={{ background: "#FFFFFF", border: "1px solid #E5E7EB", borderRadius: "16px", boxShadow: "0 2px 16px rgba(0,0,0,0.07)" }}>
-              <h3 className="font-black mb-5"
-                style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", color: "#1A1A1A", fontSize: "1.1rem" }}>
-                Waarom kiezen klanten voor MOS-X
-              </h3>
-              <ul className="space-y-3">
-                {[
-                  { title: "Yannick doet alles zelf",      desc: "Geen onderaannemers, geen verrassingen." },
-                  { title: "Vaste prijs vooraf",            desc: "Je weet wat het kost vóór we beginnen." },
-                  { title: "Advies op maat",                desc: "Alleen wat jouw dak écht nodig heeft." },
-                  { title: "Professionele apparatuur",      desc: "Niet zomaar een hogedrukreiniger." },
-                  { title: "Nette afwerking",               desc: "De omgeving wordt altijd proper achtergelaten." },
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#9BCB6C" }} />
-                    <span className="text-sm" style={{ color: "#555555", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                      <strong style={{ color: "#1A1A1A", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>{item.title}</strong> — {item.desc}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* Divider */}
+            <div style={{ width: "1px", background: "#9BCB6C", margin: "14px 0", flexShrink: 0 }} />
 
+            {/* Rechts: Twijfel je over je dak? */}
+            <div style={{ width: "330px", flexShrink: 0, padding: "14px 28px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+              <p style={{ fontWeight: 700, fontSize: "15px", color: "#1A1A1A", marginBottom: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>Twijfel je over je dak?</p>
+              <a
+                href="https://wa.me/32468352869"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "8px",
+                  background: "#9BCB6C", color: "#FFFFFF",
+                  padding: "7px 24px", borderRadius: "8px",
+                  fontWeight: 700, fontSize: "14px", textDecoration: "none",
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  boxShadow: "0 2px 8px rgba(155,203,108,0.3)",
+                  transition: "background-color 0.2s ease",
+                  whiteSpace: "nowrap",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#7AB54E"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#9BCB6C"; }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Stel je vraag aan Yannick
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* â"€â"€ Process — homepage style â"€â"€ */}
-      <section style={{ background: "#F7F8F6", padding: "100px 0 16px" }}>
-        <div className="site-wrap">
-          <div style={{ marginBottom: "56px", textAlign: "center" }}>
-            <p className="site-eyebrow mb-4">Onze werkwijze</p>
+      {/* ── Werkwijze — foto flush links + stappen rechts ── */}
+      <section style={{ background: "#111111", overflow: "hidden", position: "relative" }}>
+
+        {/* Foto: absoluut gepositioneerd links — hoogte volgt content */}
+        <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "42%" }}>
+          <img
+            src="/images/IMG_5396.JPEG"
+            alt="Yannick aan het werk"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center bottom", display: "block" }}
+          />
+          {/* Gradient overgang rechts naar donker */}
+          <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: "260px", background: "linear-gradient(to right, rgba(17,17,17,0) 0%, rgba(17,17,17,0.6) 50%, #111111 100%)", pointerEvents: "none" }} />
+        </div>
+
+        {/* Rechts: stappen — bepaalt de hoogte van de sectie */}
+        <div style={{ marginLeft: "42%", padding: "52px 56px 64px 28px", display: "flex", flexDirection: "column", justifyContent: "flex-start", maxWidth: "780px" }}>
+            <p className="site-eyebrow mb-4" style={{ color: "#9BCB6C" }}>Onze werkwijze</p>
             <h2 style={{
-              fontSize: "clamp(1.5rem, 2.5vw, 2rem)", fontWeight: 800, color: "#1A1A1A",
+              fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)", fontWeight: 800, color: "#FFFFFF",
               fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-              letterSpacing: "-0.028em", lineHeight: 1.15,
+              letterSpacing: "-0.028em", lineHeight: 1.15, marginBottom: "32px",
             }}>
-              Zo reinigen we <span style={{ color: "#9BCB6C" }}>jouw dak.</span>
+              Zo ontmossen we <span style={{ color: "#9BCB6C" }}>jouw dak.</span>
+            </h2>
+
+            <div>
+              {steps.map((s, i) => {
+                const isLast = i === steps.length - 1;
+                return (
+                  <div key={i} style={{ display: "flex", gap: "18px", minHeight: "120px" }}>
+
+                    {/* Badge kolom — strekt zich uit over volledige rijhoogte */}
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "52px", flexShrink: 0, alignSelf: "stretch" }}>
+                      {/* Lijn/ruimte boven badge */}
+                      <div style={{ flex: 1, width: "1.5px", background: i > 0 ? "rgba(155,203,108,0.35)" : "transparent", marginBottom: "4px" }} />
+                      {/* Badge */}
+                      <div style={{
+                        width: "52px", height: "52px", borderRadius: "10px", flexShrink: 0,
+                        background: "rgba(155,203,108,0.07)", border: "1.5px solid #9BCB6C",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                      }}>
+                        <span style={{ color: "#9BCB6C", fontWeight: 800, fontSize: "17px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                      {/* Lijn/ruimte onder badge */}
+                      <div style={{ flex: 1, width: "1.5px", background: isLast ? "transparent" : "rgba(155,203,108,0.35)", marginTop: "4px" }} />
+                    </div>
+
+                    {/* Tekst — verticaal gecentreerd met badge */}
+                    <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", justifyContent: "center", padding: "12px 0", borderBottom: isLast ? "none" : "1px solid rgba(255,255,255,0.08)" }}>
+                      <p style={{ fontWeight: 700, fontSize: "15px", color: "#FFFFFF", marginBottom: "5px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", lineHeight: 1.3 }}>
+                        {s.title}
+                      </p>
+                      <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.55)", lineHeight: 1.65, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                        {s.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* CTA — onderaan in de donkere sectie */}
+            <div style={{ marginTop: "24px" }}>
+              <Link
+                href="/#calculator"
+                onMouseEnter={e => { e.currentTarget.style.background = "#7AB54E"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#9BCB6C"; }}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "8px",
+                  background: "#9BCB6C", color: "#FFFFFF", border: "none",
+                  borderRadius: "8px", padding: "13px 24px",
+                  fontFamily: "var(--font-montserrat), system-ui, sans-serif",
+                  fontWeight: 700, fontSize: "15px", textDecoration: "none",
+                  transition: "background-color 0.2s ease",
+                }}
+              >
+                Bereken je richtprijs
+                <ChevronRight size={14} strokeWidth={2.5} />
+              </Link>
+            </div>
+          </div>
+      </section>
+
+      <section style={{ background: "#F7F8F6", padding: "160px 0 72px" }}>
+        <div className="site-wrap">
+          <div style={{ textAlign: "center", marginBottom: "24px" }}>
+            <h2 style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)", letterSpacing: "-0.028em", color: "#1A1A1A", margin: 0 }}>
+              Onze <span style={{ color: "#9BCB6C" }}>resultaten.</span>
             </h2>
           </div>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            {steps.map((s, i) => {
-              const { Icon } = s;
-              return (
-                <div
-                  key={i}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = "#9BCB6C";
-                    e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.10)";
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = "#E5E7EB";
-                    e.currentTarget.style.boxShadow = "0 2px 16px rgba(0,0,0,0.07)";
-                  }}
-                  className="process-step-row"
-                  style={{
-                    background: "#FFFFFF",
-                    border: "1px solid #E5E7EB",
-                    borderRadius: "16px",
-                    padding: "24px 32px",
-                    boxShadow: "0 2px 16px rgba(0,0,0,0.07)",
-                    transition: "box-shadow 250ms ease, border-color 250ms ease",
-                    display: "flex", flexDirection: "row", alignItems: "center", gap: "28px",
-                  }}
-                >
-                  <div className="process-step-header" style={{ display: "flex", alignItems: "center", gap: "16px", flexShrink: 0 }}>
-                    <div style={{
-                      width: "52px", height: "52px", borderRadius: "50%", flexShrink: 0,
-                      background: "rgba(155,203,108,0.12)", border: "1px solid rgba(155,203,108,0.25)",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                    }}>
-                      <Icon size={22} color="#9BCB6C" strokeWidth={2} />
-                    </div>
-                  <div className="process-step-label-col" style={{ minWidth: 0 }}>
-                    <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9BCB6C", marginBottom: "4px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-                      {s.step}
-                    </p>
-                    <p style={{ fontSize: "15px", fontWeight: 700, color: "#1A1A1A", lineHeight: 1.3, fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
-                      {s.title}
-                    </p>
-                  </div>
-
-                  </div>
-
-                  {/* Divider */}
-                  <div className="process-step-divider" style={{ width: "1px", height: "40px", background: "#E5E7EB", flexShrink: 0 }} />
-
-                  {/* Description */}
-                  <p style={{ fontSize: "14px", color: "#545454", lineHeight: 1.65, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                    {s.desc}
-                  </p>
-                </div>
-              );
-            })}
+          <div className="realisaties-preview-grid" style={{ display: "grid", gridTemplateColumns: "3fr 2fr", gap: "24px", alignItems: "stretch" }}>
+            <RealisatieLargeSlider />
+            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+              <RealisatieSmallSlider beforeSrc="/images/Velux%20voor%201.0.png" afterSrc="/images/Velux%20na%201.0.png" label="Velux" />
+              <RealisatieSmallSlider beforeSrc="/images/Goot%20voor.JPEG" afterSrc="/images/Goot%20na.JPEG" label="Dakgoot" />
+            </div>
+          </div>
+          <div style={{ textAlign: "center", marginTop: "40px" }}>
+            <Link
+              href="/realisaties"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "#9BCB6C", color: "#FFFFFF", borderRadius: "8px", padding: "14px 32px", fontSize: "15px", fontWeight: 700, fontFamily: "var(--font-montserrat), system-ui, sans-serif", textDecoration: "none", transition: "background 200ms ease" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "#7AB54E")}
+              onMouseLeave={e => (e.currentTarget.style.background = "#9BCB6C")}
+            >
+              Ja, ik wil dit resultaat
+              <ChevronRight size={15} strokeWidth={2.5} style={{ marginLeft: "2px" }} />
+            </Link>
           </div>
         </div>
       </section>
 
-
-      {/* â"€â"€ Mini CTA â"€â"€ */}
-      <section style={{ background: "#F7F8F6", padding: "16px 0 72px", textAlign: "center" }}>
-        <div className="site-wrap">
-          <div style={{ background: "#FFFFFF", border: "1px solid #9BCB6C", borderRadius: "16px", padding: "28px 40px", boxShadow: "0 2px 16px rgba(155,203,108,0.12)" }}>
-          <h2 className="mb-0 lg:mb-3" style={{
-            fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-            fontWeight: 800, fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
-            letterSpacing: "-0.025em", color: "#1A1A1A",
-          }}>
-            Benieuwd wat jouw dakreiniging kost?
-          </h2>
-          <p className="hidden lg:block" style={{ fontSize: "15px", color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "28px" }}>
-            Bereken vrijblijvend je richtprijs voor jouw dak.
-          </p>
-          <Link
-            href="/#calculator"
-            className="mt-7 lg:mt-0"
-            onMouseEnter={e => { e.currentTarget.style.background = "#7AB54E"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "#9BCB6C"; }}
-            style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              background: "#9BCB6C", color: "#FFFFFF", border: "none",
-              borderRadius: "8px", padding: "14px 28px",
-              fontFamily: "var(--font-montserrat), system-ui, sans-serif",
-              fontWeight: 700, fontSize: "15px", textDecoration: "none",
-              transition: "background-color 0.2s ease",
-            }}
-          >
-            Bereken je richtprijs
-            <ChevronRight size={14} strokeWidth={2.5} />
-          </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* â"€â"€ FAQ accordion â"€â"€ */}
+      {/* FAQ accordion */}
       <section className="site-pad" style={{ background: "#F7F8F6" }}>
         <div className="site-wrap">
 
@@ -498,10 +652,34 @@ export default function DakontmossingPage() {
                   />
                 </button>
                 {openFaq === i && (
-                  <div style={{ padding: "0 24px 20px", borderTop: "1px solid #E5E7EB" }}>
-                    <p style={{ fontSize: "14px", lineHeight: 1.65, color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", paddingTop: "16px" }}>
-                      {f.a}
-                    </p>
+                  <div style={{ padding: "0 24px 20px", borderTop: "1px solid #E5E7EB", paddingTop: "16px" }}>
+                    {f.a.split("\n").map((line, li) => {
+                      if (line.startsWith("✓")) {
+                        return (
+                          <div key={li} style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px" }}>
+                            <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "#9BCB6C", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                              <svg width="11" height="8" viewBox="0 0 11 8" fill="none"><path d="M1 4L4 7L10 1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                            </div>
+                            <span style={{ fontSize: "14px", color: "#1A1A1A", fontFamily: "var(--font-inter), system-ui, sans-serif", lineHeight: 1.5 }}>{line.replace("✓", "").trim()}</span>
+                          </div>
+                        );
+                      }
+                      if (line.trim() === "") return <div key={li} style={{ height: "8px" }} />;
+                      return <p key={li} style={{ fontSize: "14px", lineHeight: 1.65, color: "#545454", fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "8px" }}>{line}</p>;
+                    })}
+                    {f.cta && (
+                      <Link
+                        href="/#calculator"
+                        onMouseEnter={e => { e.currentTarget.style.color = "#7AB54E"; }}
+                        onMouseLeave={e => { e.currentTarget.style.color = "#9BCB6C"; }}
+                        style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "12px", background: "#9BCB6C", color: "#FFFFFF", borderRadius: "8px", padding: "9px 18px", fontWeight: 700, fontSize: "13px", textDecoration: "none", fontFamily: "var(--font-montserrat), system-ui, sans-serif", transition: "background 180ms ease" }}
+                        onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#7AB54E"; }}
+                        onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "#9BCB6C"; }}
+                      >
+                        Bereken vrijblijvend je richtprijs
+                        <ChevronRight size={14} strokeWidth={2.5} />
+                      </Link>
+                    )}
                   </div>
                 )}
               </div>

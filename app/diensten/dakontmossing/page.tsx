@@ -117,7 +117,7 @@ export default function DakontmossingPage() {
 
             {/* Left: text + buttons */}
             <div>
-              <p className="site-eyebrow mb-4">Professionele Dakreiniging</p>
+              <p className="site-eyebrow mb-4">Professionele dakontmossing</p>
               <h1
                 style={{
                   fontFamily: "var(--font-montserrat), system-ui, sans-serif",
@@ -129,11 +129,11 @@ export default function DakontmossingPage() {
                   marginBottom: "20px",
                 }}
               >
-                Professioneel ontmost.<br />
-                <span style={{ color: "#9BCB6C" }}>Veilig voor je dak.</span>
+                Geef je dak opnieuw<br />
+                <span style={{ color: "#9BCB6C" }}>jaren bescherming.</span>
               </h1>
               <p style={{ fontSize: "16px", color: "#545454", lineHeight: 1.65, marginBottom: "36px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                Verwijder mos, algen en vuil zonder risico op beschadigde dakpannen. Aangepast aan elk daktype voor een veilig én duurzaam resultaat.
+                Mos en vuil houden vocht vast en laten je dak sneller verouderen. Met een professionele reiniging verwijderen we vervuiling veilig en helpen we je dak langer in goede staat te houden.
               </p>
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
                 <Link

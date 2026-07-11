@@ -420,33 +420,52 @@ export default function DakontmossingPage() {
           {/* 3×2 foto grid */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "10px", marginBottom: "10px" }}>
             {[
-              { label: "Betonpannen",           img: "/images/2.JPEG" },
-              { label: "Keramische pannen",     img: "/images/Betonpannen.jpg" },
-              { label: "Tegelpannen",           img: "/images/dak-coaten.webp" },
-              { label: "Kunst- en natuurleien", img: "/images/Natuurleien.jpg" },
-              { label: "Metalen daken",         img: null },
-              { label: "Andere daktypes",       img: "/images/dak-reinigen.webp" },
+              { label: "Betonpannen",           img: "/images/Betonpannen.jpg" },
+              { label: "Keramische pannen",     img: "/images/Keramische pannen.jpg" },
+              { label: "Tegelpannen",           img: "/images/Tegelpannen.jpg" },
+              { label: "Kunst- en natuurleien", img: "/images/Leien dak.jpeg", imgRight: "/images/Natuurleien.jpg" },
+              { label: "Metalen daken",         img: "/images/Metalen daken.jpg" },
+              { label: "Andere daktypes",       img: "/images/Rieten dak.jpg" },
             ].map((type, i) => (
               <div key={i} style={{
                 position: "relative", borderRadius: "12px", overflow: "hidden", height: "200px",
                 background: type.img ? undefined : "linear-gradient(135deg, #1e2a1e 0%, #2a3a2a 100%)",
               }}>
-                {type.img && (
-                  <img
-                    src={type.img}
-                    alt={type.label}
-                    style={{
-                      width: "100%", height: "100%", objectFit: "cover", display: "block",
-                      objectPosition: type.img.includes("dak-reinigen") ? "right center" : "center",
-                    }}
-                  />
+                {type.imgRight ? (
+                  <>
+                    {/* Links: Kunstleien */}
+                    <div style={{ position: "absolute", inset: 0, clipPath: "polygon(0 0, 56% 0, 44% 100%, 0 100%)" }}>
+                      <img src={type.img} alt="Kunstleien" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                    </div>
+                    {/* Rechts: Natuurleien */}
+                    <div style={{ position: "absolute", inset: 0, clipPath: "polygon(56% 0, 100% 0, 100% 100%, 44% 100%)" }}>
+                      <img src={type.imgRight} alt="Natuurleien" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                    </div>
+                    {/* Schuine witte lijn — volgt clip-path grens exact */}
+                    <div style={{ position: "absolute", top: 0, bottom: 0, left: "calc(56% - 1.5px)", width: "3px", background: "#FFFFFF", transform: "skewX(-13.4deg)", transformOrigin: "top center", zIndex: 2 }} />
+                    {/* Gradient overlay */}
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.10) 55%, transparent 100%)" }} />
+                    {/* Labels */}
+                    <div style={{ position: "absolute", bottom: "14px", left: 0, width: "47%", textAlign: "center" }}>
+                      <span style={{ color: "#FFFFFF", fontWeight: 700, fontSize: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>Kunstleien</span>
+                    </div>
+                    <div style={{ position: "absolute", bottom: "14px", right: 0, width: "47%", textAlign: "center" }}>
+                      <span style={{ color: "#FFFFFF", fontWeight: 700, fontSize: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}>Natuurleien</span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {type.img && (
+                      <img src={type.img} alt={type.label} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                    )}
+                    <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)" }} />
+                    <div style={{ position: "absolute", bottom: "14px", left: "14px" }}>
+                      <span style={{ color: "#FFFFFF", fontWeight: 700, fontSize: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
+                        {type.label}
+                      </span>
+                    </div>
+                  </>
                 )}
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)" }} />
-                <div style={{ position: "absolute", bottom: "14px", left: "14px" }}>
-                  <span style={{ color: "#FFFFFF", fontWeight: 700, fontSize: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", textShadow: "0 1px 4px rgba(0,0,0,0.4)" }}>
-                    {type.label}
-                  </span>
-                </div>
               </div>
             ))}
           </div>

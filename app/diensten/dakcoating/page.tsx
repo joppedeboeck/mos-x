@@ -250,20 +250,22 @@ export default function DakcoatingPage() {
                     background: "#FFFFFF",
                     border: "1px solid #E5E7EB",
                     borderRadius: "16px",
-                    padding: "22px 18px",
-                    boxShadow: "0 2px 16px rgba(0,0,0,0.07)",
-                    display: "flex", flexDirection: "column", gap: "10px",
+                    padding: "24px 16px",
+                    boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                    display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "0",
                   }}>
                     <div style={{
-                      width: "44px", height: "44px", borderRadius: "10px", flexShrink: 0,
-                      background: "rgba(155,203,108,0.1)", border: "1px solid rgba(155,203,108,0.2)",
+                      width: "62px", height: "62px", borderRadius: "50%",
+                      background: "#9BCB6C",
                       display: "flex", alignItems: "center", justifyContent: "center",
+                      marginBottom: "14px",
                     }}>
-                      <Icon size={20} color="#9BCB6C" strokeWidth={2} />
+                      <Icon size={26} color="#FFFFFF" strokeWidth={1.8} />
                     </div>
-                    <p style={{ fontWeight: 700, fontSize: "13px", color: "#1A1A1A", lineHeight: 1.3, fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>
+                    <p style={{ fontWeight: 700, fontSize: "13px", color: "#1A1A1A", lineHeight: 1.3, fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "8px" }}>
                       {b.title}
                     </p>
+                    <div style={{ width: "24px", height: "2px", background: "#9BCB6C", borderRadius: "2px", marginBottom: "10px" }} />
                     <p style={{ fontSize: "12px", color: "#545454", lineHeight: 1.6, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
                       {b.desc}
                     </p>
@@ -429,8 +431,11 @@ export default function DakcoatingPage() {
             }}>
               Geef je dak een tweede leven<br /><span style={{ color: "#9BCB6C" }}>zonder een volledige renovatie.</span>
             </h2>
-            <p style={{ fontSize: "15px", color: "#545454", lineHeight: 1.7, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-              Een verouderde uitstraling betekent niet altijd dat je dak versleten is. Wanneer de basis nog goed is, kan een professionele dakcoating je dak opnieuw beschermen voor een fractie van de investering.
+            <p style={{ fontSize: "15px", color: "#545454", lineHeight: 1.7, fontFamily: "var(--font-inter), system-ui, sans-serif", margin: 0 }}>
+              Een verouderde uitstraling betekent niet altijd dat je dak versleten is.
+            </p>
+            <p style={{ fontSize: "15px", color: "#545454", lineHeight: 1.7, fontFamily: "var(--font-inter), system-ui, sans-serif", margin: 0 }}>
+              Wanneer de basis nog goed is, kan een professionele dakcoating je dak opnieuw beschermen voor een fractie van de investering.
             </p>
           </div>
 

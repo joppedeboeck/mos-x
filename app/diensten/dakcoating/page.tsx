@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CheckCircle, Phone, ArrowRight, ChevronDown, Droplets, ShieldCheck, Home, CloudRain, ChevronRight, Leaf, Sparkles, Banknote, Recycle, X, Check, Sun, Wind } from "lucide-react";
 import BackLink from "@/components/back-link";
 import PageLayout from "@/components/page-layout";
+import BeforeAfterSlider from "@/components/before-after-slider";
 
 const steps = [
   { step: "STAP 01", Icon: Home,        title: "Afplakken & voorbereiding", desc: "Ramen, zonnepanelen, veranda's, schouwen en andere onderdelen worden zorgvuldig afgeschermd zodat de werken veilig en netjes kunnen verlopen." },
@@ -72,7 +73,7 @@ export default function DakcoatingPage() {
     <PageLayout>
 
       {/* Hero — dark */}
-      <section style={{ background: "#111111", paddingTop: "140px", paddingBottom: "240px", position: "relative", overflow: "hidden", minHeight: "86vh" }}>
+      <section style={{ background: "#111111", position: "relative", overflow: "hidden", height: "calc(100vh + 30px)", minHeight: "calc(100vh + 30px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
         {/* Video desktop — absoluut, vult de volledige rechterhelft */}
         <div className="hidden lg:block" style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "44%", zIndex: 1 }}>
@@ -87,7 +88,17 @@ export default function DakcoatingPage() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #111111 0%, rgba(17,17,17,0.9) 10%, rgba(17,17,17,0.3) 28%, transparent 52%)", pointerEvents: "none" }} />
         </div>
 
-        <div className="site-wrap" style={{ position: "relative", zIndex: 2 }}>
+        {/* Video mobile — uitlopend boven en onder voor naadloze overgang */}
+        <div className="block lg:hidden" style={{ position: "absolute", top: "-200px", right: 0, bottom: "-200px", left: 0, zIndex: 1 }}>
+          <video
+            src="/videos/Dakcoating.mp4"
+            autoPlay muted loop playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", display: "block" }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(17,17,17,0.93) 0%, rgba(17,17,17,0.80) 50%, rgba(17,17,17,0.90) 100%)", pointerEvents: "none" }} />
+        </div>
+
+        <div className="site-wrap lg:pt-[140px]" style={{ position: "relative", zIndex: 2, paddingTop: "80px", paddingBottom: "60px", width: "100%" }}>
 
           <BackLink href="/diensten" dark />
 
@@ -169,15 +180,6 @@ export default function DakcoatingPage() {
             </div>
           </div>
 
-          {/* Video — mobile */}
-          <div className="block lg:hidden" style={{ marginTop: "36px", borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3" }}>
-            <video
-              src="/videos/Dakcoating.mp4"
-              autoPlay muted loop playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-            />
-          </div>
-
         </div>
 
         {/* Wave onderaan — desktop */}
@@ -241,37 +243,12 @@ export default function DakcoatingPage() {
               </div>
             </div>
 
-            {/* Rechts: 3×2 benefit grid */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "14px" }}>
-              {benefits.map((b, i) => {
-                const { Icon } = b;
-                return (
-                  <div key={i} style={{
-                    background: "#FFFFFF",
-                    border: "1px solid #E5E7EB",
-                    borderRadius: "16px",
-                    padding: "24px 16px",
-                    boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-                    display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "0",
-                  }}>
-                    <div style={{
-                      width: "62px", height: "62px", borderRadius: "50%",
-                      background: "#9BCB6C",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      marginBottom: "14px",
-                    }}>
-                      <Icon size={26} color="#FFFFFF" strokeWidth={1.8} />
-                    </div>
-                    <p style={{ fontWeight: 700, fontSize: "13px", color: "#1A1A1A", lineHeight: 1.3, fontFamily: "var(--font-montserrat), system-ui, sans-serif", marginBottom: "8px" }}>
-                      {b.title}
-                    </p>
-                    <div style={{ width: "24px", height: "2px", background: "#9BCB6C", borderRadius: "2px", marginBottom: "10px" }} />
-                    <p style={{ fontSize: "12px", color: "#545454", lineHeight: 1.6, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                      {b.desc}
-                    </p>
-                  </div>
-                );
-              })}
+            {/* Rechts: voor/na slider */}
+            <div>
+              <BeforeAfterSlider
+                beforeSrc="/images/Before bevel.jpg"
+                afterSrc="/images/Na bevel.jpg"
+              />
             </div>
 
           </div>
@@ -301,10 +278,10 @@ export default function DakcoatingPage() {
           </div>
 
           {/* 2 foto-kolommen */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "20px" }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
             {/* Kunstleien */}
-            <div style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.10)", position: "relative", aspectRatio: "4/3" }}>
+            <div className="aspect-video lg:aspect-[4/3]" style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.10)", position: "relative" }}>
               <img
                 src="/images/Kunstleien.jfif"
                 alt="Kunstleien"
@@ -318,7 +295,7 @@ export default function DakcoatingPage() {
             </div>
 
             {/* Betonpannen */}
-            <div style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.10)", position: "relative", aspectRatio: "4/3" }}>
+            <div className="aspect-video lg:aspect-[4/3]" style={{ borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.10)", position: "relative" }}>
               <img
                 src="/images/Betonpannen.jpg"
                 alt="Betonnen dakpannen"
@@ -337,9 +314,14 @@ export default function DakcoatingPage() {
 
       {/* Werkwijze — foto flush links + stappen rechts */}
       <section style={{ background: "#111111", overflow: "hidden", position: "relative" }}>
+        <style>{`
+          @media (max-width: 1023px) {
+            .werkwijze-dakcoating-content { padding: 48px 20px !important; margin-left: 0 !important; max-width: 100% !important; }
+          }
+        `}</style>
 
-        {/* Foto: absoluut gepositioneerd links — hoogte volgt content */}
-        <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "42%" }}>
+        {/* Foto: absoluut gepositioneerd links — alleen desktop */}
+        <div className="hidden lg:block" style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "42%" }}>
           <img
             src="/images/Na bevel.jpg"
             alt="Dakcoating resultaat"
@@ -350,7 +332,7 @@ export default function DakcoatingPage() {
         </div>
 
         {/* Rechts: stappen — bepaalt de hoogte van de sectie */}
-        <div style={{ marginLeft: "42%", padding: "52px 56px 64px 28px", display: "flex", flexDirection: "column", justifyContent: "flex-start", maxWidth: "780px" }}>
+        <div className="werkwijze-dakcoating-content lg:ml-[42%]" style={{ padding: "52px 56px 64px 28px", display: "flex", flexDirection: "column", justifyContent: "flex-start", maxWidth: "780px" }}>
           <p className="site-eyebrow mb-4" style={{ color: "#9BCB6C" }}>Onze werkwijze</p>
           <h2 style={{
             fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)", fontWeight: 800, color: "#FFFFFF",
@@ -442,19 +424,19 @@ export default function DakcoatingPage() {
           {/* Vergelijking: 2 kaarten met absolute VS badge */}
           <div style={{ position: "relative" }}>
 
-            {/* VS badge — absoluut gecentreerd */}
-            <div style={{
+            {/* VS badge — alleen desktop */}
+            <div className="hidden lg:flex" style={{
               position: "absolute", top: "50%", left: "50%",
               transform: "translate(-50%, -50%)", zIndex: 10,
               width: "52px", height: "52px", borderRadius: "50%",
               background: "#FFFFFF", border: "2px solid #9BCB6C",
               boxShadow: "0 4px 16px rgba(155,203,108,0.25)",
-              display: "flex", alignItems: "center", justifyContent: "center",
+              alignItems: "center", justifyContent: "center",
             }}>
               <span style={{ color: "#9BCB6C", fontWeight: 800, fontSize: "13px", fontFamily: "var(--font-montserrat), system-ui, sans-serif", letterSpacing: "0.05em" }}>VS</span>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "88px", alignItems: "stretch" }}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-[88px]" style={{ alignItems: "stretch" }}>
 
             {/* Links: Volledige dakrenovatie */}
             <div style={{

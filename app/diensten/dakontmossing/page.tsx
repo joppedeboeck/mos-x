@@ -165,9 +165,99 @@ export default function DakontmossingPage() {
 
   return (
     <PageLayout>
+      <style>{`
+        @media (max-width: 768px) {
+          .voordelen-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+          }
+          .daktypes-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+          .daktype-card {
+            height: 140px !important;
+          }
+          .asbest-container {
+            flex-direction: column !important;
+          }
+          .asbest-divider {
+            width: auto !important;
+            height: 1px !important;
+            margin: 0 20px !important;
+          }
+          .asbest-col-right {
+            width: 100% !important;
+          }
+          .asbest-left-col {
+            flex-wrap: wrap !important;
+            gap: 0 12px !important;
+            align-items: center !important;
+          }
+          .asbest-left-col > div:not(.asbest-icon-wrap) {
+            display: contents !important;
+          }
+          .asbest-icon-wrap {
+            width: 36px !important;
+            height: 36px !important;
+          }
+          .asbest-icon {
+            width: 18px !important;
+            height: 18px !important;
+          }
+          .asbest-title {
+            flex: 1 !important;
+            margin-bottom: 0 !important;
+          }
+          .asbest-desc {
+            flex-basis: 100% !important;
+            text-align: center !important;
+            margin-top: 8px !important;
+          }
+          .voorkom-slider-wrap {
+            height: 260px !important;
+            overflow: hidden !important;
+          }
+          .voorkom-slider-wrap > div {
+            min-height: unset !important;
+            height: 260px !important;
+          }
+          .realisatie-large-wrap {
+            height: 260px !important;
+            overflow: hidden !important;
+          }
+          .realisatie-large-wrap > div {
+            min-height: unset !important;
+            height: 260px !important;
+          }
+          .werkwijze-photo {
+            width: 100% !important;
+            opacity: 0.55 !important;
+          }
+          .werkwijze-photo > img {
+            object-position: 25% bottom !important;
+          }
+          .werkwijze-photo > div {
+            display: none !important;
+          }
+          .werkwijze-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(17,17,17,0.85) 0%, rgba(17,17,17,0.6) 40%, rgba(17,17,17,0.8) 100%);
+            pointer-events: none;
+          }
+          .werkwijze-content {
+            margin-left: 0 !important;
+            padding: 40px 24px 48px !important;
+            max-width: 100% !important;
+            position: relative !important;
+            z-index: 2 !important;
+          }
+        }
+      `}</style>
 
       {/* Hero — dark two-col */}
-      <section style={{ background: "#111111", paddingTop: "160px", paddingBottom: "280px", position: "relative", overflow: "hidden", minHeight: "96vh" }}>
+      <section style={{ background: "#111111", position: "relative", overflow: "hidden", height: "calc(100vh + 30px)", minHeight: "calc(100vh + 30px)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
         {/* Video desktop — absoluut, vult de volledige rechterhelft van de sectie */}
         <div className="hidden lg:block" style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "44%", zIndex: 1 }}>
@@ -182,7 +272,18 @@ export default function DakontmossingPage() {
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #111111 0%, rgba(17,17,17,0.9) 10%, rgba(17,17,17,0.3) 28%, transparent 52%)", pointerEvents: "none" }} />
         </div>
 
-        <div className="site-wrap" style={{ position: "relative", zIndex: 2 }}>
+        {/* Video mobile — uitlopend boven en onder voor naadloze overgang */}
+        <div className="block lg:hidden" style={{ position: "absolute", top: "-200px", right: 0, bottom: "-200px", left: 0, zIndex: 1 }}>
+          <video
+            src="/videos/Dakreiniging_yannick.mp4"
+            autoPlay muted loop playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "40% 70%", display: "block" }}
+          />
+          {/* Gradient overlay voor leesbaarheid */}
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(17,17,17,0.93) 0%, rgba(17,17,17,0.80) 50%, rgba(17,17,17,0.90) 100%)", pointerEvents: "none" }} />
+        </div>
+
+        <div className="site-wrap lg:pt-[120px]" style={{ position: "relative", zIndex: 2, paddingTop: "50px", paddingBottom: "60px", width: "100%" }}>
 
           <BackLink href="/diensten" dark />
 
@@ -224,8 +325,7 @@ export default function DakontmossingPage() {
             </h1>
             <p style={{ fontSize: "16px", color: "rgba(255,255,255,0.65)", lineHeight: 1.65, marginBottom: "56px", fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
               Mos en vuil houden vocht vast en laten je dak sneller verouderen.<br />
-              Met een professionele reiniging verwijderen we vervuiling veilig<br />
-              en helpen we je dak langer in goede staat te houden.
+              Met een professionele reiniging verwijderen we vervuiling veilig en helpen we je dak langer in goede staat te houden.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
               <Link
@@ -267,14 +367,6 @@ export default function DakontmossingPage() {
             </div>
           </div>
 
-          {/* Video — mobile: in de flow onder de tekst */}
-          <div className="block lg:hidden" style={{ marginTop: "36px", borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3" }}>
-            <video
-              src="/videos/Dakreiniging_yannick.mp4"
-              autoPlay muted loop playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-            />
-          </div>
         </div>
 
         {/* Wave onderaan — desktop */}
@@ -296,7 +388,7 @@ export default function DakontmossingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             {/* Left — before/after slider */}
-            <div style={{ height: "440px" }}>
+            <div className="voorkom-slider-wrap" style={{ height: "440px" }}>
               <VoorkomSlider />
             </div>
 
@@ -313,7 +405,7 @@ export default function DakontmossingPage() {
                 <span style={{ color: "#9BCB6C" }}>Geniet opnieuw van een verzorgd dak.</span>
               </h2>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "44px 28px", alignItems: "center" }}>
+              <div className="voordelen-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "44px 28px", alignItems: "center" }}>
                 {[
                   { Icon: Leaf,        title: "Geen loskomend mos rond je woning" },
                   { Icon: Droplets,    title: "Minder kans op verstopte dakgoten" },
@@ -418,7 +510,7 @@ export default function DakontmossingPage() {
           </div>
 
           {/* 3×2 foto grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "10px", marginBottom: "10px" }}>
+          <div className="daktypes-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "10px", marginBottom: "10px" }}>
             {[
               { label: "Betonpannen",       img: "/images/Betonpannen.jpg" },
               { label: "Keramische pannen", img: "/images/Keramische pannen.jpg" },
@@ -427,7 +519,7 @@ export default function DakontmossingPage() {
               { label: "Natuurleien",       img: "/images/Leien dak.jpeg" },
               { label: "Metalen daken",     img: "/images/Metalen daken.jpg" },
             ].map((type, i) => (
-              <div key={i} style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "200px" }}>
+              <div key={i} className="daktype-card" style={{ position: "relative", borderRadius: "12px", overflow: "hidden", height: "200px" }}>
                 <img src={type.img} alt={type.label} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 55%, transparent 100%)" }} />
                 <div style={{ position: "absolute", bottom: "14px", left: "14px" }}>
@@ -440,29 +532,29 @@ export default function DakontmossingPage() {
           </div>
 
           {/* Info container */}
-          <div style={{
+          <div className="asbest-container" style={{
             background: "#FFFFFF", border: "1.5px solid #9BCB6C", borderRadius: "16px",
             boxShadow: "0 2px 16px rgba(155,203,108,0.12)",
             display: "flex", overflow: "hidden",
           }}>
             {/* Links: Asbesthoudende daken */}
-            <div style={{ flex: 1, minWidth: 0, padding: "14px 28px", display: "flex", gap: "14px", alignItems: "center" }}>
-              <div style={{ width: "56px", height: "56px", borderRadius: "50%", background: "rgba(155,203,108,0.15)", border: "1.5px solid #E5E7EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <AlertTriangle size={28} color="#9BCB6C" strokeWidth={2.5} />
+            <div className="asbest-left-col" style={{ flex: 1, minWidth: 0, padding: "14px 28px", display: "flex", gap: "14px", alignItems: "center" }}>
+              <div className="asbest-icon-wrap" style={{ width: "56px", height: "56px", borderRadius: "50%", background: "rgba(155,203,108,0.15)", border: "1.5px solid #E5E7EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <AlertTriangle className="asbest-icon" size={28} color="#9BCB6C" strokeWidth={2.5} />
               </div>
               <div>
-                <p style={{ fontWeight: 700, fontSize: "15px", color: "#1A1A1A", marginBottom: "6px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>Asbesthoudende daken</p>
-                <p style={{ fontSize: "13px", color: "#545454", lineHeight: 1.5, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+                <p className="asbest-title" style={{ fontWeight: 700, fontSize: "15px", color: "#1A1A1A", marginBottom: "6px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>Asbesthoudende daken</p>
+                <p className="asbest-desc" style={{ fontSize: "13px", color: "#545454", lineHeight: 1.5, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
                   Asbesthoudende dakmaterialen mogen volgens de huidige wetgeving niet ontmost of gereinigd worden.
                 </p>
               </div>
             </div>
 
             {/* Divider */}
-            <div style={{ width: "1px", background: "#9BCB6C", margin: "14px 0", flexShrink: 0 }} />
+            <div className="asbest-divider" style={{ width: "1px", background: "#9BCB6C", margin: "14px 0", flexShrink: 0 }} />
 
             {/* Rechts: Twijfel je over je dak? */}
-            <div style={{ width: "330px", flexShrink: 0, padding: "14px 28px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+            <div className="asbest-col-right" style={{ width: "330px", flexShrink: 0, padding: "14px 28px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
               <p style={{ fontWeight: 700, fontSize: "15px", color: "#1A1A1A", marginBottom: "14px", fontFamily: "var(--font-montserrat), system-ui, sans-serif" }}>Twijfel je over je dak?</p>
               <a
                 href="https://wa.me/32468352869"
@@ -496,7 +588,7 @@ export default function DakontmossingPage() {
       <section style={{ background: "#111111", overflow: "hidden", position: "relative" }}>
 
         {/* Foto: absoluut gepositioneerd links — hoogte volgt content */}
-        <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "42%" }}>
+        <div className="werkwijze-photo" style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "42%" }}>
           <img
             src="/images/IMG_5396.JPEG"
             alt="Yannick aan het werk"
@@ -507,7 +599,7 @@ export default function DakontmossingPage() {
         </div>
 
         {/* Rechts: stappen — bepaalt de hoogte van de sectie */}
-        <div style={{ marginLeft: "42%", padding: "52px 56px 64px 28px", display: "flex", flexDirection: "column", justifyContent: "flex-start", maxWidth: "780px" }}>
+        <div className="werkwijze-content" style={{ marginLeft: "42%", padding: "52px 56px 64px 28px", display: "flex", flexDirection: "column", justifyContent: "flex-start", maxWidth: "780px" }}>
             <p className="site-eyebrow mb-4" style={{ color: "#9BCB6C" }}>Onze werkwijze</p>
             <h2 style={{
               fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)", fontWeight: 800, color: "#FFFFFF",
@@ -585,7 +677,7 @@ export default function DakontmossingPage() {
             </h2>
           </div>
           <div className="realisaties-preview-grid" style={{ display: "grid", gridTemplateColumns: "3fr 2fr", gap: "24px", alignItems: "stretch" }}>
-            <RealisatieLargeSlider />
+            <div className="realisatie-large-wrap"><RealisatieLargeSlider /></div>
             <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
               <RealisatieSmallSlider beforeSrc="/images/Velux%20voor%201.0.png" afterSrc="/images/Velux%20na%201.0.png" label="Velux" />
               <RealisatieSmallSlider beforeSrc="/images/Goot%20voor.JPEG" afterSrc="/images/Goot%20na.JPEG" label="Dakgoot" />
@@ -726,11 +818,8 @@ export default function DakontmossingPage() {
               <p style={{ fontFamily: "var(--font-montserrat), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1rem, 2vw, 1.25rem)", color: "#FFFFFF", letterSpacing: "-0.02em", marginBottom: "6px", lineHeight: 1.25 }}>
                 Benieuwd wat <span style={{ color: "#9BCB6C" }}>jouw dak</span> nodig heeft?
               </p>
-              <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, fontFamily: "var(--font-inter), system-ui, sans-serif", marginBottom: "2px" }}>
-                Niet elk dak heeft een coating nodig. Soms is een reiniging voldoende.
-              </p>
               <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.65)", lineHeight: 1.6, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-                Yannick helpt je kiezen.
+                Niet elk dak heeft een coating nodig.<span className="block lg:hidden" />Soms is een reiniging voldoende.
               </p>
             </div>
             <div className="page-cta-buttons" style={{ display: "flex", gap: "10px", flexShrink: 0, flexWrap: "wrap" }}>

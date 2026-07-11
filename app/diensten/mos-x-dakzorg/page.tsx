@@ -218,9 +218,9 @@ export default function MosXDakzorgPage() {
               Geen verrassingen meer.<br />
               <span style={{ color: "#9BCB6C" }}>Gewoon een gezond dak.</span>
             </h2>
-            <p style={{ fontSize: "15px", color: "#545454", lineHeight: 1.7, fontFamily: "var(--font-inter), system-ui, sans-serif", maxWidth: "620px", margin: "0 auto" }}>
-              Een dak wordt vaak pas nagekeken wanneer er een probleem zichtbaar wordt.<br />
-              Maar kleine gebreken ontstaan meestal veel vroeger. Met ons onderhoudsplan houden we je dak actief in de gaten en blijft je woning beter beschermd.
+            <p style={{ fontSize: "15px", color: "#545454", lineHeight: 1.7, fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
+              Een dak wordt vaak pas nagekeken wanneer er een probleem zichtbaar wordt. Maar kleine gebreken ontstaan meestal veel vroeger.<br />
+              Met ons onderhoudsplan houden we je dak actief in de gaten en blijft je woning beter beschermd.
             </p>
           </div>
 
